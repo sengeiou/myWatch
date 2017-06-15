@@ -1,0 +1,447 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "MWViewController"
+provides-nominal:
+- "C7myWatch16MWViewController"
+provides-member:
+- ["C7myWatch16MWViewController", ""]
+provides-dynamic-lookup:
+- "completelyTranslucentNavigationBar"
+- "didReceiveMemoryWarning"
+- "preferredStatusBarStyle"
+- "viewDidLoad"
+depends-top-level:
+- "AssignmentPrecedence"
+- "Bool"
+- "BooleanLiteralType"
+- !private "MWDefaults"
+- !private "MWUtil"
+- "MWViewController"
+- !private "UIBarMetrics"
+- !private "UIImage"
+- "UIStatusBarStyle"
+- "UIViewController"
+depends-member:
+- !private ["Ps9AnyObject", "MWDefaults"]
+- !private ["Ps9AnyObject", "MWUtil"]
+- !private ["Ps9AnyObject", "UIBarMetrics"]
+- !private ["Ps9AnyObject", "UIImage"]
+- !private ["Ps9AnyObject", "backgroundColor"]
+- !private ["Ps9AnyObject", "completelyTranslucentNavigationBar"]
+- !private ["Ps9AnyObject", "didReceiveMemoryWarning"]
+- !private ["Ps9AnyObject", "execute"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "navigationBar"]
+- !private ["Ps9AnyObject", "navigationController"]
+- !private ["Ps9AnyObject", "setBackgroundImage"]
+- !private ["Ps9AnyObject", "shadowImage"]
+- !private ["Ps9AnyObject", "view"]
+- !private ["Ps9AnyObject", "viewDidLoad"]
+- ["Ps9AnyObject", ""]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["PSo15CALayerDelegate", "backgroundColor"]
+- !private ["PSo15CALayerDelegate", "setBackgroundImage"]
+- !private ["PSo15CALayerDelegate", "shadowImage"]
+- !private ["Ps7CVarArg", "MWDefaults"]
+- !private ["Ps7CVarArg", "MWUtil"]
+- !private ["Ps7CVarArg", "UIBarMetrics"]
+- !private ["Ps7CVarArg", "UIImage"]
+- !private ["Ps7CVarArg", "backgroundColor"]
+- !private ["Ps7CVarArg", "completelyTranslucentNavigationBar"]
+- !private ["Ps7CVarArg", "didReceiveMemoryWarning"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "navigationBar"]
+- !private ["Ps7CVarArg", "navigationController"]
+- !private ["Ps7CVarArg", "setBackgroundImage"]
+- !private ["Ps7CVarArg", "shadowImage"]
+- !private ["Ps7CVarArg", "view"]
+- !private ["Ps7CVarArg", "viewDidLoad"]
+- ["Ps7CVarArg", ""]
+- !private ["VV7myWatch10MWDefaults6Colors", "defaultBackgroundColor"]
+- !private ["Ps28CustomDebugStringConvertible", "MWDefaults"]
+- !private ["Ps28CustomDebugStringConvertible", "MWUtil"]
+- !private ["Ps28CustomDebugStringConvertible", "UIBarMetrics"]
+- !private ["Ps28CustomDebugStringConvertible", "UIImage"]
+- !private ["Ps28CustomDebugStringConvertible", "backgroundColor"]
+- !private ["Ps28CustomDebugStringConvertible", "completelyTranslucentNavigationBar"]
+- !private ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "navigationBar"]
+- !private ["Ps28CustomDebugStringConvertible", "navigationController"]
+- !private ["Ps28CustomDebugStringConvertible", "setBackgroundImage"]
+- !private ["Ps28CustomDebugStringConvertible", "shadowImage"]
+- !private ["Ps28CustomDebugStringConvertible", "view"]
+- !private ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "MWDefaults"]
+- !private ["Ps23CustomStringConvertible", "MWUtil"]
+- !private ["Ps23CustomStringConvertible", "UIBarMetrics"]
+- !private ["Ps23CustomStringConvertible", "UIImage"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "backgroundColor"]
+- !private ["Ps23CustomStringConvertible", "completelyTranslucentNavigationBar"]
+- !private ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "navigationBar"]
+- !private ["Ps23CustomStringConvertible", "navigationController"]
+- !private ["Ps23CustomStringConvertible", "setBackgroundImage"]
+- !private ["Ps23CustomStringConvertible", "shadowImage"]
+- !private ["Ps23CustomStringConvertible", "view"]
+- !private ["Ps23CustomStringConvertible", "viewDidLoad"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "MWDefaults"]
+- !private ["Ps9Equatable", "MWUtil"]
+- !private ["Ps9Equatable", "UIBarMetrics"]
+- !private ["Ps9Equatable", "UIImage"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "backgroundColor"]
+- !private ["Ps9Equatable", "completelyTranslucentNavigationBar"]
+- !private ["Ps9Equatable", "default"]
+- !private ["Ps9Equatable", "didReceiveMemoryWarning"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "lightContent"]
+- !private ["Ps9Equatable", "navigationBar"]
+- !private ["Ps9Equatable", "navigationController"]
+- !private ["Ps9Equatable", "setBackgroundImage"]
+- !private ["Ps9Equatable", "shadowImage"]
+- !private ["Ps9Equatable", "view"]
+- !private ["Ps9Equatable", "viewDidLoad"]
+- ["Ps9Equatable", ""]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "MWDefaults"]
+- !private ["Ps8Hashable", "MWUtil"]
+- !private ["Ps8Hashable", "UIBarMetrics"]
+- !private ["Ps8Hashable", "UIImage"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "backgroundColor"]
+- !private ["Ps8Hashable", "completelyTranslucentNavigationBar"]
+- !private ["Ps8Hashable", "default"]
+- !private ["Ps8Hashable", "didReceiveMemoryWarning"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "lightContent"]
+- !private ["Ps8Hashable", "navigationBar"]
+- !private ["Ps8Hashable", "navigationController"]
+- !private ["Ps8Hashable", "setBackgroundImage"]
+- !private ["Ps8Hashable", "shadowImage"]
+- !private ["Ps8Hashable", "view"]
+- !private ["Ps8Hashable", "viewDidLoad"]
+- ["Ps8Hashable", ""]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["V7myWatch10MWDefaults", "Colors"]
+- !private ["C7myWatch6MWUtil", "execute"]
+- ["C7myWatch16MWViewController", "Bool"]
+- !private ["C7myWatch16MWViewController", "MWDefaults"]
+- !private ["C7myWatch16MWViewController", "MWUtil"]
+- !private ["C7myWatch16MWViewController", "UIBarMetrics"]
+- !private ["C7myWatch16MWViewController", "UIImage"]
+- ["C7myWatch16MWViewController", "UIStatusBarStyle"]
+- ["C7myWatch16MWViewController", "completelyTranslucentNavigationBar"]
+- ["C7myWatch16MWViewController", "deinit"]
+- ["C7myWatch16MWViewController", "didReceiveMemoryWarning"]
+- ["C7myWatch16MWViewController", "init"]
+- !private ["C7myWatch16MWViewController", "navigationController"]
+- ["C7myWatch16MWViewController", "preferredStatusBarStyle"]
+- !private ["C7myWatch16MWViewController", "view"]
+- ["C7myWatch16MWViewController", "viewDidLoad"]
+- !private ["PSo8NSCoding", "MWDefaults"]
+- !private ["PSo8NSCoding", "MWUtil"]
+- !private ["PSo8NSCoding", "UIBarMetrics"]
+- !private ["PSo8NSCoding", "UIImage"]
+- !private ["PSo8NSCoding", "backgroundColor"]
+- !private ["PSo8NSCoding", "completelyTranslucentNavigationBar"]
+- !private ["PSo8NSCoding", "didReceiveMemoryWarning"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "navigationBar"]
+- !private ["PSo8NSCoding", "navigationController"]
+- !private ["PSo8NSCoding", "setBackgroundImage"]
+- !private ["PSo8NSCoding", "shadowImage"]
+- !private ["PSo8NSCoding", "view"]
+- !private ["PSo8NSCoding", "viewDidLoad"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo26NSExtensionRequestHandling", "MWDefaults"]
+- !private ["PSo26NSExtensionRequestHandling", "MWUtil"]
+- !private ["PSo26NSExtensionRequestHandling", "UIBarMetrics"]
+- !private ["PSo26NSExtensionRequestHandling", "UIImage"]
+- !private ["PSo26NSExtensionRequestHandling", "completelyTranslucentNavigationBar"]
+- !private ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
+- !private ["PSo26NSExtensionRequestHandling", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "navigationBar"]
+- !private ["PSo26NSExtensionRequestHandling", "navigationController"]
+- !private ["PSo26NSExtensionRequestHandling", "view"]
+- !private ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- ["CSo8NSObject", "Bool"]
+- !private ["CSo8NSObject", "MWDefaults"]
+- !private ["CSo8NSObject", "MWUtil"]
+- !private ["CSo8NSObject", "UIBarMetrics"]
+- !private ["CSo8NSObject", "UIImage"]
+- ["CSo8NSObject", "UIStatusBarStyle"]
+- !private ["CSo8NSObject", "backgroundColor"]
+- ["CSo8NSObject", "completelyTranslucentNavigationBar"]
+- ["CSo8NSObject", "didReceiveMemoryWarning"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "navigationBar"]
+- !private ["CSo8NSObject", "navigationController"]
+- ["CSo8NSObject", "preferredStatusBarStyle"]
+- !private ["CSo8NSObject", "setBackgroundImage"]
+- !private ["CSo8NSObject", "shadowImage"]
+- !private ["CSo8NSObject", "view"]
+- ["CSo8NSObject", "viewDidLoad"]
+- !private ["PSo16NSObjectProtocol", "MWDefaults"]
+- !private ["PSo16NSObjectProtocol", "MWUtil"]
+- !private ["PSo16NSObjectProtocol", "UIBarMetrics"]
+- !private ["PSo16NSObjectProtocol", "UIImage"]
+- !private ["PSo16NSObjectProtocol", "backgroundColor"]
+- !private ["PSo16NSObjectProtocol", "completelyTranslucentNavigationBar"]
+- !private ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "navigationBar"]
+- !private ["PSo16NSObjectProtocol", "navigationController"]
+- !private ["PSo16NSObjectProtocol", "setBackgroundImage"]
+- !private ["PSo16NSObjectProtocol", "shadowImage"]
+- !private ["PSo16NSObjectProtocol", "view"]
+- !private ["PSo16NSObjectProtocol", "viewDidLoad"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["Ps16RawRepresentable", "default"]
+- !private ["Ps16RawRepresentable", "lightContent"]
+- !private ["PSo29UIAccessibilityIdentification", "backgroundColor"]
+- !private ["PSo29UIAccessibilityIdentification", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "setBackgroundImage"]
+- !private ["PSo29UIAccessibilityIdentification", "shadowImage"]
+- !private ["PSo12UIAppearance", "backgroundColor"]
+- !private ["PSo12UIAppearance", "setBackgroundImage"]
+- !private ["PSo12UIAppearance", "shadowImage"]
+- !private ["PSo21UIAppearanceContainer", "MWDefaults"]
+- !private ["PSo21UIAppearanceContainer", "MWUtil"]
+- !private ["PSo21UIAppearanceContainer", "UIBarMetrics"]
+- !private ["PSo21UIAppearanceContainer", "UIImage"]
+- !private ["PSo21UIAppearanceContainer", "backgroundColor"]
+- !private ["PSo21UIAppearanceContainer", "completelyTranslucentNavigationBar"]
+- !private ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "navigationBar"]
+- !private ["PSo21UIAppearanceContainer", "navigationController"]
+- !private ["PSo21UIAppearanceContainer", "setBackgroundImage"]
+- !private ["PSo21UIAppearanceContainer", "shadowImage"]
+- !private ["PSo21UIAppearanceContainer", "view"]
+- !private ["PSo21UIAppearanceContainer", "viewDidLoad"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["OSC12UIBarMetrics", "default"]
+- !private ["PSo16UIBarPositioning", "setBackgroundImage"]
+- !private ["PSo16UIBarPositioning", "shadowImage"]
+- !private ["PSo18UIContentContainer", "MWDefaults"]
+- !private ["PSo18UIContentContainer", "MWUtil"]
+- !private ["PSo18UIContentContainer", "UIBarMetrics"]
+- !private ["PSo18UIContentContainer", "UIImage"]
+- !private ["PSo18UIContentContainer", "completelyTranslucentNavigationBar"]
+- !private ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
+- !private ["PSo18UIContentContainer", "init"]
+- !private ["PSo18UIContentContainer", "navigationBar"]
+- !private ["PSo18UIContentContainer", "navigationController"]
+- !private ["PSo18UIContentContainer", "view"]
+- !private ["PSo18UIContentContainer", "viewDidLoad"]
+- ["PSo18UIContentContainer", ""]
+- !private ["PSo17UICoordinateSpace", "backgroundColor"]
+- !private ["PSo17UICoordinateSpace", "setBackgroundImage"]
+- !private ["PSo17UICoordinateSpace", "shadowImage"]
+- !private ["PSo13UIDynamicItem", "backgroundColor"]
+- !private ["PSo13UIDynamicItem", "setBackgroundImage"]
+- !private ["PSo13UIDynamicItem", "shadowImage"]
+- !private ["PSo18UIFocusEnvironment", "MWDefaults"]
+- !private ["PSo18UIFocusEnvironment", "MWUtil"]
+- !private ["PSo18UIFocusEnvironment", "UIBarMetrics"]
+- !private ["PSo18UIFocusEnvironment", "UIImage"]
+- !private ["PSo18UIFocusEnvironment", "backgroundColor"]
+- !private ["PSo18UIFocusEnvironment", "completelyTranslucentNavigationBar"]
+- !private ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "navigationBar"]
+- !private ["PSo18UIFocusEnvironment", "navigationController"]
+- !private ["PSo18UIFocusEnvironment", "setBackgroundImage"]
+- !private ["PSo18UIFocusEnvironment", "shadowImage"]
+- !private ["PSo18UIFocusEnvironment", "view"]
+- !private ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "backgroundColor"]
+- !private ["PSo11UIFocusItem", "setBackgroundImage"]
+- !private ["PSo11UIFocusItem", "shadowImage"]
+- !private ["CSo7UIImage", "init"]
+- !private ["CSo15UINavigationBar", "setBackgroundImage"]
+- !private ["CSo15UINavigationBar", "shadowImage"]
+- !private ["CSo22UINavigationController", "navigationBar"]
+- ["CSo11UIResponder", "Bool"]
+- !private ["CSo11UIResponder", "MWDefaults"]
+- !private ["CSo11UIResponder", "MWUtil"]
+- !private ["CSo11UIResponder", "UIBarMetrics"]
+- !private ["CSo11UIResponder", "UIImage"]
+- ["CSo11UIResponder", "UIStatusBarStyle"]
+- !private ["CSo11UIResponder", "backgroundColor"]
+- ["CSo11UIResponder", "completelyTranslucentNavigationBar"]
+- ["CSo11UIResponder", "didReceiveMemoryWarning"]
+- ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "navigationBar"]
+- !private ["CSo11UIResponder", "navigationController"]
+- ["CSo11UIResponder", "preferredStatusBarStyle"]
+- !private ["CSo11UIResponder", "setBackgroundImage"]
+- !private ["CSo11UIResponder", "shadowImage"]
+- !private ["CSo11UIResponder", "view"]
+- ["CSo11UIResponder", "viewDidLoad"]
+- !private ["PSo30UIResponderStandardEditActions", "MWDefaults"]
+- !private ["PSo30UIResponderStandardEditActions", "MWUtil"]
+- !private ["PSo30UIResponderStandardEditActions", "UIBarMetrics"]
+- !private ["PSo30UIResponderStandardEditActions", "UIImage"]
+- !private ["PSo30UIResponderStandardEditActions", "backgroundColor"]
+- !private ["PSo30UIResponderStandardEditActions", "completelyTranslucentNavigationBar"]
+- !private ["PSo30UIResponderStandardEditActions", "didReceiveMemoryWarning"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "navigationBar"]
+- !private ["PSo30UIResponderStandardEditActions", "navigationController"]
+- !private ["PSo30UIResponderStandardEditActions", "setBackgroundImage"]
+- !private ["PSo30UIResponderStandardEditActions", "shadowImage"]
+- !private ["PSo30UIResponderStandardEditActions", "view"]
+- !private ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["PSo16UIStateRestoring", "MWDefaults"]
+- !private ["PSo16UIStateRestoring", "MWUtil"]
+- !private ["PSo16UIStateRestoring", "UIBarMetrics"]
+- !private ["PSo16UIStateRestoring", "UIImage"]
+- !private ["PSo16UIStateRestoring", "completelyTranslucentNavigationBar"]
+- !private ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
+- !private ["PSo16UIStateRestoring", "init"]
+- !private ["PSo16UIStateRestoring", "navigationBar"]
+- !private ["PSo16UIStateRestoring", "navigationController"]
+- !private ["PSo16UIStateRestoring", "view"]
+- !private ["PSo16UIStateRestoring", "viewDidLoad"]
+- ["PSo16UIStateRestoring", ""]
+- !private ["OSC16UIStatusBarStyle", "lightContent"]
+- !private ["PSo18UITraitEnvironment", "MWDefaults"]
+- !private ["PSo18UITraitEnvironment", "MWUtil"]
+- !private ["PSo18UITraitEnvironment", "UIBarMetrics"]
+- !private ["PSo18UITraitEnvironment", "UIImage"]
+- !private ["PSo18UITraitEnvironment", "backgroundColor"]
+- !private ["PSo18UITraitEnvironment", "completelyTranslucentNavigationBar"]
+- !private ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "navigationBar"]
+- !private ["PSo18UITraitEnvironment", "navigationController"]
+- !private ["PSo18UITraitEnvironment", "setBackgroundImage"]
+- !private ["PSo18UITraitEnvironment", "shadowImage"]
+- !private ["PSo18UITraitEnvironment", "view"]
+- !private ["PSo18UITraitEnvironment", "viewDidLoad"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "backgroundColor"]
+- !private ["CSo6UIView", "setBackgroundImage"]
+- !private ["CSo6UIView", "shadowImage"]
+- ["CSo16UIViewController", "Bool"]
+- !private ["CSo16UIViewController", "MWDefaults"]
+- !private ["CSo16UIViewController", "MWUtil"]
+- !private ["CSo16UIViewController", "UIBarMetrics"]
+- !private ["CSo16UIViewController", "UIImage"]
+- ["CSo16UIViewController", "UIStatusBarStyle"]
+- ["CSo16UIViewController", "completelyTranslucentNavigationBar"]
+- ["CSo16UIViewController", "didReceiveMemoryWarning"]
+- ["CSo16UIViewController", "init"]
+- !private ["CSo16UIViewController", "navigationBar"]
+- !private ["CSo16UIViewController", "navigationController"]
+- ["CSo16UIViewController", "preferredStatusBarStyle"]
+- !private ["CSo16UIViewController", "view"]
+- ["CSo16UIViewController", "viewDidLoad"]
+- ["CSo16UIViewController", ""]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "backgroundColor"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "setBackgroundImage"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "shadowImage"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps26_ExpressibleByImageLiteral", "init"]
+- !private ["Ps9_Hashable", "MWDefaults"]
+- !private ["Ps9_Hashable", "MWUtil"]
+- !private ["Ps9_Hashable", "UIBarMetrics"]
+- !private ["Ps9_Hashable", "UIImage"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "backgroundColor"]
+- !private ["Ps9_Hashable", "completelyTranslucentNavigationBar"]
+- !private ["Ps9_Hashable", "default"]
+- !private ["Ps9_Hashable", "didReceiveMemoryWarning"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "lightContent"]
+- !private ["Ps9_Hashable", "navigationBar"]
+- !private ["Ps9_Hashable", "navigationController"]
+- !private ["Ps9_Hashable", "setBackgroundImage"]
+- !private ["Ps9_Hashable", "shadowImage"]
+- !private ["Ps9_Hashable", "view"]
+- !private ["Ps9_Hashable", "viewDidLoad"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Sb"
+- !private "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- !private "VV7myWatch10MWDefaults6Colors"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- "Ps8Hashable"
+- !private "Ps25LosslessStringConvertible"
+- !private "V7myWatch10MWDefaults"
+- !private "C7myWatch6MWUtil"
+- "C7myWatch16MWViewController"
+- "PSo8NSCoding"
+- "PSo26NSExtensionRequestHandling"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "Ps16RawRepresentable"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "OSC12UIBarMetrics"
+- !private "PSo16UIBarPositioning"
+- "PSo18UIContentContainer"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- !private "CSo7UIImage"
+- !private "CSo15UINavigationBar"
+- !private "CSo22UINavigationController"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "PSo16UIStateRestoring"
+- !private "OSC16UIStatusBarStyle"
+- "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- "CSo16UIViewController"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps26_ExpressibleByImageLiteral"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreBluetooth.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/os.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/os.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+interface-hash: "daf2da9d8f8fa46d10fc385e853962cc"

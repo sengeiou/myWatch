@@ -1,0 +1,240 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "MWDevice"
+provides-nominal:
+- "C7myWatch8MWDevice"
+provides-member:
+- ["C7myWatch8MWDevice", ""]
+provides-dynamic-lookup:
+- "deviceID"
+- "encode"
+- "givenName"
+- "peripheral"
+- "stepCount"
+depends-top-level:
+- !private "!="
+- "AssignmentPrecedence"
+- "CBPeripheral"
+- "CastingPrecedence"
+- "Int"
+- "MWDevice"
+- "NSCoder"
+- "NSCoding"
+- "NSObject"
+- "String"
+- "StringLiteralType"
+- "TernaryPrecedence"
+depends-member:
+- !private ["Ps9AnyObject", "PropertyKey"]
+- !private ["Ps9AnyObject", "decodeObject"]
+- !private ["Ps9AnyObject", "deviceID"]
+- ["Ps9AnyObject", "encode"]
+- ["Ps9AnyObject", "encodeWithCoder"]
+- !private ["Ps9AnyObject", "givenName"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "peripheral"]
+- !private ["Ps9AnyObject", "stepCount"]
+- ["Ps9AnyObject", ""]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Ps7CVarArg", "PropertyKey"]
+- !private ["Ps7CVarArg", "decodeObject"]
+- !private ["Ps7CVarArg", "deviceID"]
+- ["Ps7CVarArg", "encode"]
+- ["Ps7CVarArg", "encodeWithCoder"]
+- !private ["Ps7CVarArg", "givenName"]
+- ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "peripheral"]
+- !private ["Ps7CVarArg", "stepCount"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "PropertyKey"]
+- !private ["Ps28CustomDebugStringConvertible", "decodeObject"]
+- !private ["Ps28CustomDebugStringConvertible", "deviceID"]
+- ["Ps28CustomDebugStringConvertible", "encode"]
+- ["Ps28CustomDebugStringConvertible", "encodeWithCoder"]
+- !private ["Ps28CustomDebugStringConvertible", "givenName"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "peripheral"]
+- !private ["Ps28CustomDebugStringConvertible", "stepCount"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "PropertyKey"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "decodeObject"]
+- !private ["Ps23CustomStringConvertible", "deviceID"]
+- ["Ps23CustomStringConvertible", "encode"]
+- ["Ps23CustomStringConvertible", "encodeWithCoder"]
+- !private ["Ps23CustomStringConvertible", "givenName"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "peripheral"]
+- !private ["Ps23CustomStringConvertible", "stepCount"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "PropertyKey"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "decodeObject"]
+- !private ["Ps9Equatable", "deviceID"]
+- ["Ps9Equatable", "encode"]
+- ["Ps9Equatable", "encodeWithCoder"]
+- !private ["Ps9Equatable", "givenName"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "peripheral"]
+- !private ["Ps9Equatable", "stepCount"]
+- ["Ps9Equatable", ""]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "PropertyKey"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "decodeObject"]
+- !private ["Ps8Hashable", "deviceID"]
+- ["Ps8Hashable", "encode"]
+- ["Ps8Hashable", "encodeWithCoder"]
+- !private ["Ps8Hashable", "givenName"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "peripheral"]
+- !private ["Ps8Hashable", "stepCount"]
+- ["Ps8Hashable", ""]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- ["C7myWatch8MWDevice", "CBPeripheral"]
+- ["C7myWatch8MWDevice", "Int"]
+- ["C7myWatch8MWDevice", "NSCoder"]
+- !private ["C7myWatch8MWDevice", "PropertyKey"]
+- ["C7myWatch8MWDevice", "String"]
+- ["C7myWatch8MWDevice", "deinit"]
+- ["C7myWatch8MWDevice", "deviceID"]
+- ["C7myWatch8MWDevice", "encode"]
+- ["C7myWatch8MWDevice", "encodeWithCoder"]
+- ["C7myWatch8MWDevice", "givenName"]
+- ["C7myWatch8MWDevice", "init"]
+- ["C7myWatch8MWDevice", "peripheral"]
+- ["C7myWatch8MWDevice", "stepCount"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["CSo7NSCoder", "decodeObject"]
+- !private ["CSo7NSCoder", "encode"]
+- !private ["PSo8NSCoding", "PropertyKey"]
+- !private ["PSo8NSCoding", "deviceID"]
+- ["PSo8NSCoding", "encode"]
+- ["PSo8NSCoding", "encodeWithCoder"]
+- !private ["PSo8NSCoding", "givenName"]
+- ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "peripheral"]
+- !private ["PSo8NSCoding", "stepCount"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "CBPeripheral"]
+- ["CSo8NSObject", "Int"]
+- ["CSo8NSObject", "NSCoder"]
+- !private ["CSo8NSObject", "PropertyKey"]
+- ["CSo8NSObject", "String"]
+- !private ["CSo8NSObject", "decodeObject"]
+- ["CSo8NSObject", "deviceID"]
+- ["CSo8NSObject", "encode"]
+- ["CSo8NSObject", "encodeWithCoder"]
+- ["CSo8NSObject", "givenName"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "peripheral"]
+- ["CSo8NSObject", "stepCount"]
+- ["CSo8NSObject", ""]
+- !private ["PSo16NSObjectProtocol", "PropertyKey"]
+- !private ["PSo16NSObjectProtocol", "decodeObject"]
+- !private ["PSo16NSObjectProtocol", "deviceID"]
+- ["PSo16NSObjectProtocol", "encode"]
+- ["PSo16NSObjectProtocol", "encodeWithCoder"]
+- !private ["PSo16NSObjectProtocol", "givenName"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "peripheral"]
+- !private ["PSo16NSObjectProtocol", "stepCount"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- !private ["Vs12StaticString", "init"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps33_ExpressibleByStringInterpolation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "PropertyKey"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "decodeObject"]
+- !private ["Ps9_Hashable", "deviceID"]
+- ["Ps9_Hashable", "encode"]
+- ["Ps9_Hashable", "encodeWithCoder"]
+- !private ["Ps9_Hashable", "givenName"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "peripheral"]
+- !private ["Ps9_Hashable", "stepCount"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Sb"
+- "Ps7CVarArg"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- !private "Ps25LosslessStringConvertible"
+- "C7myWatch8MWDevice"
+- !private "Ps10MirrorPath"
+- !private "CSo7NSCoder"
+- "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "Vs12StaticString"
+- !private "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps33_ExpressibleByStringInterpolation"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreBluetooth.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/os.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/os.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "b47852d6c903ea74c7245485f9027128"

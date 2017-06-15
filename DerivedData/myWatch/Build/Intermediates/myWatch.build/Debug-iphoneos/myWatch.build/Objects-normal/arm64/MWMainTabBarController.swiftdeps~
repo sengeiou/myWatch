@@ -1,0 +1,292 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "MWMainTabBarController"
+provides-nominal:
+- "C7myWatch22MWMainTabBarController"
+provides-member:
+- ["C7myWatch22MWMainTabBarController", ""]
+provides-dynamic-lookup:
+- "didReceiveMemoryWarning"
+- "tabBar"
+- "viewDidLoad"
+- "viewWillAppear"
+depends-top-level:
+- "AssignmentPrecedence"
+- "Bool"
+- "MWMainTabBarController"
+- !private "MWUtil"
+- "UITabBar"
+- "UITabBarController"
+- "UITabBarItem"
+depends-member:
+- !private ["Ps9AnyObject", "MWUtil"]
+- !private ["Ps9AnyObject", "didReceiveMemoryWarning"]
+- !private ["Ps9AnyObject", "execute"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "navigationItem"]
+- !private ["Ps9AnyObject", "selectedItem"]
+- !private ["Ps9AnyObject", "tabBar"]
+- !private ["Ps9AnyObject", "title"]
+- !private ["Ps9AnyObject", "viewDidLoad"]
+- ["Ps9AnyObject", ""]
+- !private ["PSo15CALayerDelegate", "selectedItem"]
+- !private ["Ps7CVarArg", "MWUtil"]
+- !private ["Ps7CVarArg", "didReceiveMemoryWarning"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "navigationItem"]
+- !private ["Ps7CVarArg", "selectedItem"]
+- !private ["Ps7CVarArg", "tabBar"]
+- !private ["Ps7CVarArg", "title"]
+- !private ["Ps7CVarArg", "viewDidLoad"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps28CustomDebugStringConvertible", "MWUtil"]
+- !private ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "navigationItem"]
+- !private ["Ps28CustomDebugStringConvertible", "selectedItem"]
+- !private ["Ps28CustomDebugStringConvertible", "tabBar"]
+- !private ["Ps28CustomDebugStringConvertible", "title"]
+- !private ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps23CustomStringConvertible", "MWUtil"]
+- !private ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "navigationItem"]
+- !private ["Ps23CustomStringConvertible", "selectedItem"]
+- !private ["Ps23CustomStringConvertible", "tabBar"]
+- !private ["Ps23CustomStringConvertible", "title"]
+- !private ["Ps23CustomStringConvertible", "viewDidLoad"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "MWUtil"]
+- !private ["Ps9Equatable", "didReceiveMemoryWarning"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "navigationItem"]
+- !private ["Ps9Equatable", "selectedItem"]
+- !private ["Ps9Equatable", "tabBar"]
+- !private ["Ps9Equatable", "title"]
+- !private ["Ps9Equatable", "viewDidLoad"]
+- ["Ps9Equatable", ""]
+- !private ["Ps8Hashable", "MWUtil"]
+- !private ["Ps8Hashable", "didReceiveMemoryWarning"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "navigationItem"]
+- !private ["Ps8Hashable", "selectedItem"]
+- !private ["Ps8Hashable", "tabBar"]
+- !private ["Ps8Hashable", "title"]
+- !private ["Ps8Hashable", "viewDidLoad"]
+- ["Ps8Hashable", ""]
+- ["C7myWatch22MWMainTabBarController", "Bool"]
+- !private ["C7myWatch22MWMainTabBarController", "MWUtil"]
+- ["C7myWatch22MWMainTabBarController", "UITabBar"]
+- ["C7myWatch22MWMainTabBarController", "UITabBarItem"]
+- ["C7myWatch22MWMainTabBarController", "deinit"]
+- ["C7myWatch22MWMainTabBarController", "didReceiveMemoryWarning"]
+- ["C7myWatch22MWMainTabBarController", "init"]
+- !private ["C7myWatch22MWMainTabBarController", "navigationItem"]
+- ["C7myWatch22MWMainTabBarController", "tabBar"]
+- ["C7myWatch22MWMainTabBarController", "viewDidLoad"]
+- ["C7myWatch22MWMainTabBarController", "viewWillAppear"]
+- !private ["C7myWatch6MWUtil", "execute"]
+- !private ["PSo8NSCoding", "MWUtil"]
+- !private ["PSo8NSCoding", "didReceiveMemoryWarning"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "navigationItem"]
+- !private ["PSo8NSCoding", "selectedItem"]
+- !private ["PSo8NSCoding", "tabBar"]
+- !private ["PSo8NSCoding", "title"]
+- !private ["PSo8NSCoding", "viewDidLoad"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo26NSExtensionRequestHandling", "MWUtil"]
+- !private ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
+- !private ["PSo26NSExtensionRequestHandling", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "navigationItem"]
+- !private ["PSo26NSExtensionRequestHandling", "tabBar"]
+- !private ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- ["CSo8NSObject", "Bool"]
+- !private ["CSo8NSObject", "MWUtil"]
+- ["CSo8NSObject", "UITabBar"]
+- ["CSo8NSObject", "UITabBarItem"]
+- ["CSo8NSObject", "didReceiveMemoryWarning"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "navigationItem"]
+- !private ["CSo8NSObject", "selectedItem"]
+- ["CSo8NSObject", "tabBar"]
+- !private ["CSo8NSObject", "title"]
+- ["CSo8NSObject", "viewDidLoad"]
+- ["CSo8NSObject", "viewWillAppear"]
+- !private ["PSo16NSObjectProtocol", "MWUtil"]
+- !private ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "navigationItem"]
+- !private ["PSo16NSObjectProtocol", "selectedItem"]
+- !private ["PSo16NSObjectProtocol", "tabBar"]
+- !private ["PSo16NSObjectProtocol", "title"]
+- !private ["PSo16NSObjectProtocol", "viewDidLoad"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo29UIAccessibilityIdentification", "selectedItem"]
+- !private ["PSo29UIAccessibilityIdentification", "title"]
+- !private ["PSo12UIAppearance", "selectedItem"]
+- !private ["PSo12UIAppearance", "title"]
+- !private ["PSo21UIAppearanceContainer", "MWUtil"]
+- !private ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "navigationItem"]
+- !private ["PSo21UIAppearanceContainer", "selectedItem"]
+- !private ["PSo21UIAppearanceContainer", "tabBar"]
+- !private ["PSo21UIAppearanceContainer", "viewDidLoad"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["CSo9UIBarItem", "title"]
+- !private ["PSo18UIContentContainer", "MWUtil"]
+- !private ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
+- !private ["PSo18UIContentContainer", "init"]
+- !private ["PSo18UIContentContainer", "navigationItem"]
+- !private ["PSo18UIContentContainer", "tabBar"]
+- !private ["PSo18UIContentContainer", "viewDidLoad"]
+- ["PSo18UIContentContainer", ""]
+- !private ["PSo17UICoordinateSpace", "selectedItem"]
+- !private ["PSo13UIDynamicItem", "selectedItem"]
+- !private ["PSo18UIFocusEnvironment", "MWUtil"]
+- !private ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "navigationItem"]
+- !private ["PSo18UIFocusEnvironment", "selectedItem"]
+- !private ["PSo18UIFocusEnvironment", "tabBar"]
+- !private ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "selectedItem"]
+- !private ["CSo16UINavigationItem", "title"]
+- ["CSo11UIResponder", "Bool"]
+- !private ["CSo11UIResponder", "MWUtil"]
+- ["CSo11UIResponder", "UITabBar"]
+- ["CSo11UIResponder", "UITabBarItem"]
+- ["CSo11UIResponder", "didReceiveMemoryWarning"]
+- ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "navigationItem"]
+- !private ["CSo11UIResponder", "selectedItem"]
+- ["CSo11UIResponder", "tabBar"]
+- ["CSo11UIResponder", "viewDidLoad"]
+- ["CSo11UIResponder", "viewWillAppear"]
+- !private ["PSo30UIResponderStandardEditActions", "MWUtil"]
+- !private ["PSo30UIResponderStandardEditActions", "didReceiveMemoryWarning"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "navigationItem"]
+- !private ["PSo30UIResponderStandardEditActions", "selectedItem"]
+- !private ["PSo30UIResponderStandardEditActions", "tabBar"]
+- !private ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["PSo16UIStateRestoring", "MWUtil"]
+- !private ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
+- !private ["PSo16UIStateRestoring", "init"]
+- !private ["PSo16UIStateRestoring", "navigationItem"]
+- !private ["PSo16UIStateRestoring", "tabBar"]
+- !private ["PSo16UIStateRestoring", "viewDidLoad"]
+- ["PSo16UIStateRestoring", ""]
+- !private ["CSo8UITabBar", "selectedItem"]
+- ["CSo18UITabBarController", "Bool"]
+- !private ["CSo18UITabBarController", "MWUtil"]
+- ["CSo18UITabBarController", "UITabBar"]
+- ["CSo18UITabBarController", "UITabBarItem"]
+- ["CSo18UITabBarController", "didReceiveMemoryWarning"]
+- ["CSo18UITabBarController", "init"]
+- !private ["CSo18UITabBarController", "navigationItem"]
+- ["CSo18UITabBarController", "tabBar"]
+- ["CSo18UITabBarController", "viewDidLoad"]
+- ["CSo18UITabBarController", "viewWillAppear"]
+- ["CSo18UITabBarController", ""]
+- !private ["PSo16UITabBarDelegate", "MWUtil"]
+- !private ["PSo16UITabBarDelegate", "didReceiveMemoryWarning"]
+- !private ["PSo16UITabBarDelegate", "init"]
+- !private ["PSo16UITabBarDelegate", "navigationItem"]
+- !private ["PSo16UITabBarDelegate", "tabBar"]
+- !private ["PSo16UITabBarDelegate", "viewDidLoad"]
+- ["PSo16UITabBarDelegate", ""]
+- !private ["CSo12UITabBarItem", "title"]
+- !private ["PSo18UITraitEnvironment", "MWUtil"]
+- !private ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "navigationItem"]
+- !private ["PSo18UITraitEnvironment", "selectedItem"]
+- !private ["PSo18UITraitEnvironment", "tabBar"]
+- !private ["PSo18UITraitEnvironment", "viewDidLoad"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "selectedItem"]
+- ["CSo16UIViewController", "Bool"]
+- !private ["CSo16UIViewController", "MWUtil"]
+- ["CSo16UIViewController", "UITabBar"]
+- ["CSo16UIViewController", "UITabBarItem"]
+- ["CSo16UIViewController", "didReceiveMemoryWarning"]
+- ["CSo16UIViewController", "init"]
+- !private ["CSo16UIViewController", "navigationItem"]
+- ["CSo16UIViewController", "tabBar"]
+- ["CSo16UIViewController", "viewDidLoad"]
+- ["CSo16UIViewController", "viewWillAppear"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "selectedItem"]
+- !private ["Ps9_Hashable", "MWUtil"]
+- !private ["Ps9_Hashable", "didReceiveMemoryWarning"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "navigationItem"]
+- !private ["Ps9_Hashable", "selectedItem"]
+- !private ["Ps9_Hashable", "tabBar"]
+- !private ["Ps9_Hashable", "title"]
+- !private ["Ps9_Hashable", "viewDidLoad"]
+- ["Ps9_Hashable", ""]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- "C7myWatch22MWMainTabBarController"
+- !private "C7myWatch6MWUtil"
+- "PSo8NSCoding"
+- "PSo26NSExtensionRequestHandling"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "CSo9UIBarItem"
+- "PSo18UIContentContainer"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- !private "CSo16UINavigationItem"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "PSo16UIStateRestoring"
+- !private "CSo8UITabBar"
+- "CSo18UITabBarController"
+- "PSo16UITabBarDelegate"
+- !private "CSo12UITabBarItem"
+- "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- "CSo16UIViewController"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- "Ps9_Hashable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreBluetooth.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/os.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/os.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "119d64bed06cedf91e767804fbab0f69"

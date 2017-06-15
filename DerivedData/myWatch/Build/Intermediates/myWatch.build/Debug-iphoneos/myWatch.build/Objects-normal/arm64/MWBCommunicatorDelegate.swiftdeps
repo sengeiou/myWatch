@@ -1,0 +1,56 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "MWBCommunicatorDelegate"
+provides-nominal:
+- "P7myWatch23MWBCommunicatorDelegate"
+provides-member:
+- ["P7myWatch23MWBCommunicatorDelegate", ""]
+provides-dynamic-lookup:
+- "bluetoothHasBeenEnabled"
+- "bluetoothHasFoundDevice"
+- "bluetoothHasFoundSpecifiedDevice"
+- "bluetoothNotAvailable"
+- "connectionSuccessful"
+- "deviceIsReadyToUse"
+- "recievedResponse"
+depends-top-level:
+- "MWBCommunicatorDelegate"
+- "MWBParsedData"
+- "MWDevice"
+- "String"
+depends-member:
+- ["P7myWatch23MWBCommunicatorDelegate", "MWBParsedData"]
+- ["P7myWatch23MWBCommunicatorDelegate", "MWDevice"]
+- ["P7myWatch23MWBCommunicatorDelegate", "String"]
+- ["P7myWatch23MWBCommunicatorDelegate", "bluetoothHasBeenEnabled"]
+- ["P7myWatch23MWBCommunicatorDelegate", "bluetoothHasFoundDevice"]
+- ["P7myWatch23MWBCommunicatorDelegate", "bluetoothHasFoundSpecifiedDevice"]
+- ["P7myWatch23MWBCommunicatorDelegate", "bluetoothNotAvailable"]
+- ["P7myWatch23MWBCommunicatorDelegate", "connectionSuccessful"]
+- ["P7myWatch23MWBCommunicatorDelegate", "deviceIsReadyToUse"]
+- ["P7myWatch23MWBCommunicatorDelegate", "recievedResponse"]
+depends-nominal:
+- "P7myWatch23MWBCommunicatorDelegate"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreBluetooth.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/os.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/os.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "4e91be3873969f41f649f605d6b55de9"

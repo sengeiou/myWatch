@@ -1,0 +1,317 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "MWBTransmitter"
+provides-nominal:
+- "C7myWatch14MWBTransmitter"
+provides-member:
+- ["C7myWatch14MWBTransmitter", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "+"
+- !private "-"
+- !private "=="
+- "BooleanLiteralType"
+- !private "Calendar"
+- !private "Date"
+- !private "Int"
+- "MWBCommand"
+- "MWBCommunicator"
+- "MWBTransmitter"
+- "String"
+- "StringLiteralType"
+- "TernaryPrecedence"
+- "UnicodeScalarType"
+depends-member:
+- !private ["Ps9AnyObject", "COMMAND_ENTER_CAMERA_MODE"]
+- !private ["Ps9AnyObject", "COMMAND_EXIT_CAMERA_MODE"]
+- !private ["Ps9AnyObject", "COMMAND_LLS0"]
+- !private ["Ps9AnyObject", "COMMAND_RETRIEVE_CURRENT_STEP_COUNT"]
+- !private ["Ps9AnyObject", "COMMAND_RETRIEVE_SERIAL_NUMBER"]
+- !private ["Ps9AnyObject", "COMMAND_RETRIEVE_VERSION"]
+- !private ["Ps9AnyObject", "COMMAND_Z"]
+- !private ["Ps9AnyObject", "Calendar"]
+- !private ["Ps9AnyObject", "Date"]
+- ["Ps9AnyObject", "MWBCommand"]
+- !private ["Ps9AnyObject", "String"]
+- !private ["Ps9AnyObject", "append"]
+- !private ["Ps9AnyObject", "characters"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "sendCommand"]
+- !private ["Ps9AnyObject", "setAttributeTime"]
+- ["Ps9AnyObject", ""]
+- !private ["Ps23BidirectionalCollection", "count"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["PSo24CBCentralManagerDelegate", "sendCommand"]
+- !private ["PSo20CBPeripheralDelegate", "sendCommand"]
+- !private ["Ps7CVarArg", "append"]
+- !private ["Ps7CVarArg", "characters"]
+- ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "sendCommand"]
+- !private ["V10Foundation8Calendar", "component"]
+- !private ["V10Foundation8Calendar", "current"]
+- !private ["VSS13CharacterView", "count"]
+- !private ["Ps10Collection", "count"]
+- !private ["Ps10Comparable", "append"]
+- !private ["Ps10Comparable", "characters"]
+- ["Ps10Comparable", "init"]
+- !private ["OV10Foundation8Calendar9Component", "day"]
+- !private ["OV10Foundation8Calendar9Component", "hour"]
+- !private ["OV10Foundation8Calendar9Component", "minute"]
+- !private ["OV10Foundation8Calendar9Component", "month"]
+- !private ["OV10Foundation8Calendar9Component", "second"]
+- !private ["OV10Foundation8Calendar9Component", "year"]
+- !private ["Ps28CustomDebugStringConvertible", "append"]
+- !private ["Ps28CustomDebugStringConvertible", "characters"]
+- !private ["Ps28CustomDebugStringConvertible", "component"]
+- !private ["Ps28CustomDebugStringConvertible", "current"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "sendCommand"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "append"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "characters"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "append"]
+- !private ["Ps17CustomReflectable", "characters"]
+- !private ["Ps17CustomReflectable", "component"]
+- !private ["Ps17CustomReflectable", "current"]
+- ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "append"]
+- !private ["Ps23CustomStringConvertible", "characters"]
+- !private ["Ps23CustomStringConvertible", "component"]
+- !private ["Ps23CustomStringConvertible", "current"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "sendCommand"]
+- !private ["V10Foundation4Date", "init"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "append"]
+- !private ["Ps9Equatable", "characters"]
+- !private ["Ps9Equatable", "component"]
+- !private ["Ps9Equatable", "current"]
+- !private ["Ps9Equatable", "day"]
+- !private ["Ps9Equatable", "hour"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "minute"]
+- !private ["Ps9Equatable", "month"]
+- !private ["Ps9Equatable", "second"]
+- !private ["Ps9Equatable", "sendCommand"]
+- !private ["Ps9Equatable", "year"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "append"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "characters"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "append"]
+- !private ["Ps26ExpressibleByStringLiteral", "characters"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "append"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "characters"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "append"]
+- !private ["Ps8Hashable", "characters"]
+- !private ["Ps8Hashable", "component"]
+- !private ["Ps8Hashable", "current"]
+- !private ["Ps8Hashable", "day"]
+- !private ["Ps8Hashable", "hour"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "minute"]
+- !private ["Ps8Hashable", "month"]
+- !private ["Ps8Hashable", "second"]
+- !private ["Ps8Hashable", "sendCommand"]
+- !private ["Ps8Hashable", "year"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "append"]
+- !private ["Ps25LosslessStringConvertible", "characters"]
+- ["Ps25LosslessStringConvertible", "init"]
+- ["C7myWatch10MWBCommand", "init"]
+- !private ["C7myWatch15MWBCommunicator", "sendCommand"]
+- !private ["C7myWatch14MWBTransmitter", "COMMAND_ANSWER_PHONE_CALL"]
+- !private ["C7myWatch14MWBTransmitter", "COMMAND_BFE"]
+- !private ["C7myWatch14MWBTransmitter", "COMMAND_BFS"]
+- !private ["C7myWatch14MWBTransmitter", "COMMAND_DECLINE_PHONE_CALL"]
+- !private ["C7myWatch14MWBTransmitter", "COMMAND_ENTER_CAMERA_MODE"]
+- !private ["C7myWatch14MWBTransmitter", "COMMAND_EXIT_CAMERA_MODE"]
+- !private ["C7myWatch14MWBTransmitter", "COMMAND_LLS0"]
+- !private ["C7myWatch14MWBTransmitter", "COMMAND_RETRIEVE_CURRENT_STEP_COUNT"]
+- !private ["C7myWatch14MWBTransmitter", "COMMAND_RETRIEVE_SERIAL_NUMBER"]
+- !private ["C7myWatch14MWBTransmitter", "COMMAND_RETRIEVE_VERSION"]
+- !private ["C7myWatch14MWBTransmitter", "COMMAND_Z"]
+- !private ["C7myWatch14MWBTransmitter", "Calendar"]
+- !private ["C7myWatch14MWBTransmitter", "Date"]
+- !private ["C7myWatch14MWBTransmitter", "Int"]
+- ["C7myWatch14MWBTransmitter", "MWBCommand"]
+- ["C7myWatch14MWBTransmitter", "MWBCommunicator"]
+- ["C7myWatch14MWBTransmitter", "String"]
+- ["C7myWatch14MWBTransmitter", "deinit"]
+- ["C7myWatch14MWBTransmitter", "enterCameraMode"]
+- ["C7myWatch14MWBTransmitter", "exitCameraMode"]
+- ["C7myWatch14MWBTransmitter", "init"]
+- ["C7myWatch14MWBTransmitter", "retrieveCurrentStepCount"]
+- ["C7myWatch14MWBTransmitter", "retrieveCurrentVersion"]
+- ["C7myWatch14MWBTransmitter", "retrieveSerialNumber"]
+- ["C7myWatch14MWBTransmitter", "setAttributeLLS0"]
+- ["C7myWatch14MWBTransmitter", "setAttributeTime"]
+- ["C7myWatch14MWBTransmitter", "setAttributeTimeToCurrentTime"]
+- ["C7myWatch14MWBTransmitter", "setAttributeZ"]
+- !private ["Ps10MirrorPath", "append"]
+- !private ["Ps10MirrorPath", "characters"]
+- ["Ps10MirrorPath", "init"]
+- !private ["PSo8NSCoding", "append"]
+- !private ["PSo8NSCoding", "characters"]
+- ["PSo8NSCoding", "init"]
+- !private ["PSo9NSCopying", "append"]
+- !private ["PSo9NSCopying", "characters"]
+- ["PSo9NSCopying", "init"]
+- !private ["PSo16NSMutableCopying", "append"]
+- !private ["PSo16NSMutableCopying", "characters"]
+- ["PSo16NSMutableCopying", "init"]
+- !private ["CSo8NSObject", "append"]
+- !private ["CSo8NSObject", "characters"]
+- !private ["CSo8NSObject", "sendCommand"]
+- !private ["PSo16NSObjectProtocol", "append"]
+- !private ["PSo16NSObjectProtocol", "characters"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "sendCommand"]
+- !private ["PSo14NSSecureCoding", "append"]
+- !private ["PSo14NSSecureCoding", "characters"]
+- ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "append"]
+- !private ["CSo8NSString", "characters"]
+- ["CSo8NSString", "init"]
+- !private ["Ps26RangeReplaceableCollection", "count"]
+- !private ["P10Foundation20ReferenceConvertible", "component"]
+- !private ["P10Foundation20ReferenceConvertible", "current"]
+- !private ["P10Foundation20ReferenceConvertible", "init"]
+- !private ["Ps8Sequence", "count"]
+- !private ["SS", "append"]
+- !private ["SS", "characters"]
+- ["SS", "init"]
+- !private ["Ps16TextOutputStream", "append"]
+- !private ["Ps16TextOutputStream", "characters"]
+- ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "append"]
+- !private ["Ps20TextOutputStreamable", "characters"]
+- ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps23_BidirectionalIndexable", "count"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "append"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "characters"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "append"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "characters"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "append"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "characters"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "append"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "characters"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps33_ExpressibleByStringInterpolation", "append"]
+- !private ["Ps33_ExpressibleByStringInterpolation", "characters"]
+- ["Ps33_ExpressibleByStringInterpolation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "append"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "characters"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "append"]
+- !private ["Ps9_Hashable", "characters"]
+- !private ["Ps9_Hashable", "component"]
+- !private ["Ps9_Hashable", "current"]
+- !private ["Ps9_Hashable", "day"]
+- !private ["Ps9_Hashable", "hour"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "minute"]
+- !private ["Ps9_Hashable", "month"]
+- !private ["Ps9_Hashable", "second"]
+- !private ["Ps9_Hashable", "sendCommand"]
+- !private ["Ps9_Hashable", "year"]
+- !private ["Ps10_Indexable", "count"]
+- !private ["Ps14_IndexableBase", "count"]
+- !private ["P10Foundation14_MutableBoxing", "component"]
+- !private ["P10Foundation14_MutableBoxing", "current"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "append"]
+- !private ["Ps21_ObjectiveCBridgeable", "characters"]
+- !private ["Ps21_ObjectiveCBridgeable", "component"]
+- !private ["Ps21_ObjectiveCBridgeable", "current"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps26_RangeReplaceableIndexable", "count"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Ps23BidirectionalCollection"
+- !private "Sb"
+- !private "PSo24CBCentralManagerDelegate"
+- !private "PSo20CBPeripheralDelegate"
+- "Ps7CVarArg"
+- !private "V10Foundation8Calendar"
+- !private "VSS13CharacterView"
+- !private "Ps10Collection"
+- "Ps10Comparable"
+- !private "OV10Foundation8Calendar9Component"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- !private "V10Foundation4Date"
+- "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- "Ps25LosslessStringConvertible"
+- "C7myWatch10MWBCommand"
+- !private "C7myWatch15MWBCommunicator"
+- "C7myWatch14MWBTransmitter"
+- "Ps10MirrorPath"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "PSo16NSMutableCopying"
+- !private "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- !private "Ps26RangeReplaceableCollection"
+- !private "P10Foundation20ReferenceConvertible"
+- !private "Ps8Sequence"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- !private "Ps23_BidirectionalIndexable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps33_ExpressibleByStringInterpolation"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps10_Indexable"
+- !private "Ps14_IndexableBase"
+- !private "P10Foundation14_MutableBoxing"
+- "Ps21_ObjectiveCBridgeable"
+- !private "Ps26_RangeReplaceableIndexable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreBluetooth.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/os.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/os.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+interface-hash: "03835d1cbd8732faa473ceeef1db7061"
