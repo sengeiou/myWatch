@@ -346,7 +346,7 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="on7-Ni-zXP" id="ODm-09-m9F">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MWAFirstLaunchWatch" translatesAutoresizingMaskIntoConstraints="NO" id="agZ-9W-gHB" customClass="MWTintedImageView" customModule="myWatch" customModuleProvider="target">
@@ -1329,10 +1329,10 @@ This way, other apps using Health will be able to read the data that your myWatc
         <image name="MWATAbBarAlarmSelected" width="25" height="25"/>
         <image name="MWATabBarSetings" width="25" height="25"/>
         <image name="MWATabBarSettingsSelected" width="25" height="25"/>
-        <image name="MWATabBarSleep" width="34" height="25"/>
-        <image name="MWATabBarSleepSelected" width="34" height="25"/>
-        <image name="MWATabBarSteps" width="29" height="25"/>
-        <image name="MWATabBarStepsSelected" width="29" height="25"/>
+        <image name="MWATabBarSleep" width="25" height="25"/>
+        <image name="MWATabBarSleepSelected" width="25" height="25"/>
+        <image name="MWATabBarSteps" width="25" height="25"/>
+        <image name="MWATabBarStepsSelected" width="25" height="25"/>
         <image name="MWATabBarSummary" width="25" height="25"/>
         <image name="MWATabBarSummarySelected" width="25" height="25"/>
     </resources>
