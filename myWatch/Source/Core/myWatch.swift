@@ -13,8 +13,9 @@ class myWatch
     private static var instance: myWatch = myWatch()
     
     //MARK: Member variables
-    var settings: myWatchSettings!
+    var settings: MWSettings = MWSettings()
     var bluetoothCommunicator: MWBCommunicator = MWBCommunicator()
+    var debugMode: Bool = false
     
     //MARK: Instance functions
     private init() {}
@@ -37,8 +38,8 @@ internal class myWatchApplicationDelegate: UIResponder, UIApplicationDelegate
     //MARK: - Inherited functions from: UIApplicationDelegate
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
-        main.settings = myWatchSettings()
         //launchSetup()
+        //main.debugMode = true
         return true
     }
     
@@ -66,19 +67,15 @@ internal class myWatchApplicationDelegate: UIResponder, UIApplicationDelegate
     
     internal func applicationWillTerminate(_ application: UIApplication)
     {
-        if(main.settings != nil)
-        {
-            MWIO.save(main.settings!, to: MWFileLocations.settingsFile)
-        }
+        MWIO.save(main.settings, to: MWFileLocations.settingsFile)
     }
     
     //MARK: Private functions
     private func launchSetup()
     {
-        main.settings = MWIO.load(from: MWFileLocations.settingsFile)
+        let loadedSettings: MWSettings? = MWIO.load(from: MWFileLocations.defaultSaveLocation)
         
-        if(main.settings == nil)
-        {
+        MWUtil.execute(ifNil: loadedSettings, execution: { 
             if(!FileManager().fileExists(atPath: MWFileLocations.defaultSaveLocation.path))
             {
                 do
@@ -91,18 +88,20 @@ internal class myWatchApplicationDelegate: UIResponder, UIApplicationDelegate
                 }
             }
             
-            main.settings = myWatchSettings()
+            self.main.settings = MWSettings()
             
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let firstLaunchViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: MWIdentifiers.SceneIdentifiers.firstLaunchFirst)
             
             self.window!.rootViewController = firstLaunchViewController
+        }) { 
+            self.main.settings = loadedSettings!
         }
     }
 }
 
 //MARK: -
-internal class myWatchSettings: NSObject, NSCoding
+internal class MWSettings: NSObject, NSCoding
 {
     //MARK: Member variables
     var currentDevice: MWDevice!
@@ -117,18 +116,22 @@ internal class myWatchSettings: NSObject, NSCoding
     //MARK: - Coding
     required init?(coder aDecoder: NSCoder)
     {
-        self.currentDevice = aDecoder.decodeObject(forKey: PropertyKey.PROPERTY_KEY_CURRENT_DEVICE) as? MWDevice
+        self.currentDevice = aDecoder.decodeObject(forKey: PropertyKey.currentDevice) as! MWDevice
+        self.exportToAppleHealth = aDecoder.decodeObject(forKey: PropertyKey.exportToAppleHealth) as! Bool
     }
     
     func encode(with aCoder: NSCoder)
     {
-        aCoder.encode(currentDevice, forKey: PropertyKey.PROPERTY_KEY_CURRENT_DEVICE)
+        aCoder.encode(currentDevice, forKey: PropertyKey.currentDevice)
+        aCoder.encode(exportToAppleHealth, forKey: PropertyKey.exportToAppleHealth)
     }
     
+    //MARK: -
     private struct PropertyKey
     {
         //MARK: Property keys
-        static let PROPERTY_KEY_CURRENT_DEVICE: String = "MWPCurrentDevice"
+        static let currentDevice: String = "MWPCurrentDevice"
+        static let exportToAppleHealth: String = "MWPExportToAppleHealth"
     }
 }
 

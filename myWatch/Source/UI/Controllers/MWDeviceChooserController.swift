@@ -143,13 +143,14 @@ class MWDeviceChooserController: MWViewController, MWFirstLaunchViewController, 
 class MWDeviceChooserDeviceCell: UITableViewCell
 {
     //MARK: Member variables
-    @IBOutlet weak var imageViewIcon: MWTintedImageView!
+    @IBOutlet weak var imageViewIcon: MWImageView!
     @IBOutlet weak var labelText: UILabel!
     @IBOutlet weak var line: UIView!
     
     private var device: MWDevice!
     private var controller: MWDeviceChooserController?
-    private var color: UIColor = UIColor.white
+    
+    private var appendedID: Bool = false
     
     //MARK: - Instance functions
     func prepare(device: MWDevice, controller: MWDeviceChooserController)
@@ -157,7 +158,11 @@ class MWDeviceChooserDeviceCell: UITableViewCell
         self.device = device
         self.controller = controller
         
-        MWUtil.safelySetValue(&labelText.text, toValue: labelText.text! + device.deviceID)
+        if(!appendedID)
+        {
+            labelText.text = labelText.text?.appending(device.deviceID)
+            appendedID = true
+        }
         
         if(controller.tableViewDevices.visibleCells.count >= 1)
         {
@@ -172,29 +177,30 @@ class MWDeviceChooserDeviceCell: UITableViewCell
     //MARK: Inherited functions from: UITableViewCell
     internal override func setSelected(_ selected: Bool, animated: Bool)
     {
-        if(controller != nil)
-        {
+        MWUtil.execute(ifNotNil: controller) { 
             if(selected)
             {
-                UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
-                    self.color = MWDefaults.Colors.defaultTintColor
-                    
-                    self.imageViewIcon.setTintingColor(self.color)
-                    self.labelText.textColor = self.color
+                UIView.transition(with: self.imageViewIcon, duration: 0.15, options: .transitionCrossDissolve, animations: {
+                    self.imageViewIcon.tintingColor = MWDefaults.Colors.defaultTintColor
                 }, completion: nil)
                 
-                controller!.selectedDevice = device
+                UIView.transition(with: self.labelText, duration: 0.15, options: .transitionCrossDissolve, animations: {
+                    self.labelText.textColor = MWDefaults.Colors.defaultTintColor
+                }, completion: nil)
+                
+                self.controller!.selectedDevice = self.device
             }
             else
             {
-                UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
-                    self.color = UIColor.white
-                    
-                    self.imageViewIcon.setTintingColor(self.color)
-                    self.labelText.textColor = self.color
+                UIView.transition(with: self.imageViewIcon, duration: 0.15, options: .transitionCrossDissolve, animations: {
+                    self.imageViewIcon.tintingColor = UIColor.white
                 }, completion: nil)
                 
-                controller!.selectedDevice = nil
+                UIView.transition(with: self.labelText, duration: 0.15, options: .transitionCrossDissolve, animations: {
+                    self.labelText.textColor = UIColor.white
+                }, completion: nil)
+                
+                self.controller!.selectedDevice = nil
             }
         }
     }

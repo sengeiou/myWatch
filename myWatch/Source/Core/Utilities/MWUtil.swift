@@ -30,16 +30,28 @@ class MWUtil
         }
         else
         {
-            fatalError("Could not downcast because the object: \(from.self) is not an instance of: \(ObjectType.self)")
+            fatalError("Could not downcast because the object: \(type(of: from)) is not an instance of: \(ObjectType.self)")
         }
     }
     
-    static func execute(ifNotNil: Any?, execution: @escaping () -> Swift.Void)
+    static func downcastReturn<ObjectType>(from: Any) -> ObjectType
+    {
+        if(from is ObjectType)
+        {
+            return from as! ObjectType
+        }
+        else
+        {
+            fatalError("Could not downcast because the object: \(type(of: from)) is not an instance of: \(ObjectType.self)")
+        }
+    }
+    
+    static func execute<ObjectType>(ifNotNil: ObjectType?, execution: @escaping () -> Swift.Void)
     {
         execute(ifNotNil: ifNotNil, execution: execution, elseExecution: nil)
     }
     
-    static func execute(ifNotNil: Any?, execution: @escaping () -> Swift.Void, elseExecution: (() -> Swift.Void)?)
+    static func execute<ObjectType>(ifNotNil: ObjectType?, execution: @escaping () -> Swift.Void, elseExecution: (() -> Swift.Void)?)
     {
         if(ifNotNil != nil)
         {
@@ -51,15 +63,19 @@ class MWUtil
             {
                 elseExecution!()
             }
+            else if(myWatch.get().debugMode)
+            {
+                MWLError("No executions happened because the specified parameter with type: \(ObjectType.self) was nil and there was no else execution specified.", module: .moduleCore)
+            }
         }
     }
     
-    static func execute(ifNil: Any?, execution: @escaping () -> Swift.Void)
+    static func execute<ObjectType>(ifNil: ObjectType?, execution: @escaping () -> Swift.Void)
     {
         execute(ifNil: ifNil, execution: execution, elseExecution: nil)
     }
     
-    static func execute(ifNil: Any?, execution: @escaping () -> Swift.Void, elseExecution: (() -> Swift.Void)?)
+    static func execute<ObjectType>(ifNil: ObjectType?, execution: @escaping () -> Swift.Void, elseExecution: (() -> Swift.Void)?)
     {
         if(ifNil == nil)
         {
@@ -71,9 +87,9 @@ class MWUtil
             {
                 elseExecution!()
             }
-            else
+            else if(myWatch.get().debugMode)
             {
-                MWLError("No executions happened because the specified parameter was not nil and there was no else execution specified.", module: .moduleCore)
+                MWLError("No executions happened because the specified parameter with type: \(ObjectType.self) was not nil and there was no else execution specified.", module: .moduleCore)
             }
         }
     }

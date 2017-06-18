@@ -11,53 +11,45 @@ import os.log
 //MARK: Logging functions
 func MWLInfo(_ toLog: Any?, module: MWLModule?)
 {
-    if(module != nil)
-    {
-        os_log("%@%@", log: OSLog.default, type: .info, module!.rawValue as CVarArg, toLog as! CVarArg)
-    }
-    else
-    {
-        os_log("%@", log: OSLog.default, type: .info, toLog as! CVarArg)
+    let _toLog: CVarArg = MWUtil.downcastReturn(from: toLog ?? "nil")
+    
+    MWUtil.execute(ifNotNil: module, execution: {
+        os_log("%@%@", log: OSLog.default, type: .info, module!.rawValue as CVarArg, _toLog)
+    }) { 
+        os_log("%@", log: OSLog.default, type: .info, _toLog)
     }
 }
 
 func MWLError(_ toLog: Any?, module: MWLModule?)
 {
-    if(module != nil)
-    {
-        os_log("%@%@%@", log: OSLog.default, type: .error, module!.rawValue as CVarArg, "ERROR: ", toLog as! CVarArg)
-    }
-    else
-    {
-        os_log("%@%@", log: OSLog.default, type: .error, "ERROR: ", toLog as! CVarArg)
+    let _toLog: CVarArg = MWUtil.downcastReturn(from: toLog ?? "nil")
+    
+    MWUtil.execute(ifNotNil: module, execution: {
+        os_log("%@%@%@", log: OSLog.default, type: .error, "ERROR: ", module!.rawValue as CVarArg, _toLog)
+    }) {
+        os_log("%@%@", log: OSLog.default, type: .error, "ERROR: ", _toLog)
     }
 }
 
 func MWLFault(_ toLog: Any?, module: MWLModule?)
 {
-    if(module != nil)
-    {
-        os_log("%@%@%@", log: OSLog.default, type: .fault, module!.rawValue as CVarArg, "FAULT: ", toLog as! CVarArg)
-    }
-    else
-    {
-        os_log("%@%@", log: OSLog.default, type: .fault, "FAULT: ", toLog as! CVarArg)
+    let _toLog: CVarArg = MWUtil.downcastReturn(from: toLog ?? "nil")
+    
+    MWUtil.execute(ifNotNil: module, execution: {
+        os_log("%@%@%@", log: OSLog.default, type: .fault, "FAULT: ", module!.rawValue as CVarArg, _toLog)
+    }) {
+        os_log("%@%@", log: OSLog.default, type: .fault, "FAULT: ", _toLog)
     }
 }
 
 func MWLDebug(_ toLog: Any?, module: MWLModule?)
 {
-    if(module != nil)
-    {
-        os_log("%@%@%@", log: OSLog.default, type: .debug, module!.rawValue as CVarArg, "DEBUG: ", toLog as! CVarArg)
-    }
-    else if(toLog != nil)
-    {
-        os_log("%@%@", log: OSLog.default, type: .debug, "DEBUG: ", toLog as! CVarArg)
-    }
-    else
-    {
-        os_log("%@%@", log: OSLog.default, type: .debug, "DEBUG: ", "nil")
+    let _toLog: CVarArg = MWUtil.downcastReturn(from: toLog ?? "nil")
+    
+    MWUtil.execute(ifNotNil: module, execution: {
+        os_log("%@%@%@", log: OSLog.default, type: .debug, "DEBUG: ", module!.rawValue as CVarArg, _toLog)
+    }) {
+        os_log("%@%@", log: OSLog.default, type: .debug, "DEBUG: ", _toLog)
     }
 }
 
