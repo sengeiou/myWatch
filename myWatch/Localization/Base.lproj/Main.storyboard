@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A264c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X5g-H1-CwQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A264c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vxm-R2-9gi">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -134,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KwP-BZ-3H8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4250.7042253521131" y="-551.25"/>
+            <point key="canvasLocation" x="2446" y="-441"/>
         </scene>
         <!--Language-->
         <scene sceneID="OjA-2H-PEk">
@@ -262,7 +262,7 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mV-o0-Ud8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5076" y="-550.07496251874068"/>
+            <point key="canvasLocation" x="3294" y="-439"/>
         </scene>
         <!--Device Chooser-->
         <scene sceneID="aSR-ef-2X2">
@@ -349,7 +349,7 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MWAFirstLaunchWatch" translatesAutoresizingMaskIntoConstraints="NO" id="agZ-9W-gHB" customClass="MWTintedImageView" customModule="myWatch" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MWAFirstLaunchWatch" translatesAutoresizingMaskIntoConstraints="NO" id="agZ-9W-gHB" customClass="MWImageView" customModule="myWatch" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="11" width="28" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="agZ-9W-gHB" secondAttribute="height" multiplier="1:1" id="1rn-kQ-nSK"/>
@@ -464,7 +464,7 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nBD-r5-Wiu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5908" y="-550.07496251874068"/>
+            <point key="canvasLocation" x="4137" y="-439"/>
         </scene>
         <!--Connecting-->
         <scene sceneID="dJZ-2m-lgE">
@@ -555,7 +555,7 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kLO-yI-Eyg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6792.8000000000002" y="-550.07496251874068"/>
+            <point key="canvasLocation" x="4996" y="-442"/>
         </scene>
         <!--Name Device-->
         <scene sceneID="9ba-Se-54f">
@@ -592,7 +592,7 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="gpZ-jg-CSA" customClass="MWLabel" customModule="myWatch" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="gpZ-jg-CSA" customClass="MWLabel" customModule="myWatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="66" width="343" height="107.5"/>
                                         <string key="text">We have come to the step where we're going to customize your device a little bit. 
 
@@ -679,7 +679,7 @@ You can give it a name to make it more recognizable.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ch-Ui-sj1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7688.8000000000002" y="-550.07496251874068"/>
+            <point key="canvasLocation" x="5852" y="-439"/>
         </scene>
         <!--Apple Health-->
         <scene sceneID="YaG-EX-vQd">
@@ -833,7 +833,7 @@ This way, other apps using Health will be able to read the data that your myWatc
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nmc-14-6cu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8568.7999999999993" y="-550.07496251874068"/>
+            <point key="canvasLocation" x="6697" y="-439"/>
         </scene>
         <!--First Launch - Last-->
         <scene sceneID="h24-YX-zbM">
@@ -910,7 +910,7 @@ This way, other apps using Health will be able to read the data that your myWatc
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <state key="normal" title="CONTINUE"/>
                                 <connections>
-                                    <segue destination="X5g-H1-CwQ" kind="show" identifier="MWSIDFirstLaunchLastToMain" id="tO5-hi-kmw"/>
+                                    <segue destination="CIG-5H-diA" kind="custom" identifier="MWSIDFirstLaunchLastToMain" customClass="MWTabBarControllerSegue" customModule="myWatch" customModuleProvider="target" id="6pn-Qd-rbN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -941,7 +941,7 @@ This way, other apps using Health will be able to read the data that your myWatc
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ce8-oP-eyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9519" y="-550"/>
+            <point key="canvasLocation" x="7542" y="-439"/>
         </scene>
         <!--Steps-->
         <scene sceneID="Akf-4s-DS1">
@@ -955,32 +955,8 @@ This way, other apps using Health will be able to read the data that your myWatc
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DEC-Tt-OBM">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="xCx-mL-hNm">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="23g-Wr-Bup"/>
-                                    <constraint firstAttribute="height" constant="49" id="s9D-l5-AQg"/>
-                                </constraints>
-                                <blurEffect style="dark"/>
-                            </visualEffectView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Lk-s9-bXz">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="g4z-c8-Mld">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="J6e-cM-Zlb"/>
-                                    <constraint firstAttribute="height" constant="64" id="Mhl-jS-2ri"/>
-                                </constraints>
-                                <blurEffect style="dark"/>
-                            </visualEffectView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pedometer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="35" translatesAutoresizingMaskIntoConstraints="NO" id="x6c-DI-fgL">
-                                <rect key="frame" x="16" y="303" width="343" height="60"/>
+                                <rect key="frame" x="16" y="303.5" width="343" height="60"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -988,25 +964,19 @@ This way, other apps using Health will be able to read the data that your myWatc
                         </subviews>
                         <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="7Lk-s9-bXz" firstAttribute="leading" secondItem="niu-cz-6zm" secondAttribute="leading" id="DHj-IW-qhW"/>
                             <constraint firstItem="x6c-DI-fgL" firstAttribute="leading" secondItem="niu-cz-6zm" secondAttribute="leadingMargin" id="ENu-4F-yOI"/>
-                            <constraint firstAttribute="trailing" secondItem="7Lk-s9-bXz" secondAttribute="trailing" id="G6P-l1-Ct0"/>
-                            <constraint firstItem="DEC-Tt-OBM" firstAttribute="leading" secondItem="niu-cz-6zm" secondAttribute="leading" id="Tvn-ki-Uj0"/>
-                            <constraint firstAttribute="bottom" secondItem="DEC-Tt-OBM" secondAttribute="bottom" id="YCN-1n-xCS"/>
-                            <constraint firstItem="7Lk-s9-bXz" firstAttribute="top" secondItem="niu-cz-6zm" secondAttribute="top" id="aZl-d2-8z3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="x6c-DI-fgL" secondAttribute="trailing" id="pxb-PE-mtE"/>
                             <constraint firstItem="x6c-DI-fgL" firstAttribute="centerY" secondItem="niu-cz-6zm" secondAttribute="centerY" id="rJp-Cy-Fcp"/>
-                            <constraint firstAttribute="trailing" secondItem="DEC-Tt-OBM" secondAttribute="trailing" id="u71-Xc-NYG"/>
                             <constraint firstItem="x6c-DI-fgL" firstAttribute="centerX" secondItem="niu-cz-6zm" secondAttribute="centerX" id="xHC-M8-MPq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Pedometer" image="MWATabBarSteps" selectedImage="MWATabBarStepsSelected" id="WZ1-2K-DY9"/>
+                    <navigationItem key="navigationItem" title="Pedometer" id="hIJ-JD-okP"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Llv-2b-3Vk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3274" y="1227"/>
+            <point key="canvasLocation" x="3294" y="1960"/>
         </scene>
         <!--Sleep-->
         <scene sceneID="4Fb-Jx-jSE">
@@ -1020,32 +990,8 @@ This way, other apps using Health will be able to read the data that your myWatc
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATa-Rs-UqU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Kib-BL-Rmq">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="1KZ-1r-8Rd"/>
-                                    <constraint firstAttribute="height" constant="64" id="iZL-s9-v48"/>
-                                </constraints>
-                                <blurEffect style="dark"/>
-                            </visualEffectView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPG-H3-JJd">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="97K-j4-EmF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="JLr-mF-C16"/>
-                                    <constraint firstAttribute="width" constant="375" id="fBA-aR-Nsk"/>
-                                </constraints>
-                                <blurEffect style="dark"/>
-                            </visualEffectView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igX-dM-r07">
-                                <rect key="frame" x="116" y="303" width="143" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igX-dM-r07">
+                                <rect key="frame" x="82" y="303.5" width="211" height="60"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1053,23 +999,17 @@ This way, other apps using Health will be able to read the data that your myWatc
                         </subviews>
                         <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ATa-Rs-UqU" secondAttribute="trailing" id="3QR-SM-Ebc"/>
-                            <constraint firstItem="NPG-H3-JJd" firstAttribute="leading" secondItem="gOY-1X-dyb" secondAttribute="leading" id="Ksf-XM-HUj"/>
                             <constraint firstItem="igX-dM-r07" firstAttribute="centerX" secondItem="gOY-1X-dyb" secondAttribute="centerX" id="TUF-fz-VvT"/>
                             <constraint firstItem="igX-dM-r07" firstAttribute="centerY" secondItem="gOY-1X-dyb" secondAttribute="centerY" id="Z7h-5c-tRd"/>
-                            <constraint firstAttribute="trailing" secondItem="NPG-H3-JJd" secondAttribute="trailing" id="jZ6-6M-oyO"/>
-                            <constraint firstItem="ATa-Rs-UqU" firstAttribute="top" secondItem="gOY-1X-dyb" secondAttribute="top" id="tQR-IO-0EI"/>
-                            <constraint firstAttribute="bottom" secondItem="NPG-H3-JJd" secondAttribute="bottom" id="uFj-MF-GFc"/>
-                            <constraint firstItem="ATa-Rs-UqU" firstAttribute="leading" secondItem="gOY-1X-dyb" secondAttribute="leading" id="uWV-VY-3rp"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sleep" image="MWATabBarSleep" selectedImage="MWATabBarSleepSelected" id="Qtj-6V-W8o"/>
+                    <navigationItem key="navigationItem" title="Bedtime" id="VQw-6C-LFb"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="83S-HN-8eg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4137" y="1227"/>
+            <point key="canvasLocation" x="4137" y="1960"/>
         </scene>
         <!--Alarm-->
         <scene sceneID="6XX-GV-yg6">
@@ -1083,32 +1023,8 @@ This way, other apps using Health will be able to read the data that your myWatc
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2DQ-aD-NSh">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="GKR-Ut-IFw">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="2Na-6c-HCP"/>
-                                    <constraint firstAttribute="height" constant="64" id="RB3-Xl-Vgy"/>
-                                </constraints>
-                                <blurEffect style="dark"/>
-                            </visualEffectView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7X-zQ-YCM">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="xcX-0N-EK9">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="MPz-RM-4Fb"/>
-                                    <constraint firstAttribute="height" constant="49" id="Ntc-4h-JGf"/>
-                                </constraints>
-                                <blurEffect style="dark"/>
-                            </visualEffectView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2um-Gm-Zcf">
-                                <rect key="frame" x="112" y="303" width="152" height="60"/>
+                                <rect key="frame" x="112" y="303.5" width="152" height="60"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1116,99 +1032,64 @@ This way, other apps using Health will be able to read the data that your myWatc
                         </subviews>
                         <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="2DQ-aD-NSh" firstAttribute="top" secondItem="W3X-dV-bmp" secondAttribute="top" id="2Qu-2G-ZLM"/>
-                            <constraint firstItem="F7X-zQ-YCM" firstAttribute="leading" secondItem="W3X-dV-bmp" secondAttribute="leading" id="3wF-8o-Jdw"/>
-                            <constraint firstItem="2DQ-aD-NSh" firstAttribute="leading" secondItem="W3X-dV-bmp" secondAttribute="leading" id="AcN-kD-Lzk"/>
                             <constraint firstItem="2um-Gm-Zcf" firstAttribute="centerY" secondItem="W3X-dV-bmp" secondAttribute="centerY" id="cnU-Oc-leq"/>
-                            <constraint firstAttribute="bottom" secondItem="F7X-zQ-YCM" secondAttribute="bottom" id="deI-AE-cTT"/>
-                            <constraint firstAttribute="trailing" secondItem="2DQ-aD-NSh" secondAttribute="trailing" id="e3T-h1-Ydk"/>
                             <constraint firstItem="2um-Gm-Zcf" firstAttribute="centerX" secondItem="W3X-dV-bmp" secondAttribute="centerX" id="qS1-UI-m9b"/>
-                            <constraint firstAttribute="trailing" secondItem="F7X-zQ-YCM" secondAttribute="trailing" id="qhO-zp-7sp"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Alarm" image="MWATAbBarAlarm" selectedImage="MWATAbBarAlarmSelected" id="j9c-vg-ygM"/>
+                    <navigationItem key="navigationItem" title="Alarm" id="gjd-zV-1bB"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HnQ-Hh-tP1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4951" y="1227"/>
+            <point key="canvasLocation" x="4996" y="1960"/>
         </scene>
         <!--Settings-->
-        <scene sceneID="SsW-iH-96H">
+        <scene sceneID="Sus-bt-zSA">
             <objects>
-                <viewController title="Settings" id="6A2-so-dCV" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SvL-5x-WdE"/>
-                        <viewControllerLayoutGuide type="bottom" id="9cV-Dz-VNS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oVI-uQ-axJ">
+                <tableViewController title="Settings" id="lsa-c2-auh" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="0zc-GX-feL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mP9-cR-u7W">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="LuE-3b-CxE">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="GjO-iF-Mtb"/>
-                                    <constraint firstAttribute="width" constant="375" id="x2A-Ah-KKG"/>
-                                </constraints>
-                                <blurEffect style="dark"/>
-                            </visualEffectView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K6W-G9-i1N">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="e1v-mm-4tx">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="FYO-rP-7ah"/>
-                                    <constraint firstAttribute="height" constant="49" id="hf7-9Y-c1r"/>
-                                </constraints>
-                                <blurEffect style="dark"/>
-                            </visualEffectView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="mP9-cR-u7W" secondAttribute="trailing" id="1tv-XN-1j2"/>
-                            <constraint firstAttribute="trailing" secondItem="K6W-G9-i1N" secondAttribute="trailing" id="989-rg-Y4r"/>
-                            <constraint firstItem="K6W-G9-i1N" firstAttribute="leading" secondItem="oVI-uQ-axJ" secondAttribute="leading" id="AQE-lP-LPb"/>
-                            <constraint firstAttribute="bottom" secondItem="K6W-G9-i1N" secondAttribute="bottom" id="Ziq-C6-8Hm"/>
-                            <constraint firstItem="mP9-cR-u7W" firstAttribute="leading" secondItem="oVI-uQ-axJ" secondAttribute="leading" id="fEH-Pe-AAq"/>
-                            <constraint firstItem="mP9-cR-u7W" firstAttribute="top" secondItem="oVI-uQ-axJ" secondAttribute="top" id="rIv-hB-QcJ"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="MWATabBarSetings" selectedImage="MWATabBarSettingsSelected" id="cTo-YI-Akw"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tRL-ut-pRV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5826" y="1227"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="DtW-GC-kXq">
-            <objects>
-                <tableViewController id="Jbc-pP-gjf" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wqk-Vc-2fE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections/>
+                        <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                        <sections>
+                            <tableViewSection headerTitle="Utilities" id="dnJ-lh-pTc">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MWCIDShowSetupScreen" textLabel="Ehk-vo-dzQ" style="IBUITableViewCellStyleDefault" id="0ko-fv-7W4">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0ko-fv-7W4" id="8fD-q9-7bX">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Show First Launch Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ehk-vo-dzQ">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
-                            <outlet property="dataSource" destination="Jbc-pP-gjf" id="Yq8-Mj-j9m"/>
-                            <outlet property="delegate" destination="Jbc-pP-gjf" id="mcA-it-BmX"/>
+                            <outlet property="dataSource" destination="lsa-c2-auh" id="mau-4D-BPj"/>
+                            <outlet property="delegate" destination="lsa-c2-auh" id="ywR-yg-BAb"/>
                         </connections>
                     </tableView>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <navigationItem key="navigationItem" title="Settings" id="dba-Ir-TrH"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pdf-Oq-c93" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Js6-Wp-TFI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5825" y="1955"/>
+            <point key="canvasLocation" x="5852" y="1960"/>
         </scene>
         <!--Summary-->
         <scene sceneID="DED-K1-cYb">
@@ -1222,32 +1103,8 @@ This way, other apps using Health will be able to read the data that your myWatc
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2KZ-nu-nIS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ht2-Aw-gvy">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="N6r-PP-jcO"/>
-                                    <constraint firstAttribute="height" constant="64" id="Wz8-Hc-wid"/>
-                                </constraints>
-                                <blurEffect style="dark"/>
-                            </visualEffectView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KO0-uL-pbp">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Raf-2K-paY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="Dmy-zh-FfZ"/>
-                                    <constraint firstAttribute="height" constant="49" id="ixy-jX-aw7"/>
-                                </constraints>
-                                <blurEffect style="dark"/>
-                            </visualEffectView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7y-i1-mia">
-                                <rect key="frame" x="111" y="303" width="153" height="60"/>
+                                <rect key="frame" x="111" y="303.5" width="153" height="60"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1256,70 +1113,163 @@ This way, other apps using Health will be able to read the data that your myWatc
                         <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="k7y-i1-mia" firstAttribute="centerX" secondItem="5ZQ-4g-mvv" secondAttribute="centerX" id="8gb-qY-WlT"/>
-                            <constraint firstItem="KO0-uL-pbp" firstAttribute="leading" secondItem="5ZQ-4g-mvv" secondAttribute="leading" id="8gn-EX-iQL"/>
-                            <constraint firstItem="2KZ-nu-nIS" firstAttribute="top" secondItem="5ZQ-4g-mvv" secondAttribute="top" id="HpE-Zt-QZ2"/>
-                            <constraint firstAttribute="trailing" secondItem="KO0-uL-pbp" secondAttribute="trailing" id="MkJ-46-KBT"/>
-                            <constraint firstAttribute="trailing" secondItem="2KZ-nu-nIS" secondAttribute="trailing" id="aew-Dy-dzy"/>
-                            <constraint firstItem="2KZ-nu-nIS" firstAttribute="leading" secondItem="5ZQ-4g-mvv" secondAttribute="leading" id="i8P-fr-88J"/>
                             <constraint firstItem="k7y-i1-mia" firstAttribute="centerY" secondItem="5ZQ-4g-mvv" secondAttribute="centerY" id="iO2-Cn-btI"/>
-                            <constraint firstAttribute="bottom" secondItem="KO0-uL-pbp" secondAttribute="bottom" id="rp6-Lh-pJw"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Today" image="MWATabBarSummary" selectedImage="MWATabBarSummarySelected" id="S5c-39-c9o">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                    </tabBarItem>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationItem key="navigationItem" title="Today" id="bOi-Kc-ZiB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OiX-vY-UjD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2447" y="1227"/>
-        </scene>
-        <!--Main Navigation Controller-->
-        <scene sceneID="xZr-yT-jmx">
-            <objects>
-                <navigationController title="Main Navigation Controller" id="X5g-H1-CwQ" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="yJw-HY-7dk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="CIG-5H-diA" kind="relationship" relationship="rootViewController" id="Bmz-47-fmN"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qMb-AA-4cS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3310" y="419"/>
+            <point key="canvasLocation" x="2446" y="1960"/>
         </scene>
         <!--Main-->
         <scene sceneID="Y14-eJ-Cvk">
             <objects>
                 <tabBarController restorationIdentifier="MWSCIDMain" title="Main" id="CIG-5H-diA" customClass="MWMainTabBarController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Amn-6W-246">
+                    <navigationItem key="navigationItem" title="Main" id="Amn-6W-246">
                         <barButtonItem key="rightBarButtonItem" image="MWARefresh" id="vfx-za-Ue4">
                             <color key="tintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="vax-nc-J0p">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="vax-nc-J0p" customClass="MWTabBar" customModule="myWatch" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="TAy-iM-otP" kind="relationship" relationship="viewControllers" id="ufM-nI-YtA"/>
-                        <segue destination="h4Y-w8-Cxt" kind="relationship" relationship="viewControllers" id="NAn-3O-gQX"/>
-                        <segue destination="z9M-a7-igR" kind="relationship" relationship="viewControllers" id="klv-CZ-Cbl"/>
-                        <segue destination="aKv-Il-izH" kind="relationship" relationship="viewControllers" id="wGz-UP-21V"/>
-                        <segue destination="6A2-so-dCV" kind="relationship" relationship="viewControllers" id="ren-ZP-8ny"/>
+                        <segue destination="aeg-nP-SER" kind="relationship" relationship="viewControllers" id="ySb-Ag-CWv"/>
+                        <segue destination="6tr-FZ-DmZ" kind="relationship" relationship="viewControllers" id="Krj-w1-JgF"/>
+                        <segue destination="ELU-dT-EIJ" kind="relationship" relationship="viewControllers" id="6ZM-Om-ECe"/>
+                        <segue destination="Ftz-3N-Nab" kind="relationship" relationship="viewControllers" id="7za-Ar-cUj"/>
+                        <segue destination="Hw9-lv-hXE" kind="relationship" relationship="viewControllers" id="s7X-y8-Rkf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcC-fe-9n9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4137" y="419"/>
+        </scene>
+        <!--Today-->
+        <scene sceneID="ibc-Ln-5qd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aeg-nP-SER" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Today" image="MWATabBarSummary" selectedImage="MWATabBarSummarySelected" id="S5c-39-c9o" customClass="MWTabBarItem" customModule="myWatch" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hidesTitle" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="elE-0I-ta1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TAy-iM-otP" kind="relationship" relationship="rootViewController" id="Z2j-Hr-dnl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rpb-Ib-2jp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2445.5999999999999" y="1226.5367316341831"/>
+        </scene>
+        <!--Pedometer-->
+        <scene sceneID="wAf-rJ-uQo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6tr-FZ-DmZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pedometer" image="MWATabBarSteps" selectedImage="MWATabBarStepsSelected" id="WZ1-2K-DY9" customClass="MWTabBarItem" customModule="myWatch" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hidesTitle" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="7Tg-Wo-lej">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="h4Y-w8-Cxt" kind="relationship" relationship="rootViewController" id="FNb-eh-dZW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sBz-aO-F18" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3294" y="1227"/>
+        </scene>
+        <!--Bedtime-->
+        <scene sceneID="BxZ-hF-4hh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ELU-dT-EIJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bedtime" image="MWATabBarSleep" selectedImage="MWATabBarSleepSelected" id="Qtj-6V-W8o" customClass="MWTabBarItem" customModule="myWatch" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hidesTitle" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="6YT-P3-Vpy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="z9M-a7-igR" kind="relationship" relationship="rootViewController" id="DRR-th-dFU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nnR-Fh-9ie" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4136.8000000000002" y="1226.5367316341831"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="fdZ-nx-xUe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hw9-lv-hXE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="MWATabBarSetings" selectedImage="MWATabBarSettingsSelected" id="TYs-hV-U18" customClass="MWTabBarItem" customModule="myWatch" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hidesTitle" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="CMl-fM-0bG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lsa-c2-auh" kind="relationship" relationship="rootViewController" id="8Yz-Am-7cL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zo5-zw-keQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5852" y="1227"/>
+        </scene>
+        <!--Alarm-->
+        <scene sceneID="ZUs-JX-ndm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ftz-3N-Nab" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Alarm" image="MWATAbBarAlarm" selectedImage="MWATAbBarAlarmSelected" id="j9c-vg-ygM" customClass="MWTabBarItem" customModule="myWatch" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hidesTitle" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="NKl-l2-DcS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aKv-Il-izH" kind="relationship" relationship="rootViewController" id="nwe-B5-6Fk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EIb-tR-hfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4996" y="1227"/>
         </scene>
     </scenes>
     <resources>
@@ -1329,10 +1279,10 @@ This way, other apps using Health will be able to read the data that your myWatc
         <image name="MWATAbBarAlarmSelected" width="25" height="25"/>
         <image name="MWATabBarSetings" width="25" height="25"/>
         <image name="MWATabBarSettingsSelected" width="25" height="25"/>
-        <image name="MWATabBarSleep" width="25" height="25"/>
-        <image name="MWATabBarSleepSelected" width="25" height="25"/>
-        <image name="MWATabBarSteps" width="25" height="25"/>
-        <image name="MWATabBarStepsSelected" width="25" height="25"/>
+        <image name="MWATabBarSleep" width="33" height="25"/>
+        <image name="MWATabBarSleepSelected" width="33" height="25"/>
+        <image name="MWATabBarSteps" width="29" height="25"/>
+        <image name="MWATabBarStepsSelected" width="29" height="25"/>
         <image name="MWATabBarSummary" width="25" height="25"/>
         <image name="MWATabBarSummarySelected" width="25" height="25"/>
     </resources>

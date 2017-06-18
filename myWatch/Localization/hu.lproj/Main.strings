@@ -99,10 +99,7 @@
 "WZ1-2K-DY9.title" = "Lépésszámláló";
 
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "cTo-YI-Akw"; */
-"cTo-YI-Akw.title" = "Beállítások";
-
-/* Class = "UILabel"; text = "Settings"; ObjectID = "efk-ut-QbB"; */
-"efk-ut-QbB.text" = "Beállítások";
+"TYs-hV-U18.title" = "Beállítások";
 
 /* Class = "UILabel"; text = "Sleep"; ObjectID = "igX-dM-r07"; */
 "igX-dM-r07.text" = "Alvás";
