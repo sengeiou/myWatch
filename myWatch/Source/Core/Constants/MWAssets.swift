@@ -15,6 +15,8 @@ struct MWAssets
     struct Images
     {
         //MARK: Images
+        static let imageNoImage = MWImageAsset(name: prefixAsset + "NoImage")
+        
         static let imageFirstLaunchConnect = MWImageAsset(name: prefixAsset + "FirstLaunchConnect")
         static let imageFirstLaunchDeviceChooser = MWImageAsset(name: prefixAsset + "FirstLaunchDeviceChooser")
         static let imageFirstLaunchExport = MWImageAsset(name: prefixAsset + "FirstLaunchExport")
@@ -45,7 +47,7 @@ class MWImageAsset
         return self.image
     }
     
-    func getImage(inBundle bundle: Bundle, traits: UITraitCollection) -> UIImage?
+    func getImage(inBundle bundle: Bundle?, traits: UITraitCollection?) -> UIImage?
     {
         return UIImage(named: name, in: bundle, compatibleWith: traits)
     }
