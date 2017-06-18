@@ -24,7 +24,6 @@
 		4232F6FC1EBF3B4300511EF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4232F6FB1EBF3B4300511EF0 /* Assets.xcassets */; };
 		4232F7071EBF409400511EF0 /* MWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F7001EBF409400511EF0 /* MWButton.swift */; };
 		4232F70B1EBF409400511EF0 /* MWTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F7041EBF409400511EF0 /* MWTextField.swift */; };
-		4232F70C1EBF409400511EF0 /* MWTintedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F7051EBF409400511EF0 /* MWTintedImageView.swift */; };
 		4232F70D1EBF409400511EF0 /* MWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F7061EBF409400511EF0 /* MWViewController.swift */; };
 		4232F71D1EBF40C000511EF0 /* myWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F71C1EBF40C000511EF0 /* myWatch.swift */; };
 		4232F7201EBF40D500511EF0 /* MWExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F71E1EBF40D500511EF0 /* MWExtensions.swift */; };
@@ -35,6 +34,7 @@
 		4232F72B1EBF40FD00511EF0 /* MWDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F72A1EBF40FD00511EF0 /* MWDevice.swift */; };
 		4232F72D1EBF410B00511EF0 /* MWIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F72C1EBF410B00511EF0 /* MWIO.swift */; };
 		428CA6161E9AD79800B6E8CB /* myWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428CA6151E9AD79800B6E8CB /* myWatchTests.swift */; };
+		42919CA41EF460A000948623 /* MWTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42919CA31EF460A000948623 /* MWTabBar.swift */; };
 		42A135F71EEB56070014C47C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A135F61EEB56070014C47C /* HealthKit.framework */; };
 		42C852FE1EEDC50A0046EF0C /* MWMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C852FD1EEDC50A0046EF0C /* MWMainTabBarController.swift */; };
 		42D21D091ED499EB00CE2C88 /* MWImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D21D081ED499EB00CE2C88 /* MWImageView.swift */; };
@@ -72,7 +72,6 @@
 		4232F6FB1EBF3B4300511EF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resource/Assets.xcassets; sourceTree = "<group>"; };
 		4232F7001EBF409400511EF0 /* MWButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWButton.swift; path = Source/UI/Core/MWButton.swift; sourceTree = "<group>"; };
 		4232F7041EBF409400511EF0 /* MWTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWTextField.swift; path = Source/UI/Core/MWTextField.swift; sourceTree = "<group>"; };
-		4232F7051EBF409400511EF0 /* MWTintedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWTintedImageView.swift; path = Source/UI/Core/MWTintedImageView.swift; sourceTree = "<group>"; };
 		4232F7061EBF409400511EF0 /* MWViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWViewController.swift; path = Source/UI/Core/MWViewController.swift; sourceTree = "<group>"; };
 		4232F71C1EBF40C000511EF0 /* myWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = myWatch.swift; path = Source/Core/myWatch.swift; sourceTree = "<group>"; };
 		4232F71E1EBF40D500511EF0 /* MWExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWExtensions.swift; path = Source/Core/Utilities/MWExtensions.swift; sourceTree = "<group>"; };
@@ -86,6 +85,7 @@
 		428CA6111E9AD79800B6E8CB /* myWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		428CA6151E9AD79800B6E8CB /* myWatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myWatchTests.swift; sourceTree = "<group>"; };
 		428CA6171E9AD79800B6E8CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42919CA31EF460A000948623 /* MWTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWTabBar.swift; path = Source/UI/Core/MWTabBar.swift; sourceTree = "<group>"; };
 		42A135F51EEB56070014C47C /* myWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = myWatch.entitlements; sourceTree = "<group>"; };
 		42A135F61EEB56070014C47C /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		42C852FD1EEDC50A0046EF0C /* MWMainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWMainTabBarController.swift; path = Source/UI/Controllers/MWMainTabBarController.swift; sourceTree = "<group>"; };
@@ -207,6 +207,24 @@
 			path = myWatchTests;
 			sourceTree = "<group>";
 		};
+		42A04D3E1EF7139500BFD7E2 /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				42193DAF1ED099CE00E60C38 /* MWFirstLaunchSegue.swift */,
+				420F48611EDAD870005437F0 /* MWTabBarControllerSegue.swift */,
+			);
+			name = Segues;
+			sourceTree = "<group>";
+		};
+		42A04D3F1EF713A300BFD7E2 /* First Launch */ = {
+			isa = PBXGroup;
+			children = (
+				42239EF61ED027F800E215F5 /* MWFirstLaunchImageBar.swift */,
+				42239EF41ED022F700E215F5 /* MWFirstLaunchViewController.swift */,
+			);
+			name = "First Launch";
+			sourceTree = "<group>";
+		};
 		42B104371EB3CACE00F8F3A7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,14 +263,12 @@
 			children = (
 				42EAD4E11ED21AC500BE9D0B /* MWLabel.swift */,
 				4232F7001EBF409400511EF0 /* MWButton.swift */,
-				4232F7041EBF409400511EF0 /* MWTextField.swift */,
-				4232F7051EBF409400511EF0 /* MWTintedImageView.swift */,
-				4232F7061EBF409400511EF0 /* MWViewController.swift */,
-				42239EF61ED027F800E215F5 /* MWFirstLaunchImageBar.swift */,
-				42239EF41ED022F700E215F5 /* MWFirstLaunchViewController.swift */,
-				42193DAF1ED099CE00E60C38 /* MWFirstLaunchSegue.swift */,
 				42D21D081ED499EB00CE2C88 /* MWImageView.swift */,
-				420F48611EDAD870005437F0 /* MWTabBarControllerSegue.swift */,
+				4232F7041EBF409400511EF0 /* MWTextField.swift */,
+				42919CA31EF460A000948623 /* MWTabBar.swift */,
+				4232F7061EBF409400511EF0 /* MWViewController.swift */,
+				42A04D3F1EF713A300BFD7E2 /* First Launch */,
+				42A04D3E1EF7139500BFD7E2 /* Segues */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -433,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4232F7201EBF40D500511EF0 /* MWExtensions.swift in Sources */,
+				42919CA41EF460A000948623 /* MWTabBar.swift in Sources */,
 				4232F7211EBF40D500511EF0 /* MWUtil.swift in Sources */,
 				42193DA41ED08FD500E60C38 /* MWDeviceChooserController.swift in Sources */,
 				42193DA81ED0901500E60C38 /* MWNameDeviceController.swift in Sources */,
@@ -455,7 +472,6 @@
 				42EAD4E21ED21AC500BE9D0B /* MWLabel.swift in Sources */,
 				42193D9F1ED06F8E00E60C38 /* MWLanguageController.swift in Sources */,
 				4232F72B1EBF40FD00511EF0 /* MWDevice.swift in Sources */,
-				4232F70C1EBF409400511EF0 /* MWTintedImageView.swift in Sources */,
 				4232F7071EBF409400511EF0 /* MWButton.swift in Sources */,
 				42193DAC1ED0906E00E60C38 /* MWFirstLaunchBaseControllers.swift in Sources */,
 				42C852FE1EEDC50A0046EF0C /* MWMainTabBarController.swift in Sources */,
