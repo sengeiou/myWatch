@@ -54,7 +54,7 @@ class MWBTransmitter
         time.append(minute_str.characters.count == 1 ? "0" + minute_str : minute_str)
         time.append(second_str.characters.count == 1 ? "0" + second_str : second_str)
         
-        self.setAttributeTime(communicator: communicator, time: time)
+        setAttributeTime(communicator: communicator, time: time)
     }
     
     static func setAttributeTime(communicator: MWBCommunicator, time: String)

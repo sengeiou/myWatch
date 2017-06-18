@@ -33,6 +33,10 @@ class MWMainTabBarController: UITabBarController
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem)
     {
+        MWUtil.execute(ifNotNil: tabBar.items) { 
+            self.selectedViewController = self.viewControllers?[tabBar.items!.index(of: item) ?? tabBar.items!.count]
+        }
+        
         self.navigationItem.title = item.title
     }
 }

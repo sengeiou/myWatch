@@ -92,44 +92,56 @@ extension UIImageView
 
 extension UIImage
 {
-    func tinted(color: UIColor) -> UIImage
+    func tinted(with color: UIColor) -> UIImage?
     {
-        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        var ret: UIImage?
         
-        let context = UIGraphicsGetCurrentContext()
-        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+        MWUtil.execute(ifNotNil: self.cgImage) {
+            let rect: CGRect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+            
+            UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+            let context: CGContext? = UIGraphicsGetCurrentContext()
+            
+            MWUtil.execute(ifNotNil: context, execution: {
+                context!.translateBy(x: 0, y: self.size.height)
+                context!.scaleBy(x: 1.0, y: -1.0)
+                context!.setBlendMode(.normal)
+                context!.clip(to: rect, mask: self.cgImage!)
+                color.setFill()
+                context!.fill(rect)
+                
+                ret = UIGraphicsGetImageFromCurrentImageContext()
+                
+                UIGraphicsEndImageContext()
+            })
+        }
         
-        context!.translateBy(x: 0, y: self.size.height)
-        context!.scaleBy(x: 1.0, y: -1.0)
-        context!.setBlendMode(.normal)
-        context!.clip(to: rect, mask: self.cgImage!)
-        color.setFill();
-        context!.fill(rect)
-        
-        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-
-        UIGraphicsEndImageContext()
-        
-        return newImage
+        return ret
     }
     
-    func gradientTinted(gradient: MWGradient) -> UIImage
+    func tinted(with gradient: MWGradient) -> UIImage?
     {
-        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        var ret: UIImage?
         
-        let context: CGContext = UIGraphicsGetCurrentContext()!
-        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+        MWUtil.execute(ifNotNil: self.cgImage) {
+            let rect: CGRect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+            
+            UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+            let context: CGContext? = UIGraphicsGetCurrentContext()
+            
+            MWUtil.execute(ifNotNil: context, execution: {
+                context!.translateBy(x: 0, y: self.size.height)
+                context!.scaleBy(x: 1.0, y: -1.0)
+                context!.setBlendMode(.normal)
+                context!.clip(to: rect, mask: self.cgImage!)
+                context!.drawLinearGradient(gradient.cgGradient(), start: CGPoint(x: 0.0, y: 0.0), end: CGPoint(x: 0, y: rect.height), options: CGGradientDrawingOptions(rawValue: 0))
+                
+                ret = UIGraphicsGetImageFromCurrentImageContext()
+                
+                UIGraphicsEndImageContext()
+            })
+        }
         
-        context.translateBy(x: 0, y: self.size.height)
-        context.scaleBy(x: 1.0, y: -1.0)
-        context.setBlendMode(.normal)
-        context.clip(to: rect, mask: self.cgImage!)
-        context.drawLinearGradient(gradient.cgGradient(), start: CGPoint(x: 0.0, y: 0.0), end: CGPoint(x: 0, y: rect.height), options: CGGradientDrawingOptions(rawValue: 0))
-        
-        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        
-        UIGraphicsEndImageContext()
-        
-        return newImage
+        return ret
     }
 }

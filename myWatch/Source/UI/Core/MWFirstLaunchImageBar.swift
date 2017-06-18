@@ -54,13 +54,13 @@ class MWFirstLaunchImageBar: UIStackView
                 for (i, imageView) in self.imageViews.enumerated()
                 {
                     if(i == self.numberOfSelectedImage)
-                        {
+                    {
                         imageView.autoUpdate = false
                         imageView.imageHasAlreadyBeenTinted = true
                         imageView.gradientTinted = false
                         
                         UIView.transition(with: imageView, duration: withDuration, options: .transitionCrossDissolve, animations: {
-                            imageView.image = imageView.tintedImage(withColor: self.unselectedColor)
+                            imageView.image = imageView.image?.tinted(with: self.unselectedColor)
                         }, completion: { (finished: Bool) in
                             imageView.autoUpdate = true
                         })
@@ -72,7 +72,7 @@ class MWFirstLaunchImageBar: UIStackView
                         imageView.gradientTinted = true
                         
                         UIView.transition(with: imageView, duration: withDuration, options: .transitionCrossDissolve, animations: {
-                            imageView.image = imageView.tintedImage(withGradient: self.selectedGradient)
+                            imageView.image = imageView.image?.tinted(with: self.selectedGradient)
                         }, completion: { (finished: Bool) in
                             imageView.autoUpdate = true
                         })
@@ -91,7 +91,7 @@ class MWFirstLaunchImageBar: UIStackView
                     imageView.gradientTinted = false
                     
                     UIView.transition(with: imageView, duration: withDuration, options: .transitionCrossDissolve, animations: {
-                        imageView.image = imageView.tintedImage(withColor: self.unselectedColor)
+                        imageView.image = imageView.image?.tinted(with: self.unselectedColor)
                     }, completion: { (finished: Bool) in
                         imageView.autoUpdate = true
                     })
@@ -109,7 +109,7 @@ class MWFirstLaunchImageBar: UIStackView
                     imageView.gradientTinted = true
                     
                     UIView.transition(with: imageView, duration: withDuration, options: .transitionCrossDissolve, animations: {
-                        imageView.image = imageView.tintedImage(withGradient: self.selectedGradient)
+                        imageView.image = imageView.image?.tinted(with: self.selectedGradient)
                     }, completion: { (finished: Bool) in
                         imageView.autoUpdate = true
                     })

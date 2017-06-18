@@ -26,12 +26,10 @@ class MWIO
     
     static func load<ObjectType>(from file: URL) -> ObjectType?
     {
-        let ret: ObjectType? = NSKeyedUnarchiver.unarchiveObject(withFile: file.path) as? ObjectType
-        
-        if(ret != nil)
+        if let ret: ObjectType = NSKeyedUnarchiver.unarchiveObject(withFile: file.path) as? ObjectType
         {
             MWLInfo("Loading object from: \"\(file.path)\" was successful.", module: .moduleIO)
-            return ret!
+            return ret
         }
         else
         {
