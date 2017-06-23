@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A264c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vxm-R2-9gi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A264c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7NV-O6-Dgf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -79,12 +79,18 @@
                                 </constraints>
                                 <variation key="heightClass=compact-widthClass=compact" spacing="10"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUN-1N-Xan" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUN-1N-Xan" customClass="MWButtonNew" customModule="myWatch" customModuleProvider="target">
                                 <rect key="frame" x="16" y="602" width="343" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="LfH-7f-v1D"/>
                                 </constraints>
-                                <state key="normal" title="LET'S GO!"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="LET'S GO"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="AtY-2f-SuN" kind="custom" identifier="MWSIDFirstLaunchFirstToLanguage" customClass="MWFirstLaunchSegue" customModule="myWatch" customModuleProvider="target" id="6CT-XG-oUK"/>
                                 </connections>
@@ -134,7 +140,75 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KwP-BZ-3H8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2446" y="-441"/>
+            <point key="canvasLocation" x="2446" y="-439"/>
+        </scene>
+        <!--Debug-->
+        <scene sceneID="Wsy-ee-i3h">
+            <objects>
+                <viewController title="Debug" id="7NV-O6-Dgf" customClass="MWDebugController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sRQ-nm-KBM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nja-P8-riz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gP2-V3-gpI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fn7-FS-Veh" customClass="MWButtonNew" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="16" y="275" width="343" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="FeW-a6-mHo"/>
+                                </constraints>
+                                <state key="normal" title="Toggle button below"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                        <color key="value" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonPressed_buttonToggle:" destination="7NV-O6-Dgf" eventType="touchUpInside" id="GL2-Ae-fKe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k60-Ix-bN4" customClass="MWButtonNew" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="16" y="337" width="343" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="oXS-Ez-cbm"/>
+                                </constraints>
+                                <state key="normal" title="Press me!"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Fn7-FS-Veh" firstAttribute="centerX" secondItem="gP2-V3-gpI" secondAttribute="centerX" id="496-yR-Jb9"/>
+                            <constraint firstItem="k60-Ix-bN4" firstAttribute="leading" secondItem="gP2-V3-gpI" secondAttribute="leadingMargin" id="4th-Ny-Bpl"/>
+                            <constraint firstItem="k60-Ix-bN4" firstAttribute="centerX" secondItem="gP2-V3-gpI" secondAttribute="centerX" id="E6R-1H-wHP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fn7-FS-Veh" secondAttribute="trailing" id="JyV-xf-cOE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k60-Ix-bN4" secondAttribute="trailing" id="Nr7-a3-UJC"/>
+                            <constraint firstItem="Fn7-FS-Veh" firstAttribute="centerY" secondItem="gP2-V3-gpI" secondAttribute="centerY" constant="-31" id="PsQ-Ls-oYj"/>
+                            <constraint firstItem="Fn7-FS-Veh" firstAttribute="leading" secondItem="gP2-V3-gpI" secondAttribute="leadingMargin" id="ad8-ux-xUd"/>
+                            <constraint firstItem="k60-Ix-bN4" firstAttribute="centerY" secondItem="gP2-V3-gpI" secondAttribute="centerY" constant="31" id="qpv-Df-Ytp"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="buttonPressMe" destination="k60-Ix-bN4" id="1md-fB-rNM"/>
+                        <outlet property="buttonToggle" destination="Fn7-FS-Veh" id="MDn-es-7Jz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C5M-id-KkT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2446" y="260"/>
         </scene>
         <!--Language-->
         <scene sceneID="OjA-2H-PEk">
@@ -171,7 +245,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="8m7-PO-mnY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="8m7-PO-mnY" customClass="MWLabel" customModule="myWatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="66" width="343" height="193.5"/>
                                         <string key="text">You may have realized that the application is using the English language. This is because either your iPhone's language is set to it or because the app does not support the language your phone is using. 
 
@@ -183,14 +257,13 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                                             <userDefinedRuntimeAttribute type="number" keyPath="style">
                                                 <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="customFontSize" value="YES"/>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="customFont" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <variation key="heightClass=compact-widthClass=compact">
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="But for real now... let's jump right in the setup!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="pLk-s7-U9f">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="But for real now... let's jump right in the setup!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="pLk-s7-U9f" customClass="MWLabel" customModule="myWatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="289.5" width="343" height="43"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1286,5 +1359,5 @@ This way, other apps using Health will be able to read the data that your myWatc
         <image name="MWATabBarSummary" width="25" height="25"/>
         <image name="MWATabBarSummarySelected" width="25" height="25"/>
     </resources>
-    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
