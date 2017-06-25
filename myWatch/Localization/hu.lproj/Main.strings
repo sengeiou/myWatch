@@ -3,7 +3,7 @@
 "2cK-1q-2vY.text" = "Egy pár dolgot be kell állítanunk mielőtt belevághatnánk a közepébe!";
 
 /* Class = "UIButton"; normalTitle = "CONTINUE"; ObjectID = "41L-QY-L84"; */
-"41L-QY-L84.normalTitle" = "KÖVETKEZŐ";
+"41L-QY-L84.normalTitle" = "Igen, szeretném!";
 
 /* Class = "UILabel"; text = "Let's jump right in the app!"; ObjectID = "5hw-wt-GzJ"; */
 "5hw-wt-GzJ.text" = "Vágjunk bele!";
@@ -112,3 +112,24 @@
 
 /* Class = "UILabel"; text = "Pedometer"; ObjectID = "x6c-DI-fgL"; */
 "x6c-DI-fgL.text" = "Lépésszámláló";
+
+/* Class = "UINavigationItem"; title = "Bedtime"; ObjectID = "VQw-6C-LFb"; */
+"VQw-6C-LFb.title" = "Alvás";
+
+/* Class = "UINavigationItem"; title = "Today"; ObjectID = "bOi-Kc-ZiB"; */
+"bOi-Kc-ZiB.title" = "Ma";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "dba-Ir-TrH"; */
+"dba-Ir-TrH.title" = "Beállítások";
+
+/* Class = "UINavigationItem"; title = "Alarm"; ObjectID = "gjd-zV-1bB"; */
+"gjd-zV-1bB.title" = "Ébresztés";
+
+/* Class = "UINavigationItem"; title = "Pedometer"; ObjectID = "hIJ-JD-okP"; */
+"hIJ-JD-okP.title" = "Lépésszámláló";
+
+/* Class = "UILabel"; text = "Would you like to turn on export to\nApple Health?"; ObjectID = "bwk-hO-b4u"; */
+"bwk-hO-b4u.text" = "Szeretnéd exportálni az adatokat az\nEgészség-be?";
+
+/* Class = "UIButton"; normalTitle = "No, thanks"; ObjectID = "G40-hY-xcQ"; */
+"G40-hY-xcQ.normalTitle" = "Nem, köszönöm";
