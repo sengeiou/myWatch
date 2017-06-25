@@ -21,7 +21,6 @@ class MWFirstLaunchFirstController: MWViewController, MWFirstLaunchViewControlle
     //MARK: - Inherited functions from: MWViewController
     override func viewDidLoad()
     {
-        self.firstLaunchViewController = true
         super.viewDidLoad()
     }
 
@@ -54,7 +53,6 @@ class MWFirstLaunchLastController: MWViewController, MWFirstLaunchViewController
     //MARK: - Inherited functions from: MWViewController
     override func viewDidLoad()
     {
-        self.firstLaunchViewController = true
         super.viewDidLoad()
     }
     

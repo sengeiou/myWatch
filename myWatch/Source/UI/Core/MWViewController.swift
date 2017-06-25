@@ -9,9 +9,7 @@
 import UIKit
 
 class MWViewController: UIViewController
-{
-    internal var firstLaunchViewController: Bool = false
-    
+{    
     override var preferredStatusBarStyle: UIStatusBarStyle
     {
         return .lightContent

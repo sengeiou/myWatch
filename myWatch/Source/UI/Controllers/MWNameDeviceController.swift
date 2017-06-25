@@ -36,7 +36,6 @@ class MWNameDeviceController: MWViewController, MWFirstLaunchViewController, UIT
     //MARK: - Inherited functions from: UIViewController
     override func viewDidLoad()
     {
-        self.firstLaunchViewController = true
         super.viewDidLoad()
         
         textFieldDeviceName.delegate = self

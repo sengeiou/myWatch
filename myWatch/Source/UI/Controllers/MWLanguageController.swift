@@ -20,7 +20,6 @@ class MWLanguageController: MWViewController, MWFirstLaunchViewController
     //MARK: - Inherited functions from: MWViewController
     override func viewDidLoad()
     {
-        self.firstLaunchViewController = true
         super.viewDidLoad()
     }
 

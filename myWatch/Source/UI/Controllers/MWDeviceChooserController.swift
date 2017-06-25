@@ -34,7 +34,6 @@ class MWDeviceChooserController: MWViewController, MWFirstLaunchViewController, 
     //MARK: - Inherited functions from: MWViewController
     override func viewDidLoad()
     {
-        self.firstLaunchViewController = true
         super.viewDidLoad()
         
         buttonNext.isEnabled = false
@@ -124,7 +123,7 @@ class MWDeviceChooserController: MWViewController, MWFirstLaunchViewController, 
     
     private func setupBluetooth()
     {
-        myWatch.get().bluetoothCommunicator.initializeBluetooth(withDelegate: self)
+        myWatch.get().bluetoothCommunicator.initializeBluetooth(with: self)
     }
     
     //MARK: Navigation functions

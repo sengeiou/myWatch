@@ -19,7 +19,6 @@ class MWConnectingController: MWViewController, MWFirstLaunchViewController, MWB
     //MARK: - Inherited functions from: MWViewController
     override func viewDidLoad()
     {
-        self.firstLaunchViewController = true
         super.viewDidLoad()
     }
     
@@ -65,7 +64,7 @@ class MWConnectingController: MWViewController, MWFirstLaunchViewController, MWB
     
     func viewControllerDidGetPresented()
     {
-        myWatch.get().bluetoothCommunicator.changeDelegate(to: self)
+        myWatch.get().bluetoothCommunicator.delegate = self
         myWatch.get().bluetoothCommunicator.attemptToConnect(to: device)
     }
 }

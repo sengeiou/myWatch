@@ -14,17 +14,6 @@ class MWMainTabBarController: UITabBarController
     {
         super.viewDidLoad()
     }
-
-    override func viewWillAppear(_ animated: Bool)
-    {
-        MWUtil.execute(ifNotNil: self.tabBar.selectedItem, execution: { 
-            self.navigationItem.title = self.tabBar.selectedItem!.title
-        }) { 
-            MWUtil.execute(ifNotNil: self.tabBar.items, execution: { 
-                self.navigationItem.title = self.tabBar.items![0].title
-            })
-        }
-    }
     
     override func didReceiveMemoryWarning()
     {
@@ -36,7 +25,5 @@ class MWMainTabBarController: UITabBarController
         MWUtil.execute(ifNotNil: tabBar.items) { 
             self.selectedViewController = self.viewControllers?[tabBar.items!.index(of: item) ?? tabBar.items!.count]
         }
-        
-        self.navigationItem.title = item.title
     }
 }
