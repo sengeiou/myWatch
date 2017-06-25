@@ -29,7 +29,6 @@
 		4232F7211EBF40D500511EF0 /* MWUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F71F1EBF40D500511EF0 /* MWUtil.swift */; };
 		4232F7271EBF40F100511EF0 /* MWBCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F7241EBF40F100511EF0 /* MWBCommunicator.swift */; };
 		4232F7281EBF40F100511EF0 /* MWBCommunicatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F7251EBF40F100511EF0 /* MWBCommunicatorDelegate.swift */; };
-		4232F7291EBF40F100511EF0 /* MWBTransmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F7261EBF40F100511EF0 /* MWBTransmitter.swift */; };
 		4232F72B1EBF40FD00511EF0 /* MWDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F72A1EBF40FD00511EF0 /* MWDevice.swift */; };
 		4232F72D1EBF410B00511EF0 /* MWIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F72C1EBF410B00511EF0 /* MWIO.swift */; };
 		428CA6161E9AD79800B6E8CB /* myWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428CA6151E9AD79800B6E8CB /* myWatchTests.swift */; };
@@ -77,7 +76,6 @@
 		4232F71F1EBF40D500511EF0 /* MWUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWUtil.swift; path = Source/Core/Utilities/MWUtil.swift; sourceTree = "<group>"; };
 		4232F7241EBF40F100511EF0 /* MWBCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWBCommunicator.swift; path = Source/Core/Bluetooth/MWBCommunicator.swift; sourceTree = "<group>"; };
 		4232F7251EBF40F100511EF0 /* MWBCommunicatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWBCommunicatorDelegate.swift; path = Source/Core/Bluetooth/MWBCommunicatorDelegate.swift; sourceTree = "<group>"; };
-		4232F7261EBF40F100511EF0 /* MWBTransmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWBTransmitter.swift; path = Source/Core/Bluetooth/MWBTransmitter.swift; sourceTree = "<group>"; };
 		4232F72A1EBF40FD00511EF0 /* MWDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWDevice.swift; path = Source/Core/Device/MWDevice.swift; sourceTree = "<group>"; };
 		4232F72C1EBF410B00511EF0 /* MWIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWIO.swift; path = Source/Core/File/MWIO.swift; sourceTree = "<group>"; };
 		424C77651EFFF92E00726A5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localization/en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -307,7 +305,6 @@
 			children = (
 				4232F7241EBF40F100511EF0 /* MWBCommunicator.swift */,
 				4232F7251EBF40F100511EF0 /* MWBCommunicatorDelegate.swift */,
-				4232F7261EBF40F100511EF0 /* MWBTransmitter.swift */,
 			);
 			name = Bluetooth;
 			sourceTree = "<group>";
@@ -475,7 +472,6 @@
 				4232F72B1EBF40FD00511EF0 /* MWDevice.swift in Sources */,
 				42193DAC1ED0906E00E60C38 /* MWFirstLaunchBaseControllers.swift in Sources */,
 				42C852FE1EEDC50A0046EF0C /* MWMainTabBarController.swift in Sources */,
-				4232F7291EBF40F100511EF0 /* MWBTransmitter.swift in Sources */,
 				4232F70D1EBF409400511EF0 /* MWViewController.swift in Sources */,
 				42E0621D1ED997BF000DF7ED /* MWConnectingController.swift in Sources */,
 			);

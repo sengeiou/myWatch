@@ -8,18 +8,26 @@
 
 import UIKit
 
+/// Holds all the defaults that the application uses.
 struct MWDefaults
-{    
+{
+    /// Application-related defaults.
     struct Application
     {
         static let applicationName = "myWatch"
     }
     
+    //MARK: -
+    
+    /// Bluetooth-related defaults.
     struct Bluetooth
     {
         static let defaultDeviceName = "E-Band"
     }
     
+    //MARK: -
+    
+    /// Default colors.
     struct Colors
     {
         static let defaultTintColor: UIColor = UIColor(red: 0.0, green: 1.0, blue: 0.7137, alpha: 1.0)
@@ -29,11 +37,17 @@ struct MWDefaults
         static let defaultTextFieldColor = UIColor(red: 0.121, green: 0.121, blue: 0.121, alpha: 1.0)
     }
     
+    //MARK: -
+    
+    /// Default gradients.
     struct Gradients
     {
         static let defaultGradient: MWGradient = MWGradient(colors: Colors.defaultTintColor, Colors.alternativeTintColor)
     }
     
+    //MARK: -
+    
+    /// Animation-related defaults.
     struct Animation
     {
         static let defaultFramesPerSecond: Double = 60.0

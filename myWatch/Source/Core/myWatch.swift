@@ -8,19 +8,37 @@
 
 import UIKit
 
+/// The application's main class.
 class myWatch
 {
+    //MARK: Instance variables
+    
+    /// The shared settings of the application.
+    ///
+    /// - See: `MWSettings` for more details.
+    var settings: MWSettings = MWSettings()
+    
+    /// The main Bluetooth communicator of the application.
+    var bluetoothCommunicator: MWBCommunicator = MWBCommunicator()
+   
+    /// The boolean which identicates whether debug mode should be used in the application.
+    var debugMode: Bool = false
+
+    //MARK: Static variables
+    
+    /// The singleton instance of the `myWatch` class.
     private static var instance: myWatch = myWatch()
     
-    //MARK: Member variables
-    var settings: MWSettings = MWSettings()
-    var bluetoothCommunicator: MWBCommunicator = MWBCommunicator()
-    var debugMode: Bool = false
+    //MARK: Initializers
     
-    //MARK: Instance functions
+    /// Required for the singleton instance.
     private init() {}
 
     //MARK: Static functions
+    
+    /// Used to retrieve the singleton instance of `myWatch`.
+    ///
+    /// - Returns: The singleton instance of `myWatch`.
     static func get() -> myWatch
     {
         return instance
@@ -29,17 +47,20 @@ class myWatch
 
 //MARK: -
 @UIApplicationMain
-internal class myWatchApplicationDelegate: UIResponder, UIApplicationDelegate
+fileprivate class MWApplicationDelegate: UIResponder, UIApplicationDelegate
 {
-    //MARK: Member variables
+    //MARK: Instance variables
+    
+    /// The `UIWindow` of the application.
+    ///
+    /// Required for `UIApplicationDelegate`.
     var window: UIWindow?
-    private let main: myWatch = myWatch.get()
     
     //MARK: - Inherited functions from: UIApplicationDelegate
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
         //launchSetup()
-        //main.debugMode = true
+        myWatch.get().debugMode = false
         return true
     }
     
@@ -67,15 +88,24 @@ internal class myWatchApplicationDelegate: UIResponder, UIApplicationDelegate
     
     internal func applicationWillTerminate(_ application: UIApplication)
     {
-        MWIO.save(main.settings, to: MWFileLocations.settingsFile)
+        MWIO.save(myWatch.get().settings, to: MWFileLocations.settingsFile)
     }
     
-    //MARK: Private functions
+    //MARK: Instance functions
+    
+    /// Determines whether the application is launched for the first time.
+    ///
+    /// If the application is launched for the first time, it prepares the first launch.
+    ///
+    /// If the application is not launched for the first time, it loads the settings and prepares a regular launch.
     private func launchSetup()
     {
+        //Attempt ot load the settings
         let loadedSettings: MWSettings? = MWIO.load(from: MWFileLocations.defaultSaveLocation)
         
-        MWUtil.execute(ifNil: loadedSettings, execution: { 
+        //Check whether the load was successful
+        MWUtil.execute(ifNil: loadedSettings, execution: {
+            //If it was not, create the myWatch directory and settings file
             if(!FileManager().fileExists(atPath: MWFileLocations.defaultSaveLocation.path))
             {
                 do
@@ -88,45 +118,69 @@ internal class myWatchApplicationDelegate: UIResponder, UIApplicationDelegate
                 }
             }
             
-            self.main.settings = MWSettings()
+            //Create an empty settings instance
+            myWatch.get().settings = MWSettings()
             
+            //Prepare for the first launch
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let firstLaunchViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: MWIdentifiers.SceneIdentifiers.firstLaunchFirst)
             
             self.window!.rootViewController = firstLaunchViewController
-        }) { 
-            self.main.settings = loadedSettings!
+        }) {
+            //If it was, set the settings to the loaded settings.
+            myWatch.get().settings = loadedSettings!
         }
     }
 }
 
 //MARK: -
+
+/// The shared settings of the application.
+///
+/// Written to an own settings file upon termination.
+///
+/// Attempted to be read from the file upon lauch.
+///
+/// The success of the reading process determines whether the application is launched for the first time.
+///
+/// - See: `launchSetup()` in `MWApplicationDelegate`.
 internal class MWSettings: NSObject, NSCoding
 {
-    //MARK: Member variables
+    //MARK: Instance variables
+    
+    /// Holds the current device that the application uses to retrieve its data.
     var currentDevice: MWDevice!
+    
+    /// Holds a boolean which determines whether the application should be exporting its data to Apple Health.
     var exportToAppleHealth: Bool = false
     
-    //MARK: Instance functions
+    //MARK: - Inherited intializers fomr: NSCoding
+    required init?(coder aDecoder: NSCoder)
+    {
+        //Decode properties
+        self.currentDevice = aDecoder.decodeObject(forKey: PropertyKey.currentDevice) as! MWDevice
+        self.exportToAppleHealth = aDecoder.decodeObject(forKey: PropertyKey.exportToAppleHealth) as! Bool
+    }
+    
+    //MARK: Initializers
+    
+    /// Basic initializer for creating an empty instance for first launch.
     override init()
     {
         /* No-operation */
     }
     
-    //MARK: - Coding
-    required init?(coder aDecoder: NSCoder)
-    {
-        self.currentDevice = aDecoder.decodeObject(forKey: PropertyKey.currentDevice) as! MWDevice
-        self.exportToAppleHealth = aDecoder.decodeObject(forKey: PropertyKey.exportToAppleHealth) as! Bool
-    }
-    
+    //MARK: Inherited functions from: NSCoding
     func encode(with aCoder: NSCoder)
     {
+        //Encode properties
         aCoder.encode(currentDevice, forKey: PropertyKey.currentDevice)
         aCoder.encode(exportToAppleHealth, forKey: PropertyKey.exportToAppleHealth)
     }
     
     //MARK: -
+    
+    /// The structure which holds the property names used in the files to identify the properties of this object.
     private struct PropertyKey
     {
         //MARK: Property keys

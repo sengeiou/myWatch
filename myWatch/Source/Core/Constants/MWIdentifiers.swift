@@ -8,35 +8,42 @@
 
 import Foundation
 
+/// Holds all the identifiers in the application that are used programatically.
 struct MWIdentifiers
 {
+    //MARK: Prefixes
+    
+    /// The prefix used for all segue identifiers.
     private static let prefixSegueID = "MWSID"
+    
+    /// The prefix used for all scene identifiers.
     private static let prefixSceneID = "MWSCID"
+    
+    /// The prefix used for all table view cell identifiers.
     private static let prefixCellID = "MWCID"
     
+    //MARK: -
+    
+    /// The table view cell identifiers used programatically in the application.
     struct CellIdentifiers
     {
         static let deviceChooserDeviceCell = prefixCellID + "DeviceChooserDeviceCell"
     }
     
+    //MARK: -
+    
+    /// The segue identifiers used programatically in the application.
     struct SegueIdentifiers
     {
-        static let firstLaunchFirstToLanguage = prefixSegueID + "FirstLaunchFirstToLanguage"
-        static let languageToDeviceChooser = prefixSegueID + "LanguageToDeviceChooser"
-        static let deviceChooserToConnecting = prefixSegueID + "DeviceChooserToConnecting"
         static let connectingToNameDevice = prefixSegueID + "ConnectingToNameDevice"
-        static let nameDeviceToFirstLaunchLast = prefixSegueID + "NameDeviceToFirstLaunchLast"
-        static let firstLaunchLastToMain = prefixSegueID + "FirstLaunchLastToMain"
+        static let appleHealthToFirstLaunchLast = prefixSegueID + "AppleHealthToFirstLaunchLast"
     }
     
+    //MARK: -
+    
+    /// The scene identifiers used programatically in the application.
     struct SceneIdentifiers
     {
         static let firstLaunchFirst = prefixSceneID + "FirstLaunchFirst"
-        static let language = prefixSceneID + "Language"
-        static let deviceChooser = prefixSceneID + "DeviceChooser"
-        static let connecting = prefixSceneID + "Connecting"
-        static let nameDevice = prefixSceneID + "NameDevice"
-        static let firstLaunchLast = prefixSceneID + "FirstLaunchLast"
-        static let main = prefixSceneID + "Main"
     }
 }

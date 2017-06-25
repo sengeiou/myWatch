@@ -8,13 +8,19 @@
 
 import UIKit
 
+/// Holds all the assets that are instantiated programatically by the application.
 struct MWAssets
 {
+    //MARK: Prefixes
+    
+    /// The prefix all asset names use.
     private static let prefixAsset = "MWA"
     
+    //MARK: -
+    
+    /// Holds all the image assets that are instantiated programatically by the application.
     struct Images
     {
-        //MARK: Images
         static let imageNoImage = MWImageAsset(name: prefixAsset + "NoImage")
         
         static let imageFirstLaunchConnect = MWImageAsset(name: prefixAsset + "FirstLaunchConnect")
@@ -25,29 +31,44 @@ struct MWAssets
     }
 }
 
+//MARK: -
+
+/// Represents an image asset.
+///
+/// The main focus of this small class is on `getImage(inBundle:traits:)`
 class MWImageAsset
 {
-    private var name: String
-    private var image: UIImage?
+    //MARK: Instance variables
     
+    /// The name of the image asset.
+    var name: String
+    
+    /// The image this class represents.
+    var image: UIImage?
+    
+    //MARK: - Initializers
+    
+    /// Makes an `MWImageAsset` instance out of the given parameters.
+    ///
+    /// - Parameter name: The name of the image this asset represents.
     init(name: String)
     {
+        //Store the name and make the image out of the name
         self.name = name
         self.image = UIImage(named: name)
     }
     
-
-    func getName() -> String
-    {
-        return self.name
-    }
-
-    func getImage() -> UIImage?
-    {
-        return self.image
-    }
+    //MARK: Instance functions
     
-    func getImage(inBundle bundle: Bundle?, traits: UITraitCollection?) -> UIImage?
+    /// When instantiating an image programatically, it must be instantiated using initializer `UIImage.init(named:in:compatibleWith)`, else it will not load an image and returns nil.
+    ///
+    /// This function was meant to be used to get the image that this class represents.
+    ///
+    /// - Parameters:
+    ///   - bundle: The bundle the image is located in.
+    ///   - traits: The traits this image is compatible with.
+    /// - Returns: An optional which is supposed to contain the image this class represents.
+    func getImage(in bundle: Bundle?, traits: UITraitCollection?) -> UIImage?
     {
         return UIImage(named: name, in: bundle, compatibleWith: traits)
     }
