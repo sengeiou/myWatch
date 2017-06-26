@@ -43,7 +43,7 @@ class MWTabBarControllerSegue: UIStoryboardSegue
         UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseInOut, animations: {
             window.backgroundColor = destinationBackgroundColor
             
-            sourceView.frame = sourceView.frame.offsetBy(dx: -(window.frame.width / 3), dy: 0)
+            sourceView.frame = sourceView.frame.offsetBy(dx: -(window.frame.width / 2), dy: 0)
             sourceView.alpha = 0.0
         }) { (finished: Bool) in
             UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseOut, animations: {

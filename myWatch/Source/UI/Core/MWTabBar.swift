@@ -25,13 +25,11 @@ class MWTabBar: UITabBar
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        initialize()
     }
     
     required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
-        initialize()
     }
     
     //This function is called whenever we change the contents of "items" in UITabBar or whenever we need to update the layout of the items.
@@ -111,11 +109,6 @@ class MWTabBar: UITabBar
         _items = items
     }
     
-    private func initialize()
-    {
-        
-    }
-    
     private func makeInitialButtons(_ items: [UITabBarItem])
     {
         for item in items
@@ -125,10 +118,7 @@ class MWTabBar: UITabBar
                 let _item: MWTabBarItem = item as! MWTabBarItem
                 let button: MWTabBarButton = MWTabBarButton(tabBar: self, tabBarItem: _item)
                 
-                button.addTarget(self, action: #selector(highlight(sender:)), for: .touchDown)
                 button.addTarget(self, action: #selector(releaseSelect(sender:)), for: .touchUpInside)
-                button.addTarget(self, action: #selector(releaseNoSelect(sender:)), for: .touchUpOutside)
-                button.addTarget(self, action: #selector(releaseNoSelect(sender:)), for: .touchDragExit)
                 
                 self.addSubview(button)
                 self.buttons.append(button)
@@ -201,7 +191,6 @@ class MWTabBar: UITabBar
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                             self.buttons[at!].removeFromSuperview()
-                            self.buttons.remove(at: at!)
                         })
                         
                         break
@@ -229,34 +218,19 @@ class MWTabBar: UITabBar
     {
         let button: MWTabBarButton = MWTabBarButton(tabBar: self, tabBarItem: item)
         
-        button.addTarget(self, action: #selector(highlight(sender:)), for: .touchDown)
         button.addTarget(self, action: #selector(releaseSelect(sender:)), for: .touchUpInside)
-        button.addTarget(self, action: #selector(releaseNoSelect(sender:)), for: .touchUpOutside)
-        button.addTarget(self, action: #selector(releaseNoSelect(sender:)), for: .touchDragExit)
         
         self.addSubview(button)
         self.buttons.insert(button, at: at)
     }
     
-    @objc private func highlight(sender: MWTabBarButton)
-    {
-        sender.highlight(sender: sender)
-    }
-    
     @objc private func releaseSelect(sender: MWTabBarButton)
     {
-        sender.release(sender: sender)
-        
         selectedButtton?.isSelected = false
         sender.isSelected = true
         selectedButtton = sender
         
         self.delegate?.tabBar?(self, didSelect: sender.tabBarItem)
-    }
-    
-    @objc private func releaseNoSelect(sender: MWTabBarButton)
-    {
-        sender.release(sender: sender)
     }
 }
 
@@ -333,8 +307,8 @@ class MWTabBarButton: UIControl
     private var selectedColor: UIColor!
     private var unselectedColor: UIColor!
     
-    private var originalImageViewFrame: CGRect?
-    private var originalLabelFrame: CGRect?
+    private var originalImageViewFrame: CGRect!
+    private var originalLabelFrame: CGRect!
     
     //This initializer is the only one that gets used.
     //It will create a button from the given parameters:
@@ -365,7 +339,7 @@ class MWTabBarButton: UIControl
     {
         //Construct variables
         self.imageView = MWImageView()
-        self.image = tabBarItem.image ?? MWAssets.Images.imageNoImage.getImage(inBundle: Bundle(for: type(of: self)), traits: self.traitCollection)
+        self.image = tabBarItem.image ?? MWAssets.Images.imageNoImage.getImage(in: Bundle(for: type(of: self)), traits: self.traitCollection)
         self.selectedImage = tabBarItem.selectedImage ?? tabBarItem.image
         
         if(!tabBarItem.hidesTitle)
@@ -399,22 +373,6 @@ class MWTabBarButton: UIControl
         }
         
         self.addSubview(imageView)
-    }
-    
-    fileprivate func highlight(sender: MWTabBarButton)
-    {
-        originalImageViewFrame = imageView.frame
-        
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
-            self.imageView.frame = CGRect(x: (self.frame.width - (0.75 * self.imageView.frame.width)) / 2, y: (self.frame.height - (0.75 * self.imageView.frame.height)) / 2, width: 0.75 * self.imageView.frame.width, height: 0.75 * self.imageView.frame.height)
-        }, completion: nil)
-    }
-    
-    fileprivate func release(sender: MWTabBarButton)
-    {
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
-            self.imageView.frame = self.originalImageViewFrame ?? CGRect(x: (self.frame.width - 25) / 2, y: (self.frame.height - 25) / 2, width: 25, height: 25)
-        }, completion: nil)
     }
 }
 

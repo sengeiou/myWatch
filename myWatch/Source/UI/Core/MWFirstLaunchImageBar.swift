@@ -129,11 +129,11 @@ class MWFirstLaunchImageBar: UIStackView
         
         imageViews.removeAll()
         
-        setupImage(MWAssets.Images.imageFirstLaunchLanguage.getImage(inBundle: Bundle(for: type(of: self)), traits: self.traitCollection))
-        setupImage(MWAssets.Images.imageFirstLaunchDeviceChooser.getImage(inBundle: Bundle(for: type(of: self)), traits: self.traitCollection))
-        setupImage(MWAssets.Images.imageFirstLaunchConnect.getImage(inBundle: Bundle(for: type(of: self)), traits: self.traitCollection))
-        setupImage(MWAssets.Images.imageFirstLaunchNameDevice.getImage(inBundle: Bundle(for: type(of: self)), traits: self.traitCollection))
-        setupImage(MWAssets.Images.imageFirstLaunchExport.getImage(inBundle: Bundle(for: type(of: self)), traits: self.traitCollection))
+        setupImage(MWAssets.Images.imageFirstLaunchLanguage.getImage(in: Bundle(for: type(of: self)), traits: self.traitCollection))
+        setupImage(MWAssets.Images.imageFirstLaunchDeviceChooser.getImage(in: Bundle(for: type(of: self)), traits: self.traitCollection))
+        setupImage(MWAssets.Images.imageFirstLaunchConnect.getImage(in: Bundle(for: type(of: self)), traits: self.traitCollection))
+        setupImage(MWAssets.Images.imageFirstLaunchNameDevice.getImage(in: Bundle(for: type(of: self)), traits: self.traitCollection))
+        setupImage(MWAssets.Images.imageFirstLaunchExport.getImage(in: Bundle(for: type(of: self)), traits: self.traitCollection))
     }
     
     private func setupImage(_ image: UIImage?)

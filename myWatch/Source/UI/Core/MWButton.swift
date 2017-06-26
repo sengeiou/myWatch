@@ -36,8 +36,6 @@ class MWButton: UIButton
             {
                 _style = MWButtonStyle(rawValue: style - 1)!
             }
-            
-            _init()
         }
     }
     
@@ -64,13 +62,7 @@ class MWButton: UIButton
         }
     }
     
-    /// This variable holds a boolean which determines whether a custom font could be used for a button or not.
-    ///
-    /// If false, the button will use a default font.
-    ///
-    /// If true, the button will use the font specified in Interface Builder.
-    ///
-    /// - See: `_init()` for more information on the font used.
+    /// The font size the button uses for its title label.
     @IBInspectable var fontSize: CGFloat = 20.0
     {
         didSet
@@ -151,27 +143,6 @@ class MWButton: UIButton
         }
     }
     
-    /// Holds the current color of the button.
-    ///
-    /// Whenever the button state is updated, we change this variable to change the entire look of the button.
-    ///
-    /// This is possible, because whenever we change this variable `_init()` gets called which recolors and remakes the button.
-    ///
-    /// The `_init()` method can be called by two sources which need to recolor the button.
-    ///
-    /// The first one is the `color` variable which holds the overall color of the button in its normal state.
-    /// When we change this variable, we have to recolor, because we likely change its value from Interface Builder and we have to make the changes to the button, otherwise the custom set color would not be set as the button's color (not just in Interface Builder, but even in runtime).
-    ///
-    /// The second one is the `currentColor` variable itself which may only be changed whenever we highlight or disable the button.
-    /// We must recolor again, because we need to see the coloring changes upon disabling or highlighting the button.
-    private var currentColor: UIColor?
-    {
-        didSet
-        {
-            _init()
-        }
-    }
-    
     /// This variable holds the button's color for the selected state.
     /// It will dynamically be calculated from the `color` variable whenever `_init()` is called.
     private var selectedColor: UIColor!
@@ -198,15 +169,9 @@ class MWButton: UIButton
     
     /// Our own initializer method designated to recolor and remake the button.
     ///
-    /// It is called whenever we change one of the IBInspectable variables or whenever we have to recolor or remake the button. For example, when its state is changed.
-    ///
-    /// Beacuse recoloring can be from two different sources (see `currentColor` above), the method is designed to use the `color` variable if `currentColor` is nil.
-    ///
-    /// `currentColor` is nil by default and is given a value when we animate. This way we can actually tell where the method was called from.
+    /// It is called whenever we change one of the IBInspectable variables or whenever we change the button's style.
     private func _init()
     {
-        toggleHighlight()
-        
         //Calculate the selected color from the normal color.
         selectedColor = color.adding(0.3)
         
@@ -217,16 +182,18 @@ class MWButton: UIButton
             //Make the border
             self.layer.cornerRadius = self.frame.height / 8
             self.layer.borderWidth = 1.5
-            self.layer.borderColor = currentColor?.cgColor ?? color.cgColor
+
+            //Set the colors
+            update()
             
             //Set the title label's font
             self.titleLabel?.font = UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightRegular)
             
             //Set title label colors for each state.
-            self.setTitleColor(currentColor ?? color, for: .normal)
-            self.setTitleColor(currentColor ?? color, for: .highlighted)
-            self.setTitleColor(currentColor ?? color, for: .selected)
-            self.setTitleColor(currentColor ?? color, for: [.highlighted, .selected])
+            self.setTitleColor(color, for: .normal)
+            self.setTitleColor(selectedColor, for: .highlighted)
+            self.setTitleColor(selectedColor, for: .selected)
+            self.setTitleColor(selectedColor, for: [.highlighted, .selected])
             
             self.setTitleColor(disabledColor, for: .disabled)
             
@@ -239,8 +206,8 @@ class MWButton: UIButton
             //Make the rounded corners
             self.layer.cornerRadius = self.frame.height / 8
             
-            //Set the background
-            self.layer.backgroundColor = currentColor?.cgColor ?? self.color.cgColor
+            //Set the colors
+            update()
             
             //Set the title label's font
             self.titleLabel?.font = UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightRegular)
@@ -260,6 +227,7 @@ class MWButton: UIButton
             //Reset the button
             self.layer.cornerRadius = 0.0
             self.layer.borderWidth = 0.0
+            
             self.layer.borderColor = UIColor.clear.cgColor
             self.layer.backgroundColor = UIColor.clear.cgColor
             
@@ -267,10 +235,10 @@ class MWButton: UIButton
             self.titleLabel?.font = UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightRegular)
             
             //Set the color of the title label for each state
-            self.setTitleColor(currentColor ?? color, for: .normal)
-            self.setTitleColor(currentColor ?? color, for: .highlighted)
-            self.setTitleColor(currentColor ?? color, for: .selected)
-            self.setTitleColor(currentColor ?? color, for: [.highlighted, .selected])
+            self.setTitleColor(color, for: .normal)
+            self.setTitleColor(selectedColor, for: .highlighted)
+            self.setTitleColor(selectedColor, for: .selected)
+            self.setTitleColor(selectedColor, for: [.highlighted, .selected])
             
             self.setTitleColor(disabledColor, for: .disabled)
             
@@ -297,21 +265,23 @@ class MWButton: UIButton
         if(self.isEnabled)
         {
             UIView.transition(with: self, duration: 0.1, options: .transitionCrossDissolve, animations: {
-                self.currentColor = self.color
+                self.update()
             }, completion: nil)
             
         }
         else
         {
             UIView.transition(with: self, duration: 0.1, options: .transitionCrossDissolve, animations: {
-                self.currentColor = self.disabledColor
+                self.update()
             }, completion: nil)
         }
     }
     
     /// Updates the look of the button based on the `isHighlighted` variable.
     ///
-    /// Called whenever the `isHighlighted` variable changes its value.
+    /// Called from `_init()` to set the button's look to highlighted without animation, or whenever the `isHighlighted` variable changes its value.
+    ///
+    /// If the case is the latter, the alpha update is animated.
     ///
     /// It transitions to the correct look based on whether the button is highlighted or not.
     ///
@@ -320,13 +290,15 @@ class MWButton: UIButton
     {
         if(self.isHighlighted)
         {
-            UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseIn, animations: {
-                self.alpha = 0.5
+            UIView.transition(with: self, duration: 0.1, options: .transitionCrossDissolve, animations: {
+                self.update()
+                self.alpha = 0.25
             }, completion: nil)
         }
         else
         {
-            UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
+            UIView.transition(with: self, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.update()
                 self.alpha = 1.0
             }, completion: nil)
         }
@@ -345,15 +317,82 @@ class MWButton: UIButton
         if(self.isSelected)
         {
             UIView.transition(with: self, duration: 0.1, options: .transitionCrossDissolve, animations: {
-                self.currentColor = self.selectedColor
-                self.alpha = 1.0
+                self.update()
             }, completion: nil)
         }
         else
         {
             UIView.transition(with: self, duration: 0.1, options: .transitionCrossDissolve, animations: {
-                self.currentColor = self.color
+                self.update()
             }, completion: nil)
+        }
+    }
+    
+    /// Updates the colors of the button's based on the button's style and state.
+    ///
+    /// Called from `_init()` to initialize the colors for the first time, but it is also called from `toggleEnable()` and `toggleSelect()` to update the colors of the button real time.
+    ///
+    /// Highlight updates are not in this function, because the highlighted look is the same for all button styles (decreased alpha value).
+    ///
+    /// - See: `toggleHighlight(_:)` for more details.
+    private func update()
+    {
+        //Switch between the button styles
+        switch _style
+        {
+        //When the style is ".empty", we only update the button's border color
+        case .empty:
+            //Update the color for the enabled state
+            if(self.isEnabled)
+            {
+                //If enabled, check if the button is selected
+                if(self.isSelected || self.isHighlighted)
+                {
+                    //If selected or highlighted, set the color to the selected color
+                    self.layer.borderColor = selectedColor.cgColor
+                }
+                else
+                {
+                    //If it is not selected, set the color to the normal color
+                    self.layer.borderColor = color.cgColor
+                }
+            }
+            else
+            {
+                //If disabled, set the color to the disabled color
+                self.layer.borderColor = disabledColor.cgColor
+            }
+            
+            break
+            
+        //When the style is ".filled", we only update the background color of the button's layer
+        case .filled:
+            //Check if button is enabled
+            if(self.isEnabled)
+            {
+                //If enabled, check if the button is selected
+                if(self.isSelected || self.isHighlighted)
+                {
+                    //If selected or highlighted, set the color to the selected color
+                    self.layer.backgroundColor = selectedColor.cgColor
+                }
+                else
+                {
+                    //If it is not selected, set the color to the normal color
+                    self.layer.backgroundColor = color.cgColor
+                }
+            }
+            else
+            {
+                //If disabled, set the color to the disabled color
+                self.layer.backgroundColor = disabledColor.cgColor
+            }
+            
+            break
+            
+        //When the style is ".noBorder", we do not update anything, because the only thing that the button shows is its title label (which automatically gets updated)
+        case .noBorder:
+            break
         }
     }
 }

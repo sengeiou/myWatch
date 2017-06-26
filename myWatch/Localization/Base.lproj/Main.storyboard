@@ -84,7 +84,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="LfH-7f-v1D"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="LET'S GO"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="style">
