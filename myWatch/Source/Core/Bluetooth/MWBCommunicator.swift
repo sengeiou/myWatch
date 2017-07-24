@@ -24,18 +24,18 @@ class MWBCommunicator: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     /// - See: `MWBCommunicatorDelegate` for more details.
     var delegate: MWBCommunicatorDelegate!
     
+    /// The device we are connected to.
+    ///
+    /// Nil on initialization if we are looking for any compatible devices to connect to.
+    ///
+    /// Not nil on initialization if we are looking for a specific device to connect to. In this case, we identify the specified device using the `deviceID` property in `MWDevice`.
+    var device: MWDevice?
+    
     /// The `CBCentralManager` object this class uses to handle central Bluetooth situations.
     private var centralManager: CBCentralManager?
     
     /// The peripheral representing the device we are connected to.
     private var peripheral: CBPeripheral!
-    
-    /// The device we are connected to.
-    /// 
-    /// Nil on initialization if we are looking for any compatible devices to connect to.
-    ///
-    /// Not nil on initialization if we are looking for a specific device to connect to. In this case, we identify the specified device using the `deviceID` property in `MWDevice`.
-    private var device: MWDevice?
     
     /// Holds the characteristic that we send the commands to.
     ///
@@ -85,18 +85,17 @@ class MWBCommunicator: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
             //Log information message
             MWLInfo("Bluetooth has been turned on.", module: .moduleBluetooth)
             
-            ///Check if there was a device specified
-            MWUtil.execute(ifNotNil: device, execution: { 
+            device ??! {
                 //If yes, we know we must look for the devices and connect to the specified one.
                 self.lookForDevices()
-            }, elseExecution: {
-                //If not, check whether the function we need to call now is implemented - if yes, inform the delegate about the change
-                MWUtil.execute(ifNotNil: self.delegate.bluetoothHasBeenEnabled, execution: { 
-                    self.delegate.bluetoothHasBeenEnabled!()
-                }, elseExecution: {
-                    MWLInfo("WARNING: Initializing without specified device, but function \"bluetoothHasBeenEnabled()\" is not implemented in the current delegate.", module: .moduleBluetooth)
-                })
-            })
+            } >< {
+                //If not, check whether the function we need to call now is implemented in the delegate - if yes, inform the delegate about the change
+                self.delegate.bluetoothCommunicator(_:didUpdateBluetoothAvailability:) ??! {
+                    self.delegate.bluetoothCommunicator!(self, didUpdateBluetoothAvailability: true)
+                    } >< {
+                        MWLInfo("WARNING: Bluetooth is available, but function \"bluetoothCommunicator(_:didUpdateBluetoothAvailability:)\" is not implemented in the current delegate.", module: .moduleBluetooth)
+                }
+            }
         }
         //If anything else, handle.
         else
@@ -105,11 +104,11 @@ class MWBCommunicator: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
             MWLInfo("Bluetooth is not available at the moment.", module: .moduleBluetooth)
             
             //Check whether the function we need to call now is implemented in the delegate - if yes, inform the delegate about the change
-            MWUtil.execute(ifNotNil: self.delegate.bluetoothNotAvailable, execution: {
-                self.delegate.bluetoothNotAvailable!()
-            }, elseExecution: { 
-                MWLInfo("WARNING: Bluetooth is not available, but function \"bluetoothNotAvailable()\" is not implemented in the current delegate.", module: .moduleBluetooth)
-            })
+            self.delegate.bluetoothCommunicator(_:didUpdateBluetoothAvailability:) ??! {
+                self.delegate.bluetoothCommunicator!(self, didUpdateBluetoothAvailability: false)
+            } >< {
+                MWLInfo("WARNING: Bluetooth is not available, but function \"bluetoothCommunicator(_:didUpdateBluetoothAvailability:)\" is not implemented in the current delegate.", module: .moduleBluetooth)
+            }
         }
     }
     
@@ -126,41 +125,41 @@ class MWBCommunicator: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
             let device = MWDevice(givenName: "", deviceID: parsed, peripheral: peripheral, stepCount: 0)
             
             //Check if there was a device specified
-            MWUtil.execute(ifNotNil: self.device, execution: {
+            self.device ??! {
                 //If yes, check whether the two IDs match (specified and found)
                 if(self.device!.deviceID == device.deviceID)
                 {
                     //If yes, check whether the function we need to call now is implemented in the delegate - if yes, inform the delegate about the change, set the device as our current peripheral and connect to the device.
-                    MWUtil.execute(ifNotNil: self.delegate.bluetoothHasFoundSpecifiedDevice, execution: { 
-                        self.delegate.bluetoothHasFoundSpecifiedDevice!()
+                    self.delegate.bluetoothCommunicator(_:didFindSpecifiedDevice:) ??! {
+                        self.delegate.bluetoothCommunicator!(self, didFindSpecifiedDevice: self.device!)
                         self.device!.peripheral = peripheral
                         
                         self.attemptToConnect(to: self.device!)
-                    }, elseExecution: { 
-                        MWLInfo("WARNING: Found device matching the device ID of the MWDevice specified in the initializer, but function \"bluetoothHasFoundSpecifiedDevice()\" is not implemented in the current delegate.", module: .moduleBluetooth)
-                    })
+                    } >< {
+                        MWLInfo("WARNING: Found device matching the device ID of the MWDevice specified in the initializer, but function \"bluetoothCommunicator(_:didFindSpecifiedDevice:)\" is not implemented in the current delegate.", module: .moduleBluetooth)
+                    }
                 }
-            }, elseExecution: {
-                //If no, check whether the function we need to call now is implemented in the delegate - if yes, inform the delegate about the found device
-                MWUtil.execute(ifNotNil: self.delegate.bluetoothHasFoundDevice, execution: { 
-                    self.delegate.bluetoothHasFoundDevice!(device)
-                }, elseExecution: { 
-                    MWLInfo("WARNING: Found device matching the myWatch device requirements, but function \"bluetoothHasFoundDevice(_:)\" is not implemented in the current delegate.", module: .moduleBluetooth)
-                })
-            })
+            } >< {
+
+                self.delegate.bluetoothCommunicator(_:didFindCompatibleDevice:) ??! {
+                    self.delegate.bluetoothCommunicator!(self, didFindCompatibleDevice: device)
+                } >< {
+                   MWLInfo("WARNING: Found device matching the myWatch device requirements, but function \"bluetoothCommunicator(_:didFindCompatibleDevice:)\" is not implemented in the current delegate.", module: .moduleBluetooth)
+                }
+            }
         }
     }
     
     internal func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral)
-    {
+    {        
         //Log information message
         MWLInfo("Successfully connected to peripheral: \"\(peripheral.name!)\"", module: .moduleBluetooth)
         
         //Check whether the function we need to call now is implemented in the delegate - if yes, inform the delegate about the connection
-        MWUtil.execute(ifNotNil: delegate.connectionSuccessful, execution: { 
-            self.delegate.connectionSuccessful!(to: self.device!)
-        }) { 
-            MWLInfo("WARNING: Function \"connectionSuccessful(to:)\" is not implemented in the current delegate.", module: .moduleBluetooth)
+        delegate.bluetoothCommunicator(_:didConnectToDevice:) ??! {
+            self.delegate.bluetoothCommunicator!(self, didConnectToDevice: device!)
+        } >< {
+            MWLInfo("WARNING: Function \"bluetoothCommunicator(_:didConnectToDevice:)\" is not implemented in the current delegate.", module: .moduleBluetooth)
         }
         
         //Stop scanning for other devices and discover the peripherals
@@ -179,7 +178,7 @@ class MWBCommunicator: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     internal func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?)
     {
         //Check whether we have found working services with the applied UUID filter
-        MWUtil.execute(ifNotNil: peripheral.services, execution: { 
+        peripheral.services ??! {
             //If yes, iterate through and find the uart service
             for service in peripheral.services!
             {
@@ -189,9 +188,10 @@ class MWBCommunicator: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
                     peripheral.discoverCharacteristics([self.uartTxUUID, self.uartRxUUID], for: service)
                 }
             }
-        }) {
+        } >< {
             //If not, log an error message
             MWLError("Was unable to discover the Uart service on the connected myWatch device, more details: \(error?.localizedDescription ?? "<no more details>")", module: .moduleBluetooth)
+
         }
     }
     
@@ -201,7 +201,7 @@ class MWBCommunicator: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         if(service.uuid == uartSericeUUID)
         {
             //Check if whether we have found working characteristics with the applied UUID filter
-            MWUtil.execute(ifNotNil: service.characteristics, execution: { 
+            service.characteristics ??! {
                 //If yes, iterate through and find the Tx and Rx characteristics
                 for characteristic in service.characteristics!
                 {
@@ -221,10 +221,11 @@ class MWBCommunicator: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
                         MWLError("Found useless characteristic with UUID: \(characteristic.uuid) on the connected myWatch device, ignoring it...", module: .moduleBluetooth)
                     }
                 }
-            }, elseExecution: {
+            } >< {
                 //If not, log an error message
                 MWLError("Was unable to discover characteristics on the connected myWatch device, more details: \(error?.localizedDescription ?? "<no more details>")", module: .moduleBluetooth)
-            })
+
+            }
         }
         else
         {
@@ -233,15 +234,15 @@ class MWBCommunicator: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         }
         
         //If both characteristics were discovered, inform the delegate that the device is ready to use
-        MWUtil.execute(ifNotNil: uartTxCharacteristic) { 
-            MWUtil.execute(ifNotNil: self.uartRxCharacteristic, execution: {
-                MWUtil.execute(ifNotNil: self.delegate.deviceIsReadyToUse, execution: { 
+        uartTxCharacteristic ?! {
+            self.uartRxCharacteristic ?! {
+                self.delegate.bluetoothCommunicator(_:didFinishPreparationsForDevice:) ??! {
                     MWLInfo("The connected myWatch device is ready to use.", module: .moduleBluetooth)
-                    self.delegate!.deviceIsReadyToUse!(self.device!)
-                }, elseExecution: { 
+                    self.delegate.bluetoothCommunicator!(self, didFinishPreparationsForDevice: self.device!)
+                } >< {
                     MWLInfo("WARNING: Function \"deviceIsReadyToUse(_:)\" is not implemented in the current delegate.", module: .moduleBluetooth)
-                })
-            })
+                }
+            }
         }
     }
     
@@ -251,7 +252,7 @@ class MWBCommunicator: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         if(characteristic.uuid == uartRxUUID)
         {
             //Then, check if there is a proper response value
-            MWUtil.execute(ifNotNil: characteristic.value, execution: {
+            characteristic.value ??! {
                 //If there is, log information message first
                 MWLInfo("Data received from Uart Rx characteristic as a response to command: \(self.commandQueue.peek().command)", module: .moduleBluetooth)
                 
@@ -259,15 +260,16 @@ class MWBCommunicator: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
                 let response: MWBParsedData = MWBParsedData(unparsed: characteristic.value!)
                 
                 //And finally, inform the delegate about the response
-                MWUtil.execute(ifNotNil: self.delegate.recievedResponse, execution: {
-                    self.delegate!.recievedResponse!(forCommand: self.commandQueue.peek().command, response: response)
-                }, elseExecution: {
-                    MWLInfo("WARNING: Function \"receivedResponse(forCommand:response:)\" is not implemented in the current delegate.", module: .moduleBluetooth)
-                })
-            }, elseExecution: {
+                self.delegate.bluetoothCommunicator(_:didReceiveResponse:from:for:) ??! {
+                    self.delegate.bluetoothCommunicator!(self, didReceiveResponse: response, from: self.device!, for: self.commandQueue.peek().command)
+                } >< {
+                    MWLInfo("WARNING: Function \"bluetoothCommunicator(_:didReceiveResponse:from:for:)\" is not implemented in the current delegate.", module: .moduleBluetooth)
+                }
+                
+            } >< {
                 //If there is no response value, log an error message
                 MWLError("Received nil from Uart Rx characeteristic as a response to command: \(self.commandQueue.peek().command)", module: .moduleBluetooth)
-            })
+            }
         }
         
         //Check whether there's only one command left in the queue
