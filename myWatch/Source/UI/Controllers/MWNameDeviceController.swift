@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MWNameDeviceController: MWViewController, MWFirstLaunchViewController, UITextFieldDelegate
+class MWNameDeviceController: MWViewController, MWFirstLaunchController, MWFirstLaunchViewController, UITextFieldDelegate
 {
     //MARK: Member variables
     @IBOutlet weak var imageBar: MWFirstLaunchImageBar!
@@ -33,7 +33,7 @@ class MWNameDeviceController: MWViewController, MWFirstLaunchViewController, UIT
         return .slide
     }
     
-    //MARK: - Inherited functions from: UIViewController
+    //MARK: - Inherited functions from: MWViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -44,11 +44,18 @@ class MWNameDeviceController: MWViewController, MWFirstLaunchViewController, UIT
         NotificationCenter.default.addObserver(self, selector: #selector(MWNameDeviceController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         buttonForwarder.disableButton()
+        buttonForwarder.staysHighlighted = true
     }
     
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
+    }
+    
+    //MARK: Inherited functions form: MWFirstLaunchControllerProtocol
+    func getFirstLaunchImageBar() -> MWFirstLaunchImageBar!
+    {
+        return imageBar
     }
     
     //MARK: Inherited functions from: UITextFieldDelegate

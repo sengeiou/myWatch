@@ -15,10 +15,13 @@ class MWImageView: UIImageView
     {
         didSet
         {
-            if(autoUpdate)
+            if(!silent)
             {
-                imageHasAlreadyBeenTinted = true
-                self.image = tintedImage()
+                self.silently().image = tintedImage()
+            }
+            else
+            {
+                silent = false
             }
         }
     }
@@ -27,10 +30,13 @@ class MWImageView: UIImageView
     {
         didSet
         {
-            if(autoUpdate)
+            if(!silent)
             {
-                imageHasAlreadyBeenTinted = true
-                self.image = tintedImage()
+                self.silently().image = tintedImage()
+            }
+            else
+            {
+                silent = false
             }
         }
     }
@@ -39,10 +45,13 @@ class MWImageView: UIImageView
     {
         didSet
         {
-            if(autoUpdate)
+            if(!silent)
             {
-                imageHasAlreadyBeenTinted = true
-                self.image = tintedImage()
+                self.silently().image = tintedImage()
+            }
+            else
+            {
+                silent = false
             }
         }
     }
@@ -51,20 +60,18 @@ class MWImageView: UIImageView
     {
         didSet
         {
-            if(!imageHasAlreadyBeenTinted)
+            if(!silent)
             {
-                imageHasAlreadyBeenTinted = true
-                self.image = tintedImage()
+                self.silently().image = tintedImage()
             }
             else
             {
-                imageHasAlreadyBeenTinted = false
+                silent = false
             }
         }
     }
     
-    var autoUpdate = true
-    var imageHasAlreadyBeenTinted: Bool = false
+    private var silent = false
     
     override init(frame: CGRect)
     {
@@ -92,6 +99,12 @@ class MWImageView: UIImageView
         super.init(coder: aDecoder)
         
         self.image = tintedImage()
+    }
+    
+    func silently() -> MWImageView
+    {
+        silent = true
+        return self
     }
     
     private func tintedImage() -> UIImage?

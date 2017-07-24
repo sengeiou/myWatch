@@ -104,7 +104,7 @@ fileprivate class MWApplicationDelegate: UIResponder, UIApplicationDelegate
         let loadedSettings: MWSettings? = MWIO.load(from: MWFileLocations.defaultSaveLocation)
         
         //Check whether the load was successful
-        MWUtil.execute(ifNil: loadedSettings, execution: {
+        loadedSettings ??= {
             //If it was not, create the myWatch directory and settings file
             if(!FileManager().fileExists(atPath: MWFileLocations.defaultSaveLocation.path))
             {
@@ -126,7 +126,7 @@ fileprivate class MWApplicationDelegate: UIResponder, UIApplicationDelegate
             let firstLaunchViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: MWIdentifiers.SceneIdentifiers.firstLaunchFirst)
             
             self.window!.rootViewController = firstLaunchViewController
-        }) {
+        } >< {
             //If it was, set the settings to the loaded settings.
             myWatch.get().settings = loadedSettings!
         }

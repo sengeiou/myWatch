@@ -62,20 +62,14 @@
 /* Class = "UIViewController"; title = "Name Device"; ObjectID = "ORt-9N-ima"; */
 "ORt-9N-ima.title" = "Name Device";
 
-/* Class = "UITabBarItem"; title = "Bedtime"; ObjectID = "Qtj-6V-W8o"; */
-"Qtj-6V-W8o.title" = "Bedtime";
 
 /* Class = "UIViewController"; title = "Device Chooser"; ObjectID = "RLk-yH-6T4"; */
 "RLk-yH-6T4.title" = "Device Chooser";
 
-/* Class = "UITabBarItem"; title = "Today"; ObjectID = "S5c-39-c9o"; */
-"S5c-39-c9o.title" = "Today";
 
 /* Class = "UIViewController"; title = "Summary"; ObjectID = "TAy-iM-otP"; */
 "TAy-iM-otP.title" = "Summary";
 
-/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "TYs-hV-U18"; */
-"TYs-hV-U18.title" = "Settings";
 
 /* Class = "UILabel"; text = "We are going to set up your iPhone and your device in 4 very easy steps."; ObjectID = "TmH-N8-yO3"; */
 "TmH-N8-yO3.text" = "We are going to set up your iPhone and your device in 4 very easy steps.";
@@ -88,9 +82,6 @@
 
 /* Class = "UIViewController"; title = "First Launch - Last"; ObjectID = "Vxm-R2-9gi"; */
 "Vxm-R2-9gi.title" = "First Launch - Last";
-
-/* Class = "UITabBarItem"; title = "Pedometer"; ObjectID = "WZ1-2K-DY9"; */
-"WZ1-2K-DY9.title" = "Pedometer";
 
 /* Class = "UITextField"; placeholder = "Enter name here..."; ObjectID = "Z5I-gS-MM3"; */
 "Z5I-gS-MM3.placeholder" = "Enter name here...";
@@ -152,8 +143,6 @@
 /* Class = "UILabel"; text = "Connect a device"; ObjectID = "j87-yK-u4W"; */
 "j87-yK-u4W.text" = "Connect a device";
 
-/* Class = "UITabBarItem"; title = "Alarm"; ObjectID = "j9c-vg-ygM"; */
-"j9c-vg-ygM.title" = "Alarm";
 
 /* Class = "UILabel"; text = "Today"; ObjectID = "k7y-i1-mia"; */
 "k7y-i1-mia.text" = "Today";
@@ -199,3 +188,18 @@
 
 /* Class = "UIViewController"; title = "Sleep"; ObjectID = "z9M-a7-igR"; */
 "z9M-a7-igR.title" = "Sleep";
+
+/* Class = "UITabBarItem"; title = "Sleep"; ObjectID = "Qtj-6V-W8o"; */
+"5zE-tS-rtj.title" = "Bedtime";
+
+/* Class = "UITabBarItem"; title = "Today"; ObjectID = "S5c-39-c9o"; */
+"UXz-nZ-jqQ.title" = "Today";
+
+/* Class = "UITabBarItem"; title = "Pedometer"; ObjectID = "WZ1-2K-DY9"; */
+"1Hd-4k-lCW.title" = "Pedometer";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "cTo-YI-Akw"; */
+"Vk3-e8-VNn.title" = "Settings";
+
+/* Class = "UITabBarItem"; title = "Alarm"; ObjectID = "j9c-vg-ygM"; */
+"ARh-i0-rTs.title" = "Alarm";

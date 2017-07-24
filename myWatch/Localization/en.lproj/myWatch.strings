@@ -1,0 +1,57 @@
+/*********************************************************************/
+/* Chooser                                                           */
+/*********************************************************************/
+
+/* Chooser buttons */
+"m7F-J3-hTz.normalTitle" = "Old";
+"l7g-qF-9xw.normalTitle" = "New";
+
+
+/*********************************************************************/
+/* First Launch - First                                              */
+/*********************************************************************/
+
+/* Title */
+"2Eo-fz-vkd.text" = "Welcome to myWatch!";
+
+/* Descriptions */
+"pbA-C4-cS2.text" = "There are a few things we need to set up before jumping in the application.";
+"cJM-GG-sCn.text" = "This process will prepare your iPhone and your myWatch device for use in 5 very simple steps.";
+"1oD-AR-sjm.text" = "What are we waiting for? Let’s do this!";
+
+/* Button */
+"MdV-ol-uon.normalTitle" = "Let's go!";
+
+
+/*********************************************************************/
+/* Language                                                          */
+/*********************************************************************/
+
+/* Title */
+"wsu-hg-yCT.text" = "Before we start...";
+
+/* Descriptions */
+"7m4-As-wto.text" = "The current language of the application is set to English. This is either because your iPhone is using this language, or because the app doesn't support the language your iPhone's language.";
+"9ha-xj-RA3.text" = "If the case is the latter, we're really sorry - we are trying to make the app support as many languages as it can.\n\nBut for real now... let's start the setup!";
+
+/* Button */
+"PdK-XV-aUf.normalTitle" = "Continue";
+
+
+/*********************************************************************/
+/* Device Chooser                                                    */
+/*********************************************************************/
+
+/* Title */
+"SF7-xi-BsP.text" = "Connect a device";
+
+/* Descriptions */
+"lY5-Uh-YkP.text" = "Select a compatible myWatch device from the list below. The app will use this device later to gather its data.";
+
+/* Additional */
+"MLm-0c-uBH.text" = "Device: ";
+"AXF-2C-Rzf.text" = "Turn on Bluetooth to connect to myWatch devices.";
+"fRS-Mj-RgQ.text" = "Looking for devices...";
+
+/* Button */
+"nej-dX-wBJ.normalTitle" = "Connect";

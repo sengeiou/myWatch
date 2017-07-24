@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MWFirstLaunchFirstController: MWViewController, MWFirstLaunchViewController
+class MWFirstLaunchFirstController: MWViewController, MWFirstLaunchController, MWFirstLaunchViewController
 {
     //MARK: Member variables
     @IBOutlet weak var imageBar: MWFirstLaunchImageBar!
@@ -22,6 +22,8 @@ class MWFirstLaunchFirstController: MWViewController, MWFirstLaunchViewControlle
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        buttonForwarder.staysHighlighted = true
     }
 
     override func didReceiveMemoryWarning()
@@ -39,9 +41,15 @@ class MWFirstLaunchFirstController: MWViewController, MWFirstLaunchViewControlle
     {
         return self.buttonForwarder
     }
+    
+    //MARK: Inherited functions form: MWFirstLaunchControllerProtocol
+    func getFirstLaunchImageBar() -> MWFirstLaunchImageBar!
+    {
+        return imageBar
+    }
 }
 
-class MWFirstLaunchLastController: MWViewController, MWFirstLaunchViewController
+class MWFirstLaunchLastController: MWViewController, MWFirstLaunchController, MWFirstLaunchViewController
 {
     //MARK: Member variables
     @IBOutlet weak var imageBar: MWFirstLaunchImageBar!
@@ -54,6 +62,8 @@ class MWFirstLaunchLastController: MWViewController, MWFirstLaunchViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        buttonForwarder.staysHighlighted = true
     }
     
     override func didReceiveMemoryWarning()
@@ -70,5 +80,11 @@ class MWFirstLaunchLastController: MWViewController, MWFirstLaunchViewController
     func getButton() -> MWButton?
     {
         return self.buttonForwarder
+    }
+    
+    //MARK: Inherited functions form: MWFirstLaunchControllerProtocol
+    func getFirstLaunchImageBar() -> MWFirstLaunchImageBar!
+    {
+        return imageBar
     }
 }

@@ -2,13 +2,13 @@
 //  MWAppleHealthController.swift
 //  myWatch
 //
-//  Created by Máté on 2017. 05. 20..
+//  Created by Máté on 2017. 05. 20.
 //  Copyright © 2017. theMatys. All rights reserved.
 //
 
 import UIKit
 
-class MWAppleHealthController: MWViewController, MWFirstLaunchViewController
+class MWAppleHealthController: MWViewController, MWFirstLaunchController, MWFirstLaunchViewController
 {
     //MARK: Member variables
     @IBOutlet weak var imageBar: MWFirstLaunchImageBar!
@@ -21,11 +21,20 @@ class MWAppleHealthController: MWViewController, MWFirstLaunchViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        buttonEnable.staysHighlighted = true
+        buttonDisable.staysHighlighted = true
     }
 
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
+    }
+    
+    //MARK: Inherited functions form: MWFirstLaunchControllerProtocol
+    func getFirstLaunchImageBar() -> MWFirstLaunchImageBar!
+    {
+        return imageBar
     }
     
     //MARK: Inherited functions from: MWFirstLaunchViewController

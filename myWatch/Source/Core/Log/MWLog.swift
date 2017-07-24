@@ -17,7 +17,7 @@ import os.log
 /// If we specify a logging module, it displays the name of that before the message we are logging.
 ///
 /// - See: `MWLModule` for more details on the modules below.
-func MWLInfo(_ toLog: Any?, module: MWLModule?)
+func MWLInfo(_ toLog: Any?, module: MWLModule? = nil)
 {
     let _toLog: CVarArg = MWUtil.downcastReturn(from: toLog ?? "nil")
     
@@ -37,7 +37,7 @@ func MWLInfo(_ toLog: Any?, module: MWLModule?)
 /// If we specify a logging module, it displays the name of that before the message we are logging.
 ///
 /// - See: `MWLModule` for more details on the modules below.
-func MWLError(_ toLog: Any?, module: MWLModule?)
+func MWLError(_ toLog: Any?, module: MWLModule? = nil)
 {
     let _toLog: CVarArg = MWUtil.downcastReturn(from: toLog ?? "nil")
     
@@ -54,10 +54,10 @@ func MWLError(_ toLog: Any?, module: MWLModule?)
 
 /// It writes "FAULT: " before the message (and the module if specified) to indicate that the message reports a fatal error.
 ///
-///If we specify a logging module, it displays the name of that before the message we are logging.
+/// If we specify a logging module, it displays the name of that before the message we are logging.
 ///
 /// - See: `MWLModule` for more details on the modules below.
-func MWLFault(_ toLog: Any?, module: MWLModule?)
+func MWLFault(_ toLog: Any?, module: MWLModule? = nil)
 {
     let _toLog: CVarArg = MWUtil.downcastReturn(from: toLog ?? "nil")
     
@@ -77,7 +77,7 @@ func MWLFault(_ toLog: Any?, module: MWLModule?)
 /// If we specify a logging module, it displays the name of that before the message we are logging.
 /// 
 /// - See: `MWLModule` for more details on the modules below.
-func MWLDebug(_ toLog: Any?, module: MWLModule?)
+func MWLDebug(_ toLog: Any?, module: MWLModule? = nil)
 {
     let _toLog: CVarArg = MWUtil.downcastReturn(from: toLog ?? "nil")
     
@@ -85,6 +85,31 @@ func MWLDebug(_ toLog: Any?, module: MWLModule?)
         os_log("%@%@%@", log: OSLog.default, type: .debug, "DEBUG: ", module!.rawValue as CVarArg, _toLog)
     }) {
         os_log("%@%@", log: OSLog.default, type: .debug, "DEBUG: ", _toLog)
+    }
+}
+
+/// Macro for logging that a function has been called.
+func MWLCall(module: MWLModule? = nil, function: String = #function)
+{
+    MWUtil.nilcheck(module, not: { 
+        os_log("%@%@", log: OSLog.default, type: .debug, module!.rawValue as CVarArg, "\"\(function)\" HAS BEEN CALLED!")
+    }) { 
+        os_log("%@", log: OSLog.default, type: .debug, "\"\(function)\" HAS BEEN CALLED!")
+    }
+}
+
+/// Macro for logging that a function was called by another function
+///
+/// - Parameters:
+///   - by: The function that `what` was called by.
+///   - what: The function that was called by `by`.
+///   - module: The logging module that this function is being called from.
+func MWLCalled(_ by: String, what: String = #function, module: MWLModule? = nil)
+{
+    module ??! {
+        os_log("%@%@", log: OSLog.default, type: .debug, module!.rawValue as CVarArg, "\"\(what)\" HAS BEEN CALLED BY \"\(by)\"!")
+    } >< {
+        os_log("%@", log: OSLog.default, type: .debug, "\"\(what)\" HAS BEEN CALLED BY \"\(by)\"!")
     }
 }
 

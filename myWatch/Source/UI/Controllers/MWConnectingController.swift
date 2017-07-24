@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MWConnectingController: MWViewController, MWFirstLaunchViewController, MWBCommunicatorDelegate
+class MWConnectingController: MWViewController, MWFirstLaunchController, MWFirstLaunchViewController, MWBCommunicatorDelegate
 {
     //MARK: Member variables
     @IBOutlet weak var imageBar: MWFirstLaunchImageBar!
@@ -27,13 +27,19 @@ class MWConnectingController: MWViewController, MWFirstLaunchViewController, MWB
         super.didReceiveMemoryWarning()
     }
     
+    //MARK: Inherited functions form: MWFirstLaunchControllerProtocol
+    func getFirstLaunchImageBar() -> MWFirstLaunchImageBar!
+    {
+        return imageBar
+    }
+    
     //MARK: Inherited functions from: MWBCommunicatorDelegate
-    func connectionSuccessful(to device: MWDevice)
+    func bluetoothCommunicator(_ communicator: MWBCommunicator, didConnectToDevice device: MWDevice)
     {
         /* No-operation */
     }
     
-    func deviceIsReadyToUse(_ device: MWDevice)
+    func bluetoothCommunicator(_ communicator: MWBCommunicator, didFinishPreparationsForDevice device: MWDevice)
     {
         if(self.isViewLoaded)
         {

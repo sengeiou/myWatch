@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MWDeviceChooserController: MWViewController, MWFirstLaunchViewController, MWBCommunicatorDelegate, UITableViewDataSource
+class MWDeviceChooserController: MWViewController, MWFirstLaunchController, MWFirstLaunchViewController, MWBCommunicatorDelegate, UITableViewDataSource
 {
     //MARK: Member variables
     @IBOutlet weak var imageBar: MWFirstLaunchImageBar!
@@ -18,7 +18,6 @@ class MWDeviceChooserController: MWViewController, MWFirstLaunchViewController, 
     @IBOutlet weak var stackViewSearching: UIStackView!
     @IBOutlet weak var labelNoBluetooth: MWLabel!
     @IBOutlet weak var buttonForwarder: MWButton!
-    @IBOutlet weak var buttonNext: UIBarButtonItem!
     
     private var avaiableDevices: [MWDevice] = [MWDevice]()
     
@@ -26,7 +25,6 @@ class MWDeviceChooserController: MWViewController, MWFirstLaunchViewController, 
     {
         didSet
         {
-            buttonNext.isEnabled = selectedDevice != nil
             buttonForwarder.isEnabled = selectedDevice != nil
         }
     }
@@ -36,8 +34,8 @@ class MWDeviceChooserController: MWViewController, MWFirstLaunchViewController, 
     {
         super.viewDidLoad()
         
-        buttonNext.isEnabled = false
         buttonForwarder.disableButton()
+        buttonForwarder.staysHighlighted = true
         
         setupTableView()
     }
@@ -45,6 +43,12 @@ class MWDeviceChooserController: MWViewController, MWFirstLaunchViewController, 
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
+    }
+    
+    //MARK: Inherited functions form: MWFirstLaunchControllerProtocol
+    func getFirstLaunchImageBar() -> MWFirstLaunchImageBar!
+    {
+        return imageBar
     }
     
     //MARK: Inherited functions from: MWFirstLaunchViewController
@@ -64,27 +68,29 @@ class MWDeviceChooserController: MWViewController, MWFirstLaunchViewController, 
     }
     
     //MARK: Inherited functions from: MWBCommunicatorDelegate
-    func bluetoothHasBeenEnabled()
+    func bluetoothCommunicator(_ communicator: MWBCommunicator, didUpdateBluetoothAvailability availability: Bool)
     {
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: { 
-            self.stackViewSearching.alpha = 1.0
-        }, completion: nil)
-        
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseIn, animations: { 
-            self.labelNoBluetooth.alpha = 0.0
-        }, completion: nil)
-        
-        myWatch.get().bluetoothCommunicator.lookForDevices()
+        if(availability)
+        {
+            UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
+                self.stackViewSearching.alpha = 1.0
+            }, completion: nil)
+            
+            UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseIn, animations: {
+                self.labelNoBluetooth.alpha = 0.0
+            }, completion: nil)
+            
+            myWatch.get().bluetoothCommunicator.lookForDevices()
+        }
+        else
+        {
+            UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
+                self.labelNoBluetooth.alpha = 1.0
+            }, completion: nil)
+        }
     }
     
-    func bluetoothNotAvailable()
-    {
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
-            self.labelNoBluetooth.alpha = 1.0
-        }, completion: nil)
-    }
-    
-    func bluetoothHasFoundDevice(_ device: MWDevice)
+    func bluetoothCommunicator(_ communicator: MWBCommunicator, didFindCompatibleDevice device: MWDevice)
     {
         avaiableDevices.append(device)
         let indexPath: IndexPath = IndexPath(row: avaiableDevices.count - 1, section: 0)
@@ -104,7 +110,7 @@ class MWDeviceChooserController: MWViewController, MWFirstLaunchViewController, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MWIdentifiers.CellIdentifiers.deviceChooserDeviceCell, for: indexPath) as? MWDeviceChooserDeviceCell else
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MWIdentifiers.CellIdentifiers.deviceChooserDeviceCell, for: indexPath) as? MWDeviceCell else
         {
             fatalError("The dequed cell is not an instance of \"MWDeviceCell\".")
         }
@@ -139,7 +145,7 @@ class MWDeviceChooserController: MWViewController, MWFirstLaunchViewController, 
 }
 
 //MARK: -
-class MWDeviceChooserDeviceCell: UITableViewCell
+class MWDeviceCell: UITableViewCell
 {
     //MARK: Member variables
     @IBOutlet weak var imageViewIcon: MWImageView!

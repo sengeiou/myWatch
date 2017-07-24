@@ -54,7 +54,7 @@ class MWTabBarControllerSegue: UIStoryboardSegue
                 
                 navigationController.setNavigationBarHidden(false, animated: true)
                 
-                UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveLinear, animations: {
+                UIView.animate(withDuration: TimeInterval(UINavigationControllerHideShowBarDuration), delay: 0.0, options: .curveLinear, animations: {
                     tabBar.frame = tabBarOriginalFrame
                     
                     navigationController.navigationBar.alpha = 1.0

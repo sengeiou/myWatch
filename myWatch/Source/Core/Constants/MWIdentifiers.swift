@@ -8,20 +8,26 @@
 
 import Foundation
 
+//MARK: Prefixes
+
+/// The prefix used for all segue identifiers.
+fileprivate let prefixSegueID = "MWSID"
+
+/// The prefix used for all scene identifiers.
+fileprivate let prefixSceneID = "MWSCID"
+
+/// The prefix used for all table view cell identifiers.
+fileprivate let prefixCellID = "MWCID"
+
+/// The prefix used for all table view cell identifiers.
+fileprivate let prefixTableViewCell: String = "MWTableViewCell"
+
+/// The prefix used for all segue identifiers.
+fileprivate let prefixSegue: String = "MWSegue"
+
 /// Holds all the identifiers in the application that are used programatically.
 struct MWIdentifiers
 {
-    //MARK: Prefixes
-    
-    /// The prefix used for all segue identifiers.
-    private static let prefixSegueID = "MWSID"
-    
-    /// The prefix used for all scene identifiers.
-    private static let prefixSceneID = "MWSCID"
-    
-    /// The prefix used for all table view cell identifiers.
-    private static let prefixCellID = "MWCID"
-    
     //MARK: -
     
     /// The table view cell identifiers used programatically in the application.
@@ -32,11 +38,20 @@ struct MWIdentifiers
     
     //MARK: -
     
+    /// The table view cell identifiers used programatically in the application.
+    struct TableViewCellIdentifiers
+    {
+        static let deviceChooserDevice: String = prefixTableViewCell + "DeviceChooserDevice"
+    }
+    
+    //MARK: -
+    
     /// The segue identifiers used programatically in the application.
     struct SegueIdentifiers
     {
         static let connectingToNameDevice = prefixSegueID + "ConnectingToNameDevice"
-        static let appleHealthToFirstLaunchLast = prefixSegueID + "AppleHealthToFirstLaunchLast"
+        static let appleHealthToFirstLaunchLast = prefixSegue + "AppleHealthToFirstLaunchLast"
+        static let deviceChooserToNameDevice = prefixSegue + "DeviceChooserToNameDevice"
     }
     
     //MARK: -

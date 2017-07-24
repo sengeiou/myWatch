@@ -8,13 +8,15 @@
 
 import UIKit
 
+fileprivate let prefixAsset: String = "MWAsset"
+
 /// Holds all the assets that are instantiated programatically by the application.
 struct MWAssets
 {
     //MARK: Prefixes
     
     /// The prefix all asset names use.
-    private static let prefixAsset = "MWA"
+    private static let _prefixAsset = "MWA"
     
     //MARK: -
     
@@ -23,11 +25,13 @@ struct MWAssets
     {
         static let imageNoImage = MWImageAsset(name: prefixAsset + "NoImage")
         
-        static let imageFirstLaunchConnect = MWImageAsset(name: prefixAsset + "FirstLaunchConnect")
-        static let imageFirstLaunchDeviceChooser = MWImageAsset(name: prefixAsset + "FirstLaunchDeviceChooser")
-        static let imageFirstLaunchExport = MWImageAsset(name: prefixAsset + "FirstLaunchExport")
-        static let imageFirstLaunchNameDevice = MWImageAsset(name: prefixAsset + "FirstLaunchNameDevice")
-        static let imageFirstLaunchLanguage = MWImageAsset(name: prefixAsset + "FirstLaunchLanguage")
+        static let imageFirstLaunchConnect = MWImageAsset(name: _prefixAsset + "FirstLaunchConnect")
+        static let imageFirstLaunchDeviceChooser = MWImageAsset(name: _prefixAsset + "FirstLaunchDeviceChooser")
+        static let imageFirstLaunchExport = MWImageAsset(name: _prefixAsset + "FirstLaunchExport")
+        static let imageFirstLaunchNameDevice = MWImageAsset(name: _prefixAsset + "FirstLaunchNameDevice")
+        static let imageFirstLaunchLanguage = MWImageAsset(name: _prefixAsset + "FirstLaunchLanguage")
+        
+        static let imageGeneralBluetooth = MWImageAsset(name: prefixAsset + "GeneralBluetooth")
     }
 }
 

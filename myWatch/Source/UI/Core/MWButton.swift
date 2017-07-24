@@ -109,7 +109,7 @@ class MWButton: UIButton
         {
             if(oldValue != self.isHighlighted)
             {
-                toggleHighlight()
+                toggleHighlight(false)
             }
         }
     }
@@ -131,6 +131,18 @@ class MWButton: UIButton
     }
     
     //MARK: Instance variables
+    
+    /// This boolean indicates that the button should keep the highlighted look until manual update once it has been highlighted.
+    var staysHighlighted: Bool = false
+    {
+        didSet
+        {
+            if(!staysHighlighted)
+            {
+                toggleHighlight(false)
+            }
+        }
+    }
     
     /// Holds the actual style of the button which later will be used to determine which style we should draw.
     ///
@@ -171,7 +183,7 @@ class MWButton: UIButton
     ///
     /// It is called whenever we change one of the IBInspectable variables or whenever we change the button's style.
     private func _init()
-    {
+    {        
         //Calculate the selected color from the normal color.
         selectedColor = color.adding(0.3)
         
@@ -221,7 +233,7 @@ class MWButton: UIButton
             self.setTitleColor(color, for: [.highlighted, .selected])
             
             self.setTitleColor(color, for: .disabled)
-
+            
             break
         case .noBorder:
             //Reset the button
@@ -248,7 +260,7 @@ class MWButton: UIButton
         //This very specific case needs to be specified because we do not want to hihglight the button when we drag to exit and than drag back to the button again.
         //This is the way it is by default, and we are disabling that by specifying this target.
         //All other state changes are determined by their corresponding `is...` variable.
-        self.addTarget(self, action: #selector(toggleHighlight), for: .touchDragExit)
+        self.addTarget(self, action: #selector(touchDragExit), for: .touchDragExit)
     }
     
     /// Updates the look of the button based on the `isEnabled` variable.
@@ -286,7 +298,7 @@ class MWButton: UIButton
     /// It transitions to the correct look based on whether the button is highlighted or not.
     ///
     /// The look for the highlighted state basically involves decreasing the button's alpha value, as the iOS default goes.
-    @objc private func toggleHighlight()
+    private func toggleHighlight(_ touchDragExit: Bool)
     {
         if(self.isHighlighted)
         {
@@ -297,10 +309,13 @@ class MWButton: UIButton
         }
         else
         {
-            UIView.transition(with: self, duration: 0.2, options: .transitionCrossDissolve, animations: {
-                self.update()
-                self.alpha = 1.0
-            }, completion: nil)
+            if(!staysHighlighted || touchDragExit)
+            {
+                UIView.transition(with: self, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                    self.update()
+                    self.alpha = 1.0
+                }, completion: nil)
+            }
         }
     }
     
@@ -395,11 +410,17 @@ class MWButton: UIButton
             break
         }
     }
+    
+    /// Used to update the button's look for the `touchDragExit` control event.
+    @objc private func touchDragExit()
+    {
+        toggleHighlight(true)
+    }
 }
 
 //MARK: -
 
-/// The enumeraion which holds all button styles that currently exist in myWatch.
+/// The enumeration which holds all button styles that currently exist in myWatch.
 enum MWButtonStyle: Int
 {
     /// Style __empty__ involves having a button where a thin border surrounds the button with the same color as the title label.

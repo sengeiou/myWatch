@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MWLanguageController: MWViewController, MWFirstLaunchViewController
+class MWLanguageController: MWViewController, MWFirstLaunchController, MWFirstLaunchViewController
 {
     //MARK: Member variables
     @IBOutlet weak var imageBar: MWFirstLaunchImageBar!
@@ -21,6 +21,8 @@ class MWLanguageController: MWViewController, MWFirstLaunchViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        buttonForwarder.staysHighlighted = true
     }
 
     override func didReceiveMemoryWarning()
@@ -37,5 +39,11 @@ class MWLanguageController: MWViewController, MWFirstLaunchViewController
     func getButton() -> MWButton?
     {
         return self.buttonForwarder
+    }
+    
+    //MARK: Inherited functions form: MWFirstLaunchControllerProtocol
+    func getFirstLaunchImageBar() -> MWFirstLaunchImageBar!
+    {
+        return imageBar
     }
 }

@@ -17,23 +17,17 @@ extension UIView
     /// - Parameter view: The view this view should be transferred to.
     func transfer(to view: UIView)
     {
-        self.translatesAutoresizingMaskIntoConstraints = true
         view.addSubview(self)
-        
-        MWUtil.execute(ifNotNil: self.superview, execution: { 
-            self.frame = self.superview!.convert(self.frame, to: self.superview!)
-        }) { 
-            fatalError("Could not transfer view, because the view to transfer to is not the superview of this view.")
-        }
+        self.updateFrame()
     }
     
     /// Updates the view's frame to its superview's coordinate system.
     func updateFrame()
     {
-        MWUtil.execute(ifNotNil: self.superview, execution: { 
+        self.superview ??! {
             self.translatesAutoresizingMaskIntoConstraints = true
             self.frame = self.superview!.convert(self.frame, from: self.superview!)
-        }) { 
+        } >< {
             MWLError("Could not update frame of view, because its superview is nil.", module: nil)
         }
     }
@@ -140,7 +134,7 @@ extension UIImage
         var ret: UIImage?
         
         //Check if the image can be used
-        MWUtil.execute(ifNotNil: self.cgImage) {
+        self.cgImage ?! {
             //Create a rectandle which is capable of holding the new image
             let rect: CGRect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
             
@@ -149,7 +143,7 @@ extension UIImage
             let context: CGContext? = UIGraphicsGetCurrentContext()
             
             //Check if the context is valid
-            MWUtil.execute(ifNotNil: context, execution: {
+            context ?! {
                 //If yes, make the image
                 context!.translateBy(x: 0, y: self.size.height)
                 context!.scaleBy(x: 1.0, y: -1.0)
@@ -162,7 +156,7 @@ extension UIImage
                 ret = UIGraphicsGetImageFromCurrentImageContext()
                 
                 UIGraphicsEndImageContext()
-            })
+            }
         }
         
         return ret
@@ -178,7 +172,7 @@ extension UIImage
         var ret: UIImage?
         
         //Check if the image can be used
-        MWUtil.execute(ifNotNil: self.cgImage) {
+        self.cgImage ?! {
             //Create a rectandle which is capable of holding the new image
             let rect: CGRect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
             
@@ -187,7 +181,7 @@ extension UIImage
             let context: CGContext? = UIGraphicsGetCurrentContext()
             
             //Check if the context is valid
-            MWUtil.execute(ifNotNil: context, execution: {
+            context ?! {
                 //If yes, make the image
                 context!.translateBy(x: 0, y: self.size.height)
                 context!.scaleBy(x: 1.0, y: -1.0)
@@ -199,7 +193,7 @@ extension UIImage
                 ret = UIGraphicsGetImageFromCurrentImageContext()
                 
                 UIGraphicsEndImageContext()
-            })
+            }
         }
         
         return ret
@@ -297,5 +291,72 @@ extension UIButton
     func toggleSelected()
     {
         self.isSelected = self.isSelected ? false : true
+    }
+}
+
+//MARK: -
+
+extension CGRect
+{
+    /// Scales the rectangle by the given values.
+    ///
+    /// - Parameters:
+    ///   - width: The width that should be added to the current width.
+    ///   - height: The height that should be added to the current height.
+    /// - Returns: The transformed rectangle.
+    func scaleBy(width: CGFloat, height: CGFloat) -> CGRect
+    {
+        return CGRect(x: self.origin.x, y: self.origin.y, width: self.width + width, height: self.height + height)
+    }
+    
+    /// Scales the rectangle by the given values while maintaining its center `x` and `y` position.
+    ///
+    /// - Parameters:
+    ///   - width: The width that should be added to the current width.
+    ///   - height: The height that should be added to the current height.
+    /// - Returns: The transformed rectangle.
+    func scaleByCentered(width: CGFloat, height: CGFloat) -> CGRect
+    {
+        return CGRect(x: self.origin.x - (width / 2), y: self.origin.y - (height / 2), width: self.width + width, height: self.height + height)
+    }
+    
+    /// Transforms the rectangle to the given position while maintaining its width and the height
+    ///
+    /// - Parameter point: The point this rectangle's origin should be put to.
+    /// - Returns: The transfromed rectangle.
+    func withPosition(_ point: CGPoint) -> CGRect
+    {
+        return withPosition(x: point.x, y: point.y)
+    }
+    
+    /// Transforms the rectangle to the given position while maintaning its width and the height.
+    ///
+    /// - Parameters:
+    ///   - x: The `x` value of the point that this rectangle's origin should be put to.
+    ///   - y: The `y` value of the point that this rectangle's origin should be put to.
+    /// - Returns: The transformed rectangle.
+    func withPosition(x: CGFloat, y: CGFloat) -> CGRect
+    {
+        return CGRect(x: x, y: y, width: self.width, height: self.height)
+    }
+    
+    /// Scales the rectangle to the given size by maintaining its `x` and `y` position.
+    ///
+    /// - Parameter size: The size this rectangle should be scaled to.
+    /// - Returns: The transformed rectangle.
+    func withSize(_ size: CGSize) -> CGRect
+    {
+        return withSize(width: size.width, height: size.height)
+    }
+    
+    /// cales the rectangle to the given size by maintaining its `x` and `y` position.
+    ///
+    /// - Parameters:
+    ///   - width: The width of the size that this rectangle should be scaled to.
+    ///   - height: The height of the size that this rectangle should be scaled to.
+    /// - Returns: The transformed rectangle.
+    func withSize(width: CGFloat, height: CGFloat) -> CGRect
+    {
+        return CGRect(x: self.origin.x, y: self.origin.y, width: width, height: height)
     }
 }

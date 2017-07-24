@@ -8,6 +8,113 @@
 
 import UIKit
 
+infix operator ?! : NilCoalescingPrecedence
+infix operator ?= : NilCoalescingPrecedence
+infix operator ??! : NilCoalescingPrecedence
+infix operator ??= : NilCoalescingPrecedence
+infix operator >< : ComparisonPrecedence
+
+infix operator -- : AdditionPrecedence
+
+func ?!(left: Any?, right: () -> Swift.Void)
+{
+    if(left != nil)
+    {
+        right()
+    }
+}
+
+func ?=(left: Any?, right: () -> Swift.Void)
+{
+    if(left == nil)
+    {
+        right()
+    }
+}
+
+func ??!(left: Any?, right: () -> Swift.Void) -> NilcheckResult
+{
+    if(left != nil)
+    {
+        right()
+        return NilcheckResult(result: true)
+    }
+    else
+    {
+        return NilcheckResult(result: false)
+    }
+}
+
+func ??=(left: Any?, right: () -> Swift.Void) -> NilcheckResult
+{
+    if(left == nil)
+    {
+        right()
+        return NilcheckResult(result: true)
+    }
+    else
+    {
+        return NilcheckResult(result: false)
+    }
+}
+
+func ><(left: NilcheckResult, right: () -> Swift.Void)
+{
+    if(!left)
+    {
+        right()
+    }
+}
+
+
+func --(left: CGFloat, right: CGFloat) -> CGFloat
+{
+    return left - (left - right)
+}
+
+func +<ObjectType>(left: Array<ObjectType>, right: ObjectType) -> [ObjectType]
+{
+    var copy: [ObjectType] = left
+    copy.append(right)
+    return copy
+}
+
+func -<ObjectType>(left: Array<ObjectType>, right: Int) -> [ObjectType]
+{
+    var copy: [ObjectType] = left
+    copy.remove(at: right)
+    return copy
+}
+
+func -<ObjectType: Equatable>(left: Array<ObjectType>, right: ObjectType) -> [ObjectType]
+{
+    var copy: [ObjectType] = left
+    
+    if(copy.contains(right))
+    {
+        copy.remove(at: copy.index(of: right)!)
+    }
+    
+    return copy
+}
+
+class NilcheckResult
+{
+    var result: Bool = false
+    
+    private init() {}
+    
+    fileprivate init(result: Bool)
+    {
+        self.result = result
+    }
+    
+    static prefix func !(right: NilcheckResult) -> Bool
+    {
+        return !right.result
+    }
+}
+
 /// Holds all kinds of functions which make creating the app easier.
 class MWUtil
 {
@@ -97,8 +204,7 @@ class MWUtil
     static func execute<ObjectType>(ifNil: ObjectType?, execution: @escaping () -> Swift.Void)
     {
         execute(ifNil: ifNil, execution: execution, elseExecution: nil)
-        
-        
+
     }
     
     /// Executes specified actions if `ifNil` is nil, or executes `elseExecution` if `ifNil` is not nil.
@@ -131,21 +237,43 @@ class MWUtil
         }
     }
     
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                                                                                                    //
-    //  Soon, this function will replace "execute(ifNotNil:execution:)" and "execute(ifNotNil:execution:elseExecution)".  //
-    //                                                                                                                    //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+    /**********************************************************************************************************************/
+    /*                                                                                                                    */
+    /*  Soon, this function will replace "execute(ifNotNil:execution:)" and "execute(ifNotNil:execution:elseExecution)".  */
+    /*                                                                                                                    */
+    /**********************************************************************************************************************/
     
     /// Checks whether the specified object is not nil, and executes blocks based on the result.
+    ///
+    /// Can be shortened by using operators:
+    ///
+    /// Execute something if an object is not nil:
+    ///
+    ///     object ?! {
+    ///         doSomething()
+    ///         ...
+    ///     }
+    ///
+    /// Execute something if an object is not nil, otherwise, execute an `else` block:
+    ///
+    ///     object ??! {
+    ///         doSomethingIfNotNil()
+    ///         ...
+    ///     } >< {
+    ///         doSomethingIfNil()
+    ///         ...
+    ///     }
     ///
     /// - Parameters:
     ///   - object: The object the check should be performed on.
     ///   - not: The execution that should happen if the object was not nil.
-    ///   - _nil: The execution that should happen if the object was nil.
+    ///   - nil: The execution that should happen if the object was nil.
     static func nilcheck<ObjectType>(_ object: ObjectType?, not: (() -> Swift.Void), nil _nil: (() -> Swift.Void)? = nil)
     {
+        object ?! {
+            
+        }
+        
         //Check if object is not nil
         if(object != nil)
         {
@@ -168,17 +296,36 @@ class MWUtil
         }
     }
     
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                                                                                              //
-    //  Soon, this function will replace "execute(ifNil:execution:)" and "execute(ifNil:execution:elseExecution)".  //
-    //                                                                                                              //
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /****************************************************************************************************************/
+    /*                                                                                                              */
+    /*  Soon, this function will replace "execute(ifNil:execution:)" and "execute(ifNil:execution:elseExecution)".  */
+    /*                                                                                                              */
+    /****************************************************************************************************************/
     
     /// Checks whether the specified object is nil, and executes blocks based on the result.
     ///
+    /// Can be shortened by using operators:
+    ///
+    /// Execute something if an object is nil:
+    ///
+    ///     object ?= {
+    ///         doSomething()
+    ///         ...
+    ///     }
+    ///
+    /// Execute something if an object is nil, otherwise, execute an `else` block:
+    ///
+    ///     object ??= {
+    ///         doSomethingIfNil()
+    ///         ...
+    ///     } >< {
+    ///         doSomethingIfNotNil()
+    ///         ...
+    ///     }
+    ///
     /// - Parameters:
     ///   - object: The object the check should be performed on.
-    ///   - _nil: The execution that should happen if the object was nil.
+    ///   - nil: The execution that should happen if the object was nil.
     ///   - not: The execution that should happen if the object was not nil.
     static func nilcheck<ObjectType>(_ object: ObjectType?, nil _nil: (() -> Swift.Void), not: (() -> Swift.Void)? = nil)
     {
@@ -201,6 +348,33 @@ class MWUtil
                 //If nil, and the application uses debug mode, log an error message
                 MWLError("No executions happened because the specified parameter with type: \(ObjectType.self) was not nil and there was no execution specified for this case.", module: .moduleCore)
             }
+        }
+    }
+    
+    /// Clamps a number between a minimum and a maximum value.
+    ///
+    /// - Parameters:
+    ///   - number: The number to clamp. If the number is between the minimum and the maximum value, the function will return this number.
+    ///   - min: The minimum value of the number. If the number is less than this, the function will return this number.
+    ///   - max: The maximum value of the number. If the number is greater than this, the function will return this number.
+    /// - Returns: The clamped number.
+    static func clamp(_ number: Int, min: Int, max: Int) -> Int
+    {
+        //Check if the number is between the minimum and maximum value
+        if(number < min)
+        {
+            //If less than minimum, return the minimum number
+            return min
+        }
+        else if(number > max)
+        {
+            //If greater than maximum, return the maximum number
+            return max
+        }
+        else
+        {
+            //If the number is between the previous two, return the number itself
+            return number
         }
     }
 }

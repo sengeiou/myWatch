@@ -59,7 +59,7 @@ class MWTextField: UITextField
     {
         self.layer.cornerRadius = rect.height / 2
         
-        if(self.state == .normal)
+        if(self.state == .normal && !self.isFirstResponder)
         {
             UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {
                 self.backgroundColor = self.color
@@ -68,7 +68,7 @@ class MWTextField: UITextField
             
             self.attributedPlaceholder = makeAttributedPlaceholder(for: .normal, withAlpha: 0.3)
         }
-        else if(self.isFirstResponder) //aka. if we're editing.
+        else if(self.state == .normal && self.isFirstResponder) //aka. if we're editing.
         {
             UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseOut, animations: {
                 self.backgroundColor = self.highlightedColor
@@ -86,6 +86,36 @@ class MWTextField: UITextField
             
             self.attributedPlaceholder = makeAttributedPlaceholder(for: .disabled, withAlpha: 1.0)
         }
+    }
+    
+    override func becomeFirstResponder() -> Bool
+    {
+        //Supercall
+        let ret: Bool = super.becomeFirstResponder()
+        
+        //Redraw the text field if the text field became first responder
+        if(ret)
+        {
+            self.setNeedsDisplay()
+        }
+        
+        //Return the result
+        return ret
+    }
+    
+    override func resignFirstResponder() -> Bool
+    {
+        //Supercall
+        let ret: Bool = super.resignFirstResponder()
+        
+        //Redraw the text field if the text field resigned its first responder status
+        if(ret)
+        {
+            self.setNeedsDisplay()
+        }
+        
+        //Return the result
+        return ret
     }
     
     @objc private func update()

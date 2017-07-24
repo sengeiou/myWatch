@@ -1,0 +1,57 @@
+/*********************************************************************/
+/* Chooser                                                           */
+/*********************************************************************/
+
+/* Chooser buttons */
+"m7F-J3-hTz.normalTitle" = "Régi";
+"l7g-qF-9xw.normalTitle" = "Új";
+
+
+/*********************************************************************/
+/* First Launch - First                                              */
+/*********************************************************************/
+
+/* Title */
+"2Eo-fz-vkd.text" = "Üdv a myWatch-ban!";
+
+/* Descriptions */
+"pbA-C4-cS2.text" = "Egy pár dolgot be kell állítanunk, mielőtt belekezdhetnénk az alkalmazás használatába.";
+"cJM-GG-sCn.text" = "A folyamat során 5 egyszerű lépésben készítjük elő ezt az iPhone-t és a myWatch eszközt a használatra.";
+"1oD-AR-sjm.text" = "Mire várunk még? Vágjunk bele!";
+
+/* Button */
+"MdV-ol-uon.normalTitle" = "Kezdjük!";
+
+
+/*********************************************************************/
+/* Language                                                          */
+/*********************************************************************/
+
+/* Title */
+"wsu-hg-yCT.text" = "De mielőtt belevágnánk…";
+
+/* Descriptions */
+"7m4-As-wto.text" = "Az alkalmazás jelenleg a magyar nyelvet használja. Ez azért van, mert az iPhone is ezen a nyelven fut. Ahhoz, hogy az alkalmazás nyelvét megváltoztasd, az iPhone-ét kell megváltoztatnod.";
+"9ha-xj-RA3.text" = "De mostmár tényleg… kezdjük meg a beállítást!";
+
+/* Button */
+"PdK-XV-aUf.normalTitle" = "Folytatás";
+
+
+/*********************************************************************/
+/* Device Chooser                                                    */
+/*********************************************************************/
+
+/* Title */
+"SF7-xi-BsP.text" = "Csatlakoztass egy eszközt";
+
+/* Descriptions */
+"lY5-Uh-YkP.text" = "Válassz ki ego kompatibilis eszközt az alábbi listából! Az alkalmazás ezt az eszközt fogja később használni adatok begyűjtéséhez.";
+
+/* Additional */
+"MLm-0c-uBH.text" = "Eszköz: ";
+"AXF-2C-Rzf.text" = "Kapcsold be a Bluetooth-t az eszközökhöz való csatlakozáshoz.";
+"fRS-Mj-RgQ.text" = "Eszközök keresése...";
+
+/* Button */
+"nej-dX-wBJ.normalTitle" = "Csatlakozás";

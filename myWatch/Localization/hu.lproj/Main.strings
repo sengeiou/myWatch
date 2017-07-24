@@ -90,22 +90,22 @@
 "2um-Gm-Zcf.text" = "Ébresztés";
 
 /* Class = "UITabBarItem"; title = "Sleep"; ObjectID = "Qtj-6V-W8o"; */
-"Qtj-6V-W8o.title" = "Alvás";
+"5zE-tS-rtj.title" = "Alvás";
 
 /* Class = "UITabBarItem"; title = "Today"; ObjectID = "S5c-39-c9o"; */
-"S5c-39-c9o.title" = "Ma";
+"UXz-nZ-jqQ.title" = "Ma";
 
 /* Class = "UITabBarItem"; title = "Pedometer"; ObjectID = "WZ1-2K-DY9"; */
-"WZ1-2K-DY9.title" = "Lépésszámláló";
+"1Hd-4k-lCW.title" = "Lépésszámláló";
 
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "cTo-YI-Akw"; */
-"TYs-hV-U18.title" = "Beállítások";
+"Vk3-e8-VNn.title" = "Beállítások";
 
 /* Class = "UILabel"; text = "Sleep"; ObjectID = "igX-dM-r07"; */
 "igX-dM-r07.text" = "Alvás";
 
 /* Class = "UITabBarItem"; title = "Alarm"; ObjectID = "j9c-vg-ygM"; */
-"j9c-vg-ygM.title" = "Ébresztés";
+"ARh-i0-rTs.title" = "Ébresztés";
 
 /* Class = "UILabel"; text = "Today"; ObjectID = "k7y-i1-mia"; */
 "k7y-i1-mia.text" = "Ma";

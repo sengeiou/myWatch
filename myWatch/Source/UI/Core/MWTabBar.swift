@@ -2,126 +2,223 @@
 //  MWTabBar.swift
 //  myWatch
 //
-//  Created by Máté on 2017. 06. 16.
+//  Created by Máté on 2017. 07. 13..
 //  Copyright © 2017. theMatys. All rights reserved.
 //
 
 import UIKit
 
-/// A custom-designed tab bar for the application.
+/// The custom-designed tab bar of the application.
+@IBDesignable
 class MWTabBar: UITabBar
 {
     //MARK: Inspectables
     
-    /// The style of the tab bar in an Interface Builder-supported format.
+    /// An Interface Builder-compatible representation of the style of the tab bar.
     ///
-    /// We use the number this variable holds to make an `MWTabBarStyle` instance out of it.
+    /// Whenever it is set, the tab bar will clamp its value, so it does not go out of bounds when instantiating an `MWTabBarStyle`.
     ///
-    /// Before we can use the variable, we have to clamp it, so that it does not get out of range of the `MWTabBarStyle` enumeration.
-    /// - See: `count` in `MWTabBarStyle`
-    /// - Also, see `_style` below for more details on the styles.
+    /// The variable's value is provided as the raw value of the new `MWTabBarStyle` instance.
     @IBInspectable var style: Int = 1
     {
         didSet
         {
-            _style = MWTabBarStyle(rawValue: MWUtil.clamp(style - 1, min: 0, max: MWTabBarStyle.count - 1))!
+            //Create the instance from the clamped value
+            _style = MWTabBarStyle(rawValue: MWUtil.clamp(style - 1, min: 0, max: MWTabBarStyle.count))! //It should not be nil, because the raw value is clamped between the minimum (0) and the maximum value (declared in "MWTabBarStyle").
         }
     }
     
-    /// Indicates whether the tab bar sould hide the titles of the items and center their icons.
+    /// A boolean which indicates whether the tab bar should hide the titles of the items.
+    ///
+    /// Whenever it is set, the tab bar either hides or restores the titles.
+    ///
+    /// If the case is the latter, the tab bar will restore the titles from the `titles` array.
     @IBInspectable var hidesTitles: Bool = false
-    
-    //MARK: Overriden variables
-    
-    /// Holds the items of the tab bar.
-    ///
-    /// This property has a custom setter, because whenever we set the ites of the tab bar, they have to be rearranged.
-    ///
-    /// The setter of this variable invokes function `setItems(_:animated:)`, which does all the rearranging work.
-    ///
-    /// Because of the setter, we need to specify a variable which holds the actual value of this property - in this case, that is `_items`.
-    ///
-    /// We return `_items` when getting this property's value.
-    override var items: [UITabBarItem]?
     {
-        get { return _items }
-        set { setItems(newValue, animated: animated) }
+        didSet
+        {
+            //Check if the value has changed
+            if(oldValue != hidesTitles)
+            {
+                //Update the titles based on the new value
+                updateTitles()
+            }
+        }
     }
     
     //MARK: Instance variables
     
-    /// Indicates whether any changes to the tab bar should be animated.
-    var animated: Bool = false
-    
-    /// Holds the actual style of the tab bar which later will be used to determine which style should we draw.
+    /// The style of the tab bar.
     ///
-    /// - See: `MWTabBarStyle` for more details on the styles.
-    var _style: MWTabBarStyle = .system
+    /// Whenever it is set, the tab bar will redraw/update itself to the new look.
+    ///
+    ///  - For more information on the styles, see: `MWTabBarStyle`.
+    internal var _style: MWTabBarStyle = .system
     {
         didSet
         {
+            //Update/redraw the tab bar based on the new value.
             _init()
         }
     }
     
-    /// Holds the shadow layer for a custom tab bar style.
+    /// The corresponding controls for every item of the tab bar.
+    ///
+    /// Whenever items are modified, this array modifies as well, but only if the count of the items change.
+    ///
+    /// The controls held in this array allow the tab bar to have access to the internal view of a tab bar item.
+    ///
+    /// To retrieve the image view which displays the tab bar item's icon:
+    ///
+    ///     let imageViewIcon: UIImageView = controls[0].imageView
+    ///
+    /// To retrieve the label which displays the title of the tab bar item:
+    ///
+    ///     let labelTitle: UILabel = controls[0].label
+    ///
+    private var controls: [MWTabBarControl] = [MWTabBarControl]()
+    
+    /// Holds the control of the currently selected item.
+    private var selectedControl: UIControl?
+    
+    /// An integer whose value indicates whether the next animatable operation of the tab bar should be animated.
+    ///
+    /// If its value is `0`, the tab bar will not animate at all.
+    ///
+    /// If its value is `1`, or more, it will animate operations with each operation decreasing its value by 1. If it reaches `0`, the tab bar will not animate.
+    ///
+    /// Outside of this class, its value may be increased by 1 using modifier `animating()`.
+    ///
+    /// Example (from a tab bar controller):
+    ///
+    ///     myTabBar.hidesTitles = true //Will not animate
+    ///
+    ///     myTabBar.animating().hidesTitles = true //Will animate
+    ///
+    ///     myTabBar.animating().animating().hidesTitles = true //Will animate
+    ///
+    ///     myTabBar.setItems(newItems, animated: true/false) //Will animate no matter of the "animated" parameter, because in the previous line, 2 animating operations were requested.
+    ///
+    private var animated: Int = 0
+    
     private var shadowLayer: CALayer = CALayer()
     
-    /// Holds the layer which the shadow should be clipped to for a custom tab bar style.
     private var clippingLayer: CALayer = CALayer()
     
-    /// Holds the value of `items`.
-    ///
-    /// Because `items` has a custom setter which calls `setItems(_:animated)`, we need to create a property which stores its value, and prevents the application from being stuck in an infinite setter-loop - this is the purpose of this property.
-    ///
-    /// We return this variable when getting `items` (that is the reason why this property is never being read from in this file).
-    ///
-    /// - See: overriden property `items` for more details.
-    private var _items: [UITabBarItem]?
-    
-    /// Holds the buttons for each item of the tab bar.
-    ///
-    /// Its layout is exactly like the `_items` array.
-    private var buttons: [MWTabBarButton] = [MWTabBarButton]()
-    
-    /// Holds the corresponding button for the currently selected item of the tab bar.
-    ///
-    /// It is `nil` when no items are selected.
-    private var selectedButtton: MWTabBarButton?
-    
-    /// A boolean which indicates whether the separator line (default shadow image) of the tab bar has already been removed.
-    ///
-    /// Only used if the style of the tab bar is set to custom.
     private var removedSeparatorLine: Bool = false
     
     //MARK: - Inherited initializers from: UITabBar
     override init(frame: CGRect)
     {
+        //Supercall
         super.init(frame: frame)
         
-        //Initialize using our custom function
+        //Initialize using custom initializer
         _init()
     }
     
     required init?(coder aDecoder: NSCoder)
     {
+        //Supercall
         super.init(coder: aDecoder)
         
-        //Initialize using our custom function
+        //Initialize using custom initializer
         _init()
     }
     
     //MARK: Inherited functions from: UITabBar
+    override func setItems(_ items: [UITabBarItem]?, animated: Bool)
+    {
+        //Check if we should animate
+        if(self.animated >= 1)
+        {
+            //Supercall
+            super.setItems(items, animated: true)
+            
+            //Decrease "(self.)animated"
+            self.animated -= 1
+        }
+        else
+        {
+            //Supercall
+            super.setItems(items, animated: false)
+        }
+        
+        //Iterate though the subviews and get the titles of the items if the the titles array has not yet been initialized, or if the the number of items changed.
+        //NOTE: In the supercall, views for the items, provided in the "items" parameter, are created and added to the subviews of the tab bar
+        //      These views are all inherit "UIControl", and have two subviews: the icon (image view) of the item, and its title.
+        if(controls.count == 0)
+        {
+            //Iterate through the subviews
+            for subview in self.subviews
+            {
+                //Check if the subview is one of the views of the items
+                if(subview is UIControl)
+                {
+                    let control: MWTabBarControl = MWTabBarControl(control: subview as! UIControl)
+                    control.control.addTarget(self, action: #selector(selectItem(control:)), for: .touchUpInside)
+                    
+                    controls.append(control)
+                }
+            }
+        }
+        else if(controls.count != self.items?.count)
+        {
+            //Check which direction the count has changed
+            if(controls.count < self.items!.count)
+            {
+                //Iterate through the subviews
+                for subview in self.subviews
+                {
+                    //Check if the subview is one of the views of the items
+                    if(subview is UIControl)
+                    {
+                        //Create a new "MWTabBarItemControl" instance out of this control
+                        let control: MWTabBarControl = MWTabBarControl(control: subview as! UIControl)
+                        control.control.addTarget(self, action: #selector(selectItem(control:)), for: .touchUpInside)
+                        
+                        if(!controls.contains(control))
+                        {
+                            controls.append(control)
+                        }
+                    }
+                }
+            }
+            else if(controls.count > self.items!.count) //"items" cannot be nil, because if it would be, this block would not be executed
+            {
+                //Iterate through the controls
+                //NOTE: The "itemControls" array at this point still contains the control of the removed item.
+                for control in controls
+                {
+                    //Check if the control is added to the view hierarchy. If the control is not added to it, it is likely that the current item is a removed item
+                    if(!control.isInViewHierarchy())
+                    {
+                        //Remove the title if it is not in the hierarchy anymore
+                        controls.remove(at: controls.index(of: control)!)
+                    }
+                }
+            }
+        }
+    }
+    
     override func layoutSubviews()
     {
+        //Supercall
         super.layoutSubviews()
         
-        //Lay out subviews
+        //Call the function with the layout implementation
         self.layoutIfNeeded()
     }
     
     override func layoutIfNeeded()
     {
+        //Supercall
+        super.layoutIfNeeded()
+        
+        //Update the titles if necessary
+        updateTitles()
+        
+        //Update the style of the button if necessary
         //Update/redraw the custom tab bar if the style is custom
         if(_style == .custom)
         {
@@ -141,73 +238,57 @@ class MWTabBar: UITabBar
             let shadowPath = UIBezierPath(rect: self.bounds.scaleBy(width: -10.0, height: 0.0))
             shadowLayer.frame = clippingLayer.bounds.offsetBy(dx: 0.0, dy: clippingLayer.bounds.height)
             
-            shadowLayer.shadowOffset = CGSize(width: 5.0, height: -6.0)
+            shadowLayer.shadowOffset = CGSize(width: 5.0, height: -4.0)
             shadowLayer.shadowPath = shadowPath.cgPath
         }
         
-        //Lay out the items
-        _setItems(animated: true)
-        
-        //Set the selected button if there none of them is selected
-        self.selectedButtton ?= {
-            self.buttons[0].isSelected = true
-            self.selectedButtton = self.buttons[0]
-        }
-    }
-
-    override func setItems(_ items: [UITabBarItem]?, animated: Bool)
-    {
-        //Check what should the function do
-        MWUtil.nilcheck(items, not: {
-            MWUtil.nilcheck(self.items, nil: {
-                //Set intitial items of the tab bar / show the items of the tab bar
-                self._setItems(items!, animated: animated)
-            }, not: {
-                if(self.items!.count > items!.count)
-                {
-                    //Add a new tab bar item
-                    self.addItems(new: items!, animated: animated)
-                }
-                else if(self.items!.count < items!.count)
-                {
-                    //Remove a tab bar item
-                    self.removeItems(new: items!, animated: animated)
-                }
-            })
-        }) {
-            MWUtil.nilcheck(self.items, not: {
-                //Remove all items of the tab bar
-                self.removeAllItems(animated)
-            })
-        }
     }
     
     //MARK: Instance functions
     
-    /// Custom initializer for drawing specific tab bar styles.
+    /// A modifier which forces the tab bar to perform the next redraw/update animated.
+    ///
+    /// - Returns: This tab bar.
+    func animating() -> MWTabBar
+    {        
+        animated += 1
+        return self
+    }
+    
+    /// The tab bar's custom initializer.
+    ///
+    /// Initializes the tab bar based on its style.
     private func _init()
     {
+        //Check which style the tab bar is set to
         switch _style
         {
+        //For case "system" we do not do anything - leave the system default
         case .system:
             break
-            
+        
+        //For case "custom" we draw a shadow, which is clipped outside of the tab bar, so it does not effect the translucency
         case .custom:
+            //Set the tab bar's layer allow drawing outside of its region
             self.layer.masksToBounds = false
             
+            //Setup the layer which the shadow will be clipped to
             clippingLayer.frame = self.bounds.offsetBy(dx: 0.0, dy: -(self.bounds.height -- 30.0)).withSize(width: self.bounds.width, height: 30.0)
             clippingLayer.masksToBounds = true
             
+            //Create the shadow's layer
             let shadowPath = UIBezierPath(rect: self.bounds.scaleByCentered(width: -10.0, height: 0.0))
             shadowLayer.frame = clippingLayer.bounds.offsetBy(dx: 0.0, dy: clippingLayer.bounds.height)
             
+            //Setup the shadow
             shadowLayer.shadowColor = UIColor.black.cgColor
             shadowLayer.shadowRadius = 7.0
             shadowLayer.shadowOpacity = 0.5
-            shadowLayer.shadowOffset = CGSize(width: 5.0, height: -6.0)
+            shadowLayer.shadowOffset = CGSize(width: 5.0, height: -4.0)
             shadowLayer.shadowPath = shadowPath.cgPath
             shadowLayer.masksToBounds = false
             
+            //Clip the shadow by adding it to the clipping layer, then add the final result to the tab bar's layer
             clippingLayer.addSublayer(shadowLayer)
             self.layer.addSublayer(clippingLayer)
             
@@ -215,280 +296,59 @@ class MWTabBar: UITabBar
         }
     }
     
-    /// Sets/rearranges the items of the tab bar.
+    /// Updates the titles of the tab bar based on the value of `hidesTitles`.
     ///
-    /// - Parameters:
-    ///   - items: The items that should initially be added to the tab bar. It is unnecccessary to provide, if using the function to rearrange.
-    ///   - animated: A boolean which indicates that the process of adding the buttons initially or rearranging the existing ones should be animated.
-    private func _setItems(_ items: [UITabBarItem]? = nil, animated: Bool, function: String = #function)
-    {
-        //Check if we are setting the item initially
-        //If we are, an array of the new items must be provided, meaning it cannot be nil
-        //If we are not, the items array is nil, because we already have the items set
-        MWUtil.nilcheck(items, not: {
-            //Initialize the "_items" array
-            _items = [UITabBarItem]()
-            
-            //If we are, calculate one item's width based on the tab bar's width
-            let width: CGFloat = self.frame.width / CGFloat(items!.count)
-            
-            //Iterate through the new items and add them
-            for (i, item) in items!.enumerated()
-            {
-                //Create the button for the current item
-                let button: MWTabBarButton = MWTabBarButton(tabBar: self, tabBarItem: item)
-                
-                //Create the frame for the button
-                let frame: CGRect = CGRect(x: CGFloat(i) * width, y: 0.0, width: width, height: self.frame.height)
-                
-                //Check if we have to animate
-                if(animated)
-                {
-                    //If we have to, prepare the button's alpha value
-                    button.alpha = 0.0
-                    
-                    //Do the fade in animation
-                    UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseOut, animations: {
-                        button.alpha = 1.0
-                    }, completion: nil)
-                }
-                
-                //Set the button's frame
-                button.frame = frame
-                
-                //Set the button's target for selecting
-                button.addTarget(self, action: #selector(releaseSelect(sender:)), for: .touchUpInside)
-                
-                //Add the button to the tab bar
-                self.addSubview(button)
-                
-                //Add the item to the tab bar items
-                buttons.append(button)
-                _items!.append(item)
-            }
-        }) {
-            //If we are not, calculate one item's width based on the tab bar's width
-            let width: CGFloat = self.frame.width / CGFloat(self.items!.count)
-            
-            //Iterate through the existing items and rearrange them
-            for (i, _) in self.items!.enumerated()
-            {
-                //Get the button for the current item
-                let button: MWTabBarButton = self.buttons[i]
-                
-                //Update the "hidesTitle" property of the buttons
-                button.hidesTitle = self.hidesTitles
-                
-                //Create the frame for the button
-                let frame: CGRect = CGRect(x: CGFloat(i) * width, y: 0.0, width: width, height: self.frame.height)
-                
-                //Check if we have to animate
-                if(animated)
-                {
-                    //If we have to, do the animation where all items fly to their positions
-                    UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseInOut, animations: {
-                        button.frame = frame
-                    }, completion: nil)
-                }
-                else
-                {
-                    //If we do no have to, simply set the button's frame
-                    button.frame = frame
-                }
-            }
-        }
-    }
-    
-    /// Adds one or more items to the tab bar.
+    /// If the tab bar does not hide the titles, but it did previously, it will restore them from the `titles` array.
     ///
-    /// - Parameters:
-    ///   - items: The array which contains the item(s) that should be added to the tab bar.
-    ///   - animated: A boolean which indicates that the process of adding the new button(s) and resizing the existing ones should be animated.
-    private func addItems(new items: [UITabBarItem], animated: Bool)
+    /// Otherwise, the tab bar will simply remove the titles from its subviews.
+    private func updateTitles()
     {
-        //Calculate one item's width based on the tab bar's width
-        let width: CGFloat = self.frame.width / CGFloat(items.count)
-        
-        for (i, item) in items.enumerated()
+        for control in controls
         {
-            //Calculate the new frame of the button no matter what
-            let frame: CGRect = CGRect(x: CGFloat(i) * width, y: 0.0, width: width, height: self.frame.height)
-            
-            //Check if the item exists in the current items of the tab bar
-            guard let _ = self.items!.index(of: item) else
+            if(animated >= 1)
             {
-                //If it does not, the current item is the new item, or one of the new items
-                //This means that we have to create a new button for it.
-                
-                //Create a new button
-                let button: MWTabBarButton = MWTabBarButton(tabBar: self, tabBarItem: item)
-                
-                //Check if we have to animate
-                if(animated)
-                {
-                    //If we do, prepare the button for the animation
-                    button.alpha = 0.0
+                UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseOut, animations: { 
+                    control.imageView.frame = control.control.frame.withPosition(x: control.control.frame.origin.x, y: self.hidesTitles ? ((self.frame.height - control.imageView.frame.height) / 2) - control.imageView.frame.origin.y : 1)
                     
-                    //Do the animation
-                    UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseOut, animations: {
-                        button.frame = frame
-                        button.alpha = 1.0
-                    }, completion: nil)
-                }
-                else
-                {
-                    //If we do not, simply set the button's frame
-                    button.frame = frame
-                }
-                
-                //Set the button's target for selecting
-                button.addTarget(self, action: #selector(releaseSelect(sender:)), for: .touchUpInside)
-                
-                //Add this new item to the final array
-                buttons.insert(button, at: i)
-                _items!.insert(item, at: i)
-                
-                continue
-            }
-            
-            //If the operation above succeeds, the item is among the current items of the tab bar, meaning we have to resize its button
-            
-            //Get the button for the current item
-            let button: MWTabBarButton = buttons[i]
-            
-            //Check if we have to animate
-            if(animated)
-            {
-                //If we do, do the animation
-                UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseOut, animations: {
-                    button.frame = frame
+                    control.label.isHidden = self.hidesTitles
                 }, completion: nil)
             }
             else
             {
-                //If we do not, simply set the button's frame
-                button.frame = frame
-            }
-        }
-    }
-    
-    /// Removes one or more items from the tab bar.
-    ///
-    /// - Parameters:
-    ///   - items: An array without the item(s) that has/have to be removed.
-    ///   - animated: A boolean which indicates that the process of removing the button(s) and resizing the existing ones should be animated.
-    private func removeItems(new items: [UITabBarItem], animated: Bool)
-    {
-        let width: CGFloat = self.frame.width / CGFloat(items.count)
-        
-        //An iterator for buttons that are not going to get removed
-        //Required for frame calculation
-        var _i: Int = 0
-        
-        for (i, item) in self.items!.enumerated()
-        {
-            //Get the button for the item
-            let button: MWTabBarButton = buttons[i]
-            
-            //Try to get the index of the current item in the array which does not contain the item which should be removed
-            //If the operation succeeds, the else block will not be executed, and we can assume that the current item is not the item which should be removed
-            guard let _ = items.index(of: item) else
-            {
-                //If this block gets executed, we assume that the current item can not be found in the new array, which means the current item is the button which should be removed
+                //Reposition the image view
+                control.control.frame = control.control.frame.withPosition(x: control.control.frame.origin.x, y: hidesTitles ? ((self.frame.height - control.imageView.frame.height) / 2) - control.imageView.frame.origin.y : 1)
                 
-                //Check if we have to animate
-                if(animated)
-                {
-                    //If we do, do the animation
-                    //As a completion after the animation has finished, we remove the button finally
-                    UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseIn, animations: { 
-                        button.frame = CGRect.zero
-                        button.alpha = 0.0
-                    }, completion: { (finished: Bool) in
-                        button.removeFromSuperview()
-                        self.buttons.remove(at: i)
-                        self._items!.remove(at: i)
-                    })
-                }
-                else
-                {
-                    //If we do not, simply remove the button
-                    button.removeFromSuperview()
-                    buttons.remove(at: i)
-                    _items!.remove(at: i)
-                }
-                
-                continue
+                //Hide/show the title
+                control.label.isHidden = hidesTitles
             }
-            
-            //This segment should only be executed if the current item is not going to be removed
-            
-            //Check if we have to animate
-            if(animated)
-            {
-                //If we do, do the animation
-                UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseIn, animations: { 
-                    button.frame = CGRect(x: CGFloat(_i) * width, y: 0.0, width: width, height: self.frame.height)
-                }, completion: nil)
-            }
-            else
-            {
-                //If we do not, simply set the button's frame
-                button.frame = CGRect(x: CGFloat(_i) * width, y: 0.0, width: width, height: self.frame.height)
-            }
-            
-            //Increment the iterator for buttons that are not going to get removed
-            _i += 1
         }
-    }
-    
-    /// Removes all the items from the tab bar.
-    ///
-    /// - Parameter animated: A boolean which indicates that the process of removing all the buttons should be animated.
-    private func removeAllItems(_ animated: Bool)
-    {
-        //Iterate through all the items
-        for (i, _) in self.items!.enumerated()
+        
+        if(animated >= 1)
         {
-            //Get the button for the current item
-            let button: MWTabBarButton = buttons[i]
-            
-            //Check if we have to animate
-            if(animated)
-            {
-                //If we do, do the fade out animation and, as a completion, remove the item
-                UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseIn, animations: { 
-                    button.alpha = 0.0
-                }, completion: { (finished: Bool) in
-                    button.removeFromSuperview()
-                    self.buttons.remove(at: i)
-                    self._items!.remove(at: i)
-                })
-            }
-            else
-            {
-                //If we do not, simply remove the item
-                button.removeFromSuperview()
-                buttons.remove(at: i)
-                _items!.remove(at: i)
-            }
+            animated -= 1
         }
     }
     
-    /// Called whenever a button is selected.
+    /// Animates the selection of the control provided in the parameter and the unselection of the currently selected control.
     ///
-    /// - Parameter sender: The button which has just been selected.
-    @objc private func releaseSelect(sender: MWTabBarButton)
+    /// - Parameter control: The control which is about to be selected.
+    @objc private func selectItem(control: UIControl)
     {
-        //Deselect the currently selected button if there was one before
-        selectedButtton?.isSelected = false
+        //Animate the selection of the new control
+        UIView.transition(with: control, duration: 0.1, options: .transitionCrossDissolve, animations: { 
+            control.isSelected = true
+        }, completion: nil)
         
-        //Select the new button
-        sender.isSelected = true
-        selectedButtton = sender
+        //Check if we have a currently selected control
+        selectedControl ?! {
+            //Animate the unselection of the currently selected control
+            UIView.transition(with: self.selectedControl!, duration: 0.1, options: .transitionCrossDissolve, animations: {
+                self.selectedControl!.isSelected = false
+            }, completion: nil)
+        }
         
-        //Inform the delegate that an item has been selected
-        self.delegate?.tabBar?(self, didSelect: sender.tabBarItem)
+        //Set the new control as the selected control
+        selectedControl = control
     }
     
     /// Searches for a separator line in subviews of the given view
@@ -509,7 +369,7 @@ class MWTabBar: UITabBar
         {
             //For optimization puposes, we exclude the buttons from the search
             //(We are looking for a view with type "_UIBarBackground", but that is not a public view type available in UIKit.)
-            if(!(subview is MWTabBarButton))
+            if(!(subview is UIControl))
             {
                 if let shadowImage = getSeparatorLine(for: subview)
                 {
@@ -522,193 +382,48 @@ class MWTabBar: UITabBar
     }
 }
 
-/// A custom button for a tab bar item on a tab bar.
-class MWTabBarButton: UIControl
+/// A basic class which collects the two main views of a tab bar item control and the control itself.
+fileprivate class MWTabBarControl: NSObject
 {
-    /// A boolean indicating whether the button is selected.
+    /// The corresponding control of the tab bar item.
+    var control: UIControl
+    
+    /// The image view which displays the icon of the tab bar item.
+    var imageView: UIImageView
+    
+    /// The label which displays the title of the tab bar item.
+    var label: UILabel
+    
+    /// Makes an `MWTabBarControl` instance out of the given parameters.
     ///
-    /// Whenever we set this value, based on the new value, the button either displays itself selected or unselected.
-    override var isSelected: Bool
+    /// - Parameter control: The control which must have an image view as its subview at slot `0` and a label at slot `1`. (Can be directly extracted from the subviews of any tab bar.)
+    ///
+    ///   __NOTE:__ This specific control type is called `UITabBarButton`, but it is not released in the public version of UIKit. Therefore, the way we check whether a control is an instance of this type is by checking whether the control's structure matches the structure of a `UITabBarButton`.
+    init(control: UIControl)
     {
-        didSet
+        //Store the control
+        self.control = control
+        
+        //Check if the control is an item's control directly extracted from the tab bar.
+        if(control.subviews[0] is UIImageView && control.subviews[1] is UILabel)
         {
-            //Check if the button is currently selected
-            if(isSelected)
-            {
-                //If it is, display the selected look
-                
-                //Set the image view
-                imageView.silently().tintingColor = selectedColor
-                
-                UIView.transition(with: imageView, duration: 0.1, options: .transitionCrossDissolve, animations: {
-                    self.imageView.image = self.selectedImage
-                }, completion: nil)
-                
-                //Optionally, set the label
-                MWUtil.nilcheck(label, not: { 
-                    UIView.transition(with: label!, duration: 0.1, options: .transitionCrossDissolve, animations: {
-                        self.label!.textColor = self.selectedColor
-                    }, completion: nil)
-                })
-            }
-            else
-            {
-                //If it is not, display the unselected look
-                
-                //Set the image view
-                imageView.silently().tintingColor = unselectedColor
-                
-                UIView.transition(with: imageView, duration: 0.1, options: .transitionCrossDissolve, animations: {
-                    self.imageView.image = self.image
-                }, completion: nil)
-                
-                //Optionally, set the label
-                MWUtil.nilcheck(label, not: {
-                    UIView.transition(with: label!, duration: 0.1, options: .transitionCrossDissolve, animations: {
-                        self.label!.textColor = self.unselectedColor
-                    }, completion: nil)
-                })
-            }
-        }
-    }
-    
-    /// The frame of the button.
-    ///
-    /// Whenever we set its value, the button updates its layout, but only if the button has already been initialized.
-    override var frame: CGRect
-    {
-        didSet
-        {
-            //Check if the button has already been initialized
-            if(initilaized)
-            {
-                //If it has, layout immediately
-                layoutIfNeeded()
-            }
-        }
-    }
-    
-    /// The tab bar item corresponding to this button.
-    var tabBarItem: UITabBarItem!
-    
-    /// A boolean which indicates whether the button should hide the item's title.
-    var hidesTitle: Bool = false
-    
-    /// A boolean which indicates whether the button has already been initialized.
-    ///
-    /// If set to `true`, the button will lay out itself automatically whenever the frame changes.
-    private var initilaized: Bool = false
-    
-    /// The image that sould show the image provided in the corresponding tab bar item.
-    private var imageView: MWImageView!
-    
-    /// The image provided in the corresponding tab bar item for the unselected state.
-    private var image: UIImage!
-    
-    /// The image provided in the corresponding tab bar item for the selected state.
-    private var selectedImage: UIImage!
-    
-    /// The label showing the title of the tab bar item if the tab bar does not hide titles.
-    private var label: UILabel?
-    
-    /// The color that the button should be tinted with if it is selected.
-    private var selectedColor: UIColor!
-    
-    /// The color that the button should be tinted with if it is not selected.
-    private var unselectedColor: UIColor!
-    
-    /// Makes an `MWTabBarItem` instance out of the given parameters.
-    ///
-    /// - Parameters:
-    ///   - tabBar: The tab bar that this button belongs to.
-    ///   - tabBarItem: The tab bar item which corresponds to this button.
-    ///
-    /// In the supercall, we provide a zero rectangle as the frame of the control.
-    ///
-    /// Laying out the actual frame of the button is done explicitly in `MWTabBar`.
-    ///
-    /// - See: `_setItems(_:animated:)` in `MWTabBar` for more details on the frame.
-    init(tabBar: MWTabBar, tabBarItem: UITabBarItem)
-    {
-        super.init(frame: CGRect.zero)
-        
-        //Set the colors
-        self.selectedColor = tabBar.tintColor
-        self.unselectedColor = tabBar.unselectedItemTintColor ?? UIColor.lightGray
-        
-        //Create the image view
-        self.imageView = MWImageView(frame: CGRect.zero)
-        self.image = tabBarItem.image ?? MWAssets.Images.imageNoImage.getImage(in: Bundle(for: type(of: self)), traits: self.traitCollection)
-        self.selectedImage = tabBarItem.selectedImage ?? tabBarItem.image
-        
-        imageView.silently().tintingColor = unselectedColor
-        imageView.image = image
-        
-        imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        //Add the image view
-        self.addSubview(imageView)
-        
-        //Check if we are not hiding the title
-        if(!tabBar.hidesTitles)
-        {
-            //If we are not, create the label
-            self.label = UILabel()
-            
-            label!.font = tabBarItem.titleTextAttributes(for: .normal)?[NSFontAttributeName] as? UIFont ?? UIFont.systemFont(ofSize: 10.0)
-            label!.text = tabBarItem.title
-            label!.textColor = self.unselectedColor
-            label!.textAlignment = .center
-
-            label!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            
-            //Add the label
-            self.addSubview(label!)
-        }
-        
-        //Set other variables
-        self.tabBarItem = tabBarItem
-        self.hidesTitle = tabBar.hidesTitles
-        
-        //Allow the button to lay out itself whenever its frame is changed
-        initilaized = true
-    }
-    
-    required init?(coder aDecoder: NSCoder)
-    {
-        super.init(coder: aDecoder)
-        MWLError("MWTabBarButton has been initialized with initializer: \"required init?(coder:)\" Nothing will happen, creating an empty view...", module: nil)
-        
-        self.frame = CGRect.zero
-    }
-    
-    /// Lays out the subviews of the button based on the button's frame.
-    override func layoutIfNeeded()
-    {
-        //Set the frame for the image view based on whether we hide the title
-        if(hidesTitle)
-        {
-            //Hide the title label
-            label?.isHidden = true
-            
-            //If do hide the title, the image view's frame is centered both horizontally and vertically
-            imageView.frame = CGRect(x: (self.frame.width - image.size.width) / 2, y: (self.frame.height - image.size.height) / 2, width: image.size.width, height: image.size.height)
+            //Store the image view and the label
+            self.imageView = control.subviews[0] as! UIImageView
+            self.label = control.subviews[1] as! UILabel
         }
         else
         {
-            //Show the title label
-            label?.isHidden = false
-            
-            //If do not hide the title, the image view's frame is slightly offsetted from the top of the button
-            imageView.frame = CGRect(x: (self.frame.width - image.size.width) / 2, y: 7, width: image.size.width, height: image.size.height)
-            
-            //Also, if we do not hide the title, set the label
-            label!.sizeToFit()
-            
-            label!.frame = label!.frame.withPosition(x: (self.frame.width - label!.frame.width) / 2, y: self.frame.height - label!.frame.height - 1.0)
-            
-            self.clipsToBounds = false
+            //Assert the application if the control is not compatible
+            fatalError("The control provided in the initializer of \"MWTabBarItemControl\" does not seem like it's an instance of \"UITabBarButton\"!")
         }
+    }
+    
+    /// Checks and returns whether the control is in the view hierarchy.
+    ///
+    /// - Returns: A boolean which indicates whether the control is in the view hierarchy.
+    func isInViewHierarchy() -> Bool
+    {
+        return control.window != nil
     }
 }
 
@@ -729,4 +444,3 @@ enum MWTabBarStyle: Int
         return self.custom.hashValue + 1
     }
 }
-
