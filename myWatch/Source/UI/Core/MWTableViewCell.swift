@@ -26,13 +26,18 @@ class MWTableViewCell: UITableViewCell
         }
     }
     
-    @IBInspectable var animateAll: Bool = false
-    
     override var isHighlighted: Bool
     {
         didSet
         {
-            setHighlighted(isHighlighted, animated: true)
+            if(isHighlighted)
+            {
+                self.setHighlighted(isHighlighted, animated: false)
+            }
+            else
+            {
+                self.setHighlighted(isHighlighted, animated: true)
+            }
         }
     }
     
@@ -40,7 +45,7 @@ class MWTableViewCell: UITableViewCell
     {
         didSet
         {
-            setSelected(isSelected, animated: true)
+            self.setSelected(isSelected, animated: true)
         }
     }
     
@@ -56,6 +61,14 @@ class MWTableViewCell: UITableViewCell
             {
                 silent = false
             }
+        }
+    }
+    
+    var isToggled: Bool = false
+    {
+        didSet
+        {
+            setToggled(isToggled, animated: true)
         }
     }
     
@@ -75,20 +88,14 @@ class MWTableViewCell: UITableViewCell
         }
     }
     
-    var isToggled: Bool = false
-    {
-        didSet
-        {
-            setToggled(isToggled, animated: true)
-        }
-    }
-        
     internal var silent: Bool = false
     
     private var selectedBackgroundColor: UIColor?
     private var unselectedBackgroundColor: UIColor?
     
-    private let highlightAnimationIdentifier: String = "MWAnimationMWTableViewCellHighlight"
+    private var highlightAnimationIdentifier: String = "MWTableViewCellHighlightAnimationIdentifier"
+    private var unhighlightAppendableAsynchronizationIdentifier: String = "MWTableViewCellUnhighlightAppendableAsynchronizationIdentifier"
+    
     private let animationDuration: TimeInterval = 0.1
     
     private var originalAccessory: UITableViewCellAccessoryType!
@@ -132,60 +139,61 @@ class MWTableViewCell: UITableViewCell
                 if(highlighted)
                 {
                     //Check if the operation was set to animate
-                    if(animated || animateAll)
+                    if(animated)
                     {
-                        UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseOut, animations: {
+                        MWAnimator.appendableAnimation(identifier: highlightAnimationIdentifier, withDuration: animationDuration, delay: 0.0, options: .curveEaseOut, animations: { 
                             self.silently().backgroundColor = self.selectedBackgroundColor
-                        }, completion: { (finished: Bool) in
-                            if(!self.isHighlighted)
+                        }, completion: nil)
+                    }
+                    else
+                    {
+                        self.silently().backgroundColor = self.selectedBackgroundColor
+                        MWDispatcher.appendableAsyncAfter(identifier: unhighlightAppendableAsynchronizationIdentifier, deadline: 0.1, execution: nil)
+                    }
+                }
+                else
+                {
+                    if(MWAnimator.animationCurrentlyInProgress(highlightAnimationIdentifier))
+                    {
+                        MWAnimator.appendCompletion(to: highlightAnimationIdentifier, completion: { (finished: Bool) in
+                            if(animated)
                             {
-                                UIView.animate(withDuration: self.animationDuration / 2, delay: 0.0, options: .curveEaseIn, animations: {
+                                UIView.animate(withDuration: self.animationDuration, delay: 0.0, options: .curveEaseIn, animations: {
                                     self.silently().backgroundColor = self.unselectedBackgroundColor
                                 }, completion: nil)
                             }
                             else
                             {
-                                self.automaticUnhighlight = false
+                                self.silently().backgroundColor = self.unselectedBackgroundColor
                             }
                         })
                     }
-                    else
+                    else if(MWDispatcher.asynchronizationCurrentlyInProgress(unhighlightAppendableAsynchronizationIdentifier))
                     {
-                        self.silently().backgroundColor = self.selectedBackgroundColor
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                            if(!self.isHighlighted)
+                        MWDispatcher.appendExecution(to: unhighlightAppendableAsynchronizationIdentifier, execution: { 
+                            if(animated)
                             {
-                                self.silently().backgroundColor = self.unselectedBackgroundColor
+                                UIView.animate(withDuration: self.animationDuration, delay: 0.0, options: .curveEaseIn, animations: {
+                                    self.silently().backgroundColor = self.unselectedBackgroundColor
+                                }, completion: nil)
                             }
                             else
                             {
-                                self.automaticUnhighlight = false
+                                self.silently().backgroundColor = self.unselectedBackgroundColor
                             }
                         })
                     }
-                }
-                else
-                {
-                    //Check if the operation was set to animate
-                    if(animated || animateAll)
-                    {
-                        if(!automaticUnhighlight)
-                        {
-                            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseIn, animations: {
-                                self.silently().backgroundColor = self.unselectedBackgroundColor
-                            }, completion: nil)
-                            
-                            automaticUnhighlight = true
-                        }
-                    }
                     else
                     {
-                        if(!automaticUnhighlight)
+                        if(animated)
+                        {
+                            UIView.animate(withDuration: self.animationDuration, delay: 0.0, options: .curveEaseIn, animations: {
+                                self.silently().backgroundColor = self.unselectedBackgroundColor
+                            }, completion: nil)
+                        }
+                        else
                         {
                             self.silently().backgroundColor = self.unselectedBackgroundColor
-                            
-                            automaticUnhighlight = true
                         }
                     }
                 }
@@ -196,7 +204,7 @@ class MWTableViewCell: UITableViewCell
                 if(highlighted)
                 {
                     //Check if the operation was set to animate
-                    if(animated || animateAll)
+                    if(animated)
                     {
                         //Execute the highlight animation
                         UIView.animate(withDuration: animationDuration / 2, delay: 0.0, options: .curveEaseOut, animations: {
@@ -212,7 +220,7 @@ class MWTableViewCell: UITableViewCell
                 else
                 {
                     //Check if the operation was set to animate
-                    if(animated || animateAll)
+                    if(animated)
                     {
                         //Execute the unhighlight animation
                         UIView.animate(withDuration: animationDuration / 2, delay: 0.0, options: .curveEaseOut, animations: {
@@ -248,7 +256,7 @@ class MWTableViewCell: UITableViewCell
                 
                 if(selected)
                 {
-                    if(animated || animateAll)
+                    if(animated)
                     {
                         UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseOut, animations: {
                             self.silently().backgroundColor = self.selectedBackgroundColor
@@ -261,7 +269,7 @@ class MWTableViewCell: UITableViewCell
                 }
                 else
                 {
-                    if(animated || animateAll)
+                    if(animated)
                     {
                         UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseIn, animations: {
                             self.silently().backgroundColor = self.unselectedBackgroundColor
@@ -294,7 +302,7 @@ class MWTableViewCell: UITableViewCell
                 originalAccessory = self.accessoryType
                 
                 //Check if the operation was set to animate
-                if(animated || animateAll)
+                if(animated)
                 {
                     //Animate the transition
                     UIView.transition(with: self, duration: animationDuration / 2, options: .transitionCrossDissolve, animations: {
@@ -310,7 +318,7 @@ class MWTableViewCell: UITableViewCell
             else
             {
                 //Check if the operation was set to animate
-                if(animated || animateAll)
+                if(animated)
                 {
                     //Animate the transition
                     UIView.transition(with: self, duration: animationDuration / 2, options: .transitionCrossDissolve, animations: {
