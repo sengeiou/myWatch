@@ -24,18 +24,7 @@ class MWButton: UIButton
     {
         didSet
         {
-            if(style < 1)
-            {
-                _style = MWButtonStyle(rawValue: 0)!
-            }
-            else if(style > MWButtonStyle.count)
-            {
-                _style = MWButtonStyle(rawValue: MWButtonStyle.count - 1)!
-            }
-            else
-            {
-                _style = MWButtonStyle(rawValue: style - 1)!
-            }
+            _style = MWButtonStyle(rawValue: MWUtil.clamp(style - 1, min: 0, max: MWButtonStyle.count))!
         }
     }
     
@@ -432,9 +421,9 @@ enum MWButtonStyle: Int
     /// Style __noBorder__ involves having a button which looks like just the iOS default. There is nothing else on the button besides the title label, and that is colored with the user-specified color.
     case noBorder
     
-    ///Holds the total amount of styles in this enumeration.
+    /// Holds the total amount of styles in this enumeration.
     ///
-    ///This is required to make clamping the value given in `style` in `MWButton` possible.
+    /// This is required to make clamping the value given in `style` in `MWButton` possible.
     static var count: Int
     {
         return self.noBorder.hashValue + 1

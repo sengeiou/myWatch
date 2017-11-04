@@ -101,15 +101,15 @@ class MWDeviceChooserViewController: MWViewController, UINavigationControllerDel
     
         //If we have popped this controller, but have already connected to a device, display the connected device in the table view
         //Otherwise, initialize the Bluetooth
-        myWatch.get().settings.currentDevice ??! {
-            selectedDevice = myWatch.get().settings.currentDevice
-            selectedDeviceIndexPath = addCell(for: myWatch.get().settings.currentDevice)
+        MWSettings.shared.device ??! {
+            selectedDevice = MWSettings.shared.device
+            selectedDeviceIndexPath = addCell(for: MWSettings.shared.device)
             
             availableDevicesIndexPaths.append(selectedDeviceIndexPath!)
             
             bluetoothAvailable = true
         } >< {
-            myWatch.get().bluetoothCommunicator.initializeBluetooth(with: self)
+            MWBCommunicator.shared.initializeBluetooth(with: self)
         }
     }
 
@@ -233,10 +233,10 @@ class MWDeviceChooserViewController: MWViewController, UINavigationControllerDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         //Dequeue a cell
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MWIdentifiers.TableViewCellIdentifiers.deviceChooserDevice, for: indexPath) as? MWDeviceChooserDeviceCell else
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MWIdentifiers.TableViewCellIdentifiers.deviceChooserDevice, for: indexPath) as? MWDeviceChooserDeviceTableViewCell else
         {
             //If the dequeue operation fails, assert
-            fatalError("Unable to dequeue reusable cell with reuse identifier \"\(MWIdentifiers.TableViewCellIdentifiers.deviceChooserDevice)\": the dequued cell is not an instance of \"MWDeviceChooserDeviceCell\"")
+            fatalError("Unable to dequeue reusable cell with reuse identifier \"\(MWIdentifiers.TableViewCellIdentifiers.deviceChooserDevice)\": the dequued cell is not an instance of \"MWDeviceChooserDeviceTableViewCell\"")
         }
         
         //Prepare the cell and finalize it immediately if the cell is for an already selected device
@@ -249,10 +249,10 @@ class MWDeviceChooserViewController: MWViewController, UINavigationControllerDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         //Get the cell for the row
-        guard let cell = tableView.cellForRow(at: indexPath) as? MWDeviceChooserDeviceCell else
+        guard let cell = tableView.cellForRow(at: indexPath) as? MWDeviceChooserDeviceTableViewCell else
         {
             //If the operation fails, assert
-            fatalError("The cell for row \(indexPath.row) in the device chooser table view is not an instance of \"MWDeviceChosserDeviceCell\"")
+            fatalError("The cell for row \(indexPath.row) in the device chooser table view is not an instance of \"MWDeviceChooserDeviceTableViewCell\"")
         }
         
         //Check if the controller should connect to the cell's device or just forward
@@ -261,10 +261,10 @@ class MWDeviceChooserViewController: MWViewController, UINavigationControllerDel
             //If there is a cell currently selected, unselect and reset it
             selectedDevice ?! {
                 //Get the cell
-                guard let selectedCell = tableView.cellForRow(at: selectedDeviceIndexPath!) as? MWDeviceChooserDeviceCell else
+                guard let selectedCell = tableView.cellForRow(at: selectedDeviceIndexPath!) as? MWDeviceChooserDeviceTableViewCell else
                 {
                     //If the operation fails, assert
-                    fatalError("The cell for row \(indexPath.row) in the device chooser table view is not an instance of \"MWDeviceChosserDeviceCell\"")
+                    fatalError("The cell for row \(indexPath.row) in the device chooser table view is not an instance of \"MWDeviceChooserDeviceTableViewCell\"")
                 }
                 
                 ////Reset the selected cell's look for possible reuse
@@ -285,7 +285,7 @@ class MWDeviceChooserViewController: MWViewController, UINavigationControllerDel
             tableView.isUserInteractionEnabled = false
             
             //Attempt to connect to the device
-            myWatch.get().bluetoothCommunicator.attemptToConnect(to: selectedDevice!)
+            MWBCommunicator.shared.attemptToConnect(to: selectedDevice!)
         }
         else
         {
@@ -319,13 +319,13 @@ class MWDeviceChooserViewController: MWViewController, UINavigationControllerDel
     func bluetoothCommunicator(_ communicator: MWBCommunicator, didFinishPreparationsForDevice device: MWDevice)
     {
         //Set application's device to the currently selected device,
-        myWatch.get().settings.currentDevice = device
+        MWSettings.shared.device = device
         
         //Get the selected cell
-        guard let selectedCell = tableViewDevices.cellForRow(at: selectedDeviceIndexPath!) as? MWDeviceChooserDeviceCell else
+        guard let selectedCell = tableViewDevices.cellForRow(at: selectedDeviceIndexPath!) as? MWDeviceChooserDeviceTableViewCell else
         {
             //If the operation fails, assert
-            fatalError("The cell for row \(selectedDeviceIndexPath!.row) in the device chooser table view is not an instance of \"MWDeviceChosserDeviceCell\"")
+            fatalError("The cell for row \(selectedDeviceIndexPath!.row) in the device chooser table view is not an instance of \"MWDeviceChooserDeviceTableViewCell\"")
         }
         
         //Update the selected cell's look to indicate that the application has connected to its device
@@ -418,7 +418,7 @@ class MWDeviceChooserViewController: MWViewController, UINavigationControllerDel
                 }
                 
                 //Start the scan for devices
-                myWatch.get().bluetoothCommunicator.lookForDevices()
+                MWBCommunicator.shared.lookForDevices()
             }
             else
             {
@@ -473,13 +473,11 @@ class MWDeviceChooserViewController: MWViewController, UINavigationControllerDel
             //Reset the devices
             selectedDevice = nil
             
-            //If there is a device that the application is using, reset that, because an entire reconnection will be necessary
-            myWatch.get().settings.currentDevice ?! {
-                myWatch.get().settings.currentDevice = nil
-            }
+            //Reset the device that the application is using, because an entire reconnection will be necessary
+            MWSettings.shared.device = nil
 
             //Reset the Bluetooth communicator's device
-            myWatch.get().bluetoothCommunicator.device = nil
+            MWBCommunicator.shared.device = nil
             
             //Remove all the available devices
             availableDevices.removeAll()
@@ -518,7 +516,7 @@ class MWDeviceChooserViewController: MWViewController, UINavigationControllerDel
 //MARK: -
 
 /// A table view cell for the table view which lists all the available myWatch Bluetooth devices in view controller `MWDeviceChooserViewController`.
-class MWDeviceChooserDeviceCell: MWTableViewCell
+class MWDeviceChooserDeviceTableViewCell: MWTableViewCell
 {
     //MARK: Outlets
     @IBOutlet weak var imageViewIcon: MWImageView!
@@ -539,25 +537,30 @@ class MWDeviceChooserDeviceCell: MWTableViewCell
     /// When set to `false`, tapping on the cell will make the application connect to the cell's device and if the connection succeeds, it will also forward the first launch setup. In this case, before the selection of the cell, the cell displays a disclosure indicator as its accessory, and after the selection, it displays an activity indicator until the device is ready to use.
     fileprivate var isCellWithSelectedDevice: Bool = false
     
-    //MARK: - Inherited functions from: MWActionTableViewCell
+    //MARK: - Inherited functions from: MWTableViewCell
     override func setSelected(_ selected: Bool, animated: Bool)
     {
-        super.silently().setSelected(selected, animated: true)
-        
-        //Check if the cell is bound to be selected
-        if(selected)
+        if(!silent)
         {
-            //Check if the cell's device is the application's current device
-            if(!isCellWithSelectedDevice)
+            //Check if the cell is bound to be selected
+            if(selected)
             {
-                //If it is not, display the activity indicator
-                self.accessoryType = .none
-                activityIndicator.startAnimating()
-                activityIndicator.isHidden = false
-                activityIndicator.alpha = 1.0
-                
-                //The cell's controller will automatically handle the connection to the cell's device
+                //Check if the cell's device is the application's current device
+                if(!isCellWithSelectedDevice)
+                {
+                    //If it is not, display the activity indicator
+                    self.accessoryType = .none
+                    activityIndicator.startAnimating()
+                    activityIndicator.isHidden = false
+                    activityIndicator.alpha = 1.0
+                    
+                    //The cell's controller will automatically handle the connection to the cell's device
+                }
             }
+        }
+        else
+        {
+            self.silent = false
         }
     }
     
@@ -575,7 +578,7 @@ class MWDeviceChooserDeviceCell: MWTableViewCell
         //Check if the cell already has a device
         self.device ??= {
             //If it does not have one, append the new device's ID to the cell's label and store the device
-            labelDeviceName.text = labelDeviceName.text?.appending(device.deviceID)
+            labelDeviceName.text = labelDeviceName.text?.appending(device.identifier)
             
             self.device = device
         } >< {
@@ -585,7 +588,7 @@ class MWDeviceChooserDeviceCell: MWTableViewCell
                 //Remove the old device's ID from the cell's label and append the new one's ID
                 //NOTE: At this point, the label's text should not be nil, because we already have a device ID attached to it.
                 labelDeviceName.text!.removeSubrange(labelDeviceName.text!.index(labelDeviceName.text!.endIndex, offsetBy: -12)..<labelDeviceName.text!.endIndex)
-                labelDeviceName.text!.append(device.deviceID)
+                labelDeviceName.text!.append(device.identifier)
                 
                 //Store the new device
                 self.device = device

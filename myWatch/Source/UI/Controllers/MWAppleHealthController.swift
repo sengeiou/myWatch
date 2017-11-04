@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MWAppleHealthController: MWViewController, MWFirstLaunchController, MWFirstLaunchViewController
+class MWAppleHealthController: MWViewController, MWFirstLaunchViewController
 {
     //MARK: Member variables
     @IBOutlet weak var imageBar: MWFirstLaunchImageBar!
@@ -51,13 +51,12 @@ class MWAppleHealthController: MWViewController, MWFirstLaunchController, MWFirs
     //MARK: Action functions
     @IBAction func buttonPressed_buttonEnable(_ sender: MWButton)
     {
-        myWatch.get().settings.exportToAppleHealth = true
+        MWSettings.shared.exportToAppleHealth = true
     }
     
     @IBAction func buttonPressed_buttonDisable(_ sender: MWButton)
     {
-        myWatch.get().settings.exportToAppleHealth = false
-        
+        MWSettings.shared.exportToAppleHealth = false
         self.performSegue(withIdentifier: MWIdentifiers.SegueIdentifiers.appleHealthToFirstLaunchLast, sender: self)
     }
 }

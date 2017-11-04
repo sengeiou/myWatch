@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MWConnectingController: MWViewController, MWFirstLaunchController, MWFirstLaunchViewController, MWBCommunicatorDelegate
+class MWConnectingController: MWViewController, MWFirstLaunchViewController, MWBCommunicatorDelegate
 {
     //MARK: Member variables
     @IBOutlet weak var imageBar: MWFirstLaunchImageBar!
@@ -70,7 +70,7 @@ class MWConnectingController: MWViewController, MWFirstLaunchController, MWFirst
     
     func viewControllerDidGetPresented()
     {
-        myWatch.get().bluetoothCommunicator.delegate = self
-        myWatch.get().bluetoothCommunicator.attemptToConnect(to: device)
+        MWBCommunicator.shared.delegate = self
+        MWBCommunicator.shared.attemptToConnect(to: device)
     }
 }

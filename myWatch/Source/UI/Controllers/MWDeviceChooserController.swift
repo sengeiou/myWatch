@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MWDeviceChooserController: MWViewController, MWFirstLaunchController, MWFirstLaunchViewController, MWBCommunicatorDelegate, UITableViewDataSource
+class MWDeviceChooserController: MWViewController, MWFirstLaunchViewController, MWBCommunicatorDelegate, UITableViewDataSource
 {
     //MARK: Member variables
     @IBOutlet weak var imageBar: MWFirstLaunchImageBar!
@@ -80,7 +80,7 @@ class MWDeviceChooserController: MWViewController, MWFirstLaunchController, MWFi
                 self.labelNoBluetooth.alpha = 0.0
             }, completion: nil)
             
-            myWatch.get().bluetoothCommunicator.lookForDevices()
+            MWBCommunicator.shared.lookForDevices()
         }
         else
         {
@@ -129,7 +129,7 @@ class MWDeviceChooserController: MWViewController, MWFirstLaunchController, MWFi
     
     private func setupBluetooth()
     {
-        myWatch.get().bluetoothCommunicator.initializeBluetooth(with: self)
+        MWBCommunicator.shared.initializeBluetooth(with: self)
     }
     
     //MARK: Navigation functions
@@ -165,7 +165,7 @@ class MWDeviceCell: UITableViewCell
         
         if(!appendedID)
         {
-            labelText.text = labelText.text?.appending(device.deviceID)
+            labelText.text = labelText.text?.appending(device.identifier)
             appendedID = true
         }
         

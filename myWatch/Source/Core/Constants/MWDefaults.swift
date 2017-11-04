@@ -15,6 +15,7 @@ struct MWDefaults
     struct Application
     {
         static let applicationName = "myWatch"
+        static let applicationPrefix = "MW"
     }
     
     //MARK: -

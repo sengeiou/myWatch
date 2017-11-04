@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MWNameDeviceController: MWViewController, MWFirstLaunchController, MWFirstLaunchViewController, UITextFieldDelegate
+class MWNameDeviceController: MWViewController, MWFirstLaunchViewController, UITextFieldDelegate
 {
     //MARK: Member variables
     @IBOutlet weak var imageBar: MWFirstLaunchImageBar!
@@ -106,8 +106,8 @@ class MWNameDeviceController: MWViewController, MWFirstLaunchController, MWFirst
     //MARK: Action functions
     @IBAction func buttonPressed_buttonForwarder(_ sender: MWButton)
     {
-        device.givenName = deviceName! //The device name should not be nil, because we only allow to press the button when the textfield has a proper name in it.
-        myWatch.get().settings.currentDevice = device
+        device.name = deviceName! //The device name should not be nil, because we only allow to press the button when the textfield has a proper name in it.
+        MWSettings.shared.device = device
     }
     
     //MARK: Inherited functions from: MWFirstLaunchViewController

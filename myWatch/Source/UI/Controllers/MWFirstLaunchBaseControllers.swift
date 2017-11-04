@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MWFirstLaunchFirstController: MWViewController, MWFirstLaunchController, MWFirstLaunchViewController
+class MWFirstLaunchFirstController: MWViewController, MWFirstLaunchViewController
 {
     //MARK: Member variables
     @IBOutlet weak var imageBar: MWFirstLaunchImageBar!
@@ -49,7 +49,7 @@ class MWFirstLaunchFirstController: MWViewController, MWFirstLaunchController, M
     }
 }
 
-class MWFirstLaunchLastController: MWViewController, MWFirstLaunchController, MWFirstLaunchViewController
+class MWFirstLaunchLastController: MWViewController, MWFirstLaunchViewController
 {
     //MARK: Member variables
     @IBOutlet weak var imageBar: MWFirstLaunchImageBar!

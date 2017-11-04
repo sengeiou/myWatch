@@ -15,5 +15,5 @@ struct MWFileLocations
     static let defaultSaveLocation = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("myWatch", isDirectory: true)
     
     /// The file the settings are saved to.
-    static let settingsFile = defaultSaveLocation.appendingPathComponent("myWatchSettings")
+    static let settingsFile = defaultSaveLocation.appendingPathComponent("MWSettings")
 }

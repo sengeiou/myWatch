@@ -18,13 +18,10 @@ import CoreBluetooth
     //MARK: Instance variables
     
     /// The name of the device given by the user.
-    var givenName: String
+    var name: String
     
     /// The device's ID which is used to identify the device after first launch.
-    var deviceID: String
-    
-    /// Temporary variable holding the current step count for this device for the current day.
-    var stepCount: Int = 0
+    var identifier: String
     
     /// The Bluetooth peripheral representing this device.
     var peripheral: CBPeripheral?
@@ -32,11 +29,10 @@ import CoreBluetooth
     //MARK: - Inherited initializers from: NSCoding
     required convenience init?(coder aDecoder: NSCoder)
     {
-        let givenName: String? = aDecoder.decodeObject(forKey: PropertyKey.givenName) as? String
-        let deviceID: String? = aDecoder.decodeObject(forKey: PropertyKey.deviceID) as? String
-        let stepCount: Int = aDecoder.decodeInteger(forKey: PropertyKey.stepCount)
+        let name: String = aDecoder.decodeObject(forKey: PropertyKey.name) as? String ?? ""
+        let identifier: String = aDecoder.decodeObject(forKey: PropertyKey.identifier) as? String ?? ""
         
-        self.init(givenName: givenName ?? "", deviceID: deviceID ?? "", peripheral: nil, stepCount: stepCount)
+        self.init(name: name, identifier: identifier)
     }
     
     //MARK: Initializers
@@ -46,25 +42,23 @@ import CoreBluetooth
     /// Can be called programatically by any class or by `init(coder:)` to initialize.
     ///
     /// - Parameters:
-    ///   - givenName: The name of this device given by the user.
-    ///   - deviceID: The ID used to identify this device for later use.
+    ///   - name: The name of this device given by the user.
+    ///   - identifier: The ID used to identify this device for later use.
     ///   - peripheral: The Bluetooth peripheral representing this device object.
     ///
     /// - Returns: An `MWDevice` object.
-    init(givenName: String, deviceID: String, peripheral: CBPeripheral?, stepCount: Int)
+    init(name: String = "", identifier: String = "", peripheral: CBPeripheral? = nil)
     {
-        self.givenName = givenName
-        self.deviceID = deviceID
+        self.name = name
+        self.identifier = identifier
         self.peripheral = peripheral
-        self.stepCount = stepCount
     }
     
     //MARK: Inherited functions from: NSCoding
     func encode(with aCoder: NSCoder)
     {
-        aCoder.encode(givenName, forKey: PropertyKey.givenName)
-        aCoder.encode(deviceID, forKey: PropertyKey.deviceID)
-        aCoder.encode(stepCount, forKey: PropertyKey.stepCount)
+        aCoder.encode(name, forKey: PropertyKey.name)
+        aCoder.encode(identifier, forKey: PropertyKey.identifier)
     }
     
     //MARK: -
@@ -72,8 +66,13 @@ import CoreBluetooth
     /// The structure which holds the property names used in the files to identify the properties of this object.
     private struct PropertyKey
     {
-        static let givenName: String = "MWPDeviceGivenName"
-        static let deviceID: String = "MWPDeviceID"
-        static let stepCount: String = "MWPDeviceStepCount"
+        //MARK: Prefixes
+        
+        /// The prefix of the property keys.
+        private static let prefix: String = "MWDevice"
+        
+        //MARK: Property keys
+        static let name: String = prefix + "Name"
+        static let identifier: String = prefix + "Identifier"
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4205D4461F29F9ED00C2A76B /* MWDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205D4451F29F9ED00C2A76B /* MWDispatcher.swift */; };
 		420BD91F1F13B02A001C85DF /* MWAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420BD91E1F13B02A001C85DF /* MWAnimator.swift */; };
 		420D64CD1F1B9CB9001CA5EF /* MWNameDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420D64CC1F1B9CB9001CA5EF /* MWNameDeviceViewController.swift */; };
 		420D64CF1F1BAC16001CA5EF /* MWAppleHealthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420D64CE1F1BAC16001CA5EF /* MWAppleHealthViewController.swift */; };
@@ -36,7 +37,7 @@
 		4232F7281EBF40F100511EF0 /* MWBCommunicatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F7251EBF40F100511EF0 /* MWBCommunicatorDelegate.swift */; };
 		4232F72B1EBF40FD00511EF0 /* MWDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F72A1EBF40FD00511EF0 /* MWDevice.swift */; };
 		4232F72D1EBF410B00511EF0 /* MWIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232F72C1EBF410B00511EF0 /* MWIO.swift */; };
-		425DEA861F10F07C00D3B193 /* MWFirstLaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DEA851F10F07C00D3B193 /* MWFirstLaunchController.swift */; };
+		425DEA861F10F07C00D3B193 /* MWFirstLaunchNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DEA851F10F07C00D3B193 /* MWFirstLaunchNavigationController.swift */; };
 		425DEA881F10F5AC00D3B193 /* MWFirstLaunchAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DEA871F10F5AC00D3B193 /* MWFirstLaunchAnimatedTransitioning.swift */; };
 		425DEA8C1F11940800D3B193 /* MWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DEA8B1F11940800D3B193 /* MWViewController.swift */; };
 		426ED6FE1F17E619001A1064 /* MWTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426ED6FD1F17E619001A1064 /* MWTabBar.swift */; };
@@ -44,7 +45,7 @@
 		428B57E11F127BCA00E076A1 /* MWSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428B57E01F127BCA00E076A1 /* MWSettingsTableViewController.swift */; };
 		428CA6161E9AD79800B6E8CB /* myWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428CA6151E9AD79800B6E8CB /* myWatchTests.swift */; };
 		429D57E81EFB2CC000028E6A /* MWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429D57E71EFB2CC000028E6A /* MWButton.swift */; };
-		42A135F71EEB56070014C47C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A135F61EEB56070014C47C /* HealthKit.framework */; };
+		42BF4B6E1F2F4F590073362A /* MWTableViewCellNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF4B6D1F2F4F590073362A /* MWTableViewCellNew.swift */; };
 		42C852FE1EEDC50A0046EF0C /* MWMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C852FD1EEDC50A0046EF0C /* MWMainTabBarController.swift */; };
 		42D21D091ED499EB00CE2C88 /* MWImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D21D081ED499EB00CE2C88 /* MWImageView.swift */; };
 		42DE75D11F02578B00BED516 /* MWNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DE75D01F02578B00BED516 /* MWNavigationBar.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4205D4451F29F9ED00C2A76B /* MWDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWDispatcher.swift; path = Source/Core/Utilities/MWDispatcher.swift; sourceTree = "<group>"; };
 		420BD91E1F13B02A001C85DF /* MWAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWAnimator.swift; path = Source/UI/Core/MWAnimator.swift; sourceTree = "<group>"; };
 		420D64CC1F1B9CB9001CA5EF /* MWNameDeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWNameDeviceViewController.swift; path = "Source/UI/Controllers/First Launch/MWNameDeviceViewController.swift"; sourceTree = "<group>"; };
 		420D64CE1F1BAC16001CA5EF /* MWAppleHealthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWAppleHealthViewController.swift; path = "Source/UI/Controllers/First Launch/MWAppleHealthViewController.swift"; sourceTree = "<group>"; };
@@ -96,7 +98,7 @@
 		4232F72A1EBF40FD00511EF0 /* MWDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWDevice.swift; path = Source/Core/Device/MWDevice.swift; sourceTree = "<group>"; };
 		4232F72C1EBF410B00511EF0 /* MWIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWIO.swift; path = Source/Core/File/MWIO.swift; sourceTree = "<group>"; };
 		424C77651EFFF92E00726A5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localization/en.lproj/Main.strings; sourceTree = "<group>"; };
-		425DEA851F10F07C00D3B193 /* MWFirstLaunchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWFirstLaunchController.swift; path = Source/UI/Controllers/MWFirstLaunchController.swift; sourceTree = "<group>"; };
+		425DEA851F10F07C00D3B193 /* MWFirstLaunchNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWFirstLaunchNavigationController.swift; path = Source/UI/Controllers/MWFirstLaunchNavigationController.swift; sourceTree = "<group>"; };
 		425DEA871F10F5AC00D3B193 /* MWFirstLaunchAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWFirstLaunchAnimatedTransitioning.swift; path = Source/UI/Core/MWFirstLaunchAnimatedTransitioning.swift; sourceTree = "<group>"; };
 		425DEA8B1F11940800D3B193 /* MWViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWViewController.swift; path = Source/UI/Core/MWViewController.swift; sourceTree = "<group>"; };
 		426ED6FD1F17E619001A1064 /* MWTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWTabBar.swift; path = Source/UI/Core/MWTabBar.swift; sourceTree = "<group>"; };
@@ -109,7 +111,7 @@
 		429A06991F01C85E009D00D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localization/en.lproj/myWatch.strings; sourceTree = "<group>"; };
 		429D57E71EFB2CC000028E6A /* MWButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWButton.swift; path = Source/UI/Core/MWButton.swift; sourceTree = "<group>"; };
 		42A135F51EEB56070014C47C /* myWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = myWatch.entitlements; sourceTree = "<group>"; };
-		42A135F61EEB56070014C47C /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		42BF4B6D1F2F4F590073362A /* MWTableViewCellNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWTableViewCellNew.swift; path = Source/UI/Core/MWTableViewCellNew.swift; sourceTree = "<group>"; };
 		42C852FD1EEDC50A0046EF0C /* MWMainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWMainTabBarController.swift; path = Source/UI/Controllers/MWMainTabBarController.swift; sourceTree = "<group>"; };
 		42D21D081ED499EB00CE2C88 /* MWImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWImageView.swift; path = Source/UI/Core/MWImageView.swift; sourceTree = "<group>"; };
 		42DE75D01F02578B00BED516 /* MWNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MWNavigationBar.swift; path = Source/UI/Core/MWNavigationBar.swift; sourceTree = "<group>"; };
@@ -132,7 +134,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42A135F71EEB56070014C47C /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +179,7 @@
 		42195A1E1F1A5DB400608FDA /* New First Launch */ = {
 			isa = PBXGroup;
 			children = (
+				425DEA851F10F07C00D3B193 /* MWFirstLaunchNavigationController.swift */,
 				42195A1F1F1A684F00608FDA /* MWDeviceChooserViewController.swift */,
 				420D64CC1F1B9CB9001CA5EF /* MWNameDeviceViewController.swift */,
 				420D64CE1F1BAC16001CA5EF /* MWAppleHealthViewController.swift */,
@@ -264,7 +266,6 @@
 			isa = PBXGroup;
 			children = (
 				42239EF61ED027F800E215F5 /* MWFirstLaunchImageBar.swift */,
-				425DEA851F10F07C00D3B193 /* MWFirstLaunchController.swift */,
 				42239EF41ED022F700E215F5 /* MWFirstLaunchViewController.swift */,
 				425DEA871F10F5AC00D3B193 /* MWFirstLaunchAnimatedTransitioning.swift */,
 			);
@@ -274,6 +275,7 @@
 		42B104371EB3CACE00F8F3A7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4205D4451F29F9ED00C2A76B /* MWDispatcher.swift */,
 				4232F71E1EBF40D500511EF0 /* MWExtensions.swift */,
 				4232F71F1EBF40D500511EF0 /* MWUtil.swift */,
 			);
@@ -313,6 +315,7 @@
 				4232F7041EBF409400511EF0 /* MWTextField.swift */,
 				426ED6FD1F17E619001A1064 /* MWTabBar.swift */,
 				42195A211F1A69F100608FDA /* MWTableViewCell.swift */,
+				42BF4B6D1F2F4F590073362A /* MWTableViewCellNew.swift */,
 				425DEA8B1F11940800D3B193 /* MWViewController.swift */,
 				42DE75D01F02578B00BED516 /* MWNavigationBar.swift */,
 				420BD91E1F13B02A001C85DF /* MWAnimator.swift */,
@@ -366,7 +369,6 @@
 		42E5D8EE1EB372BE009D8CD7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				42A135F61EEB56070014C47C /* HealthKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -446,13 +448,16 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
-								enabled = 1;
+								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 0;
 							};
 							com.apple.Push = {
 								enabled = 0;
 							};
 							com.apple.Siri = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -527,7 +532,8 @@
 				4232F6F21EBF2F9B00511EF0 /* MWLog.swift in Sources */,
 				42162A051EC244D900A32D09 /* MWAssets.swift in Sources */,
 				42162A071EC2475900A32D09 /* MWDefaults.swift in Sources */,
-				425DEA861F10F07C00D3B193 /* MWFirstLaunchController.swift in Sources */,
+				425DEA861F10F07C00D3B193 /* MWFirstLaunchNavigationController.swift in Sources */,
+				42BF4B6E1F2F4F590073362A /* MWTableViewCellNew.swift in Sources */,
 				42239EF71ED027F800E215F5 /* MWFirstLaunchImageBar.swift in Sources */,
 				4232F72D1EBF410B00511EF0 /* MWIO.swift in Sources */,
 				4232F71D1EBF40C000511EF0 /* myWatch.swift in Sources */,
@@ -535,6 +541,7 @@
 				425DEA8C1F11940800D3B193 /* MWViewController.swift in Sources */,
 				42162A091EC247DC00A32D09 /* MWIdentifiers.swift in Sources */,
 				42239EF51ED022F700E215F5 /* MWFirstLaunchViewController.swift in Sources */,
+				4205D4461F29F9ED00C2A76B /* MWDispatcher.swift in Sources */,
 				42193DB01ED099CE00E60C38 /* MWFirstLaunchSegue.swift in Sources */,
 				42D21D091ED499EB00CE2C88 /* MWImageView.swift in Sources */,
 				4232F7271EBF40F100511EF0 /* MWBCommunicator.swift in Sources */,
@@ -727,8 +734,8 @@
 		428CA61B1E9AD79800B6E8CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = myWatch/myWatch.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = E3353XP4LG;
 				INFOPLIST_FILE = myWatch/Localization/Base.lproj/Info.plist;
@@ -736,6 +743,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.theMatys.myWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
@@ -744,8 +752,8 @@
 		428CA61C1E9AD79800B6E8CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = myWatch/myWatch.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = E3353XP4LG;
 				INFOPLIST_FILE = myWatch/Localization/Base.lproj/Info.plist;
@@ -753,6 +761,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.theMatys.myWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};

@@ -23,7 +23,7 @@ class MWNameDeviceViewController: MWViewController, UITextFieldDelegate
     //MARK: Instance variables
     
     /// The device which the application is conected to.
-    private var device: MWDevice = myWatch.get().settings.currentDevice //Should not be nil at this point (this view controller is only presented if the user has chosen an available device).
+    private var device: MWDevice = MWSettings.shared.device //Should not be nil at this point (this view controller is only presented if the user has chosen an available device).
     
     //MARK: - Inherited functions from: MWViewController
     override func viewDidLoad()
@@ -35,9 +35,9 @@ class MWNameDeviceViewController: MWViewController, UITextFieldDelegate
         textFieldDeviceName.delegate = self
         
         //Check if the device already has a name - if it does, display it in the text field
-        if(device.givenName != "")
+        if(device.name != "")
         {
-            textFieldDeviceName.text = device.givenName
+            textFieldDeviceName.text = device.name
             barButtonNext.isEnabled = true
         }
     }
@@ -57,7 +57,7 @@ class MWNameDeviceViewController: MWViewController, UITextFieldDelegate
     func textFieldDidEndEditing(_ textField: UITextField)
     {
         //Set the the name of the application's current device
-        device.givenName = textField.text!
+        device.name = textField.text!
     }
     
     //MARK: Action functions

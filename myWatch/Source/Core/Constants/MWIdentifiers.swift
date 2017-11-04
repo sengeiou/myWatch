@@ -13,17 +13,8 @@ import Foundation
 /// The prefix used for all segue identifiers.
 fileprivate let prefixSegueID = "MWSID"
 
-/// The prefix used for all scene identifiers.
-fileprivate let prefixSceneID = "MWSCID"
-
 /// The prefix used for all table view cell identifiers.
 fileprivate let prefixCellID = "MWCID"
-
-/// The prefix used for all table view cell identifiers.
-fileprivate let prefixTableViewCell: String = "MWTableViewCell"
-
-/// The prefix used for all segue identifiers.
-fileprivate let prefixSegue: String = "MWSegue"
 
 /// Holds all the identifiers in the application that are used programatically.
 struct MWIdentifiers
@@ -41,7 +32,7 @@ struct MWIdentifiers
     /// The table view cell identifiers used programatically in the application.
     struct TableViewCellIdentifiers
     {
-        static let deviceChooserDevice: String = prefixTableViewCell + "DeviceChooserDevice"
+        static let deviceChooserDevice: String = "MWDeviceChooserDeviceTableViewCell"
     }
     
     //MARK: -
@@ -50,15 +41,24 @@ struct MWIdentifiers
     struct SegueIdentifiers
     {
         static let connectingToNameDevice = prefixSegueID + "ConnectingToNameDevice"
-        static let appleHealthToFirstLaunchLast = prefixSegue + "AppleHealthToFirstLaunchLast"
-        static let deviceChooserToNameDevice = prefixSegue + "DeviceChooserToNameDevice"
+        
+        static let appleHealthToFirstLaunchLast = "MWAppleHealthToFirstLaunchLastSegue"
+        static let deviceChooserToNameDevice = "MWDeviceChooserToNameDeviceSegue"
     }
     
     //MARK: -
     
-    /// The scene identifiers used programatically in the application.
-    struct SceneIdentifiers
+    /// The controller identifiers used programatically in the application.
+    ///
+    /// The `VC` postfix at the end of a property's name indicates that the property is a view controller's identifier.
+    ///
+    /// The `NC` postfix at the end of a property's name indicates that the property is a navigation controller's identifier.
+    ///
+    /// The `TC` postfix at the end of a property's name indicates that the property is a tab bar controller's identifier.
+    ///
+    /// The `TVC` postfix at the end of a property's name indicates that the property is a table view controller's identifier.
+    struct ControllerIdentifiers
     {
-        static let firstLaunchFirst = prefixSceneID + "FirstLaunchFirst"
+        static let firstLaunchNC: String = "MWFirstLaunchNavigationController"
     }
 }

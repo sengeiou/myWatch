@@ -66,7 +66,7 @@ class MWFirstLaunchAnimatedTransitioning: NSObject, UIViewControllerAnimatedTran
     
     func executeAnimation(using transitionContext: UIViewControllerContextTransitioning)
     {
-        //Animate the transition
+        /*//Animate the transition
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, options: [.curveEaseInOut, .preferredFramesPerSecond60], animations: {
             //Animate to the destination's saved background
             self.containerView.backgroundColor = self.destinationBackground
@@ -93,6 +93,35 @@ class MWFirstLaunchAnimatedTransitioning: NSObject, UIViewControllerAnimatedTran
             //Complete the transition
             self.destination.viewController(self.destination, didGetPresentedBy: self.source)
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        }*/
+        
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: .preferredFramesPerSecond60, animations: { 
+            //Animate to the destination's saved background
+            self.containerView.backgroundColor = self.destinationBackground
+            
+            //Shift the frame of the source view and fade it out
+            self.sourceView.frame = self.sourceView.frame.offsetBy(dx: self.reversed ? self.containerView.frame.width / 2 : -(self.containerView.frame.width / 2), dy: 0.0)
+            self.sourceView.alpha = 0.0
+            
+            //Shift the frame of the destination view and fade it in
+            self.destinationView.frame = self.destinationView.frame.offsetBy(dx: self.reversed ? self.containerView.frame.width / 2 : -(self.containerView.frame.width / 2), dy: 0.0)
+            self.destinationView.alpha = 1.0
+        }) { (finished: Bool) in
+            //Remove the source view from the hierarchy
+            self.sourceView.removeFromSuperview()
+            
+            //Restore the source view's frame and background color for potential reverse animation
+            self.sourceView.frame = self.sourceView.frame.withPosition(x: 0.0, y: 0.0)
+            self.sourceView.backgroundColor = self.sourceBackground
+            
+            //Restore the backgrounds
+            self.destinationView.backgroundColor = self.destinationBackground
+            self.containerView.backgroundColor = UIColor.black
+            
+            //Complete the transition
+            self.destination.viewController(self.destination, didGetPresentedBy: self.source)
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+
         }
     }
 }

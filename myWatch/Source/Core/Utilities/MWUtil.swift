@@ -188,7 +188,7 @@ class MWUtil
                 //If not nil, execute
                 elseExecution!()
             }
-            else if(myWatch.get().debugMode)
+            else if(myWatch.shared.debugMode)
             {
                 //If nil, and the application uses debug mode, log an error message
                 MWLError("No executions happened because the specified parameter with type: \(ObjectType.self) was nil and there was no else execution specified.", module: .moduleCore)
@@ -229,7 +229,7 @@ class MWUtil
                 //If not nil, execute
                 elseExecution!()
             }
-            else if(myWatch.get().debugMode)
+            else if(myWatch.shared.debugMode)
             {
                 //If nil, and the application uses debug mode, log an error message
                 MWLError("No executions happened because the specified parameter with type: \(ObjectType.self) was not nil and there was no else execution specified.", module: .moduleCore)
@@ -288,7 +288,7 @@ class MWUtil
                 //If not nil, execute
                 _nil!()
             }
-            else if(myWatch.get().debugMode)
+            else if(myWatch.shared.debugMode)
             {
                 //If nil, and the application uses debug mode, log an error message
                 MWLError("No executions happened because the specified parameter with type: \(ObjectType.self) was nil and there was no execution specified for this case.", module: .moduleCore)
@@ -343,7 +343,7 @@ class MWUtil
                 //If not nil, execute
                 not!()
             }
-            else if(myWatch.get().debugMode)
+            else if(myWatch.shared.debugMode)
             {
                 //If nil, and the application uses debug mode, log an error message
                 MWLError("No executions happened because the specified parameter with type: \(ObjectType.self) was not nil and there was no execution specified for this case.", module: .moduleCore)

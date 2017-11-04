@@ -63,6 +63,11 @@ class MWBCommunicator: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     /// The UUID of the Rx characteristic.
     private let uartRxUUID: CBUUID = CBUUID(string: "6E400003-B5A3-F393-E0A9-E50E24DCCA9E")
     
+    //MARK: Static variables
+    
+    /// The (shared) singleton instance of `MWBCommunicator`.
+    static let shared: MWBCommunicator = MWBCommunicator()
+    
     //MARK: - Initializers
     
     /// Basic initializer that is meant to be called once by `myWatch` (the application's main class).
@@ -122,12 +127,12 @@ class MWBCommunicator: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
             let parsed = parseDeviceID(unparsed)
             
             //From the parsed device ID, construct a device.
-            let device = MWDevice(givenName: "", deviceID: parsed, peripheral: peripheral, stepCount: 0)
+            let device = MWDevice(identifier: parsed, peripheral: peripheral)
             
             //Check if there was a device specified
             self.device ??! {
                 //If yes, check whether the two IDs match (specified and found)
-                if(self.device!.deviceID == device.deviceID)
+                if(self.device!.identifier == device.identifier)
                 {
                     //If yes, check whether the function we need to call now is implemented in the delegate - if yes, inform the delegate about the change, set the device as our current peripheral and connect to the device.
                     self.delegate.bluetoothCommunicator(_:didFindSpecifiedDevice:) ??! {

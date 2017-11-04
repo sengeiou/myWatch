@@ -1,5 +1,5 @@
 //
-//  MWFirstLaunchController.swift
+//  MWFirstLaunchNavigationController.swift
 //  myWatch
 //
 //  Created by Máté on 2017. 07. 08..
@@ -28,9 +28,4 @@ class MWFirstLaunchNavigationController: UINavigationController, UINavigationCon
         firstLaunchAnimatedTransitioning.reversed = operation == .pop
         return firstLaunchAnimatedTransitioning
     }
-}
-
-protocol MWFirstLaunchController
-{
-    func getFirstLaunchImageBar() -> MWFirstLaunchImageBar!
 }

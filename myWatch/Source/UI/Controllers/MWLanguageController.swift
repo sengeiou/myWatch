@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MWLanguageController: MWViewController, MWFirstLaunchController, MWFirstLaunchViewController
+class MWLanguageController: MWViewController, MWFirstLaunchViewController
 {
     //MARK: Member variables
     @IBOutlet weak var imageBar: MWFirstLaunchImageBar!

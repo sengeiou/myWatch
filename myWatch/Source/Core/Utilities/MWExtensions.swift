@@ -360,3 +360,14 @@ extension CGRect
         return CGRect(x: self.origin.x, y: self.origin.y, width: width, height: height)
     }
 }
+
+//MARK: -
+
+extension UIStatusBarStyle
+{
+    /// Holds the total amount of styles in this enumeration.
+    static var count: Int
+    {
+        return lightContent.hashValue + 1
+    }
+}

@@ -71,13 +71,13 @@ class MWAppleHealthViewController: MWViewController
     //MARK: Action functions
     @IBAction func buttonPressed_buttonYes(_ sender: MWButton)
     {
-        myWatch.get().settings.exportToAppleHealth = true
+        MWSettings.shared.exportToAppleHealth = true
         self.performSegue(withIdentifier: MWIdentifiers.SegueIdentifiers.appleHealthToFirstLaunchLast, sender: self)
     }
     
     @IBAction func buttonPressed_buttonNo(_ sender: MWButton)
     {
-        myWatch.get().settings.exportToAppleHealth = false
+        MWSettings.shared.exportToAppleHealth = false
         self.performSegue(withIdentifier: MWIdentifiers.SegueIdentifiers.appleHealthToFirstLaunchLast, sender: self)
     }
 }

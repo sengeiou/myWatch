@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// The prefix that is used for asset names in the application.
 fileprivate let prefixAsset: String = "MWAsset"
 
 /// Holds all the assets that are instantiated programatically by the application.

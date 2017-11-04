@@ -25,7 +25,7 @@ class MWTableViewCell: UITableViewCell
             _style = MWTableViewCellStyle(rawValue: MWUtil.clamp(style - 1, min: 0, max: MWTableViewCellStyle.count))!
         }
     }
-    
+    /*
     override var isHighlighted: Bool
     {
         didSet
@@ -48,7 +48,7 @@ class MWTableViewCell: UITableViewCell
             self.setSelected(isSelected, animated: true)
         }
     }
-    
+    */
     override var backgroundColor: UIColor?
     {
         didSet

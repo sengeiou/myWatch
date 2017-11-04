@@ -12,7 +12,7 @@ class MWAnimator
 {
     private static var appendableAnimations: [String : MWAppendableAnimation] = [String : MWAppendableAnimation]()
     
-    static func appendableAnimation(_ invokingClass: Any, line: String = String(#line), withDuration duration: TimeInterval, animations: @escaping () -> (), completion: ((Bool) -> ())? = nil) -> String
+    static func appendableAnimation(_ invokingClass: Any, withDuration duration: TimeInterval, animations: @escaping () -> (), completion: ((Bool) -> ())? = nil) -> String
     {
         return appendableAnimation(invokingClass, withDuration: duration, delay: 0.0, options: .curveLinear, animations: animations, completion: completion)
     }
@@ -89,7 +89,7 @@ class MWAnimator
     
     private static func generateRandomID(_ invokingClass: Any) -> String
     {
-        let ret: String = "MWAnimation\(invokingClass.self)"
+        let ret: String = "MW\(invokingClass.self)"
         var random: String = ""
         
         while true
@@ -102,7 +102,7 @@ class MWAnimator
             }
         }
         
-        return ret + random
+        return ret + random + "AnimationIdentifier"
     }
     
     private static func finishAnimation(for identifier: String, finished: Bool)

@@ -9,16 +9,23 @@
 import UIKit
 
 class MWViewController: UIViewController
-{    
+{
+    @IBInspectable var statusBarStyle: Int = 2
+    {
+        didSet
+        {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle
     {
-        return .lightContent
+        return UIStatusBarStyle(rawValue: MWUtil.clamp(statusBarStyle - 1, min: 0, max: UIStatusBarStyle.count))!
     }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.view.backgroundColor = MWDefaults.Colors.defaultBackgroundColor
         
         if(view.subviews.count <= 2) //The top- and bottom layout guides are always added to the view.
         {

@@ -8,41 +8,26 @@
 
 import UIKit
 
+/// A boolean which indicates whether the application is being launched for the first time.
+fileprivate var firstLaunch: Bool = false
+
 /// The application's main class.
 class myWatch
 {
     //MARK: Instance variables
-    
-    /// The shared settings of the application.
-    ///
-    /// - See: `MWSettings` for more details.
-    var settings: MWSettings = MWSettings()
-    
-    /// The main Bluetooth communicator of the application.
-    var bluetoothCommunicator: MWBCommunicator = MWBCommunicator()
-   
-    /// The boolean which identicates whether debug mode should be used in the application.
-    var debugMode: Bool = false
 
+    /// A boolean which indicates whether debug mode should be used in the application.
+    var debugMode: Bool = false
+    
     //MARK: Static variables
     
     /// The singleton instance of the `myWatch` class.
-    private static var instance: myWatch = myWatch()
+    static let shared: myWatch = myWatch()
     
     //MARK: Initializers
     
     /// Required for the singleton instance.
     private init() {}
-
-    //MARK: Static functions
-    
-    /// Used to retrieve the singleton instance of `myWatch`.
-    ///
-    /// - Returns: The singleton instance of `myWatch`.
-    static func get() -> myWatch
-    {
-        return instance
-    }
 }
 
 //MARK: -
@@ -56,11 +41,16 @@ fileprivate class MWApplicationDelegate: UIResponder, UIApplicationDelegate
     /// Required for `UIApplicationDelegate`.
     var window: UIWindow?
     
+    private var settings: MWSettings = MWSettings.shared
+    
     //MARK: - Inherited functions from: UIApplicationDelegate
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
-        //launchSetup()
-        myWatch.get().debugMode = false
+        /*if(firstLaunch)
+        {
+            firstLaunch()
+        }*/
+        
         return true
     }
     
@@ -88,7 +78,7 @@ fileprivate class MWApplicationDelegate: UIResponder, UIApplicationDelegate
     
     internal func applicationWillTerminate(_ application: UIApplication)
     {
-        MWIO.save(myWatch.get().settings, to: MWFileLocations.settingsFile)
+        MWIO.save(settings, to: MWFileLocations.settingsFile)
     }
     
     //MARK: Instance functions
@@ -98,38 +88,13 @@ fileprivate class MWApplicationDelegate: UIResponder, UIApplicationDelegate
     /// If the application is launched for the first time, it prepares the first launch.
     ///
     /// If the application is not launched for the first time, it loads the settings and prepares a regular launch.
-    private func launchSetup()
+    private func firstLaunch()
     {
-        //Attempt ot load the settings
-        let loadedSettings: MWSettings? = MWIO.load(from: MWFileLocations.defaultSaveLocation)
+        //Prepare for the first launch
+        let storyboard: UIStoryboard = UIStoryboard(name: "myWatch", bundle: Bundle(for: type(of: self)))
+        let firstLaunchViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: MWIdentifiers.ControllerIdentifiers.firstLaunchNC)
         
-        //Check whether the load was successful
-        loadedSettings ??= {
-            //If it was not, create the myWatch directory and settings file
-            if(!FileManager().fileExists(atPath: MWFileLocations.defaultSaveLocation.path))
-            {
-                do
-                {
-                    try FileManager().createDirectory(atPath: MWFileLocations.defaultSaveLocation.path, withIntermediateDirectories: false, attributes: nil)
-                }
-                catch let error as NSError
-                {
-                    MWLError("Unable to create myWatch directory: \(error.localizedDescription)", module: .moduleCore)
-                }
-            }
-            
-            //Create an empty settings instance
-            myWatch.get().settings = MWSettings()
-            
-            //Prepare for the first launch
-            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let firstLaunchViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: MWIdentifiers.SceneIdentifiers.firstLaunchFirst)
-            
-            self.window!.rootViewController = firstLaunchViewController
-        } >< {
-            //If it was, set the settings to the loaded settings.
-            myWatch.get().settings = loadedSettings!
-        }
+        self.window!.rootViewController = firstLaunchViewController
     }
 }
 
@@ -149,23 +114,28 @@ internal class MWSettings: NSObject, NSCoding
     //MARK: Instance variables
     
     /// Holds the current device that the application uses to retrieve its data.
-    var currentDevice: MWDevice!
+    var device: MWDevice!
     
     /// Holds a boolean which determines whether the application should be exporting its data to Apple Health.
     var exportToAppleHealth: Bool = false
     
+    //MARK: Static variables
+    
+    /// The (shared) singleton instance of `MWSettings`.
+    static let shared: MWSettings = create()
+    
     //MARK: - Inherited intializers fomr: NSCoding
-    required init?(coder aDecoder: NSCoder)
+    required internal init?(coder aDecoder: NSCoder)
     {
         //Decode properties
-        self.currentDevice = aDecoder.decodeObject(forKey: PropertyKey.currentDevice) as! MWDevice
+        self.device = aDecoder.decodeObject(forKey: PropertyKey.device) as! MWDevice
         self.exportToAppleHealth = aDecoder.decodeObject(forKey: PropertyKey.exportToAppleHealth) as! Bool
     }
     
     //MARK: Initializers
     
     /// Basic initializer for creating an empty instance for first launch.
-    override init()
+    override private init()
     {
         /* No-operation */
     }
@@ -174,8 +144,46 @@ internal class MWSettings: NSObject, NSCoding
     func encode(with aCoder: NSCoder)
     {
         //Encode properties
-        aCoder.encode(currentDevice, forKey: PropertyKey.currentDevice)
+        aCoder.encode(device, forKey: PropertyKey.device)
         aCoder.encode(exportToAppleHealth, forKey: PropertyKey.exportToAppleHealth)
+    }
+    
+    //MARK: Static functions
+    
+    /// Either creates an empty settings instance or loads the settings from a saved settings file.
+    ///
+    /// - Returns: An `MWSettings` instance.
+    private static func create() -> MWSettings
+    {
+        //Create a default return value
+        let ret: MWSettings = MWSettings()
+        
+        /*//Attempt to load the settings
+        let loadedSettings: MWSettings? = MWIO.load(from: MWFileLocations.defaultSaveLocation)
+        
+        //Check whether the load was successful
+        loadedSettings ??= {
+            //If it was not, create the myWatch directory and settings file
+            if(!FileManager().fileExists(atPath: MWFileLocations.defaultSaveLocation.path))
+            {
+                do
+                {
+                    try FileManager().createDirectory(atPath: MWFileLocations.defaultSaveLocation.path, withIntermediateDirectories: false, attributes: nil)
+                }
+                catch let error as NSError
+                {
+                    MWLError("Unable to create myWatch directory: \(error.localizedDescription)", module: .moduleCore)
+                }
+            }
+            
+            //Set the application to first launch mode
+            firstLaunch = true
+        } >< {
+            //If it was, set the settings to the loaded settings
+            ret = loadedSettings!
+        }*/
+        
+        return ret
     }
     
     //MARK: -
@@ -183,9 +191,14 @@ internal class MWSettings: NSObject, NSCoding
     /// The structure which holds the property names used in the files to identify the properties of this object.
     private struct PropertyKey
     {
+        //MARK: Prefixes
+        
+        /// The prefix of the property keys.
+        private static let prefix: String = "MWSettings"
+        
         //MARK: Property keys
-        static let currentDevice: String = "MWPCurrentDevice"
-        static let exportToAppleHealth: String = "MWPExportToAppleHealth"
+        static let device: String = prefix + "Device"
+        static let exportToAppleHealth: String = prefix + "ExportToAppleHealth"
     }
 }
 
