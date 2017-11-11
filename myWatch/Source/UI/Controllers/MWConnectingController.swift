@@ -19,7 +19,6 @@ class MWConnectingController: MWViewController, MWFirstLaunchViewController, MWB
     //MARK: - Inherited functions from: MWViewController
     override func viewDidLoad()
     {
-        self.firstLaunchViewController = true
         super.viewDidLoad()
     }
     
@@ -28,13 +27,19 @@ class MWConnectingController: MWViewController, MWFirstLaunchViewController, MWB
         super.didReceiveMemoryWarning()
     }
     
+    //MARK: Inherited functions form: MWFirstLaunchControllerProtocol
+    func getFirstLaunchImageBar() -> MWFirstLaunchImageBar!
+    {
+        return imageBar
+    }
+    
     //MARK: Inherited functions from: MWBCommunicatorDelegate
-    func connectionSuccessful(to device: MWDevice)
+    func bluetoothCommunicator(_ communicator: MWBCommunicator, didConnectToDevice device: MWDevice)
     {
         /* No-operation */
     }
     
-    func deviceIsReadyToUse(_ device: MWDevice)
+    func bluetoothCommunicator(_ communicator: MWBCommunicator, didFinishPreparationsForDevice device: MWDevice)
     {
         if(self.isViewLoaded)
         {
@@ -65,7 +70,7 @@ class MWConnectingController: MWViewController, MWFirstLaunchViewController, MWB
     
     func viewControllerDidGetPresented()
     {
-        myWatch.get().bluetoothCommunicator.changeDelegate(to: self)
-        myWatch.get().bluetoothCommunicator.attemptToConnect(to: device)
+        MWBCommunicator.shared.delegate = self
+        MWBCommunicator.shared.attemptToConnect(to: device)
     }
 }

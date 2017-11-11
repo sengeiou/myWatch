@@ -33,10 +33,9 @@ class MWNameDeviceController: MWViewController, MWFirstLaunchViewController, UIT
         return .slide
     }
     
-    //MARK: - Inherited functions from: UIViewController
+    //MARK: - Inherited functions from: MWViewController
     override func viewDidLoad()
     {
-        self.firstLaunchViewController = true
         super.viewDidLoad()
         
         textFieldDeviceName.delegate = self
@@ -45,11 +44,18 @@ class MWNameDeviceController: MWViewController, MWFirstLaunchViewController, UIT
         NotificationCenter.default.addObserver(self, selector: #selector(MWNameDeviceController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         buttonForwarder.disableButton()
+        buttonForwarder.staysHighlighted = true
     }
     
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
+    }
+    
+    //MARK: Inherited functions form: MWFirstLaunchControllerProtocol
+    func getFirstLaunchImageBar() -> MWFirstLaunchImageBar!
+    {
+        return imageBar
     }
     
     //MARK: Inherited functions from: UITextFieldDelegate
@@ -100,8 +106,8 @@ class MWNameDeviceController: MWViewController, MWFirstLaunchViewController, UIT
     //MARK: Action functions
     @IBAction func buttonPressed_buttonForwarder(_ sender: MWButton)
     {
-        device.givenName = deviceName! //The device name should not be nil, because we only allow to press the button when the textfield has a proper name in it.
-        myWatch.get().settings.currentDevice = device
+        device.name = deviceName! //The device name should not be nil, because we only allow to press the button when the textfield has a proper name in it.
+        MWSettings.shared.device = device
     }
     
     //MARK: Inherited functions from: MWFirstLaunchViewController

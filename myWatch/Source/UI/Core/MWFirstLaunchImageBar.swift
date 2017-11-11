@@ -55,27 +55,19 @@ class MWFirstLaunchImageBar: UIStackView
                 {
                     if(i == self.numberOfSelectedImage)
                     {
-                        imageView.autoUpdate = false
-                        imageView.imageHasAlreadyBeenTinted = true
-                        imageView.gradientTinted = false
+                        imageView.silently().gradientTinted = false
                         
                         UIView.transition(with: imageView, duration: withDuration, options: .transitionCrossDissolve, animations: {
-                            imageView.image = imageView.image?.tinted(with: self.unselectedColor)
-                        }, completion: { (finished: Bool) in
-                            imageView.autoUpdate = true
-                        })
+                            imageView.silently().image = imageView.image?.tinted(with: self.unselectedColor)
+                        }, completion: nil)
                     }
                     else if(i == to.numberOfSelectedImage)
                     {
-                        imageView.autoUpdate = false
-                        imageView.imageHasAlreadyBeenTinted = true
-                        imageView.gradientTinted = true
+                        imageView.silently().gradientTinted = true
                         
                         UIView.transition(with: imageView, duration: withDuration, options: .transitionCrossDissolve, animations: {
-                            imageView.image = imageView.image?.tinted(with: self.selectedGradient)
-                        }, completion: { (finished: Bool) in
-                            imageView.autoUpdate = true
-                        })
+                            imageView.silently().image = imageView.image?.tinted(with: self.selectedGradient)
+                        }, completion: nil)
                     }
                 }
             }
@@ -86,15 +78,11 @@ class MWFirstLaunchImageBar: UIStackView
             {
                 if(i != to.numberOfSelectedImage)
                 {
-                    imageView.autoUpdate = false
-                    imageView.imageHasAlreadyBeenTinted = true
-                    imageView.gradientTinted = false
+                    imageView.silently().gradientTinted = false
                     
                     UIView.transition(with: imageView, duration: withDuration, options: .transitionCrossDissolve, animations: {
-                        imageView.image = imageView.image?.tinted(with: self.unselectedColor)
-                    }, completion: { (finished: Bool) in
-                        imageView.autoUpdate = true
-                    })
+                        imageView.silently().image = imageView.image?.tinted(with: self.unselectedColor)
+                    }, completion: nil)
                 }
             }
         }
@@ -104,15 +92,11 @@ class MWFirstLaunchImageBar: UIStackView
             {
                 if(i != self.numberOfSelectedImage)
                 {
-                    imageView.autoUpdate = false
-                    imageView.imageHasAlreadyBeenTinted = true
-                    imageView.gradientTinted = true
+                    imageView.silently().gradientTinted = true
                     
                     UIView.transition(with: imageView, duration: withDuration, options: .transitionCrossDissolve, animations: {
-                        imageView.image = imageView.image?.tinted(with: self.selectedGradient)
-                    }, completion: { (finished: Bool) in
-                        imageView.autoUpdate = true
-                    })
+                        imageView.silently().image = imageView.image?.tinted(with: self.selectedGradient)
+                    }, completion: nil)
                 }
             }
         }
@@ -129,11 +113,11 @@ class MWFirstLaunchImageBar: UIStackView
         
         imageViews.removeAll()
         
-        setupImage(MWAssets.Images.imageFirstLaunchLanguage.getImage(inBundle: Bundle(for: type(of: self)), traits: self.traitCollection))
-        setupImage(MWAssets.Images.imageFirstLaunchDeviceChooser.getImage(inBundle: Bundle(for: type(of: self)), traits: self.traitCollection))
-        setupImage(MWAssets.Images.imageFirstLaunchConnect.getImage(inBundle: Bundle(for: type(of: self)), traits: self.traitCollection))
-        setupImage(MWAssets.Images.imageFirstLaunchNameDevice.getImage(inBundle: Bundle(for: type(of: self)), traits: self.traitCollection))
-        setupImage(MWAssets.Images.imageFirstLaunchExport.getImage(inBundle: Bundle(for: type(of: self)), traits: self.traitCollection))
+        setupImage(MWAssets.Images.imageFirstLaunchLanguage.getImage(in: Bundle(for: type(of: self)), traits: self.traitCollection))
+        setupImage(MWAssets.Images.imageFirstLaunchDeviceChooser.getImage(in: Bundle(for: type(of: self)), traits: self.traitCollection))
+        setupImage(MWAssets.Images.imageFirstLaunchConnect.getImage(in: Bundle(for: type(of: self)), traits: self.traitCollection))
+        setupImage(MWAssets.Images.imageFirstLaunchNameDevice.getImage(in: Bundle(for: type(of: self)), traits: self.traitCollection))
+        setupImage(MWAssets.Images.imageFirstLaunchExport.getImage(in: Bundle(for: type(of: self)), traits: self.traitCollection))
     }
     
     private func setupImage(_ image: UIImage?)
@@ -141,13 +125,23 @@ class MWFirstLaunchImageBar: UIStackView
         let imageView = MWImageView()
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(lessThanOrEqualToConstant: imageSize.width).isActive = true
-        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: imageSize.height).isActive = true
+        
+        if(self.traitCollection.horizontalSizeClass == .regular && self.traitCollection.verticalSizeClass == .regular)
+        {
+            imageView.widthAnchor.constraint(equalToConstant: imageSize.width * 1.5).isActive = true
+            imageView.heightAnchor.constraint(equalToConstant: imageSize.height * 1.5).isActive = true
+        }
+        else
+        {
+            imageView.widthAnchor.constraint(lessThanOrEqualToConstant: imageSize.width).isActive = true
+            imageView.heightAnchor.constraint(lessThanOrEqualToConstant: imageSize.height).isActive = true
+        }
+        
         imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 1.0).isActive = true
         
-        imageView.image = image
-        imageView.tintingColor = unselectedColor
-        imageView.tintingGradient = selectedGradient
+        imageView.silently().image = image
+        imageView.silently().tintingColor = unselectedColor
+        imageView.silently().tintingGradient = selectedGradient
         
         imageViews.append(imageView)
         

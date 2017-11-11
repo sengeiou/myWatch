@@ -2,7 +2,7 @@
 //  MWAppleHealthController.swift
 //  myWatch
 //
-//  Created by Máté on 2017. 05. 20..
+//  Created by Máté on 2017. 05. 20.
 //  Copyright © 2017. theMatys. All rights reserved.
 //
 
@@ -14,20 +14,27 @@ class MWAppleHealthController: MWViewController, MWFirstLaunchViewController
     @IBOutlet weak var imageBar: MWFirstLaunchImageBar!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelDesc: UILabel!
-    @IBOutlet weak var labelAppleHealth: UILabel!
-    @IBOutlet weak var switchAppleHealth: UISwitch!
-    @IBOutlet weak var buttonForwarder: MWButton!
+    @IBOutlet weak var buttonEnable: MWButton!
+    @IBOutlet weak var buttonDisable: MWButton!
     
     //MARK: - Inherited functions from: MWViewController
     override func viewDidLoad()
     {
-        self.firstLaunchViewController = true
         super.viewDidLoad()
+        
+        buttonEnable.staysHighlighted = true
+        buttonDisable.staysHighlighted = true
     }
 
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
+    }
+    
+    //MARK: Inherited functions form: MWFirstLaunchControllerProtocol
+    func getFirstLaunchImageBar() -> MWFirstLaunchImageBar!
+    {
+        return imageBar
     }
     
     //MARK: Inherited functions from: MWFirstLaunchViewController
@@ -38,12 +45,18 @@ class MWAppleHealthController: MWViewController, MWFirstLaunchViewController
     
     func getButton() -> MWButton?
     {
-        return self.buttonForwarder
+        return nil
     }
     
     //MARK: Action functions
-    @IBAction func buttonPressed_buttonForwarder(_ sender: MWButton)
+    @IBAction func buttonPressed_buttonEnable(_ sender: MWButton)
     {
-        myWatch.get().settings.exportToAppleHealth = switchAppleHealth.isOn
+        MWSettings.shared.exportToAppleHealth = true
+    }
+    
+    @IBAction func buttonPressed_buttonDisable(_ sender: MWButton)
+    {
+        MWSettings.shared.exportToAppleHealth = false
+        self.performSegue(withIdentifier: MWIdentifiers.SegueIdentifiers.appleHealthToFirstLaunchLast, sender: self)
     }
 }

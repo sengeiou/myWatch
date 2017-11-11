@@ -2,425 +2,445 @@
 //  MWTabBar.swift
 //  myWatch
 //
-//  Created by Máté on 2017. 06. 16.
+//  Created by Máté on 2017. 07. 13..
 //  Copyright © 2017. theMatys. All rights reserved.
 //
 
 import UIKit
 
+/// The custom-designed tab bar of the application.
+@IBDesignable
 class MWTabBar: UITabBar
 {
-    override var items: [UITabBarItem]?
-    {
-        get { return _items }
-        set { setItems(newValue, animated: animated) }
-    }
+    //MARK: Inspectables
     
-    var animated: Bool = false
-    
-    private var _items: [UITabBarItem]?
-    private var buttons: [MWTabBarButton] = [MWTabBarButton]()
-    private var selectedButtton: MWTabBarButton?
-    
-    override init(frame: CGRect)
-    {
-        super.init(frame: frame)
-        initialize()
-    }
-    
-    required init?(coder aDecoder: NSCoder)
-    {
-        super.init(coder: aDecoder)
-        initialize()
-    }
-    
-    //This function is called whenever we change the contents of "items" in UITabBar or whenever we need to update the layout of the items.
-    //It is called for the first time when we give "items" an inital value.
-    //It is called for the second time when the constraints of the tab bar have been updated and it achieves its final frame. In this call, we lay out the initial items of the tab bar correctly.
-    //Later, the function may be called when we add or remove an item from the tab bar after the intialization.
-    override func setItems(_ items: [UITabBarItem]?, animated: Bool)
-    {
-        MWUtil.execute(ifNotNil: items) {
-            //This is for the first call when we initialize the buttons for the tab bar items.
-            if(self.buttons.count == 0)
-            {
-                self.makeInitialButtons(items!)
-            }
-            //This is for the second call when we lay out the buttons correctly.
-            else if(items!.count == self.buttons.count)
-            {
-                self.layoutButtons()
-
-                self.buttons[0].isSelected = true
-                self.selectedButtton = self.buttons[0]
-            }
-            //This is for the optional call when a new item is added to the tab bar.
-            //In this scenario, the number of items in the parameter "items" must be greater than the number of items in "buttons", because the newest item does not have a corresponding button in the "buttons" array.
-            //Because the "(self.)items" array is an optional and because the "buttons" is exactly laid out like it (but without making it an optional), it is better to check with that instead of "(self.)items"
-            else if(items!.count > self.buttons.count)
-            {
-                for (i, item) in items!.enumerated()
-                {
-                    if(self.items == nil || !self.items!.contains(item) && item is MWTabBarItem)
-                    {
-                        let _item: MWTabBarItem = item as! MWTabBarItem
-                        
-                        self.addNewButton(_item, at: i)
-                        
-                        //We lay out the buttons, because by adding a new item, we reduce the original frame of the existing buttons.
-                        if(animated)
-                        {
-                            self.layoutButtons(.adding, at: i)
-                        }
-                        else
-                        {
-                            self.layoutButtons()
-                        }
-                    }
-                }
-            }
-            //This is for the optional call when an item is removed from the bar.
-            //In this scenario, the number of items in the parameter "items" must be lower than the number of items in "buttons", because an item was removed, but its button still remains in the "buttons" array.
-            //Because the "(self.)items" array is an optional and because the "buttons" is exactly laid out like it (but without making it an optional), it is better to check with that instead of "(self.)items"
-            else if(items!.count < self.buttons.count)
-            {
-                MWUtil.execute(ifNotNil: self.items, execution: {
-                    for (i, item) in self.items!.enumerated()
-                    {
-                        if(!items!.contains(item))
-                        {
-                            let correspondingButton: MWTabBarButton = self.buttons[i]
-                            
-                            if(animated)
-                            {
-                                self.layoutButtons(.removing, at: i)
-                            }
-                            else
-                            {
-                                correspondingButton.removeFromSuperview()
-                                self.buttons.remove(at: i)
-                                
-                                self.layoutButtons()
-                            }
-                        }
-                    }
-                })
-            }
-        }
-        
-        _items = items
-    }
-    
-    private func initialize()
-    {
-        
-    }
-    
-    private func makeInitialButtons(_ items: [UITabBarItem])
-    {
-        for item in items
-        {
-            if(item is MWTabBarItem)
-            {
-                let _item: MWTabBarItem = item as! MWTabBarItem
-                let button: MWTabBarButton = MWTabBarButton(tabBar: self, tabBarItem: _item)
-                
-                button.addTarget(self, action: #selector(highlight(sender:)), for: .touchDown)
-                button.addTarget(self, action: #selector(releaseSelect(sender:)), for: .touchUpInside)
-                button.addTarget(self, action: #selector(releaseNoSelect(sender:)), for: .touchUpOutside)
-                button.addTarget(self, action: #selector(releaseNoSelect(sender:)), for: .touchDragExit)
-                
-                self.addSubview(button)
-                self.buttons.append(button)
-            }
-        }
-    }
-    
-    private func layoutButtons(_ modification: MWTabBarModification? = nil, at: Int? = nil)
-    {
-        let itemWidth: CGFloat = self.frame.width / CGFloat(modification != nil && modification == .removing ? buttons.count - 1 : buttons.count)
-        let yOffset: CGFloat = CGFloat(1) / UIScreen.main.scale
-        
-        if(!animated)
-        {
-            for (i, button) in self.buttons.enumerated()
-            {
-                button.frame = CGRect(x: CGFloat(i) * itemWidth, y: yOffset, width: itemWidth, height: self.frame.height - yOffset)
-                button.layout()
-            }
-        }
-        else
-        {
-            MWUtil.execute(ifNotNil: modification, execution: {
-                MWUtil.execute(ifNotNil: at, execution: { 
-                    switch modification!
-                    {
-                    case .adding:
-                        for (i, button) in self.buttons.enumerated()
-                        {
-                            if(i == at!)
-                            {
-                                //Hide the button and make its final frame
-                                button.alpha = 0.0
-                                button.frame = CGRect(x: CGFloat(i) * itemWidth, y: yOffset, width: itemWidth, height: self.frame.height - yOffset)
-                                
-                                //With the final frame, lay out the button
-                                button.layout()
-                                
-                                //Execute the animation
-                                UIView.animate(withDuration: 0.15, delay: 0.35, options: .curveEaseOut, animations: {
-                                    button.alpha = 1.0
-                                }, completion: nil)
-                            }
-                            else
-                            {
-                                UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseOut, animations: { 
-                                    button.frame = CGRect(x: CGFloat(i) * itemWidth, y: yOffset, width: itemWidth, height: self.frame.height - yOffset)
-                                }, completion: nil)
-                            }
-                        }
-                        
-                        break
-                        
-                    case .removing:
-                        for (i, button) in self.buttons.enumerated()
-                        {
-                            if(i == at!)
-                            {
-                                UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseIn, animations: {
-                                    button.alpha = 0.0
-                                }, completion: nil)
-                            }
-                            else
-                            {
-                                UIView.animate(withDuration: 0.35, delay: 0.15, options: .curveEaseIn, animations: {
-                                    button.frame = CGRect(x: CGFloat(i < at! ? i : i - 1) * itemWidth, y: yOffset, width: itemWidth, height: self.frame.height - yOffset)
-                                }, completion: nil)
-                            }
-                        }
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                            self.buttons[at!].removeFromSuperview()
-                            self.buttons.remove(at: at!)
-                        })
-                        
-                        break
-                    }
-                }, elseExecution: {
-                    for (i, button) in self.buttons.enumerated()
-                    {
-                        button.frame = CGRect(x: CGFloat(i) * itemWidth, y: yOffset, width: itemWidth, height: self.frame.height - yOffset)
-                    }
-                    
-                    MWLDebug("No animations happened, because there was no \"at\" parameter specified.", module: nil)
-                })
-            }, elseExecution: { 
-                for (i, button) in self.buttons.enumerated()
-                {
-                    button.frame = CGRect(x: CGFloat(i) * itemWidth, y: yOffset, width: itemWidth, height: self.frame.height - yOffset)
-                }
-                
-                MWLDebug("No animations happened, because there was no modification type specified.", module: nil)
-            })
-        }
-    }
-    
-    private func addNewButton(_ item: MWTabBarItem, at: Int)
-    {
-        let button: MWTabBarButton = MWTabBarButton(tabBar: self, tabBarItem: item)
-        
-        button.addTarget(self, action: #selector(highlight(sender:)), for: .touchDown)
-        button.addTarget(self, action: #selector(releaseSelect(sender:)), for: .touchUpInside)
-        button.addTarget(self, action: #selector(releaseNoSelect(sender:)), for: .touchUpOutside)
-        button.addTarget(self, action: #selector(releaseNoSelect(sender:)), for: .touchDragExit)
-        
-        self.addSubview(button)
-        self.buttons.insert(button, at: at)
-    }
-    
-    @objc private func highlight(sender: MWTabBarButton)
-    {
-        sender.highlight(sender: sender)
-    }
-    
-    @objc private func releaseSelect(sender: MWTabBarButton)
-    {
-        sender.release(sender: sender)
-        
-        selectedButtton?.isSelected = false
-        sender.isSelected = true
-        selectedButtton = sender
-        
-        self.delegate?.tabBar?(self, didSelect: sender.tabBarItem)
-    }
-    
-    @objc private func releaseNoSelect(sender: MWTabBarButton)
-    {
-        sender.release(sender: sender)
-    }
-}
-
-class MWTabBarItem: UITabBarItem
-{
-    @IBInspectable var hidesTitle: Bool = false
-    var noImage: Bool = false
-    
-    override init()
-    {
-        super.init()
-        makeEmpty()
-    }
-    
-    required init?(coder aDecoder: NSCoder)
-    {
-        super.init(coder: aDecoder)
-        make()
-    }
-    
-    private func makeEmpty()
-    {
-        noImage = true
-        self.title = "???"
-    }
-    
-    private func make()
-    {
-        MWUtil.execute(ifNil: self.image) { 
-            self.noImage = true
-        }
-        
-        MWUtil.execute(ifNil: self.title) {
-            self.title = "???"
-        }
-    }
-}
-
-class MWTabBarButton: UIControl
-{
-    override var isSelected: Bool
+    /// An Interface Builder-compatible representation of the style of the tab bar.
+    ///
+    /// Whenever it is set, the tab bar will clamp its value, so it does not go out of bounds when instantiating an `MWTabBarStyle`.
+    ///
+    /// The variable's value is provided as the raw value of the new `MWTabBarStyle` instance.
+    @IBInspectable var style: Int = 1
     {
         didSet
         {
-            if(isSelected)
+            //Create the instance from the clamped value
+            _style = MWTabBarStyle(rawValue: MWUtil.clamp(style - 1, min: 0, max: MWTabBarStyle.count))! //It should not be nil, because the raw value is clamped between the minimum (0) and the maximum value (declared in "MWTabBarStyle").
+        }
+    }
+    
+    /// A boolean which indicates whether the tab bar should hide the titles of the items.
+    ///
+    /// Whenever it is set, the tab bar either hides or restores the titles.
+    ///
+    /// If the case is the latter, the tab bar will restore the titles from the `titles` array.
+    @IBInspectable var hidesTitles: Bool = false
+    {
+        didSet
+        {
+            //Check if the value has changed
+            if(oldValue != hidesTitles)
             {
-                imageView.autoUpdate = false
-                imageView.tintingColor = selectedColor
-                
-                UIView.transition(with: imageView, duration: 0.1, options: .transitionCrossDissolve, animations: {
-                    self.imageView.image = self.selectedImage
+                //Update the titles based on the new value
+                updateTitles()
+            }
+        }
+    }
+    
+    //MARK: Instance variables
+    
+    /// The style of the tab bar.
+    ///
+    /// Whenever it is set, the tab bar will redraw/update itself to the new look.
+    ///
+    ///  - For more information on the styles, see: `MWTabBarStyle`.
+    internal var _style: MWTabBarStyle = .system
+    {
+        didSet
+        {
+            //Update/redraw the tab bar based on the new value.
+            _init()
+        }
+    }
+    
+    /// The corresponding controls for every item of the tab bar.
+    ///
+    /// Whenever items are modified, this array modifies as well, but only if the count of the items change.
+    ///
+    /// The controls held in this array allow the tab bar to have access to the internal view of a tab bar item.
+    ///
+    /// To retrieve the image view which displays the tab bar item's icon:
+    ///
+    ///     let imageViewIcon: UIImageView = controls[0].imageView
+    ///
+    /// To retrieve the label which displays the title of the tab bar item:
+    ///
+    ///     let labelTitle: UILabel = controls[0].label
+    ///
+    private var controls: [MWTabBarControl] = [MWTabBarControl]()
+    
+    /// Holds the control of the currently selected item.
+    private var selectedControl: UIControl?
+    
+    /// An integer whose value indicates whether the next animatable operation of the tab bar should be animated.
+    ///
+    /// If its value is `0`, the tab bar will not animate at all.
+    ///
+    /// If its value is `1`, or more, it will animate operations with each operation decreasing its value by 1. If it reaches `0`, the tab bar will not animate.
+    ///
+    /// Outside of this class, its value may be increased by 1 using modifier `animating()`.
+    ///
+    /// Example (from a tab bar controller):
+    ///
+    ///     myTabBar.hidesTitles = true //Will not animate
+    ///
+    ///     myTabBar.animating().hidesTitles = true //Will animate
+    ///
+    ///     myTabBar.animating().animating().hidesTitles = true //Will animate
+    ///
+    ///     myTabBar.setItems(newItems, animated: true/false) //Will animate no matter of the "animated" parameter, because in the previous line, 2 animating operations were requested.
+    ///
+    private var animated: Int = 0
+    
+    private var shadowLayer: CALayer = CALayer()
+    
+    private var clippingLayer: CALayer = CALayer()
+    
+    private var removedSeparatorLine: Bool = false
+    
+    //MARK: - Inherited initializers from: UITabBar
+    override init(frame: CGRect)
+    {
+        //Supercall
+        super.init(frame: frame)
+        
+        //Initialize using custom initializer
+        _init()
+    }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        //Supercall
+        super.init(coder: aDecoder)
+        
+        //Initialize using custom initializer
+        _init()
+    }
+    
+    //MARK: Inherited functions from: UITabBar
+    override func setItems(_ items: [UITabBarItem]?, animated: Bool)
+    {
+        //Check if we should animate
+        if(self.animated >= 1)
+        {
+            //Supercall
+            super.setItems(items, animated: true)
+            
+            //Decrease "(self.)animated"
+            self.animated -= 1
+        }
+        else
+        {
+            //Supercall
+            super.setItems(items, animated: false)
+        }
+        
+        //Iterate though the subviews and get the titles of the items if the the titles array has not yet been initialized, or if the the number of items changed.
+        //NOTE: In the supercall, views for the items, provided in the "items" parameter, are created and added to the subviews of the tab bar
+        //      These views are all inherit "UIControl", and have two subviews: the icon (image view) of the item, and its title.
+        if(controls.count == 0)
+        {
+            //Iterate through the subviews
+            for subview in self.subviews
+            {
+                //Check if the subview is one of the views of the items
+                if(subview is UIControl)
+                {
+                    let control: MWTabBarControl = MWTabBarControl(control: subview as! UIControl)
+                    control.control.addTarget(self, action: #selector(selectItem(control:)), for: .touchUpInside)
+                    
+                    controls.append(control)
+                }
+            }
+        }
+        else if(controls.count != self.items?.count)
+        {
+            //Check which direction the count has changed
+            if(controls.count < self.items!.count)
+            {
+                //Iterate through the subviews
+                for subview in self.subviews
+                {
+                    //Check if the subview is one of the views of the items
+                    if(subview is UIControl)
+                    {
+                        //Create a new "MWTabBarItemControl" instance out of this control
+                        let control: MWTabBarControl = MWTabBarControl(control: subview as! UIControl)
+                        control.control.addTarget(self, action: #selector(selectItem(control:)), for: .touchUpInside)
+                        
+                        if(!controls.contains(control))
+                        {
+                            controls.append(control)
+                        }
+                    }
+                }
+            }
+            else if(controls.count > self.items!.count) //"items" cannot be nil, because if it would be, this block would not be executed
+            {
+                //Iterate through the controls
+                //NOTE: The "itemControls" array at this point still contains the control of the removed item.
+                for control in controls
+                {
+                    //Check if the control is added to the view hierarchy. If the control is not added to it, it is likely that the current item is a removed item
+                    if(!control.isInViewHierarchy())
+                    {
+                        //Remove the title if it is not in the hierarchy anymore
+                        controls.remove(at: controls.index(of: control)!)
+                    }
+                }
+            }
+        }
+    }
+    
+    override func layoutSubviews()
+    {
+        //Supercall
+        super.layoutSubviews()
+        
+        //Call the function with the layout implementation
+        self.layoutIfNeeded()
+    }
+    
+    override func layoutIfNeeded()
+    {
+        //Supercall
+        super.layoutIfNeeded()
+        
+        //Update the titles if necessary
+        updateTitles()
+        
+        //Update the style of the button if necessary
+        //Update/redraw the custom tab bar if the style is custom
+        if(_style == .custom)
+        {
+            //Remove the separator line if we have not removed it already
+            if(!removedSeparatorLine)
+            {
+                if let separatorLine = getSeparatorLine(for: self)
+                {
+                    separatorLine.isHidden = true
+                    removedSeparatorLine = true
+                }
+            }
+            
+            //Update/redraw
+            clippingLayer.frame = self.bounds.offsetBy(dx: 0.0, dy: -(self.bounds.height -- 30.0)).withSize(width: self.bounds.width, height: 30.0)
+            
+            let shadowPath = UIBezierPath(rect: self.bounds.scaleBy(width: -10.0, height: 0.0))
+            shadowLayer.frame = clippingLayer.bounds.offsetBy(dx: 0.0, dy: clippingLayer.bounds.height)
+            
+            shadowLayer.shadowOffset = CGSize(width: 5.0, height: -4.0)
+            shadowLayer.shadowPath = shadowPath.cgPath
+        }
+        
+    }
+    
+    //MARK: Instance functions
+    
+    /// A modifier which forces the tab bar to perform the next redraw/update animated.
+    ///
+    /// - Returns: This tab bar.
+    func animating() -> MWTabBar
+    {        
+        animated += 1
+        return self
+    }
+    
+    /// The tab bar's custom initializer.
+    ///
+    /// Initializes the tab bar based on its style.
+    private func _init()
+    {
+        //Check which style the tab bar is set to
+        switch _style
+        {
+        //For case "system" we do not do anything - leave the system default
+        case .system:
+            break
+        
+        //For case "custom" we draw a shadow, which is clipped outside of the tab bar, so it does not effect the translucency
+        case .custom:
+            //Set the tab bar's layer allow drawing outside of its region
+            self.layer.masksToBounds = false
+            
+            //Setup the layer which the shadow will be clipped to
+            clippingLayer.frame = self.bounds.offsetBy(dx: 0.0, dy: -(self.bounds.height -- 30.0)).withSize(width: self.bounds.width, height: 30.0)
+            clippingLayer.masksToBounds = true
+            
+            //Create the shadow's layer
+            let shadowPath = UIBezierPath(rect: self.bounds.scaleByCentered(width: -10.0, height: 0.0))
+            shadowLayer.frame = clippingLayer.bounds.offsetBy(dx: 0.0, dy: clippingLayer.bounds.height)
+            
+            //Setup the shadow
+            shadowLayer.shadowColor = UIColor.black.cgColor
+            shadowLayer.shadowRadius = 7.0
+            shadowLayer.shadowOpacity = 0.5
+            shadowLayer.shadowOffset = CGSize(width: 5.0, height: -4.0)
+            shadowLayer.shadowPath = shadowPath.cgPath
+            shadowLayer.masksToBounds = false
+            
+            //Clip the shadow by adding it to the clipping layer, then add the final result to the tab bar's layer
+            clippingLayer.addSublayer(shadowLayer)
+            self.layer.addSublayer(clippingLayer)
+            
+            break
+        }
+    }
+    
+    /// Updates the titles of the tab bar based on the value of `hidesTitles`.
+    ///
+    /// If the tab bar does not hide the titles, but it did previously, it will restore them from the `titles` array.
+    ///
+    /// Otherwise, the tab bar will simply remove the titles from its subviews.
+    private func updateTitles()
+    {
+        for control in controls
+        {
+            if(animated >= 1)
+            {
+                UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseOut, animations: { 
+                    control.imageView.frame = control.control.frame.withPosition(x: control.control.frame.origin.x, y: self.hidesTitles ? ((self.frame.height - control.imageView.frame.height) / 2) - control.imageView.frame.origin.y : 1)
+                    
+                    control.label.isHidden = self.hidesTitles
                 }, completion: nil)
             }
             else
             {
-                imageView.autoUpdate = false
-                imageView.tintingColor = unselectedColor
+                //Reposition the image view
+                control.control.frame = control.control.frame.withPosition(x: control.control.frame.origin.x, y: hidesTitles ? ((self.frame.height - control.imageView.frame.height) / 2) - control.imageView.frame.origin.y : 1)
                 
-                UIView.transition(with: imageView, duration: 0.1, options: .transitionCrossDissolve, animations: {
-                    self.imageView.image = self.image
-                }, completion: nil)
+                //Hide/show the title
+                control.label.isHidden = hidesTitles
             }
         }
-    }
-    
-    var tabBarItem: MWTabBarItem!
-    
-    private var imageView: MWImageView!
-    private var image: UIImage!
-    private var selectedImage: UIImage!
-    
-    private var label: UILabel?
-    
-    private var selectedColor: UIColor!
-    private var unselectedColor: UIColor!
-    
-    private var originalImageViewFrame: CGRect?
-    private var originalLabelFrame: CGRect?
-    
-    //This initializer is the only one that gets used.
-    //It will create a button from the given parameters:
-    // - tabBar: Required to get the tint colors.
-    // - tabBarItem: Needed to aquire the image and the title of the item.
-    
-    //The actual setup is done in function "make(tabBar:tabBarItem:)"
-    
-    //As you can see, the frame we provide in the supercall is "CGRect.zero"
-    //This is, because we the actual frame of this view is given in "layoutButtons()" in MWTabBar.
-    //For more information, see "setItems(_:animated:)" in MWTabBar.
-    init(tabBar: UITabBar, tabBarItem: MWTabBarItem)
-    {
-        super.init(frame: CGRect.zero)
-        initialize(tabBar: tabBar, tabBarItem: tabBarItem)
-    }
-    
-    //This initializer is only implemented, because it is REQUIRED to be implemented.
-    //Normally, this initializer will never get called, because we never instantiate this control through Interface Builder.
-    //If it does get called however, it will create an entirely empty view, and will display an error message, that this initializer was not meant to be used.
-    required init?(coder aDecoder: NSCoder)
-    {
-        super.init(coder: aDecoder)
-        MWLError("MWTabBarButton has been initialized with initializer: \"required init?(coder:)\" Nothing will happen, creating an empty view...", module: nil)
-    }
-    
-    private func initialize(tabBar: UITabBar, tabBarItem: MWTabBarItem)
-    {
-        //Construct variables
-        self.imageView = MWImageView()
-        self.image = tabBarItem.image ?? MWAssets.Images.imageNoImage.getImage(inBundle: Bundle(for: type(of: self)), traits: self.traitCollection)
-        self.selectedImage = tabBarItem.selectedImage ?? tabBarItem.image
         
-        if(!tabBarItem.hidesTitle)
+        if(animated >= 1)
         {
-            self.label = UILabel()
+            animated -= 1
+        }
+    }
+    
+    /// Animates the selection of the control provided in the parameter and the unselection of the currently selected control.
+    ///
+    /// - Parameter control: The control which is about to be selected.
+    @objc private func selectItem(control: UIControl)
+    {
+        //Animate the selection of the new control
+        UIView.transition(with: control, duration: 0.1, options: .transitionCrossDissolve, animations: { 
+            control.isSelected = true
+        }, completion: nil)
+        
+        //Check if we have a currently selected control
+        selectedControl ?! {
+            //Animate the unselection of the currently selected control
+            UIView.transition(with: self.selectedControl!, duration: 0.1, options: .transitionCrossDissolve, animations: {
+                self.selectedControl!.isSelected = false
+            }, completion: nil)
         }
         
-        self.selectedColor = tabBar.tintColor
-        self.unselectedColor = tabBar.unselectedItemTintColor ?? UIColor.lightGray
-        
-        self.tabBarItem = tabBarItem
+        //Set the new control as the selected control
+        selectedControl = control
     }
     
-    func layout()
+    /// Searches for a separator line in subviews of the given view
+    ///
+    /// - Parameter view: The view whose subviews the function should search for the separator line in.
+    /// - Returns: The separator line (default shadow image) of the tab bar.
+    private func getSeparatorLine(for view: UIView) -> UIImageView?
     {
-        //Make the image view
-        // - Set the image and the tinting color.
-        imageView.autoUpdate = false
-        
-        imageView.tintingColor = unselectedColor
-        imageView.image = image
-        
-        // - Set the positioning
-        if(tabBarItem.hidesTitle)
+        //Check if the current view is the separator line
+        if(view is UIImageView && view.frame.height <= 1)
         {
-            imageView.frame = CGRect(x: (self.frame.width - image.size.width) / 2, y: (self.frame.height - image.size.height) / 2, width: image.size.width, height: image.size.height)
+            //If it is, return it as a "UIImageView"
+            return view as? UIImageView
+        }
+        
+        //If it is not, search for it in its subviews
+        for subview in view.subviews
+        {
+            //For optimization puposes, we exclude the buttons from the search
+            //(We are looking for a view with type "_UIBarBackground", but that is not a public view type available in UIKit.)
+            if(!(subview is UIControl))
+            {
+                if let shadowImage = getSeparatorLine(for: subview)
+                {
+                    return shadowImage
+                }
+            }
+        }
+        
+        return nil
+    }
+}
+
+/// A basic class which collects the two main views of a tab bar item control and the control itself.
+fileprivate class MWTabBarControl: NSObject
+{
+    /// The corresponding control of the tab bar item.
+    var control: UIControl
+    
+    /// The image view which displays the icon of the tab bar item.
+    var imageView: UIImageView
+    
+    /// The label which displays the title of the tab bar item.
+    var label: UILabel
+    
+    /// Makes an `MWTabBarControl` instance out of the given parameters.
+    ///
+    /// - Parameter control: The control which must have an image view as its subview at slot `0` and a label at slot `1`. (Can be directly extracted from the subviews of any tab bar.)
+    ///
+    ///   __NOTE:__ This specific control type is called `UITabBarButton`, but it is not released in the public version of UIKit. Therefore, the way we check whether a control is an instance of this type is by checking whether the control's structure matches the structure of a `UITabBarButton`.
+    init(control: UIControl)
+    {
+        //Store the control
+        self.control = control
+        
+        //Check if the control is an item's control directly extracted from the tab bar.
+        if(control.subviews[0] is UIImageView && control.subviews[1] is UILabel)
+        {
+            //Store the image view and the label
+            self.imageView = control.subviews[0] as! UIImageView
+            self.label = control.subviews[1] as! UILabel
         }
         else
         {
-            imageView.frame = CGRect(x: (self.frame.width - image.size.width) / 2, y: 5, width: image.size.width, height: image.size.height)
+            //Assert the application if the control is not compatible
+            fatalError("The control provided in the initializer of \"MWTabBarItemControl\" does not seem like it's an instance of \"UITabBarButton\"!")
         }
-        
-        self.addSubview(imageView)
     }
     
-    fileprivate func highlight(sender: MWTabBarButton)
+    /// Checks and returns whether the control is in the view hierarchy.
+    ///
+    /// - Returns: A boolean which indicates whether the control is in the view hierarchy.
+    func isInViewHierarchy() -> Bool
     {
-        originalImageViewFrame = imageView.frame
-        
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
-            self.imageView.frame = CGRect(x: (self.frame.width - (0.75 * self.imageView.frame.width)) / 2, y: (self.frame.height - (0.75 * self.imageView.frame.height)) / 2, width: 0.75 * self.imageView.frame.width, height: 0.75 * self.imageView.frame.height)
-        }, completion: nil)
-    }
-    
-    fileprivate func release(sender: MWTabBarButton)
-    {
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
-            self.imageView.frame = self.originalImageViewFrame ?? CGRect(x: (self.frame.width - 25) / 2, y: (self.frame.height - 25) / 2, width: 25, height: 25)
-        }, completion: nil)
+        return control.window != nil
     }
 }
 
-enum MWTabBarModification
+/// The enumeration which holds all tab bar styles that currently exist in myWatch.
+enum MWTabBarStyle: Int
 {
-    case adding
-    case removing
+    /// Case __system__ involves having a tab bar which looks like the system default
+    case system
+    
+    /// Case __custom__ involves having a tab bar with a custom shadow and with the 1px separator line removed.
+    case custom
+    
+    ///Holds the total amount of styles in this enumeration.
+    ///
+    ///This is required to make clamping the value given in `style` in `MWTabBar` possible.
+    static var count: Int
+    {
+        return self.custom.hashValue + 1
+    }
 }
-

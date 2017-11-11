@@ -8,30 +8,54 @@
 
 import CoreBluetooth
 
-//Protocol for classes which want Bluetooth functionality.
-//When conformed, the class has to handle the callback functions declared below.
+/// Protocol for classes which want Bluetooth functionality.
+///
+/// When conformed, the class has to handle the callback functions declared below.
 @objc protocol MWBCommunicatorDelegate
 {
     //MARK: Protocol functions
+
+    /// Called by an `MWBCommunicator` when the Bluetooth became either available or unavailable.
+    ///
+    /// - Parameters:
+    ///   - communicator: The communicator providing the update.
+    ///   - availability: A boolean indicating the Bluetooth availablility.
+    @objc optional func bluetoothCommunicator(_ communicator: MWBCommunicator, didUpdateBluetoothAvailability availability: Bool)
     
-    //Callback function. Called when the CBCentralManager in MWBCommunicator updates its state to '.poweredOn'.
-    @objc optional func bluetoothHasBeenEnabled()
+    /// Called by an `MWBCommunicator` when the Bluetooth has found an available peripheral which is compatible with the application.
+    ///
+    /// - Parameters:
+    ///   - communicator: The communicator providing the update.
+    ///   - device: The device which `communicator` has found.
+    @objc optional func bluetoothCommunicator(_ communicator: MWBCommunicator, didFindCompatibleDevice device: MWDevice)
     
-    //Callback function. Called when function 'centralManagerDidUpdateState' function gave a state which is not '.poweredOn'.
-    @objc optional func bluetoothNotAvailable()
+    /// Called by an `MWBCommunicator` when the Bluetooth has found the device which `communicator` was specified to connect to.
+    ///
+    /// - Parameters:
+    ///   - communicator: The communicator providing the update.
+    ///   - device: The device `communicator` was specified to connect to.
+    @objc optional func bluetoothCommunicator(_ communicator: MWBCommunicator, didFindSpecifiedDevice device: MWDevice)
     
-    //Callback function. Called when the CBCentralManager in MWBCommunicator found and constructed a myWatch device.
-    @objc optional func bluetoothHasFoundDevice(_ device: MWDevice)
+    /// Called by an `MWBCommunicator` when the Bluetooth has connected to a device specified explicitly.
+    ///
+    /// - Parameters:
+    ///   - communicator: The communicator providing the update.
+    ///   - device: The device `communicator` connected to.
+    @objc optional func bluetoothCommunicator(_ communicator: MWBCommunicator, didConnectToDevice device: MWDevice)
     
-    //Callback function. Called when the MWBCommunicator has found the specified device in the initializer.
-    @objc optional func bluetoothHasFoundSpecifiedDevice()
+    /// Called by an `MWBCommunicator` when the Bluetooth has finished preparing the connected device, indicating that the device is ready to use.
+    ///
+    /// - Parameters:
+    ///   - communicator: The communicator providing the update.
+    ///   - device: The device which has just become ready to use.
+    @objc optional func bluetoothCommunicator(_ communicator: MWBCommunicator, didFinishPreparationsForDevice device: MWDevice)
     
-    //Callback function. Called when the MWBCommunicator successfully connected to a myWatch device.
-    @objc optional func connectionSuccessful(to device: MWDevice)
-    
-    //Callback function. Called when both the Tx and Rx characteristics were discovered by MWBCommunicator.
-    @objc optional func deviceIsReadyToUse(_ device: MWDevice)
-    
-    //Callback function. Called when the Rx characteristic's value changes as a response to the previously sent command.
-    @objc optional func recievedResponse(forCommand command: String, response data: MWBParsedData)
+    /// Called by an `MWBCommunicator` when the Bluetooth received a package in response to a previously sent command.
+    ///
+    /// - Parameters:
+    ///   - communicator: The communicator providing the update.
+    ///   - response: The parsed response received from the device.
+    ///   - device: The device providing the response.
+    ///   - command: The command the response is for.
+    @objc optional func bluetoothCommunicator(_ communicator: MWBCommunicator, didReceiveResponse response: MWBParsedData, from device: MWDevice, for command: String)
 }

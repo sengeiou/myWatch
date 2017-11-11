@@ -8,43 +8,71 @@
 
 import CoreBluetooth
 
+/// Represents the myWatch device that the application uses.
+///
+/// Step/sleep data are held in this object as well as the given name, device ID and the peripheral repsresenting this device.
+///
+/// Encoded to a file when the app is about to terminate to presist data for the device.
 @objc class MWDevice: NSObject, NSCoding
 {
-    //MARK: Member variables
-    var givenName: String
-    var deviceID: String
-    var stepCount: Int = 0
+    //MARK: Instance variables
+    
+    /// The name of the device given by the user.
+    var name: String
+    
+    /// The device's ID which is used to identify the device after first launch.
+    var identifier: String
+    
+    /// The Bluetooth peripheral representing this device.
     var peripheral: CBPeripheral?
     
-    //MARK: - Instance functions
-    init(givenName: String, deviceID: String, peripheral: CBPeripheral?)
+    //MARK: - Inherited initializers from: NSCoding
+    required convenience init?(coder aDecoder: NSCoder)
     {
-        self.givenName = givenName
-        self.deviceID = deviceID
+        let name: String = aDecoder.decodeObject(forKey: PropertyKey.name) as? String ?? ""
+        let identifier: String = aDecoder.decodeObject(forKey: PropertyKey.identifier) as? String ?? ""
+        
+        self.init(name: name, identifier: identifier)
+    }
+    
+    //MARK: Initializers
+    
+    /// Makes an `MWDevice` object.
+    ///
+    /// Can be called programatically by any class or by `init(coder:)` to initialize.
+    ///
+    /// - Parameters:
+    ///   - name: The name of this device given by the user.
+    ///   - identifier: The ID used to identify this device for later use.
+    ///   - peripheral: The Bluetooth peripheral representing this device object.
+    ///
+    /// - Returns: An `MWDevice` object.
+    init(name: String = "", identifier: String = "", peripheral: CBPeripheral? = nil)
+    {
+        self.name = name
+        self.identifier = identifier
         self.peripheral = peripheral
     }
     
-    //MARK: Instance encoding functions
-    required convenience init?(coder aDecoder: NSCoder)
-    {
-        let givenName: String? = aDecoder.decodeObject(forKey: PropertyKey.PROPERTY_KEY_GIVEN_NAME) as? String
-        let deviceID: String? = aDecoder.decodeObject(forKey: PropertyKey.PROPERTY_KEY_DEVICE_ID) as? String
-        
-        self.init(givenName: givenName != nil ? givenName! : "", deviceID: deviceID != nil ? deviceID! : "", peripheral: nil)
-    }
-    
+    //MARK: Inherited functions from: NSCoding
     func encode(with aCoder: NSCoder)
     {
-        aCoder.encode(givenName, forKey: PropertyKey.PROPERTY_KEY_GIVEN_NAME)
-        aCoder.encode(deviceID, forKey: PropertyKey.PROPERTY_KEY_DEVICE_ID)
-        aCoder.encode(stepCount, forKey: PropertyKey.PROPERTY_KEY_STEP_COUNT)
+        aCoder.encode(name, forKey: PropertyKey.name)
+        aCoder.encode(identifier, forKey: PropertyKey.identifier)
     }
     
-    //MARK: Property keys structure
+    //MARK: -
+    
+    /// The structure which holds the property names used in the files to identify the properties of this object.
     private struct PropertyKey
     {
-        static let PROPERTY_KEY_GIVEN_NAME: String = "MWPDeviceGivenName"
-        static let PROPERTY_KEY_DEVICE_ID: String = "MWPDeviceID"
-        static let PROPERTY_KEY_STEP_COUNT: String = "MWPDeviceStepCount"
+        //MARK: Prefixes
+        
+        /// The prefix of the property keys.
+        private static let prefix: String = "MWDevice"
+        
+        //MARK: Property keys
+        static let name: String = prefix + "Name"
+        static let identifier: String = prefix + "Identifier"
     }
 }

@@ -3,7 +3,7 @@
 "2cK-1q-2vY.text" = "Egy pár dolgot be kell állítanunk mielőtt belevághatnánk a közepébe!";
 
 /* Class = "UIButton"; normalTitle = "CONTINUE"; ObjectID = "41L-QY-L84"; */
-"41L-QY-L84.normalTitle" = "KÖVETKEZŐ";
+"41L-QY-L84.normalTitle" = "Igen, szeretném!";
 
 /* Class = "UILabel"; text = "Let's jump right in the app!"; ObjectID = "5hw-wt-GzJ"; */
 "5hw-wt-GzJ.text" = "Vágjunk bele!";
@@ -90,25 +90,46 @@
 "2um-Gm-Zcf.text" = "Ébresztés";
 
 /* Class = "UITabBarItem"; title = "Sleep"; ObjectID = "Qtj-6V-W8o"; */
-"Qtj-6V-W8o.title" = "Alvás";
+"5zE-tS-rtj.title" = "Alvás";
 
 /* Class = "UITabBarItem"; title = "Today"; ObjectID = "S5c-39-c9o"; */
-"S5c-39-c9o.title" = "Ma";
+"UXz-nZ-jqQ.title" = "Ma";
 
 /* Class = "UITabBarItem"; title = "Pedometer"; ObjectID = "WZ1-2K-DY9"; */
-"WZ1-2K-DY9.title" = "Lépésszámláló";
+"1Hd-4k-lCW.title" = "Lépésszámláló";
 
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "cTo-YI-Akw"; */
-"TYs-hV-U18.title" = "Beállítások";
+"Vk3-e8-VNn.title" = "Beállítások";
 
 /* Class = "UILabel"; text = "Sleep"; ObjectID = "igX-dM-r07"; */
 "igX-dM-r07.text" = "Alvás";
 
 /* Class = "UITabBarItem"; title = "Alarm"; ObjectID = "j9c-vg-ygM"; */
-"j9c-vg-ygM.title" = "Ébresztés";
+"ARh-i0-rTs.title" = "Ébresztés";
 
 /* Class = "UILabel"; text = "Today"; ObjectID = "k7y-i1-mia"; */
 "k7y-i1-mia.text" = "Ma";
 
 /* Class = "UILabel"; text = "Pedometer"; ObjectID = "x6c-DI-fgL"; */
 "x6c-DI-fgL.text" = "Lépésszámláló";
+
+/* Class = "UINavigationItem"; title = "Bedtime"; ObjectID = "VQw-6C-LFb"; */
+"VQw-6C-LFb.title" = "Alvás";
+
+/* Class = "UINavigationItem"; title = "Today"; ObjectID = "bOi-Kc-ZiB"; */
+"bOi-Kc-ZiB.title" = "Ma";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "dba-Ir-TrH"; */
+"dba-Ir-TrH.title" = "Beállítások";
+
+/* Class = "UINavigationItem"; title = "Alarm"; ObjectID = "gjd-zV-1bB"; */
+"gjd-zV-1bB.title" = "Ébresztés";
+
+/* Class = "UINavigationItem"; title = "Pedometer"; ObjectID = "hIJ-JD-okP"; */
+"hIJ-JD-okP.title" = "Lépésszámláló";
+
+/* Class = "UILabel"; text = "Would you like to turn on export to\nApple Health?"; ObjectID = "bwk-hO-b4u"; */
+"bwk-hO-b4u.text" = "Szeretnéd exportálni az adatokat az\nEgészség-be?";
+
+/* Class = "UIButton"; normalTitle = "No, thanks"; ObjectID = "G40-hY-xcQ"; */
+"G40-hY-xcQ.normalTitle" = "Nem, köszönöm";

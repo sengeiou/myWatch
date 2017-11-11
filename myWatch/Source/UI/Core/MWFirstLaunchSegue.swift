@@ -32,7 +32,7 @@ class MWFirstLaunchSegue: UIStoryboardSegue
                 sourceView.backgroundColor = UIColor.clear
                 destinationView.backgroundColor = UIColor.clear
                 
-                destinationView.frame = destinationView.frame.offsetBy(dx: window.frame.width / 3, dy: 0)
+                destinationView.frame = destinationView.frame.offsetBy(dx: window.frame.width / 2, dy: 0)
                 destinationView.alpha = 0.0
                 
                 let sourceImageBar: MWFirstLaunchImageBar = (self.source as! MWFirstLaunchViewController).getImageBar()
@@ -59,8 +59,8 @@ class MWFirstLaunchSegue: UIStoryboardSegue
                 UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseInOut, animations: {
                     window.backgroundColor = destinationBackground
                     
-                    sourceView.frame = sourceView.frame.offsetBy(dx: -(window.frame.width / 3), dy: 0)
-                    destinationView.frame = destinationView.frame.offsetBy(dx: -(window.frame.width / 3), dy: 0)
+                    sourceView.frame = sourceView.frame.offsetBy(dx: -(window.frame.width / 2), dy: 0)
+                    destinationView.frame = destinationView.frame.offsetBy(dx: -(window.frame.width / 2), dy: 0)
                     
                     sourceView.alpha = 0.0
                     destinationView.alpha = 1.0

@@ -33,17 +33,17 @@ class MWTabBarControllerSegue: UIStoryboardSegue
         window.insertSubview(destinationView, aboveSubview: sourceView)
         
         let navigationController: UINavigationController = destinationViewController.viewControllers![0] as! UINavigationController
-        let tabBar: UITabBar = destinationViewController.tabBar
+        let tabBar: MWTabBar = destinationViewController.tabBar as! MWTabBar
         let tabBarOriginalFrame: CGRect = tabBar.frame
         
         navigationController.setNavigationBarHidden(true, animated: false)
         
-        tabBar.frame = tabBar.frame.offsetBy(dx: 0, dy: tabBar.frame.height)
+        tabBar.frame = tabBar.frame.offsetBy(dx: 0, dy: tabBar.frame.height + (tabBar._style == .custom ? 15.0 : 0.0))
         
         UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseInOut, animations: {
             window.backgroundColor = destinationBackgroundColor
             
-            sourceView.frame = sourceView.frame.offsetBy(dx: -(window.frame.width / 3), dy: 0)
+            sourceView.frame = sourceView.frame.offsetBy(dx: -(window.frame.width / 2), dy: 0)
             sourceView.alpha = 0.0
         }) { (finished: Bool) in
             UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseOut, animations: {
@@ -54,7 +54,7 @@ class MWTabBarControllerSegue: UIStoryboardSegue
                 
                 navigationController.setNavigationBarHidden(false, animated: true)
                 
-                UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveLinear, animations: {
+                UIView.animate(withDuration: TimeInterval(UINavigationControllerHideShowBarDuration), delay: 0.0, options: .curveLinear, animations: {
                     tabBar.frame = tabBarOriginalFrame
                     
                     navigationController.navigationBar.alpha = 1.0

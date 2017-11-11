@@ -11,23 +11,32 @@
 /* Class = "UILabel"; text = "Alarm"; ObjectID = "2um-Gm-Zcf"; */
 "2um-Gm-Zcf.text" = "Alarm";
 
-/* Class = "UIButton"; normalTitle = "CONTINUE"; ObjectID = "41L-QY-L84"; */
-"41L-QY-L84.normalTitle" = "CONTINUE";
+/* Class = "UIButton"; normalTitle = "Yes, I would"; ObjectID = "41L-QY-L84"; */
+"41L-QY-L84.normalTitle" = "Yes, I would";
+
+/* Class = "UIBarButtonItem"; title = "Next"; ObjectID = "4Mu-16-1u5"; */
+"4Mu-16-1u5.title" = "Next";
 
 /* Class = "UILabel"; text = "Let's jump right in the app!"; ObjectID = "5hw-wt-GzJ"; */
 "5hw-wt-GzJ.text" = "Let's jump right in the app!";
 
-/* Class = "UIViewController"; title = "Settings"; ObjectID = "6A2-so-dCV"; */
-"6A2-so-dCV.title" = "Settings";
-
 /* Class = "UILabel"; text = "You may have realized that the application is using the English language. This is because either your iPhone's language is set to it or because the app does not support the language your phone is using. \n\nIf the case is the latter, we're really sorry - we are trying to make the app support as many languages as it can!"; ObjectID = "8m7-PO-mnY"; */
 "8m7-PO-mnY.text" = "You may have realized that the application is using the English language. This is because either your iPhone's language is set to it or because the app does not support the language your phone is using. \n\nIf the case is the latter, we're really sorry - we are trying to make the app support as many languages as it can!";
+
+/* Class = "UINavigationItem"; title = "Main"; ObjectID = "Amn-6W-246"; */
+"Amn-6W-246.title" = "Main";
 
 /* Class = "UIViewController"; title = "Language"; ObjectID = "AtY-2f-SuN"; */
 "AtY-2f-SuN.title" = "Language";
 
 /* Class = "UITabBarController"; title = "Main"; ObjectID = "CIG-5H-diA"; */
 "CIG-5H-diA.title" = "Main";
+
+/* Class = "UILabel"; text = "Show First Launch Screen"; ObjectID = "Ehk-vo-dzQ"; */
+"Ehk-vo-dzQ.text" = "Show First Launch Screen";
+
+/* Class = "UIButton"; normalTitle = "No, thanks"; ObjectID = "G40-hY-xcQ"; */
+"G40-hY-xcQ.normalTitle" = "No, thanks";
 
 /* Class = "UILabel"; text = "We have made all the steps neccessary to run the application."; ObjectID = "GA3-ea-a2Z"; */
 "GA3-ea-a2Z.text" = "We have made all the steps neccessary to run the application.";
@@ -47,20 +56,20 @@
 /* Class = "UILabel"; text = "Looking for devices..."; ObjectID = "KOT-Gr-0qf"; */
 "KOT-Gr-0qf.text" = "Looking for devices...";
 
+/* Class = "UIBarButtonItem"; title = "Next"; ObjectID = "Mhy-yv-vly"; */
+"Mhy-yv-vly.title" = "Next";
+
 /* Class = "UIViewController"; title = "Name Device"; ObjectID = "ORt-9N-ima"; */
 "ORt-9N-ima.title" = "Name Device";
 
-/* Class = "UITabBarItem"; title = "Sleep"; ObjectID = "Qtj-6V-W8o"; */
-"Qtj-6V-W8o.title" = "Sleep";
 
 /* Class = "UIViewController"; title = "Device Chooser"; ObjectID = "RLk-yH-6T4"; */
 "RLk-yH-6T4.title" = "Device Chooser";
 
-/* Class = "UITabBarItem"; title = "Today"; ObjectID = "S5c-39-c9o"; */
-"S5c-39-c9o.title" = "Today";
 
 /* Class = "UIViewController"; title = "Summary"; ObjectID = "TAy-iM-otP"; */
 "TAy-iM-otP.title" = "Summary";
+
 
 /* Class = "UILabel"; text = "We are going to set up your iPhone and your device in 4 very easy steps."; ObjectID = "TmH-N8-yO3"; */
 "TmH-N8-yO3.text" = "We are going to set up your iPhone and your device in 4 very easy steps.";
@@ -68,14 +77,11 @@
 /* Class = "UILabel"; text = "Connecting to the device..."; ObjectID = "UCk-bH-p8y"; */
 "UCk-bH-p8y.text" = "Connecting to the device...";
 
+/* Class = "UINavigationItem"; title = "Bedtime"; ObjectID = "VQw-6C-LFb"; */
+"VQw-6C-LFb.title" = "Bedtime";
+
 /* Class = "UIViewController"; title = "First Launch - Last"; ObjectID = "Vxm-R2-9gi"; */
 "Vxm-R2-9gi.title" = "First Launch - Last";
-
-/* Class = "UITabBarItem"; title = "Pedometer"; ObjectID = "WZ1-2K-DY9"; */
-"WZ1-2K-DY9.title" = "Pedometer";
-
-/* Class = "UINavigationController"; title = "Main Navigation Controller"; ObjectID = "X5g-H1-CwQ"; */
-"X5g-H1-CwQ.title" = "Main Navigation Controller";
 
 /* Class = "UITextField"; placeholder = "Enter name here..."; ObjectID = "Z5I-gS-MM3"; */
 "Z5I-gS-MM3.placeholder" = "Enter name here...";
@@ -83,17 +89,26 @@
 /* Class = "UIViewController"; title = "Alarm"; ObjectID = "aKv-Il-izH"; */
 "aKv-Il-izH.title" = "Alarm";
 
+/* Class = "UINavigationItem"; title = "Today"; ObjectID = "bOi-Kc-ZiB"; */
+"bOi-Kc-ZiB.title" = "Today";
+
 /* Class = "UIButton"; normalTitle = "CONNECT"; ObjectID = "bhC-7N-g4N"; */
 "bhC-7N-g4N.normalTitle" = "CONNECT";
 
-/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "cTo-YI-Akw"; */
-"cTo-YI-Akw.title" = "Settings";
+/* Class = "UILabel"; text = "Would you like to turn on export to\nApple Health?"; ObjectID = "bwk-hO-b4u"; */
+"bwk-hO-b4u.text" = "Would you like to turn on export to\nApple Health?";
 
-/* Class = "UILabel"; text = "Settings"; ObjectID = "efk-ut-QbB"; */
-"efk-ut-QbB.text" = "Settings";
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "dba-Ir-TrH"; */
+"dba-Ir-TrH.title" = "Settings";
+
+/* Class = "UITableViewSection"; headerTitle = "Utilities"; ObjectID = "dnJ-lh-pTc"; */
+"dnJ-lh-pTc.headerTitle" = "Utilities";
 
 /* Class = "UIBarButtonItem"; title = "Connect a device"; ObjectID = "f4L-VS-lqk"; */
 "f4L-VS-lqk.title" = "Connect a device";
+
+/* Class = "UIBarButtonItem"; title = "Next"; ObjectID = "gUd-41-r43"; */
+"gUd-41-r43.title" = "Next";
 
 /* Class = "UILabel"; text = "Device: "; ObjectID = "gba-bH-1DB"; */
 "gba-bH-1DB.text" = "Device: ";
@@ -101,11 +116,17 @@
 /* Class = "UILabel"; text = "We have arrived to the last step. \n\nmyWatch supports reading/writing data to Apple Health. \n\nThis way, other apps using Health will be able to read the data that your myWatch device has to offer for your iPhone."; ObjectID = "gc5-Sx-yna"; */
 "gc5-Sx-yna.text" = "We have arrived to the last step. \n\nmyWatch supports reading/writing data to Apple Health. \n\nThis way, other apps using Health will be able to read the data that your myWatch device has to offer for your iPhone.";
 
+/* Class = "UINavigationItem"; title = "Alarm"; ObjectID = "gjd-zV-1bB"; */
+"gjd-zV-1bB.title" = "Alarm";
+
 /* Class = "UILabel"; text = "We have come to the step where we're going to customize your device a little bit. \n\nYou can give it a name to make it more recognizable."; ObjectID = "gpZ-jg-CSA"; */
 "gpZ-jg-CSA.text" = "We have come to the step where we're going to customize your device a little bit. \n\nYou can give it a name to make it more recognizable.";
 
 /* Class = "UIViewController"; title = "Steps"; ObjectID = "h4Y-w8-Cxt"; */
 "h4Y-w8-Cxt.title" = "Steps";
+
+/* Class = "UINavigationItem"; title = "Pedometer"; ObjectID = "hIJ-JD-okP"; */
+"hIJ-JD-okP.title" = "Pedometer";
 
 /* Class = "UIViewController"; title = "First Launch - First"; ObjectID = "hzx-gi-sOW"; */
 "hzx-gi-sOW.title" = "First Launch - First";
@@ -113,8 +134,8 @@
 /* Class = "UILabel"; text = "Turn on Bluetooth to connect to myWatch devices."; ObjectID = "iBt-BL-P6E"; */
 "iBt-BL-P6E.text" = "Turn on Bluetooth to connect to myWatch devices.";
 
-/* Class = "UILabel"; text = "Sleep"; ObjectID = "igX-dM-r07"; */
-"igX-dM-r07.text" = "Sleep";
+/* Class = "UILabel"; text = "Bedtime"; ObjectID = "igX-dM-r07"; */
+"igX-dM-r07.text" = "Bedtime";
 
 /* Class = "UIBarButtonItem"; title = "Welcome"; ObjectID = "iu1-dS-7Jr"; */
 "iu1-dS-7Jr.title" = "Welcome";
@@ -122,8 +143,6 @@
 /* Class = "UILabel"; text = "Connect a device"; ObjectID = "j87-yK-u4W"; */
 "j87-yK-u4W.text" = "Connect a device";
 
-/* Class = "UITabBarItem"; title = "Alarm"; ObjectID = "j9c-vg-ygM"; */
-"j9c-vg-ygM.title" = "Alarm";
 
 /* Class = "UILabel"; text = "Today"; ObjectID = "k7y-i1-mia"; */
 "k7y-i1-mia.text" = "Today";
@@ -134,11 +153,11 @@
 /* Class = "UIViewController"; title = "Connecting"; ObjectID = "lfy-N3-1it"; */
 "lfy-N3-1it.title" = "Connecting";
 
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "lsa-c2-auh"; */
+"lsa-c2-auh.title" = "Settings";
+
 /* Class = "UILabel"; text = "Welcome to myWatch!"; ObjectID = "mjM-8e-Y3I"; */
 "mjM-8e-Y3I.text" = "Welcome to myWatch!";
-
-/* Class = "UILabel"; text = "Export to Apple Health"; ObjectID = "ncf-m0-ifq"; */
-"ncf-m0-ifq.text" = "Export to Apple Health";
 
 /* Class = "UILabel"; text = "That's it!"; ObjectID = "npq-M4-Oaa"; */
 "npq-M4-Oaa.text" = "That's it!";
@@ -149,8 +168,8 @@
 /* Class = "UILabel"; text = "But for real now... let's jump right in the setup!"; ObjectID = "pLk-s7-U9f"; */
 "pLk-s7-U9f.text" = "But for real now... let's jump right in the setup!";
 
-/* Class = "UIButton"; normalTitle = "LET'S GO!"; ObjectID = "rUN-1N-Xan"; */
-"rUN-1N-Xan.normalTitle" = "LET'S GO!";
+/* Class = "UIButton"; normalTitle = "LET'S GO"; ObjectID = "rUN-1N-Xan"; */
+"rUN-1N-Xan.normalTitle" = "LET'S GO";
 
 /* Class = "UILabel"; text = "Before we start..."; ObjectID = "vgH-8d-FpV"; */
 "vgH-8d-FpV.text" = "Before we start...";
@@ -169,3 +188,18 @@
 
 /* Class = "UIViewController"; title = "Sleep"; ObjectID = "z9M-a7-igR"; */
 "z9M-a7-igR.title" = "Sleep";
+
+/* Class = "UITabBarItem"; title = "Sleep"; ObjectID = "Qtj-6V-W8o"; */
+"5zE-tS-rtj.title" = "Bedtime";
+
+/* Class = "UITabBarItem"; title = "Today"; ObjectID = "S5c-39-c9o"; */
+"UXz-nZ-jqQ.title" = "Today";
+
+/* Class = "UITabBarItem"; title = "Pedometer"; ObjectID = "WZ1-2K-DY9"; */
+"1Hd-4k-lCW.title" = "Pedometer";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "cTo-YI-Akw"; */
+"Vk3-e8-VNn.title" = "Settings";
+
+/* Class = "UITabBarItem"; title = "Alarm"; ObjectID = "j9c-vg-ygM"; */
+"ARh-i0-rTs.title" = "Alarm";

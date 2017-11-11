@@ -20,8 +20,9 @@ class MWLanguageController: MWViewController, MWFirstLaunchViewController
     //MARK: - Inherited functions from: MWViewController
     override func viewDidLoad()
     {
-        self.firstLaunchViewController = true
         super.viewDidLoad()
+        
+        buttonForwarder.staysHighlighted = true
     }
 
     override func didReceiveMemoryWarning()
@@ -38,5 +39,11 @@ class MWLanguageController: MWViewController, MWFirstLaunchViewController
     func getButton() -> MWButton?
     {
         return self.buttonForwarder
+    }
+    
+    //MARK: Inherited functions form: MWFirstLaunchControllerProtocol
+    func getFirstLaunchImageBar() -> MWFirstLaunchImageBar!
+    {
+        return imageBar
     }
 }

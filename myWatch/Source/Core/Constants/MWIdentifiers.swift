@@ -8,35 +8,57 @@
 
 import Foundation
 
+//MARK: Prefixes
+
+/// The prefix used for all segue identifiers.
+fileprivate let prefixSegueID = "MWSID"
+
+/// The prefix used for all table view cell identifiers.
+fileprivate let prefixCellID = "MWCID"
+
+/// Holds all the identifiers in the application that are used programatically.
 struct MWIdentifiers
 {
-    private static let prefixSegueID = "MWSID"
-    private static let prefixSceneID = "MWSCID"
-    private static let prefixCellID = "MWCID"
+    //MARK: -
     
+    /// The table view cell identifiers used programatically in the application.
     struct CellIdentifiers
     {
         static let deviceChooserDeviceCell = prefixCellID + "DeviceChooserDeviceCell"
     }
     
-    struct SegueIdentifiers
+    //MARK: -
+    
+    /// The table view cell identifiers used programatically in the application.
+    struct TableViewCellIdentifiers
     {
-        static let firstLaunchFirstToLanguage = prefixSegueID + "FirstLaunchFirstToLanguage"
-        static let languageToDeviceChooser = prefixSegueID + "LanguageToDeviceChooser"
-        static let deviceChooserToConnecting = prefixSegueID + "DeviceChooserToConnecting"
-        static let connectingToNameDevice = prefixSegueID + "ConnectingToNameDevice"
-        static let nameDeviceToFirstLaunchLast = prefixSegueID + "NameDeviceToFirstLaunchLast"
-        static let firstLaunchLastToMain = prefixSegueID + "FirstLaunchLastToMain"
+        static let deviceChooserDevice: String = "MWDeviceChooserDeviceTableViewCell"
     }
     
-    struct SceneIdentifiers
+    //MARK: -
+    
+    /// The segue identifiers used programatically in the application.
+    struct SegueIdentifiers
     {
-        static let firstLaunchFirst = prefixSceneID + "FirstLaunchFirst"
-        static let language = prefixSceneID + "Language"
-        static let deviceChooser = prefixSceneID + "DeviceChooser"
-        static let connecting = prefixSceneID + "Connecting"
-        static let nameDevice = prefixSceneID + "NameDevice"
-        static let firstLaunchLast = prefixSceneID + "FirstLaunchLast"
-        static let main = prefixSceneID + "Main"
+        static let connectingToNameDevice = prefixSegueID + "ConnectingToNameDevice"
+        
+        static let appleHealthToFirstLaunchLast = "MWAppleHealthToFirstLaunchLastSegue"
+        static let deviceChooserToNameDevice = "MWDeviceChooserToNameDeviceSegue"
+    }
+    
+    //MARK: -
+    
+    /// The controller identifiers used programatically in the application.
+    ///
+    /// The `VC` postfix at the end of a property's name indicates that the property is a view controller's identifier.
+    ///
+    /// The `NC` postfix at the end of a property's name indicates that the property is a navigation controller's identifier.
+    ///
+    /// The `TC` postfix at the end of a property's name indicates that the property is a tab bar controller's identifier.
+    ///
+    /// The `TVC` postfix at the end of a property's name indicates that the property is a table view controller's identifier.
+    struct ControllerIdentifiers
+    {
+        static let firstLaunchNC: String = "MWFirstLaunchNavigationController"
     }
 }

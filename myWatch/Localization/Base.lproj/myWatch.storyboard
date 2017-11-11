@@ -1,0 +1,1141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Tur-bF-diQ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--First Launch - First (NEW)-->
+        <scene sceneID="w7g-tF-uAL">
+            <objects>
+                <viewController storyboardIdentifier="MWFirstLaunchFirstNewViewController" title="First Launch - First (NEW)" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e1b-EY-S8y" customClass="MWViewController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CqE-ZD-nmI"/>
+                        <viewControllerLayoutGuide type="bottom" id="tvb-VE-qBL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n5s-Zo-M4B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMd-LL-Fxd" userLabel="Label Title">
+                                <rect key="frame" x="16" y="104" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="u7j-62-e93">
+                                <rect key="frame" x="16" y="164" width="343" height="483"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to myWatch!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbd-me-hom" userLabel="Label Description">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are a couple of things that we need to set up before you could use the application." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krf-GA-JbF" userLabel="Label Description 2">
+                                        <rect key="frame" x="0.0" y="37" width="343" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's not waste any more time and jump right in the setup process!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVt-jV-vcp" userLabel="Label Description 3">
+                                        <rect key="frame" x="0.0" y="102" width="343" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="krf-GA-JbF" firstAttribute="width" secondItem="u7j-62-e93" secondAttribute="width" id="2dX-6F-WC8"/>
+                                    <constraint firstItem="krf-GA-JbF" firstAttribute="top" secondItem="Bbd-me-hom" secondAttribute="bottom" constant="16" id="32n-UZ-xGC">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="8"/>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="krf-GA-JbF" secondAttribute="trailing" id="8PO-l0-a2g"/>
+                                    <constraint firstItem="Bbd-me-hom" firstAttribute="top" secondItem="u7j-62-e93" secondAttribute="top" id="AUy-2I-EL8"/>
+                                    <constraint firstItem="GVt-jV-vcp" firstAttribute="leading" secondItem="u7j-62-e93" secondAttribute="leading" id="BRu-Fr-NdL"/>
+                                    <constraint firstAttribute="bottom" secondItem="GVt-jV-vcp" secondAttribute="bottom" id="Ehg-Tl-sMK"/>
+                                    <constraint firstItem="GVt-jV-vcp" firstAttribute="top" secondItem="krf-GA-JbF" secondAttribute="bottom" constant="24" id="PeE-4p-yP0">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="16"/>
+                                    </constraint>
+                                    <constraint firstItem="krf-GA-JbF" firstAttribute="leading" secondItem="u7j-62-e93" secondAttribute="leading" id="QFE-iF-NxJ"/>
+                                    <constraint firstItem="GVt-jV-vcp" firstAttribute="width" secondItem="u7j-62-e93" secondAttribute="width" id="bNN-fA-F3h"/>
+                                    <constraint firstItem="Bbd-me-hom" firstAttribute="leading" secondItem="u7j-62-e93" secondAttribute="leading" id="j8C-95-4p8"/>
+                                    <constraint firstItem="Bbd-me-hom" firstAttribute="width" secondItem="u7j-62-e93" secondAttribute="width" id="pCi-ZR-VTm"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="u7j-62-e93" secondAttribute="trailing" id="7QJ-jm-xQa"/>
+                            <constraint firstItem="u7j-62-e93" firstAttribute="top" secondItem="pMd-LL-Fxd" secondAttribute="bottom" constant="24" id="AFi-zN-JMA">
+                                <variation key="heightClass=compact-widthClass=compact" constant="16"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="tvb-VE-qBL" firstAttribute="top" secondItem="u7j-62-e93" secondAttribute="bottom" constant="20" id="FF2-MR-BRg"/>
+                            <constraint firstItem="pMd-LL-Fxd" firstAttribute="top" secondItem="CqE-ZD-nmI" secondAttribute="bottom" constant="40" id="VGC-Ge-TeU">
+                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="pMd-LL-Fxd" secondAttribute="trailing" id="a73-8k-fJw"/>
+                            <constraint firstItem="u7j-62-e93" firstAttribute="leading" secondItem="n5s-Zo-M4B" secondAttribute="leadingMargin" id="hE4-je-8tQ"/>
+                            <constraint firstItem="pMd-LL-Fxd" firstAttribute="leading" secondItem="n5s-Zo-M4B" secondAttribute="leadingMargin" id="p8m-j8-45Y"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bk5-W8-SDx">
+                        <barButtonItem key="backBarButtonItem" title="Welcome!" id="65h-eJ-iIf"/>
+                        <barButtonItem key="leftBarButtonItem" title="Debug Mode" id="hmg-hR-vEl">
+                            <connections>
+                                <segue destination="Tur-bF-diQ" kind="presentation" modalTransitionStyle="crossDissolve" id="eUY-Qo-ONP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" style="done" id="d3O-nT-ZhA">
+                            <color key="tintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="kqZ-pc-9iK" kind="show" identifier="MWFirstLaunchFirstToLanguageSegue" id="q0C-SL-HCq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mwa-lm-qZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="79" y="741"/>
+        </scene>
+        <!--Device Chooser (NEW)-->
+        <scene sceneID="XGR-jr-fZb">
+            <objects>
+                <viewController storyboardIdentifier="MWDeviceChooserNewViewController" title="Device Chooser (NEW)" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kqZ-pc-9iK" customClass="MWDeviceChooserViewController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VPM-Gr-utY"/>
+                        <viewControllerLayoutGuide type="bottom" id="21n-Y1-1KO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mSZ-3H-1se">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect Your Device" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yu-gq-WSS">
+                                <rect key="frame" x="16" y="104" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time for the most important step... connecting your device." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPz-fE-PTO">
+                                <rect key="frame" x="16" y="164" width="343" height="41"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If your device is not out of battery, it should appear in the list below." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3H-Jj-xav" userLabel="Label Description 2">
+                                <rect key="frame" x="16" y="221" width="343" height="41"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="WpP-mT-F5w">
+                                <rect key="frame" x="0.0" y="286" width="375" height="321"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MWDeviceChooserDeviceTableViewCell" id="VVJ-hg-pux" userLabel="Table View Cell Device" customClass="MWDeviceChooserDeviceTableViewCell" customModule="myWatch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VVJ-hg-pux" id="dMA-Uj-dD4">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="MWAssetGeneralWatch" translatesAutoresizingMaskIntoConstraints="NO" id="5kd-W0-cUv" userLabel="Image View Icon" customClass="MWImageView" customModule="myWatch" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="16" width="37" height="12"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="tintingColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6Z-Ll-SuG" userLabel="Label Device Name">
+                                                    <rect key="frame" x="69" y="11" width="265" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="jwO-id-xoA">
+                                                    <rect key="frame" x="306" y="11" width="20" height="20"/>
+                                                    <color key="color" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5kd-W0-cUv" firstAttribute="leading" secondItem="dMA-Uj-dD4" secondAttribute="leading" constant="20" id="8jC-wg-mLt"/>
+                                                <constraint firstItem="B6Z-Ll-SuG" firstAttribute="leading" secondItem="5kd-W0-cUv" secondAttribute="trailing" constant="12" id="BzP-be-53n"/>
+                                                <constraint firstItem="jwO-id-xoA" firstAttribute="centerY" secondItem="dMA-Uj-dD4" secondAttribute="centerY" id="D0V-L7-R6R"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="B6Z-Ll-SuG" secondAttribute="trailing" id="ghM-NU-y4r"/>
+                                                <constraint firstItem="B6Z-Ll-SuG" firstAttribute="centerY" secondItem="dMA-Uj-dD4" secondAttribute="centerY" id="mSc-YD-yXU"/>
+                                                <constraint firstItem="5kd-W0-cUv" firstAttribute="centerY" secondItem="dMA-Uj-dD4" secondAttribute="centerY" id="mfC-Im-otR"/>
+                                                <constraint firstAttribute="trailing" secondItem="jwO-id-xoA" secondAttribute="trailing" constant="16" id="vrW-WT-RHr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="mode">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="activityIndicator" destination="jwO-id-xoA" id="nVd-NV-3c8"/>
+                                            <outlet property="imageViewIcon" destination="5kd-W0-cUv" id="hiA-vn-wd3"/>
+                                            <outlet property="labelDeviceName" destination="B6Z-Ll-SuG" id="YKi-YC-AXr"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hwt-ah-Ke1">
+                                <rect key="frame" x="70.5" y="627" width="234.5" height="20"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="2Us-nb-3h2">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="lV0-Q6-wmY"/>
+                                            <constraint firstAttribute="height" constant="20" id="yLL-wp-gO5"/>
+                                        </constraints>
+                                        <color key="color" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking for available devices..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dPt-Mp-nJl">
+                                        <rect key="frame" x="28" y="1" width="206.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please turn on Bluetooth to connect to myWatch devices." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aer-Ca-eD6">
+                                <rect key="frame" x="16" y="341.5" width="343" height="41"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="XPz-fE-PTO" firstAttribute="leading" secondItem="mSZ-3H-1se" secondAttribute="leadingMargin" id="054-xN-gyd"/>
+                            <constraint firstItem="WpP-mT-F5w" firstAttribute="leading" secondItem="mSZ-3H-1se" secondAttribute="leading" id="8dO-pC-wMo"/>
+                            <constraint firstItem="7yu-gq-WSS" firstAttribute="leading" secondItem="mSZ-3H-1se" secondAttribute="leadingMargin" id="ASh-Oc-MRn"/>
+                            <constraint firstItem="7yu-gq-WSS" firstAttribute="top" secondItem="VPM-Gr-utY" secondAttribute="bottom" constant="40" id="Aor-CZ-EZS">
+                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="Hwt-ah-Ke1" firstAttribute="centerX" secondItem="mSZ-3H-1se" secondAttribute="centerX" id="Eb3-bU-cx0"/>
+                            <constraint firstItem="7yu-gq-WSS" firstAttribute="trailing" secondItem="mSZ-3H-1se" secondAttribute="trailingMargin" id="FjM-sL-cn7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Aer-Ca-eD6" secondAttribute="trailing" id="ILi-sP-XPX"/>
+                            <constraint firstItem="Aer-Ca-eD6" firstAttribute="top" secondItem="mSZ-3H-1se" secondAttribute="centerY" constant="8" id="Lgq-do-ASd"/>
+                            <constraint firstAttribute="trailing" secondItem="WpP-mT-F5w" secondAttribute="trailing" id="NkV-Po-D48"/>
+                            <constraint firstItem="C3H-Jj-xav" firstAttribute="trailing" secondItem="mSZ-3H-1se" secondAttribute="trailingMargin" id="QWP-QZ-8iH"/>
+                            <constraint firstItem="XPz-fE-PTO" firstAttribute="trailing" secondItem="mSZ-3H-1se" secondAttribute="trailingMargin" id="RF4-rY-sxU"/>
+                            <constraint firstItem="WpP-mT-F5w" firstAttribute="top" secondItem="C3H-Jj-xav" secondAttribute="bottom" constant="24" id="Tcg-fu-tPZ">
+                                <variation key="heightClass=compact-widthClass=compact" constant="16"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="C3H-Jj-xav" firstAttribute="top" secondItem="XPz-fE-PTO" secondAttribute="bottom" constant="16" id="X3r-pp-8GJ">
+                                <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="8"/>
+                            </constraint>
+                            <constraint firstItem="Aer-Ca-eD6" firstAttribute="centerX" secondItem="mSZ-3H-1se" secondAttribute="centerX" id="jhv-Pj-iCj"/>
+                            <constraint firstItem="21n-Y1-1KO" firstAttribute="top" secondItem="Hwt-ah-Ke1" secondAttribute="bottom" constant="20" id="jzB-wo-B2Y">
+                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="10"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Hwt-ah-Ke1" secondAttribute="trailing" id="mgW-tA-Nst"/>
+                            <constraint firstItem="XPz-fE-PTO" firstAttribute="top" secondItem="7yu-gq-WSS" secondAttribute="bottom" constant="24" id="mor-0d-FhM">
+                                <variation key="heightClass=compact-widthClass=compact" constant="16"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="Hwt-ah-Ke1" firstAttribute="top" secondItem="WpP-mT-F5w" secondAttribute="bottom" constant="20" id="nEt-hz-FzG">
+                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="10"/>
+                            </constraint>
+                            <constraint firstItem="Hwt-ah-Ke1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mSZ-3H-1se" secondAttribute="leadingMargin" id="q4t-mn-VM5"/>
+                            <constraint firstItem="C3H-Jj-xav" firstAttribute="leading" secondItem="mSZ-3H-1se" secondAttribute="leadingMargin" id="vu7-GD-gxU"/>
+                            <constraint firstItem="Aer-Ca-eD6" firstAttribute="leading" secondItem="mSZ-3H-1se" secondAttribute="leadingMargin" id="zIV-PD-tIw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ml4-bh-jvx">
+                        <barButtonItem key="backBarButtonItem" title="Connect Your Device" id="t1q-UE-CES"/>
+                    </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="labelDescription" destination="XPz-fE-PTO" id="euO-hR-fqF"/>
+                        <outlet property="labelDescription_1" destination="C3H-Jj-xav" id="li8-WK-l8i"/>
+                        <outlet property="labelNoBluetooth" destination="Aer-Ca-eD6" id="47A-iI-ba7"/>
+                        <outlet property="labelTitle" destination="7yu-gq-WSS" id="XkL-fK-SYj"/>
+                        <outlet property="stackViewSearchIndicator" destination="Hwt-ah-Ke1" id="1uI-Up-gYp"/>
+                        <outlet property="tableViewDevices" destination="WpP-mT-F5w" id="n7N-js-ZFR"/>
+                        <segue destination="dCp-yO-i8D" kind="show" identifier="MWDeviceChooserToNameDeviceSegue" id="bST-0i-Vdn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jPL-gr-oCj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="887.20000000000005" y="740.7796101949026"/>
+        </scene>
+        <!--Summary-->
+        <scene sceneID="4tk-un-mvt">
+            <objects>
+                <viewController storyboardIdentifier="MWSummaryViewController" title="Summary" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OHj-QA-Qsb" customClass="MWViewController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MRn-dC-q1e"/>
+                        <viewControllerLayoutGuide type="bottom" id="y5J-eD-fBd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KkV-oo-cCk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Today" id="96P-2K-dEt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EdE-v9-sH9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="889" y="3152"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="Tpa-wd-UlI">
+            <objects>
+                <tabBarController storyboardIdentifier="MWMainTabBarController" title="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dmF-sD-aai" customClass="MWMainTabBarController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="aXk-hY-qQL" customClass="MWTabBar" customModule="myWatch" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hidesTitles" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="RK8-Ta-Wzu" kind="relationship" relationship="viewControllers" id="Lmk-sS-doD"/>
+                        <segue destination="ikx-zQ-0KK" kind="relationship" relationship="viewControllers" id="TRr-re-ZF3"/>
+                        <segue destination="Nx1-tg-49i" kind="relationship" relationship="viewControllers" id="Fir-Nc-lw6"/>
+                        <segue destination="qQ0-fQ-vNB" kind="relationship" relationship="viewControllers" id="qfe-WO-Hhk"/>
+                        <segue destination="mHF-Xx-ASH" kind="relationship" relationship="viewControllers" id="QIK-q5-iHS"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ns6-vk-gFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2508" y="1527"/>
+        </scene>
+        <!--First Launch Navigation Controller-->
+        <scene sceneID="baM-tT-v1z">
+            <objects>
+                <navigationController storyboardIdentifier="MWFirstLaunchNavigationController" title="First Launch Navigation Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VzZ-Rr-dUS" customClass="MWFirstLaunchNavigationController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" ambiguous="YES" barStyle="black" id="6cG-VI-4ci" customClass="MWNavigationBar" customModule="myWatch" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="e1b-EY-S8y" kind="relationship" relationship="rootViewController" id="BSY-Xb-c4i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gXR-t4-avG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-721" y="743"/>
+        </scene>
+        <!--Debugger-->
+        <scene sceneID="5PP-uH-Vdp">
+            <objects>
+                <viewController storyboardIdentifier="MWDebuggerViewController" title="Debugger" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Tur-bF-diQ" customClass="MWViewController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tHh-P6-uyh"/>
+                        <viewControllerLayoutGuide type="bottom" id="cqY-Si-JRH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sPb-5a-X6e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7F-J3-hTz" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="16" y="271" width="343" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="goy-VD-kvj"/>
+                                </constraints>
+                                <state key="normal" title="Old"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="RHm-KO-JKb" kind="presentation" identifier="MWSIDChooserToOld" modalTransitionStyle="crossDissolve" id="4Xl-vu-1bh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7g-qF-9xw" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="16" y="341" width="343" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="eSR-77-lIe"/>
+                                </constraints>
+                                <state key="normal" title="New"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="VzZ-Rr-dUS" kind="presentation" modalTransitionStyle="crossDissolve" id="Fs7-zs-snE"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="myWatch Debug Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIA-nF-nQh">
+                                <rect key="frame" x="16" y="84" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <color key="textColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="m7F-J3-hTz" secondAttribute="trailing" id="42a-Ys-3aQ"/>
+                            <constraint firstItem="m7F-J3-hTz" firstAttribute="centerY" secondItem="sPb-5a-X6e" secondAttribute="centerY" constant="-35" id="74d-CH-jot"/>
+                            <constraint firstItem="m7F-J3-hTz" firstAttribute="centerX" secondItem="sPb-5a-X6e" secondAttribute="centerX" id="A7v-Zc-d4J"/>
+                            <constraint firstItem="l7g-qF-9xw" firstAttribute="leading" secondItem="sPb-5a-X6e" secondAttribute="leadingMargin" id="Btg-bQ-XJo"/>
+                            <constraint firstItem="l7g-qF-9xw" firstAttribute="centerX" secondItem="sPb-5a-X6e" secondAttribute="centerX" id="DV3-3i-cux"/>
+                            <constraint firstItem="TIA-nF-nQh" firstAttribute="leading" secondItem="sPb-5a-X6e" secondAttribute="leadingMargin" id="FUk-1Y-83G"/>
+                            <constraint firstItem="l7g-qF-9xw" firstAttribute="centerY" secondItem="sPb-5a-X6e" secondAttribute="centerY" constant="35" id="K8C-GH-SKQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TIA-nF-nQh" secondAttribute="trailing" id="U5F-wh-LPL"/>
+                            <constraint firstItem="l7g-qF-9xw" firstAttribute="trailing" secondItem="sPb-5a-X6e" secondAttribute="trailingMargin" id="VRh-dg-7s6"/>
+                            <constraint firstItem="TIA-nF-nQh" firstAttribute="top" secondItem="tHh-P6-uyh" secondAttribute="bottom" constant="64" id="XGD-NW-Vta"/>
+                            <constraint firstItem="m7F-J3-hTz" firstAttribute="leading" secondItem="sPb-5a-X6e" secondAttribute="leadingMargin" id="dRy-4R-hw4"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="statusBarStyle">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kgD-db-TVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1698" y="221"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="55A-S4-Rx3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="RHm-KO-JKb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N8y-lw-g8W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-972" y="-273"/>
+        </scene>
+        <!--Summary Navigation Controller-->
+        <scene sceneID="gRQ-80-cCP">
+            <objects>
+                <navigationController storyboardIdentifier="MWSummaryNavigationController" title="Summary Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RK8-Ta-Wzu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Today" image="MWATabBarSummary" selectedImage="MWATabBarSummarySelected" id="CX2-Nt-rl8"/>
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" ambiguous="YES" barStyle="black" id="mxo-Yp-NOo" customClass="MWNavigationBar" customModule="myWatch" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OHj-QA-Qsb" kind="relationship" relationship="rootViewController" id="cDW-ej-a82"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sTL-vI-AwN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="889" y="2409"/>
+        </scene>
+        <!--Steps-->
+        <scene sceneID="ZdA-ev-gme">
+            <objects>
+                <viewController storyboardIdentifier="MWStepsViewController" title="Steps" useStoryboardIdentifierAsRestorationIdentifier="YES" id="F2T-nH-M0h" customClass="MWViewController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gU3-V4-M8P"/>
+                        <viewControllerLayoutGuide type="bottom" id="dKZ-l2-wQs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PBV-db-bkY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pedometer" id="Za8-nl-pJW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wAS-x5-suv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1697" y="3152"/>
+        </scene>
+        <!--Steps Navigation Controller-->
+        <scene sceneID="ZNe-cA-QCV">
+            <objects>
+                <navigationController storyboardIdentifier="MWStepsNavigationController" title="Steps Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ikx-zQ-0KK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pedometer" image="MWATabBarSteps" selectedImage="MWATabBarStepsSelected" id="Urp-Ep-mve"/>
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" ambiguous="YES" barStyle="black" id="fpG-bE-pys" customClass="MWNavigationBar" customModule="myWatch" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="F2T-nH-M0h" kind="relationship" relationship="rootViewController" id="oOc-Oc-l1y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yb6-Tr-2Tt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1697" y="2409"/>
+        </scene>
+        <!--Sleep-->
+        <scene sceneID="ZBW-jT-OKH">
+            <objects>
+                <viewController storyboardIdentifier="MWSleepViewController" title="Sleep" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1lm-OC-NnN" customClass="MWViewController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rhb-Jw-6m9"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZXo-Nm-toD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k0w-LS-ylV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bedtime" id="yki-ej-JOH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pbV-3H-ijU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2508" y="3152"/>
+        </scene>
+        <!--Sleep Navigation Controller-->
+        <scene sceneID="2xL-xc-z9U">
+            <objects>
+                <navigationController storyboardIdentifier="MWSleepNavigationController" title="Sleep Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nx1-tg-49i" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bedtime" image="MWATabBarSleep" selectedImage="MWATabBarSleepSelected" id="CP6-2y-I1P"/>
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" ambiguous="YES" barStyle="black" id="B79-QI-5Kk" customClass="MWNavigationBar" customModule="myWatch" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1lm-OC-NnN" kind="relationship" relationship="rootViewController" id="BCZ-IK-3Me"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XyK-bB-eNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2508" y="2409"/>
+        </scene>
+        <!--Alarm-->
+        <scene sceneID="V8p-6g-hDd">
+            <objects>
+                <viewController storyboardIdentifier="MWAlarmViewController" title="Alarm" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yMc-MS-ize" customClass="MWViewController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9ng-GY-IgE"/>
+                        <viewControllerLayoutGuide type="bottom" id="wNz-81-1kZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zda-ec-Gz4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Alarm" id="Rgp-pK-Pu8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aik-tl-Dey" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3316" y="3152"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Z4C-yg-e9R">
+            <objects>
+                <tableViewController storyboardIdentifier="MWSettingsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nZa-Sa-cpm" customClass="MWSettingsTableViewController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Wwo-1S-5wY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.42352941176470588" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="Utilities" id="A3l-em-4ur">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ggd-A6-WF2" style="IBUITableViewCellStyleDefault" id="G1I-1f-Q6I" customClass="MWTableViewCell" customModule="myWatch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G1I-1f-Q6I" id="lNU-9z-t2x">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Show First Launch Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ggd-A6-WF2">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="mode">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="animateAll" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="VzZ-Rr-dUS" kind="presentation" identifier="MWSettingsToFirstLaunchFirstSegue" modalTransitionStyle="crossDissolve" id="lEc-er-bbM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="RJk-aQ-kf5" style="IBUITableViewCellStyleDefault" id="sFn-YX-iEB" customClass="MWTableViewCell" customModule="myWatch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sFn-YX-iEB" id="CLu-dc-dZH">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Debug Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RJk-aQ-kf5">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="mode">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="animateAll" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="Tur-bF-diQ" kind="presentation" identifier="MWSettingsToDebuggerSegue" modalTransitionStyle="crossDissolve" id="WjA-uM-485"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="kn7-mW-9de" style="IBUITableViewCellStyleDefault" id="taI-ff-ZAk" customClass="MWActionTableViewCell" customModule="myWatch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="taI-ff-ZAk" id="J69-QV-iuO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Tab Bar Hides Titles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kn7-mW-9de">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="mode">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="animateAll" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="nZa-Sa-cpm" id="xxJ-HL-Ax6"/>
+                            <outlet property="delegate" destination="nZa-Sa-cpm" id="XTZ-gp-45p"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="RIs-37-zEG"/>
+                    <connections>
+                        <outlet property="tableViewCellHideTabBarTitles" destination="taI-ff-ZAk" id="5x6-dZ-Il2"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pKs-DJ-h40" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4121" y="3152"/>
+        </scene>
+        <!--Alarm Navigation Controller-->
+        <scene sceneID="Nmx-Zx-HP2">
+            <objects>
+                <navigationController storyboardIdentifier="MWAlarmNavigationController" title="Alarm Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qQ0-fQ-vNB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Alarm" image="MWATabBarAlarm" selectedImage="MWATabBarAlarmSelected" id="ehN-ou-7It"/>
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" ambiguous="YES" barStyle="black" id="DdE-bH-lei" customClass="MWNavigationBar" customModule="myWatch" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yMc-MS-ize" kind="relationship" relationship="rootViewController" id="i0h-Gn-lOC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g2W-GU-Rg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3316" y="2409"/>
+        </scene>
+        <!--Settings Navigation Controller-->
+        <scene sceneID="DgG-ga-L1f">
+            <objects>
+                <navigationController storyboardIdentifier="MWSettingsNavigationController" title="Settings Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mHF-Xx-ASH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="MWATabBarSettings" selectedImage="MWATabBarSettingsSelected" id="HXz-et-oli"/>
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" ambiguous="YES" barStyle="black" id="Azw-RP-CcZ" customClass="MWNavigationBar" customModule="myWatch" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nZa-Sa-cpm" kind="relationship" relationship="rootViewController" id="KRp-dI-osh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hCK-BX-YGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4121" y="2409"/>
+        </scene>
+        <!--Name Device (NEW)-->
+        <scene sceneID="Kvc-tV-6cd">
+            <objects>
+                <viewController storyboardIdentifier="MWNameDeviceNewViewController" title="Name Device (NEW)" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dCp-yO-i8D" customClass="MWNameDeviceViewController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r7s-Xc-hkV"/>
+                        <viewControllerLayoutGuide type="bottom" id="tWS-de-C7b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MI7-cN-TMZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Your Device" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="070-0Y-nf8">
+                                <rect key="frame" x="16" y="104" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="vbm-aR-7qh">
+                                <rect key="frame" x="16" y="164" width="343" height="483"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's personalize your device a little bit..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgc-hV-pV2">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can give it a name to make it more recognizable for future use." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSV-od-ZE9" userLabel="Label Description 2">
+                                        <rect key="frame" x="0.0" y="36" width="343" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the name here..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cdG-Xe-XDt" customClass="MWTextField" customModule="myWatch" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="101" width="323" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="yW6-Zx-mlf"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_textColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="editingChanged_textFieldDeviceName:" destination="dCp-yO-i8D" eventType="editingChanged" id="FAQ-3I-Del"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XG-oX-7ED" userLabel="Label Description 3">
+                                        <rect key="frame" x="0.0" y="152" width="343" height="67"/>
+                                        <string key="text">NOTE: This does not change device's Bluetooth name. The name you are about to give to the device will be stored on this device until you delete the application.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.42352941179999998" green="0.42352941179999998" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hSV-od-ZE9" firstAttribute="width" secondItem="vbm-aR-7qh" secondAttribute="width" id="6fM-mj-jfY"/>
+                                    <constraint firstAttribute="trailing" secondItem="0XG-oX-7ED" secondAttribute="trailing" id="AAm-J2-5SG"/>
+                                    <constraint firstItem="hSV-od-ZE9" firstAttribute="leading" secondItem="vbm-aR-7qh" secondAttribute="leading" id="I6U-dW-f3Z"/>
+                                    <constraint firstItem="Jgc-hV-pV2" firstAttribute="leading" secondItem="vbm-aR-7qh" secondAttribute="leading" id="OOd-UE-qsN"/>
+                                    <constraint firstItem="0XG-oX-7ED" firstAttribute="leading" secondItem="vbm-aR-7qh" secondAttribute="leading" id="QBz-dE-46o"/>
+                                    <constraint firstAttribute="bottom" secondItem="0XG-oX-7ED" secondAttribute="bottom" constant="32" id="U34-GD-iAv"/>
+                                    <constraint firstAttribute="trailing" secondItem="hSV-od-ZE9" secondAttribute="trailing" id="UO9-p5-xT4"/>
+                                    <constraint firstItem="cdG-Xe-XDt" firstAttribute="leading" secondItem="vbm-aR-7qh" secondAttribute="leading" constant="10" id="cYX-zi-tV9"/>
+                                    <constraint firstItem="cdG-Xe-XDt" firstAttribute="top" secondItem="hSV-od-ZE9" secondAttribute="bottom" constant="24" id="du0-1B-fqb">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="8"/>
+                                    </constraint>
+                                    <constraint firstItem="Jgc-hV-pV2" firstAttribute="width" secondItem="vbm-aR-7qh" secondAttribute="width" id="e6N-af-qW9"/>
+                                    <constraint firstAttribute="trailing" secondItem="cdG-Xe-XDt" secondAttribute="trailing" constant="10" id="lua-rL-JxT"/>
+                                    <constraint firstItem="0XG-oX-7ED" firstAttribute="top" secondItem="cdG-Xe-XDt" secondAttribute="bottom" constant="16" id="mRz-Xx-8Dg">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="8"/>
+                                    </constraint>
+                                    <constraint firstItem="hSV-od-ZE9" firstAttribute="top" secondItem="Jgc-hV-pV2" secondAttribute="bottom" constant="16" id="oxh-Ad-glf">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="8"/>
+                                    </constraint>
+                                    <constraint firstItem="Jgc-hV-pV2" firstAttribute="top" secondItem="vbm-aR-7qh" secondAttribute="top" id="vTG-rY-dZM"/>
+                                    <constraint firstItem="0XG-oX-7ED" firstAttribute="width" secondItem="vbm-aR-7qh" secondAttribute="width" id="wYu-rV-z7t"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="070-0Y-nf8" secondAttribute="trailing" id="0Yc-2y-CGI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vbm-aR-7qh" secondAttribute="trailing" id="2a9-hL-5VM"/>
+                            <constraint firstItem="070-0Y-nf8" firstAttribute="leading" secondItem="MI7-cN-TMZ" secondAttribute="leadingMargin" id="cWL-Vw-LIw"/>
+                            <constraint firstItem="070-0Y-nf8" firstAttribute="top" secondItem="r7s-Xc-hkV" secondAttribute="bottom" constant="40" id="dVw-Az-NkN">
+                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="vbm-aR-7qh" firstAttribute="top" secondItem="070-0Y-nf8" secondAttribute="bottom" constant="24" id="eqB-oO-8PG">
+                                <variation key="heightClass=compact-widthClass=compact" constant="16"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="tWS-de-C7b" firstAttribute="top" secondItem="vbm-aR-7qh" secondAttribute="bottom" constant="20" id="erP-v1-njS"/>
+                            <constraint firstItem="vbm-aR-7qh" firstAttribute="leading" secondItem="MI7-cN-TMZ" secondAttribute="leadingMargin" id="oUI-QW-6wL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="YXV-wn-8UJ">
+                        <barButtonItem key="backBarButtonItem" title="Name Your Device" id="KJm-f5-UEB"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Next" style="done" id="Mv5-is-ElD">
+                            <color key="tintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="buttonPressed_barButtonNext:" destination="dCp-yO-i8D" id="hLe-C5-5Cg"/>
+                                <segue destination="9d2-Pm-WaR" kind="show" identifier="MWNameDeviceToAppleHealthSegue" id="MCw-5c-Hey"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="barButtonNext" destination="Mv5-is-ElD" id="qoz-Wh-zXK"/>
+                        <outlet property="labelDescription" destination="Jgc-hV-pV2" id="a6S-ht-YYk"/>
+                        <outlet property="labelDescription_1" destination="hSV-od-ZE9" id="qRL-94-MZG"/>
+                        <outlet property="labelDescription_2" destination="0XG-oX-7ED" id="5o6-4h-6l7"/>
+                        <outlet property="labelTitle" destination="070-0Y-nf8" id="aY8-ma-enU"/>
+                        <outlet property="textFieldDeviceName" destination="cdG-Xe-XDt" id="tSy-Vx-CTi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dQd-1R-V28" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1696.8" y="742.5787106446777"/>
+        </scene>
+        <!--Apple Health (NEW)-->
+        <scene sceneID="DoH-AM-ztY">
+            <objects>
+                <viewController storyboardIdentifier="MWAppleHealthNewViewController" title="Apple Health (NEW)" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9d2-Pm-WaR" customClass="MWAppleHealthViewController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X0D-ih-o3e"/>
+                        <viewControllerLayoutGuide type="bottom" id="LPk-ou-BSj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DcE-va-svW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Health" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7S-wv-qgJ">
+                                <rect key="frame" x="16" y="104" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <color key="textColor" red="0.94509803921568625" green="0.30196078431372547" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="Nej-OP-doq">
+                                <rect key="frame" x="16" y="164" width="343" height="375"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPl-om-s2n">
+                                        <rect key="frame" x="0.0" y="57" width="343" height="81.5"/>
+                                        <string key="text">myWatch supprts exporting data to Apple Health. Apple Health is the perfect way to keep your health data organized across fitness applications.</string>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cn2-Jo-ubu">
+                                        <rect key="frame" x="0.0" y="162.5" width="343" height="81.5"/>
+                                        <string key="text">The question is very straightforward... 
+Would you like to export the data received from your myWatch device to Apple Health?</string>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We've come to the step where you have to make an important decision..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bL-Aw-bnG">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="cn2-Jo-ubu" firstAttribute="top" secondItem="vPl-om-s2n" secondAttribute="bottom" constant="24" id="AeN-X5-HDe">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="16"/>
+                                    </constraint>
+                                    <constraint firstItem="vPl-om-s2n" firstAttribute="leading" secondItem="Nej-OP-doq" secondAttribute="leading" id="KdR-Yg-Xg3"/>
+                                    <constraint firstItem="cn2-Jo-ubu" firstAttribute="width" secondItem="Nej-OP-doq" secondAttribute="width" id="N2L-iH-0Mc"/>
+                                    <constraint firstItem="vPl-om-s2n" firstAttribute="top" secondItem="1bL-Aw-bnG" secondAttribute="bottom" constant="16" id="Ntq-zQ-CXN">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="8"/>
+                                    </constraint>
+                                    <constraint firstItem="vPl-om-s2n" firstAttribute="width" secondItem="Nej-OP-doq" secondAttribute="width" id="STb-KF-uCG"/>
+                                    <constraint firstAttribute="trailing" secondItem="vPl-om-s2n" secondAttribute="trailing" id="TBn-5H-cyF"/>
+                                    <constraint firstAttribute="bottom" secondItem="cn2-Jo-ubu" secondAttribute="bottom" id="XTX-Nm-VP9"/>
+                                    <constraint firstItem="1bL-Aw-bnG" firstAttribute="top" secondItem="Nej-OP-doq" secondAttribute="top" id="edi-mA-o10"/>
+                                    <constraint firstItem="1bL-Aw-bnG" firstAttribute="leading" secondItem="Nej-OP-doq" secondAttribute="leading" id="mxg-ue-s5A"/>
+                                    <constraint firstItem="1bL-Aw-bnG" firstAttribute="width" secondItem="Nej-OP-doq" secondAttribute="width" id="wJz-mm-KGY"/>
+                                    <constraint firstItem="cn2-Jo-ubu" firstAttribute="leading" secondItem="Nej-OP-doq" secondAttribute="leading" id="xGK-gl-4ZG"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTc-eF-ZVF" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="146.5" y="622" width="82" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="4WG-CE-oGZ"/>
+                                </constraints>
+                                <state key="normal" title="No, thanks"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.94509803920000002" green="0.30196078430000001" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonPressed_buttonNo:" destination="9d2-Pm-WaR" eventType="touchUpInside" id="S6M-Ur-T5X"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nF-bH-kpa" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="16" y="559" width="343" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="by6-OI-VBF">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="45"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="45"/>
+                                    </constraint>
+                                </constraints>
+                                <state key="normal" title="Yes, I would"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.94509803920000002" green="0.30196078430000001" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonPressed_buttonYes:" destination="9d2-Pm-WaR" eventType="touchUpInside" id="gh6-0n-z1W"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="0nF-bH-kpa" firstAttribute="leading" secondItem="DcE-va-svW" secondAttribute="leadingMargin" id="31f-aC-KRN"/>
+                            <constraint firstItem="N7S-wv-qgJ" firstAttribute="leading" secondItem="DcE-va-svW" secondAttribute="leadingMargin" id="9Iq-yZ-m0C"/>
+                            <constraint firstItem="0nF-bH-kpa" firstAttribute="top" secondItem="Nej-OP-doq" secondAttribute="bottom" constant="20" id="KCv-cL-5kS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Nej-OP-doq" secondAttribute="trailing" id="L0i-Wo-oct"/>
+                            <constraint firstItem="Nej-OP-doq" firstAttribute="top" secondItem="N7S-wv-qgJ" secondAttribute="bottom" constant="24" id="aoe-yM-hrs">
+                                <variation key="heightClass=compact-widthClass=compact" constant="16"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="LPk-ou-BSj" firstAttribute="top" secondItem="UTc-eF-ZVF" secondAttribute="bottom" constant="20" id="k9Q-vD-e13">
+                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="10"/>
+                            </constraint>
+                            <constraint firstItem="UTc-eF-ZVF" firstAttribute="top" secondItem="0nF-bH-kpa" secondAttribute="bottom" constant="8" id="n08-PM-8a1"/>
+                            <constraint firstItem="UTc-eF-ZVF" firstAttribute="centerX" secondItem="DcE-va-svW" secondAttribute="centerX" id="pAP-M7-jov"/>
+                            <constraint firstItem="N7S-wv-qgJ" firstAttribute="top" secondItem="X0D-ih-o3e" secondAttribute="bottom" constant="40" id="prs-yl-ZRz">
+                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="Nej-OP-doq" firstAttribute="leading" secondItem="DcE-va-svW" secondAttribute="leadingMargin" id="vgd-Eq-VKg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="N7S-wv-qgJ" secondAttribute="trailing" id="x9M-zJ-bVK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0nF-bH-kpa" secondAttribute="trailing" id="xAc-Ra-cYf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="0He-md-mRC">
+                        <barButtonItem key="backBarButtonItem" title="Apple Health" id="aAl-ue-2Ng"/>
+                    </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="buttonNo" destination="UTc-eF-ZVF" id="avb-NB-v9G"/>
+                        <outlet property="buttonYes" destination="0nF-bH-kpa" id="MYr-kE-e7K"/>
+                        <outlet property="labelDescription" destination="1bL-Aw-bnG" id="RdN-aa-cQY"/>
+                        <outlet property="labelDescription_1" destination="vPl-om-s2n" id="MDJ-I1-iI1"/>
+                        <outlet property="labelDescription_2" destination="cn2-Jo-ubu" id="P2y-gf-hBp"/>
+                        <outlet property="labelTitle" destination="N7S-wv-qgJ" id="pkK-5x-mPw"/>
+                        <segue destination="VBu-zn-boO" kind="show" identifier="MWAppleHealthToFirstLaunchLastSegue" id="LrI-58-EEr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Nh-xQ-MU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2508" y="742.5787106446777"/>
+        </scene>
+        <!--First Launch - Last (NEW)-->
+        <scene sceneID="4ar-hX-qaM">
+            <objects>
+                <viewController storyboardIdentifier="MWFirstLaunchLastNewViewController" title="First Launch - Last (NEW)" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VBu-zn-boO" customClass="MWViewController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aDN-39-i8B"/>
+                        <viewControllerLayoutGuide type="bottom" id="X5H-7P-ryw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6gP-hG-BvC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="That's it!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jq-U0-wFA">
+                                <rect key="frame" x="16" y="104" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="KyG-xw-UQs">
+                                <rect key="frame" x="16" y="164" width="343" height="483"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDN-lC-mlw">
+                                        <rect key="frame" x="0.0" y="37" width="343" height="81.5"/>
+                                        <string key="text">The application is now ready to use and next time you open the application, you are going to see the screen that you are about to be forwarded to.</string>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's dive right in!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x85-9Q-SFF">
+                                        <rect key="frame" x="0.0" y="142.5" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are finally done with the setup!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ome-Np-NwR">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="NDN-lC-mlw" secondAttribute="trailing" id="0nH-kp-M5l"/>
+                                    <constraint firstItem="ome-Np-NwR" firstAttribute="width" secondItem="KyG-xw-UQs" secondAttribute="width" id="4q7-Fa-foA"/>
+                                    <constraint firstItem="NDN-lC-mlw" firstAttribute="leading" secondItem="KyG-xw-UQs" secondAttribute="leading" id="AIF-mS-60y"/>
+                                    <constraint firstItem="ome-Np-NwR" firstAttribute="top" secondItem="KyG-xw-UQs" secondAttribute="top" id="EXw-14-Ccb"/>
+                                    <constraint firstItem="x85-9Q-SFF" firstAttribute="leading" secondItem="KyG-xw-UQs" secondAttribute="leading" id="F5o-mF-CdB"/>
+                                    <constraint firstItem="x85-9Q-SFF" firstAttribute="width" secondItem="KyG-xw-UQs" secondAttribute="width" id="K2h-4u-dTT"/>
+                                    <constraint firstItem="ome-Np-NwR" firstAttribute="leading" secondItem="KyG-xw-UQs" secondAttribute="leading" id="NGe-Ed-aOd"/>
+                                    <constraint firstItem="x85-9Q-SFF" firstAttribute="top" secondItem="NDN-lC-mlw" secondAttribute="bottom" constant="24" id="Rj4-Q0-D2n">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="16"/>
+                                    </constraint>
+                                    <constraint firstItem="NDN-lC-mlw" firstAttribute="width" secondItem="KyG-xw-UQs" secondAttribute="width" id="ePz-3e-IeP"/>
+                                    <constraint firstItem="NDN-lC-mlw" firstAttribute="top" secondItem="ome-Np-NwR" secondAttribute="bottom" constant="16" id="n4L-vV-yfP">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="8"/>
+                                    </constraint>
+                                    <constraint firstAttribute="bottom" secondItem="x85-9Q-SFF" secondAttribute="bottom" id="x12-gQ-st7"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="KyG-xw-UQs" firstAttribute="top" secondItem="3jq-U0-wFA" secondAttribute="bottom" constant="24" id="52s-tP-w6p">
+                                <variation key="heightClass=compact-widthClass=compact" constant="16"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="3jq-U0-wFA" firstAttribute="leading" secondItem="6gP-hG-BvC" secondAttribute="leadingMargin" id="bo4-rD-0m4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KyG-xw-UQs" secondAttribute="trailing" id="bz1-54-6uC"/>
+                            <constraint firstItem="X5H-7P-ryw" firstAttribute="top" secondItem="KyG-xw-UQs" secondAttribute="bottom" constant="20" id="d2G-9e-K8u"/>
+                            <constraint firstItem="3jq-U0-wFA" firstAttribute="top" secondItem="aDN-39-i8B" secondAttribute="bottom" constant="40" id="eEV-ju-BHI">
+                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="KyG-xw-UQs" firstAttribute="leading" secondItem="6gP-hG-BvC" secondAttribute="leadingMargin" id="lEZ-2v-uj0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3jq-U0-wFA" secondAttribute="trailing" id="nBQ-Ao-8kj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="plt-7E-eoa">
+                        <barButtonItem key="backBarButtonItem" title=" " id="SsP-5C-csv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" style="done" id="Uq3-Nt-bcK">
+                            <color key="tintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="dmF-sD-aai" kind="custom" identifier="MWFirstLaunchLastToMainSegue" customClass="MWTabBarControllerSegue" customModule="myWatch" customModuleProvider="target" id="a6X-PW-RUk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Qa-we-90I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3316" y="741"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="MWATabBarAlarm" width="25" height="25"/>
+        <image name="MWATabBarAlarmSelected" width="25" height="25"/>
+        <image name="MWATabBarSettings" width="25" height="25"/>
+        <image name="MWATabBarSettingsSelected" width="25" height="25"/>
+        <image name="MWATabBarSleep" width="31" height="23"/>
+        <image name="MWATabBarSleepSelected" width="31" height="23"/>
+        <image name="MWATabBarSteps" width="29" height="25"/>
+        <image name="MWATabBarStepsSelected" width="29" height="25"/>
+        <image name="MWATabBarSummary" width="25" height="25"/>
+        <image name="MWATabBarSummarySelected" width="25" height="25"/>
+        <image name="MWAssetGeneralWatch" width="37" height="12"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Fs7-zs-snE"/>
+        <segue reference="WjA-uM-485"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

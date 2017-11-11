@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A264c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vxm-R2-9gi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cKc-Pm-ivI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,13 +11,104 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Debugger-->
+        <scene sceneID="sXP-ZC-UYm">
+            <objects>
+                <viewController title="Debugger" id="cKc-Pm-ivI" customClass="MWViewController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0xG-wL-kmK"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pga-xf-9cD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V3e-vR-TQ6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="myWatch Debug Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wak-Xv-QpQ">
+                                <rect key="frame" x="16" y="84" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmc-en-Ig0" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="16" y="271" width="343" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="w2u-aU-pc6"/>
+                                </constraints>
+                                <state key="normal" title="Main"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="CIG-5H-diA" kind="custom" customClass="MWTabBarControllerSegue" customModule="myWatch" customModuleProvider="target" id="jzd-wv-aKT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KaL-Ku-e4H" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="16" y="341" width="343" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="gbJ-iy-ywV"/>
+                                </constraints>
+                                <state key="normal" title="First Launch"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="hzx-gi-sOW" kind="presentation" modalTransitionStyle="crossDissolve" id="TFB-RD-zka"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctF-gn-UR4" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="16" y="611" width="343" height="36"/>
+                                <state key="normal" title="Back"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="eBb-dX-b0Q" kind="presentation" modalTransitionStyle="crossDissolve" id="qGP-PC-Zo7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Wak-Xv-QpQ" firstAttribute="leading" secondItem="V3e-vR-TQ6" secondAttribute="leadingMargin" id="26s-JR-Vfw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ctF-gn-UR4" secondAttribute="trailing" id="6ID-su-6Lb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mmc-en-Ig0" secondAttribute="trailing" id="CUu-dE-Mwp"/>
+                            <constraint firstItem="KaL-Ku-e4H" firstAttribute="leading" secondItem="V3e-vR-TQ6" secondAttribute="leadingMargin" id="CVU-Lv-zcY"/>
+                            <constraint firstItem="KaL-Ku-e4H" firstAttribute="centerY" secondItem="V3e-vR-TQ6" secondAttribute="centerY" constant="35" id="SNI-ye-JBr"/>
+                            <constraint firstItem="Wak-Xv-QpQ" firstAttribute="top" secondItem="0xG-wL-kmK" secondAttribute="bottom" constant="64" id="VsE-aW-fSh"/>
+                            <constraint firstItem="mmc-en-Ig0" firstAttribute="centerY" secondItem="V3e-vR-TQ6" secondAttribute="centerY" constant="-35" id="WJ5-7f-n2a"/>
+                            <constraint firstItem="ctF-gn-UR4" firstAttribute="leading" secondItem="V3e-vR-TQ6" secondAttribute="leadingMargin" id="amt-9C-dnT"/>
+                            <constraint firstItem="mmc-en-Ig0" firstAttribute="leading" secondItem="V3e-vR-TQ6" secondAttribute="leadingMargin" id="apm-or-lek"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KaL-Ku-e4H" secondAttribute="trailing" id="qSX-x2-bbr"/>
+                            <constraint firstItem="Pga-xf-9cD" firstAttribute="top" secondItem="ctF-gn-UR4" secondAttribute="bottom" constant="20" id="vUS-41-iwo"/>
+                            <constraint firstItem="Wak-Xv-QpQ" firstAttribute="trailing" secondItem="V3e-vR-TQ6" secondAttribute="trailingMargin" id="zoa-EU-8a1"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kiU-U2-rok" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1423" y="419"/>
+        </scene>
+        <!--myWatch-->
+        <scene sceneID="8Cf-nZ-uKY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="myWatch" id="eBb-dX-b0Q" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gCM-wo-WTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1422" y="847"/>
+        </scene>
         <!--First Launch - First-->
         <scene sceneID="oGn-f9-mOW">
             <objects>
                 <viewController restorationIdentifier="MWSCIDFirstLaunchFirst" title="First Launch - First" id="hzx-gi-sOW" customClass="MWFirstLaunchFirstController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CJe-Wt-w72"/>
-                        <viewControllerLayoutGuide type="bottom" id="OhU-6R-Ztr"/>
+                        <viewControllerLayoutGuide type="top" id="gzy-8M-6OW"/>
+                        <viewControllerLayoutGuide type="bottom" id="BMu-lv-R3C"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cie-04-sHB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -79,39 +170,66 @@
                                 </constraints>
                                 <variation key="heightClass=compact-widthClass=compact" spacing="10"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUN-1N-Xan" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
-                                <rect key="frame" x="16" y="602" width="343" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUN-1N-Xan" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="16" y="556" width="343" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="LfH-7f-v1D"/>
+                                    <constraint firstAttribute="height" constant="55" id="LfH-7f-v1D"/>
                                 </constraints>
-                                <state key="normal" title="LET'S GO!"/>
+                                <state key="normal" title="LET'S GO"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="AtY-2f-SuN" kind="custom" identifier="MWSIDFirstLaunchFirstToLanguage" customClass="MWFirstLaunchSegue" customModule="myWatch" customModuleProvider="target" id="6CT-XG-oUK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To start the setup, press the button below." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOt-lj-aMT">
-                                <rect key="frame" x="16" y="566.5" width="343" height="19.5"/>
+                                <rect key="frame" x="16" y="520.5" width="343" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LD-1k-4I6" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="16" y="627" width="343" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="Jfi-Ph-uDP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Debug Mode"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="cKc-Pm-ivI" kind="presentation" modalTransitionStyle="crossDissolve" id="TGy-KT-Xeb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="SGr-Sp-zVT" secondAttribute="trailing" id="25z-QR-MxR"/>
                             <constraint firstItem="5Ca-KJ-dGi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cie-04-sHB" secondAttribute="leadingMargin" id="2I5-Az-gHH"/>
-                            <constraint firstItem="5Ca-KJ-dGi" firstAttribute="top" secondItem="CJe-Wt-w72" secondAttribute="bottom" constant="64" id="7Ak-eM-hIc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rUN-1N-Xan" secondAttribute="trailing" id="8yd-wr-loh"/>
                             <constraint firstItem="SGr-Sp-zVT" firstAttribute="leading" secondItem="cie-04-sHB" secondAttribute="leadingMargin" id="ECZ-wy-kur"/>
                             <constraint firstItem="rUN-1N-Xan" firstAttribute="top" secondItem="HOt-lj-aMT" secondAttribute="bottom" constant="16" id="IkB-dI-xGl"/>
                             <constraint firstItem="5Ca-KJ-dGi" firstAttribute="centerX" secondItem="cie-04-sHB" secondAttribute="centerX" id="Jir-hY-KKx"/>
+                            <constraint firstItem="BMu-lv-R3C" firstAttribute="top" secondItem="4LD-1k-4I6" secondAttribute="bottom" constant="20" id="NAM-zA-aZy"/>
                             <constraint firstItem="rUN-1N-Xan" firstAttribute="leading" secondItem="cie-04-sHB" secondAttribute="leadingMargin" id="QSJ-uU-dO4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4LD-1k-4I6" secondAttribute="trailing" id="RQm-rO-Z20"/>
+                            <constraint firstItem="5Ca-KJ-dGi" firstAttribute="top" secondItem="gzy-8M-6OW" secondAttribute="bottom" constant="64" id="SNN-Ua-hRF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HOt-lj-aMT" secondAttribute="trailing" id="dSP-xs-Dgt"/>
-                            <constraint firstItem="OhU-6R-Ztr" firstAttribute="top" secondItem="rUN-1N-Xan" secondAttribute="bottom" constant="20" id="eWd-ug-ZP7"/>
+                            <constraint firstItem="4LD-1k-4I6" firstAttribute="top" secondItem="rUN-1N-Xan" secondAttribute="bottom" constant="16" id="iKI-0b-H7g"/>
                             <constraint firstItem="HOt-lj-aMT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SGr-Sp-zVT" secondAttribute="bottom" constant="20" id="lgK-Bu-IMh"/>
                             <constraint firstItem="SGr-Sp-zVT" firstAttribute="top" secondItem="5Ca-KJ-dGi" secondAttribute="bottom" constant="30" id="nhU-DH-Ub7">
                                 <variation key="heightClass=compact-widthClass=compact" constant="20"/>
                             </constraint>
+                            <constraint firstItem="4LD-1k-4I6" firstAttribute="leading" secondItem="cie-04-sHB" secondAttribute="leadingMargin" id="pq6-os-UJ0"/>
                             <constraint firstItem="HOt-lj-aMT" firstAttribute="leading" secondItem="cie-04-sHB" secondAttribute="leadingMargin" id="t50-Jv-g9N"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="5Ca-KJ-dGi" secondAttribute="trailing" id="t8p-0J-1ZV"/>
                         </constraints>
@@ -134,29 +252,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KwP-BZ-3H8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2446" y="-441"/>
+            <point key="canvasLocation" x="2445.5999999999999" y="-439.43028485757122"/>
         </scene>
         <!--Language-->
         <scene sceneID="OjA-2H-PEk">
             <objects>
                 <viewController restorationIdentifier="MWSCIDLanguage" title="Language" id="AtY-2f-SuN" customClass="MWLanguageController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="IWw-Vz-5Bm"/>
-                        <viewControllerLayoutGuide type="bottom" id="Y0x-YI-PX0"/>
+                        <viewControllerLayoutGuide type="top" id="LTl-Xe-q5y"/>
+                        <viewControllerLayoutGuide type="bottom" id="qmI-Pu-tfV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Iri-ez-N6D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vZ1-KG-4et" customClass="MWFirstLaunchImageBar" customModule="myWatch" customModuleProvider="target">
-                                <rect key="frame" x="21.5" y="84" width="332" height="60"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfSelectedImage">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allSelected" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0ca-7R-qWd">
                                 <rect key="frame" x="16" y="174" width="343" height="332.5"/>
                                 <subviews>
@@ -171,7 +280,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="8m7-PO-mnY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="8m7-PO-mnY" customClass="MWLabel" customModule="myWatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="66" width="343" height="193.5"/>
                                         <string key="text">You may have realized that the application is using the English language. This is because either your iPhone's language is set to it or because the app does not support the language your phone is using. 
 
@@ -183,14 +292,13 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                                             <userDefinedRuntimeAttribute type="number" keyPath="style">
                                                 <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="customFontSize" value="YES"/>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="customFont" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <variation key="heightClass=compact-widthClass=compact">
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="But for real now... let's jump right in the setup!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="pLk-s7-U9f">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="But for real now... let's jump right in the setup!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="pLk-s7-U9f" customClass="MWLabel" customModule="myWatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="289.5" width="343" height="43"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -215,34 +323,42 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                                 </constraints>
                                 <variation key="heightClass=compact-widthClass=compact" spacing="10"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GE6-Te-ssy" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
-                                <rect key="frame" x="16" y="602" width="343" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GE6-Te-ssy" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="16" y="592" width="343" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="nLQ-8o-IgF"/>
+                                    <constraint firstAttribute="height" constant="55" id="nLQ-8o-IgF"/>
                                 </constraints>
                                 <state key="normal" title="CONTINUE"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="RLk-yH-6T4" kind="custom" identifier="MWSIDLanguageToDeviceChooser" customClass="MWFirstLaunchSegue" customModule="myWatch" customModuleProvider="target" id="F11-bd-uhj"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vZ1-KG-4et" customClass="MWFirstLaunchImageBar" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="21.5" y="84" width="332" height="60"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfSelectedImage">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allSelected" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GE6-Te-ssy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0ca-7R-qWd" secondAttribute="bottom" constant="16" id="EhT-Hj-bQy"/>
-                            <constraint firstItem="vZ1-KG-4et" firstAttribute="centerX" secondItem="Iri-ez-N6D" secondAttribute="centerX" id="LDo-fa-wLG"/>
-                            <constraint firstItem="vZ1-KG-4et" firstAttribute="top" secondItem="IWw-Vz-5Bm" secondAttribute="bottom" constant="64" id="Q7e-ue-JqS">
-                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
-                            </constraint>
-                            <constraint firstItem="0ca-7R-qWd" firstAttribute="top" secondItem="vZ1-KG-4et" secondAttribute="bottom" constant="30" id="QJW-ng-qkF">
-                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
-                            </constraint>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="vZ1-KG-4et" secondAttribute="trailing" id="QgV-Rc-jqK"/>
-                            <constraint firstItem="Y0x-YI-PX0" firstAttribute="top" secondItem="GE6-Te-ssy" secondAttribute="bottom" constant="20" id="Rcs-6q-fST"/>
+                            <constraint firstItem="qmI-Pu-tfV" firstAttribute="top" secondItem="GE6-Te-ssy" secondAttribute="bottom" constant="20" id="Rcs-6q-fST"/>
                             <constraint firstItem="GE6-Te-ssy" firstAttribute="leading" secondItem="Iri-ez-N6D" secondAttribute="leadingMargin" id="Ztn-0N-oqA"/>
                             <constraint firstItem="GE6-Te-ssy" firstAttribute="trailing" secondItem="Iri-ez-N6D" secondAttribute="trailingMargin" id="c2B-ec-dtY"/>
+                            <constraint firstItem="0ca-7R-qWd" firstAttribute="top" secondItem="vZ1-KG-4et" secondAttribute="bottom" constant="30" id="cYr-Ic-B0f"/>
                             <constraint firstItem="0ca-7R-qWd" firstAttribute="leading" secondItem="Iri-ez-N6D" secondAttribute="leadingMargin" id="hC0-fF-faW"/>
-                            <constraint firstItem="vZ1-KG-4et" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Iri-ez-N6D" secondAttribute="leadingMargin" id="jM7-Nl-MS6"/>
+                            <constraint firstItem="vZ1-KG-4et" firstAttribute="top" secondItem="LTl-Xe-q5y" secondAttribute="bottom" constant="64" id="r73-mc-tOu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0ca-7R-qWd" secondAttribute="trailing" id="upZ-JU-xbJ"/>
+                            <constraint firstItem="vZ1-KG-4et" firstAttribute="centerX" secondItem="Iri-ez-N6D" secondAttribute="centerX" id="wR7-C0-pQs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Zxr-16-0dO">
@@ -269,8 +385,8 @@ If the case is the latter, we're really sorry - we are trying to make the app su
             <objects>
                 <viewController restorationIdentifier="MWSCIDDeviceChosser" title="Device Chooser" id="RLk-yH-6T4" customClass="MWDeviceChooserController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VN8-e6-rff"/>
-                        <viewControllerLayoutGuide type="bottom" id="DVD-g1-sfB"/>
+                        <viewControllerLayoutGuide type="top" id="rJk-if-gN6"/>
+                        <viewControllerLayoutGuide type="bottom" id="MwC-g0-67i"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="50Y-d6-qKp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -286,7 +402,7 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                                 </userDefinedRuntimeAttributes>
                             </stackView>
                             <stackView opaque="NO" alpha="0.0" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Zqd-GP-U5R">
-                                <rect key="frame" x="92" y="567" width="191" height="20"/>
+                                <rect key="frame" x="92" y="556" width="191" height="20"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SYx-X5-ou4">
                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -338,15 +454,15 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="z1o-Pd-TAT">
-                                <rect key="frame" x="0.0" y="334.5" width="375" height="202"/>
+                                <rect key="frame" x="0.0" y="334.5" width="375" height="191"/>
                                 <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MWCIDDeviceChooserDeviceCell" rowHeight="50" id="on7-Ni-zXP" customClass="MWDeviceChooserDeviceCell" customModule="myWatch" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MWCIDDeviceChooserDeviceCell" rowHeight="50" id="on7-Ni-zXP" customClass="MWDeviceCell" customModule="myWatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="on7-Ni-zXP" id="ODm-09-m9F">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MWAFirstLaunchWatch" translatesAutoresizingMaskIntoConstraints="NO" id="agZ-9W-gHB" customClass="MWImageView" customModule="myWatch" customModuleProvider="target">
@@ -373,7 +489,7 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="0.5" id="Uny-dn-kyZ"/>
+                                                        <constraint firstAttribute="height" constant="0.5" id="z8E-8c-Nv5"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -398,18 +514,23 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhC-7N-g4N" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
-                                <rect key="frame" x="16" y="602" width="343" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhC-7N-g4N" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="16" y="592" width="343" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="3Dg-PR-Np3"/>
+                                    <constraint firstAttribute="height" constant="55" id="3Dg-PR-Np3"/>
                                 </constraints>
                                 <state key="normal" title="CONNECT"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="lfy-N3-1it" kind="custom" identifier="MWSIDDeviceChooserToConnecting" customClass="MWFirstLaunchSegue" customModule="myWatch" customModuleProvider="target" id="FRh-I6-piH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn on Bluetooth to connect to myWatch devices." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBt-BL-P6E" customClass="MWLabel" customModule="myWatch" customModuleProvider="target">
-                                <rect key="frame" x="16" y="414" width="343" height="43"/>
+                                <rect key="frame" x="16" y="408.5" width="343" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -424,8 +545,8 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                         <constraints>
                             <constraint firstItem="z1o-Pd-TAT" firstAttribute="top" secondItem="zmn-fW-S3p" secondAttribute="bottom" constant="30" id="1Vr-Az-TPX"/>
                             <constraint firstItem="roa-lj-g1U" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="50Y-d6-qKp" secondAttribute="leadingMargin" id="37L-6y-36x"/>
-                            <constraint firstItem="bhC-7N-g4N" firstAttribute="top" secondItem="Zqd-GP-U5R" secondAttribute="bottom" constant="15" id="6kk-0V-3dE"/>
                             <constraint firstItem="zmn-fW-S3p" firstAttribute="top" secondItem="roa-lj-g1U" secondAttribute="bottom" constant="30" id="8cQ-H6-jgE"/>
+                            <constraint firstItem="bhC-7N-g4N" firstAttribute="top" secondItem="Zqd-GP-U5R" secondAttribute="bottom" constant="16" id="8v8-WJ-q5W"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="roa-lj-g1U" secondAttribute="trailing" id="EdU-YR-63a"/>
                             <constraint firstItem="bhC-7N-g4N" firstAttribute="leading" secondItem="50Y-d6-qKp" secondAttribute="leadingMargin" id="FGR-vx-FN1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iBt-BL-P6E" secondAttribute="trailing" id="K4v-55-vBp"/>
@@ -435,11 +556,11 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                             <constraint firstItem="roa-lj-g1U" firstAttribute="centerX" secondItem="50Y-d6-qKp" secondAttribute="centerX" id="X20-Os-caR"/>
                             <constraint firstItem="iBt-BL-P6E" firstAttribute="centerY" secondItem="z1o-Pd-TAT" secondAttribute="centerY" id="fHy-bO-cgu"/>
                             <constraint firstItem="iBt-BL-P6E" firstAttribute="leading" secondItem="50Y-d6-qKp" secondAttribute="leadingMargin" id="glA-gI-O4Q"/>
-                            <constraint firstItem="DVD-g1-sfB" firstAttribute="top" secondItem="bhC-7N-g4N" secondAttribute="bottom" constant="20" id="juH-Eb-Zkn"/>
+                            <constraint firstItem="MwC-g0-67i" firstAttribute="top" secondItem="bhC-7N-g4N" secondAttribute="bottom" constant="20" id="juH-Eb-Zkn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zmn-fW-S3p" secondAttribute="trailing" id="qzh-1j-cnC"/>
                             <constraint firstItem="Zqd-GP-U5R" firstAttribute="centerX" secondItem="50Y-d6-qKp" secondAttribute="centerX" id="r2v-j7-LN0"/>
                             <constraint firstItem="z1o-Pd-TAT" firstAttribute="leading" secondItem="50Y-d6-qKp" secondAttribute="leading" id="so4-5L-IZd"/>
-                            <constraint firstItem="roa-lj-g1U" firstAttribute="top" secondItem="VN8-e6-rff" secondAttribute="bottom" constant="64" id="wxQ-xq-IXO"/>
+                            <constraint firstItem="roa-lj-g1U" firstAttribute="top" secondItem="rJk-if-gN6" secondAttribute="bottom" constant="64" id="wxQ-xq-IXO"/>
                             <constraint firstItem="zmn-fW-S3p" firstAttribute="leading" secondItem="50Y-d6-qKp" secondAttribute="leadingMargin" id="wyl-oE-nEU"/>
                             <constraint firstItem="bhC-7N-g4N" firstAttribute="trailing" secondItem="50Y-d6-qKp" secondAttribute="trailingMargin" id="zne-8k-uZq"/>
                         </constraints>
@@ -453,7 +574,6 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="buttonForwarder" destination="bhC-7N-g4N" id="xVO-8S-27o"/>
-                        <outlet property="buttonNext" destination="4Mu-16-1u5" id="3DR-DS-KAH"/>
                         <outlet property="imageBar" destination="roa-lj-g1U" id="c2D-yW-Cc2"/>
                         <outlet property="labelDesc" destination="JO5-60-Yyv" id="3zj-wc-nRS"/>
                         <outlet property="labelNoBluetooth" destination="iBt-BL-P6E" id="lY9-Ue-5oX"/>
@@ -471,8 +591,8 @@ If the case is the latter, we're really sorry - we are trying to make the app su
             <objects>
                 <viewController restorationIdentifier="MWSCIDConnecting" title="Connecting" id="lfy-N3-1it" customClass="MWConnectingController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kxQ-Nd-d3m"/>
-                        <viewControllerLayoutGuide type="bottom" id="oQP-AK-5T5"/>
+                        <viewControllerLayoutGuide type="top" id="42B-wU-xSl"/>
+                        <viewControllerLayoutGuide type="bottom" id="eIY-qU-nCn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="O4N-cc-V7P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -492,8 +612,8 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connecting..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rK-qN-uPT" customClass="MWLabel" customModule="myWatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="style">
@@ -540,7 +660,7 @@ If the case is the latter, we're really sorry - we are trying to make the app su
                             <constraint firstAttribute="trailingMargin" secondItem="Zm9-TG-Yob" secondAttribute="trailing" id="IER-Mm-SgQ"/>
                             <constraint firstItem="Lpr-h4-2Xm" firstAttribute="centerX" secondItem="O4N-cc-V7P" secondAttribute="centerX" id="IVK-Fe-mcX"/>
                             <constraint firstItem="Zm9-TG-Yob" firstAttribute="top" secondItem="Lpr-h4-2Xm" secondAttribute="bottom" constant="30" id="Oz5-nj-yqw"/>
-                            <constraint firstItem="Lpr-h4-2Xm" firstAttribute="top" secondItem="kxQ-Nd-d3m" secondAttribute="bottom" constant="64" id="nKK-Py-7BK"/>
+                            <constraint firstItem="Lpr-h4-2Xm" firstAttribute="top" secondItem="42B-wU-xSl" secondAttribute="bottom" constant="64" id="nKK-Py-7BK"/>
                             <constraint firstItem="Zm9-TG-Yob" firstAttribute="leading" secondItem="O4N-cc-V7P" secondAttribute="leadingMargin" id="qle-Cp-7jm"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Lpr-h4-2Xm" secondAttribute="trailing" id="vIC-HS-HpR"/>
                         </constraints>
@@ -562,8 +682,8 @@ If the case is the latter, we're really sorry - we are trying to make the app su
             <objects>
                 <viewController restorationIdentifier="MWSCIDNameDevice" title="Name Device" id="ORt-9N-ima" customClass="MWNameDeviceController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sOS-Bv-PgD"/>
-                        <viewControllerLayoutGuide type="bottom" id="fSE-2d-ZhE"/>
+                        <viewControllerLayoutGuide type="top" id="eWW-ai-fU9"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wvq-pm-0B2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Fjr-9D-oHv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -639,13 +759,17 @@ You can give it a name to make it more recognizable.</string>
                                     <constraint firstItem="Z5I-gS-MM3" firstAttribute="leading" secondItem="QNK-i0-ql5" secondAttribute="leading" id="xiC-7a-OwX"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4A-a7-2vO" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
-                                <rect key="frame" x="16" y="602" width="343" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4A-a7-2vO" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="16" y="592" width="343" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Rx7-jW-udQ"/>
+                                    <constraint firstAttribute="height" constant="55" id="Rx7-jW-udQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <state key="normal" title="CONTINUE"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="buttonPressed_buttonForwarder:" destination="ORt-9N-ima" eventType="touchUpInside" id="0aZ-gX-bMt"/>
                                     <segue destination="1If-Wd-oRq" kind="custom" identifier="MWSIDNameDeviceToAppleHealth" customClass="MWFirstLaunchSegue" customModule="myWatch" customModuleProvider="target" id="SGV-Rt-W0b"/>
@@ -659,7 +783,7 @@ You can give it a name to make it more recognizable.</string>
                             <constraint firstAttribute="trailingMargin" secondItem="QNK-i0-ql5" secondAttribute="trailing" id="HhQ-rG-Vho"/>
                             <constraint firstItem="QNK-i0-ql5" firstAttribute="leading" secondItem="Fjr-9D-oHv" secondAttribute="leadingMargin" id="K1B-sM-zWM"/>
                             <constraint firstItem="z4A-a7-2vO" firstAttribute="leading" secondItem="Fjr-9D-oHv" secondAttribute="leadingMargin" id="KEU-Ox-cpe"/>
-                            <constraint firstItem="fSE-2d-ZhE" firstAttribute="top" secondItem="z4A-a7-2vO" secondAttribute="bottom" constant="20" id="Ng7-TM-GxR"/>
+                            <constraint firstItem="Wvq-pm-0B2" firstAttribute="top" secondItem="z4A-a7-2vO" secondAttribute="bottom" constant="20" id="Ng7-TM-GxR"/>
                             <constraint firstItem="k6P-xm-xpx" firstAttribute="top" secondItem="Fjr-9D-oHv" secondAttribute="topMargin" constant="84" id="V8u-GT-C1j"/>
                             <constraint firstItem="z4A-a7-2vO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QNK-i0-ql5" secondAttribute="bottom" constant="20" id="Ygf-XE-UDX"/>
                             <constraint firstItem="k6P-xm-xpx" firstAttribute="centerX" secondItem="Fjr-9D-oHv" secondAttribute="centerX" id="gJg-UF-T6m"/>
@@ -686,8 +810,8 @@ You can give it a name to make it more recognizable.</string>
             <objects>
                 <viewController restorationIdentifier="MWSCIDAppleHealth" title="Apple Health" id="1If-Wd-oRq" customClass="MWAppleHealthController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ijo-Fm-xWd"/>
-                        <viewControllerLayoutGuide type="bottom" id="lgm-0k-Yrc"/>
+                        <viewControllerLayoutGuide type="top" id="g3G-qx-cR4"/>
+                        <viewControllerLayoutGuide type="bottom" id="1AA-2t-MF7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JDv-2T-TTW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -703,7 +827,7 @@ You can give it a name to make it more recognizable.</string>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="BR9-BN-3w5">
-                                <rect key="frame" x="16" y="174" width="343" height="238"/>
+                                <rect key="frame" x="16" y="174" width="343" height="311"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Health" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxp-un-jpp" customClass="MWLabel" customModule="myWatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
@@ -732,6 +856,19 @@ This way, other apps using Health will be able to read the data that your myWatc
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwk-hO-b4u" customClass="MWLabel" customModule="myWatch" customModuleProvider="target">
+                                        <rect key="frame" x="27" y="268" width="289" height="43"/>
+                                        <string key="text">Would you like to turn on export to
+Apple Health?</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="xxp-un-jpp" secondAttribute="trailing" id="9BA-RF-TMC"/>
@@ -740,66 +877,32 @@ This way, other apps using Health will be able to read the data that your myWatc
                                     <constraint firstItem="gc5-Sx-yna" firstAttribute="leading" secondItem="BR9-BN-3w5" secondAttribute="leading" id="wD1-nT-gD7"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGI-9U-O8s">
-                                <rect key="frame" x="0.0" y="452" width="375" height="44"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMz-zO-lVM">
-                                        <rect key="frame" x="0.0" y="43.5" width="375" height="0.5"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="0.5" id="gp2-cw-QhB"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IqY-v3-Vrm">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="0.5"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="0.5" id="T2l-GA-6rd"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Export to Apple Health" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncf-m0-ifq" customClass="MWLabel" customModule="myWatch" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="11.5" width="286" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="style">
-                                                <integer key="value" value="0"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Q7N-wB-mM6">
-                                        <rect key="frame" x="310" y="6" width="51" height="31"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
-                                        <color key="onTintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </switch>
-                                </subviews>
-                                <color key="backgroundColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41L-QY-L84" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="16" y="548" width="343" height="55"/>
                                 <constraints>
-                                    <constraint firstItem="IqY-v3-Vrm" firstAttribute="leading" secondItem="QGI-9U-O8s" secondAttribute="leading" id="7ZZ-6i-A74"/>
-                                    <constraint firstItem="Q7N-wB-mM6" firstAttribute="leading" secondItem="ncf-m0-ifq" secondAttribute="trailing" constant="8" id="ANA-4J-8Uz"/>
-                                    <constraint firstAttribute="trailing" secondItem="NMz-zO-lVM" secondAttribute="trailing" id="AlP-q0-8tO"/>
-                                    <constraint firstItem="IqY-v3-Vrm" firstAttribute="top" secondItem="QGI-9U-O8s" secondAttribute="top" id="Ed8-Xb-gbl"/>
-                                    <constraint firstItem="Q7N-wB-mM6" firstAttribute="centerY" secondItem="QGI-9U-O8s" secondAttribute="centerY" id="Glj-ev-e5C"/>
-                                    <constraint firstItem="ncf-m0-ifq" firstAttribute="leading" secondItem="QGI-9U-O8s" secondAttribute="leading" constant="16" id="HWP-42-nyh"/>
-                                    <constraint firstAttribute="height" constant="44" id="J7J-Rf-J4S"/>
-                                    <constraint firstAttribute="trailing" secondItem="Q7N-wB-mM6" secondAttribute="trailing" constant="16" id="NQt-GK-TQ9"/>
-                                    <constraint firstAttribute="trailing" secondItem="IqY-v3-Vrm" secondAttribute="trailing" id="Qln-JG-PSP"/>
-                                    <constraint firstItem="ncf-m0-ifq" firstAttribute="centerY" secondItem="QGI-9U-O8s" secondAttribute="centerY" id="WFS-jV-5Pk"/>
-                                    <constraint firstItem="NMz-zO-lVM" firstAttribute="leading" secondItem="QGI-9U-O8s" secondAttribute="leading" id="vUH-ft-Uwk"/>
-                                    <constraint firstAttribute="bottom" secondItem="NMz-zO-lVM" secondAttribute="bottom" id="vuY-dA-62B"/>
+                                    <constraint firstAttribute="height" constant="55" id="og9-N6-fOB"/>
                                 </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41L-QY-L84" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
-                                <rect key="frame" x="16" y="602" width="343" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="og9-N6-fOB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <state key="normal" title="CONTINUE"/>
+                                <state key="normal" title="Yes, I would"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="buttonPressed_buttonForwarder:" destination="1If-Wd-oRq" eventType="touchUpInside" id="8dJ-LF-LLu"/>
+                                    <action selector="buttonPressed_buttonEnable:" destination="1If-Wd-oRq" eventType="touchUpInside" id="JvM-tI-7Kk"/>
                                     <segue destination="Vxm-R2-9gi" kind="custom" identifier="MWSIDAppleHealthToFirstLaunchLast" customClass="MWFirstLaunchSegue" customModule="myWatch" customModuleProvider="target" id="BmQ-e7-mea"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G40-hY-xcQ" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="139.5" y="611" width="96" height="36"/>
+                                <state key="normal" title="No, thanks"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonPressed_buttonDisable:" destination="1If-Wd-oRq" eventType="touchUpInside" id="0n5-Vh-m7n"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -807,28 +910,25 @@ This way, other apps using Health will be able to read the data that your myWatc
                         <constraints>
                             <constraint firstItem="ko6-ja-B13" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JDv-2T-TTW" secondAttribute="leadingMargin" id="1ek-vL-5cT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BR9-BN-3w5" secondAttribute="trailing" id="6YX-aQ-0ao"/>
-                            <constraint firstItem="ko6-ja-B13" firstAttribute="top" secondItem="ijo-Fm-xWd" secondAttribute="bottom" constant="64" id="6Zd-hV-v3m"/>
-                            <constraint firstItem="lgm-0k-Yrc" firstAttribute="top" secondItem="41L-QY-L84" secondAttribute="bottom" constant="20" id="Dlm-6J-cX1"/>
+                            <constraint firstItem="ko6-ja-B13" firstAttribute="top" secondItem="g3G-qx-cR4" secondAttribute="bottom" constant="64" id="6Zd-hV-v3m"/>
+                            <constraint firstItem="G40-hY-xcQ" firstAttribute="top" secondItem="41L-QY-L84" secondAttribute="bottom" constant="8" id="9Mt-yD-7Rg"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="ko6-ja-B13" secondAttribute="trailing" id="McU-Yr-uH0"/>
-                            <constraint firstAttribute="trailing" secondItem="QGI-9U-O8s" secondAttribute="trailing" id="PSg-Kr-y5u"/>
+                            <constraint firstItem="1AA-2t-MF7" firstAttribute="top" secondItem="G40-hY-xcQ" secondAttribute="bottom" constant="20" id="O22-AC-lzK"/>
                             <constraint firstItem="ko6-ja-B13" firstAttribute="centerX" secondItem="JDv-2T-TTW" secondAttribute="centerX" id="QLv-hn-RSQ"/>
                             <constraint firstItem="BR9-BN-3w5" firstAttribute="leading" secondItem="JDv-2T-TTW" secondAttribute="leadingMargin" id="U2D-MP-dac"/>
                             <constraint firstItem="41L-QY-L84" firstAttribute="leading" secondItem="JDv-2T-TTW" secondAttribute="leadingMargin" id="Zfy-sj-1OV"/>
-                            <constraint firstItem="QGI-9U-O8s" firstAttribute="leading" secondItem="JDv-2T-TTW" secondAttribute="leading" id="f6b-Dw-tF2"/>
-                            <constraint firstItem="41L-QY-L84" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QGI-9U-O8s" secondAttribute="bottom" constant="20" id="gJ6-zf-VaE"/>
                             <constraint firstItem="BR9-BN-3w5" firstAttribute="top" secondItem="ko6-ja-B13" secondAttribute="bottom" constant="30" id="gUl-WT-1Zn"/>
+                            <constraint firstItem="G40-hY-xcQ" firstAttribute="centerX" secondItem="JDv-2T-TTW" secondAttribute="centerX" id="knM-cc-Gv2"/>
                             <constraint firstItem="41L-QY-L84" firstAttribute="trailing" secondItem="JDv-2T-TTW" secondAttribute="trailingMargin" id="r44-jP-cR1"/>
-                            <constraint firstItem="QGI-9U-O8s" firstAttribute="top" secondItem="BR9-BN-3w5" secondAttribute="bottom" constant="40" id="xbR-Va-9hd"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <outlet property="buttonForwarder" destination="41L-QY-L84" id="Z2K-ac-2oq"/>
+                        <outlet property="buttonDisable" destination="G40-hY-xcQ" id="n4K-f7-2yN"/>
+                        <outlet property="buttonEnable" destination="41L-QY-L84" id="lYg-S7-56b"/>
                         <outlet property="imageBar" destination="ko6-ja-B13" id="BXh-8z-YoW"/>
-                        <outlet property="labelAppleHealth" destination="ncf-m0-ifq" id="NG7-j0-twX"/>
                         <outlet property="labelDesc" destination="gc5-Sx-yna" id="FNj-DR-ggv"/>
                         <outlet property="labelTitle" destination="xxp-un-jpp" id="bIl-go-eEY"/>
-                        <outlet property="switchAppleHealth" destination="Q7N-wB-mM6" id="sBe-Nd-GJx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nmc-14-6cu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -840,8 +940,8 @@ This way, other apps using Health will be able to read the data that your myWatc
             <objects>
                 <viewController restorationIdentifier="MWSCIDFirstLaunchLast" title="First Launch - Last" id="Vxm-R2-9gi" customClass="MWFirstLaunchLastController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oJB-J6-Wsm"/>
-                        <viewControllerLayoutGuide type="bottom" id="7DS-ho-rfi"/>
+                        <viewControllerLayoutGuide type="top" id="dDp-Cq-F3L"/>
+                        <viewControllerLayoutGuide type="bottom" id="a9W-Tu-q6S"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Dxa-Tr-IMm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -902,13 +1002,17 @@ This way, other apps using Health will be able to read the data that your myWatc
                                     <constraint firstAttribute="trailing" secondItem="GA3-ea-a2Z" secondAttribute="trailing" id="pWB-fo-QPr"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HlZ-Tj-pMV" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
-                                <rect key="frame" x="16" y="602" width="343" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HlZ-Tj-pMV" customClass="MWButton" customModule="myWatch" customModuleProvider="target">
+                                <rect key="frame" x="16" y="592" width="343" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="zLi-Wh-sJL"/>
+                                    <constraint firstAttribute="height" constant="55" id="zLi-Wh-sJL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <state key="normal" title="CONTINUE"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="CIG-5H-diA" kind="custom" identifier="MWSIDFirstLaunchLastToMain" customClass="MWTabBarControllerSegue" customModule="myWatch" customModuleProvider="target" id="6pn-Qd-rbN"/>
                                 </connections>
@@ -919,9 +1023,9 @@ This way, other apps using Health will be able to read the data that your myWatc
                             <constraint firstItem="3k9-Ll-Cfz" firstAttribute="centerX" secondItem="Dxa-Tr-IMm" secondAttribute="centerX" id="8MK-Fa-c92"/>
                             <constraint firstItem="3k9-Ll-Cfz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Dxa-Tr-IMm" secondAttribute="leadingMargin" id="C1V-xu-7oq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yMw-rD-CuO" secondAttribute="trailing" id="JZa-bm-WLK"/>
-                            <constraint firstItem="7DS-ho-rfi" firstAttribute="top" secondItem="HlZ-Tj-pMV" secondAttribute="bottom" constant="20" id="X6A-na-Pcz"/>
+                            <constraint firstItem="a9W-Tu-q6S" firstAttribute="top" secondItem="HlZ-Tj-pMV" secondAttribute="bottom" constant="20" id="X6A-na-Pcz"/>
                             <constraint firstItem="HlZ-Tj-pMV" firstAttribute="leading" secondItem="Dxa-Tr-IMm" secondAttribute="leadingMargin" id="Ygb-aE-oJU"/>
-                            <constraint firstItem="3k9-Ll-Cfz" firstAttribute="top" secondItem="oJB-J6-Wsm" secondAttribute="bottom" constant="64" id="fc7-Mf-TyP"/>
+                            <constraint firstItem="3k9-Ll-Cfz" firstAttribute="top" secondItem="dDp-Cq-F3L" secondAttribute="bottom" constant="64" id="fc7-Mf-TyP"/>
                             <constraint firstItem="HlZ-Tj-pMV" firstAttribute="trailing" secondItem="Dxa-Tr-IMm" secondAttribute="trailingMargin" id="g9k-p5-zDc"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="3k9-Ll-Cfz" secondAttribute="trailing" id="gGN-jh-RFW"/>
                             <constraint firstItem="yMw-rD-CuO" firstAttribute="top" secondItem="3k9-Ll-Cfz" secondAttribute="bottom" constant="30" id="ske-tN-SQA"/>
@@ -948,15 +1052,15 @@ This way, other apps using Health will be able to read the data that your myWatc
             <objects>
                 <viewController title="Steps" id="h4Y-w8-Cxt" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GfA-8t-RqL"/>
-                        <viewControllerLayoutGuide type="bottom" id="cJi-gQ-DTI"/>
+                        <viewControllerLayoutGuide type="top" id="FXq-Xk-Vnw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Baf-MG-by0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="niu-cz-6zm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pedometer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="35" translatesAutoresizingMaskIntoConstraints="NO" id="x6c-DI-fgL">
-                                <rect key="frame" x="16" y="303.5" width="343" height="60"/>
+                                <rect key="frame" x="16" y="304" width="343" height="60"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -976,22 +1080,22 @@ This way, other apps using Health will be able to read the data that your myWatc
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Llv-2b-3Vk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3294" y="1960"/>
+            <point key="canvasLocation" x="3294" y="2092"/>
         </scene>
         <!--Sleep-->
         <scene sceneID="4Fb-Jx-jSE">
             <objects>
                 <viewController title="Sleep" id="z9M-a7-igR" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="iHJ-Qg-XFP"/>
-                        <viewControllerLayoutGuide type="bottom" id="f9Y-UT-6Ps"/>
+                        <viewControllerLayoutGuide type="top" id="DBU-2t-6Kk"/>
+                        <viewControllerLayoutGuide type="bottom" id="cdI-Mk-3YW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gOY-1X-dyb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igX-dM-r07">
-                                <rect key="frame" x="82" y="303.5" width="211" height="60"/>
+                                <rect key="frame" x="82.5" y="304" width="211" height="60"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1009,22 +1113,22 @@ This way, other apps using Health will be able to read the data that your myWatc
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="83S-HN-8eg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4137" y="1960"/>
+            <point key="canvasLocation" x="4137" y="2092"/>
         </scene>
         <!--Alarm-->
         <scene sceneID="6XX-GV-yg6">
             <objects>
                 <viewController title="Alarm" id="aKv-Il-izH" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Byq-uX-I2l"/>
-                        <viewControllerLayoutGuide type="bottom" id="nnC-GS-mvq"/>
+                        <viewControllerLayoutGuide type="top" id="Hc9-8C-h6S"/>
+                        <viewControllerLayoutGuide type="bottom" id="WJm-ha-S7A"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="W3X-dV-bmp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2um-Gm-Zcf">
-                                <rect key="frame" x="112" y="303.5" width="152" height="60"/>
+                                <rect key="frame" x="112.5" y="304" width="151.5" height="60"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1042,22 +1146,22 @@ This way, other apps using Health will be able to read the data that your myWatc
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HnQ-Hh-tP1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4996" y="1960"/>
+            <point key="canvasLocation" x="4996" y="2092"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Sus-bt-zSA">
             <objects>
-                <tableViewController title="Settings" id="lsa-c2-auh" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MWVCSettings" title="Settings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lsa-c2-auh" customClass="MWSettingsTableViewController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="0zc-GX-feL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="separatorColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="separatorColor" red="0.42352941176470588" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Utilities" id="dnJ-lh-pTc">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MWCIDShowSetupScreen" textLabel="Ehk-vo-dzQ" style="IBUITableViewCellStyleDefault" id="0ko-fv-7W4">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MWCIDShowSetupScreen" textLabel="Ehk-vo-dzQ" style="IBUITableViewCellStyleDefault" id="0ko-fv-7W4" customClass="MWTableViewCell" customModule="myWatch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0ko-fv-7W4" id="8fD-q9-7bX">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -1074,7 +1178,104 @@ This way, other apps using Health will be able to read the data that your myWatc
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="mode">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="hzx-gi-sOW" kind="presentation" modalTransitionStyle="crossDissolve" id="x6o-GN-gOf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MWCIDDebugMode" textLabel="qza-jX-AYm" style="IBUITableViewCellStyleDefault" id="TJh-go-NtI" customClass="MWTableViewCell" customModule="myWatch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TJh-go-NtI" id="ttd-5q-tYV">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Debug Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qza-jX-AYm">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="mode">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="cKc-Pm-ivI" kind="presentation" modalTransitionStyle="crossDissolve" id="vfz-zE-rAs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="MWCIDHideTabBarTitles" textLabel="adi-xw-pwY" style="IBUITableViewCellStyleDefault" id="h4I-Vh-R5O" customClass="MWActionTableViewCell" customModule="myWatch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h4I-Vh-R5O" id="1Gh-72-Vvx">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Hide Tab Bar Titles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="adi-xw-pwY">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="mode">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="animateAll" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="MWDebugTableViewCell" textLabel="eKW-bO-Tdt" style="IBUITableViewCellStyleDefault" id="4rV-XK-fkM" userLabel="Debug Cell" customClass="MWTableViewCellNew" customModule="myWatch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="188" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4rV-XK-fkM" id="4Lo-cw-ALx">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Debug" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eKW-bO-Tdt">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="mode">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="animateAll" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="toggleMode" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1086,25 +1287,28 @@ This way, other apps using Health will be able to read the data that your myWatc
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="dba-Ir-TrH"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableViewCellHideTabBarTitles" destination="h4I-Vh-R5O" id="qve-M0-TGL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Js6-Wp-TFI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5852" y="1960"/>
+            <point key="canvasLocation" x="5852" y="2092"/>
         </scene>
         <!--Summary-->
         <scene sceneID="DED-K1-cYb">
             <objects>
                 <viewController title="Summary" id="TAy-iM-otP" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jTv-Nb-Qvy"/>
-                        <viewControllerLayoutGuide type="bottom" id="Qq8-oE-hQc"/>
+                        <viewControllerLayoutGuide type="top" id="CLE-As-m9p"/>
+                        <viewControllerLayoutGuide type="bottom" id="SrQ-Db-tDL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5ZQ-4g-mvv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7y-i1-mia">
-                                <rect key="frame" x="111" y="303.5" width="153" height="60"/>
+                                <rect key="frame" x="111.5" y="304" width="152.5" height="60"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1117,20 +1321,16 @@ This way, other apps using Health will be able to read the data that your myWatc
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Today" id="bOi-Kc-ZiB"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OiX-vY-UjD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2446" y="1960"/>
+            <point key="canvasLocation" x="2446" y="2092"/>
         </scene>
         <!--Main-->
         <scene sceneID="Y14-eJ-Cvk">
             <objects>
                 <tabBarController restorationIdentifier="MWSCIDMain" title="Main" id="CIG-5H-diA" customClass="MWMainTabBarController" customModule="myWatch" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Main" id="Amn-6W-246">
-                        <barButtonItem key="rightBarButtonItem" image="MWARefresh" id="vfx-za-Ue4">
-                            <color key="tintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="vax-nc-J0p" customClass="MWTabBar" customModule="myWatch" customModuleProvider="target">
@@ -1138,153 +1338,168 @@ This way, other apps using Health will be able to read the data that your myWatc
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hidesTitles" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="aeg-nP-SER" kind="relationship" relationship="viewControllers" id="ySb-Ag-CWv"/>
-                        <segue destination="6tr-FZ-DmZ" kind="relationship" relationship="viewControllers" id="Krj-w1-JgF"/>
-                        <segue destination="ELU-dT-EIJ" kind="relationship" relationship="viewControllers" id="6ZM-Om-ECe"/>
-                        <segue destination="Ftz-3N-Nab" kind="relationship" relationship="viewControllers" id="7za-Ar-cUj"/>
-                        <segue destination="Hw9-lv-hXE" kind="relationship" relationship="viewControllers" id="s7X-y8-Rkf"/>
+                        <segue destination="9Oc-3e-xSX" kind="relationship" relationship="viewControllers" id="QhV-sB-c4r"/>
+                        <segue destination="UW9-gf-lU0" kind="relationship" relationship="viewControllers" id="0uo-w3-fSh"/>
+                        <segue destination="FZf-Vb-F7J" kind="relationship" relationship="viewControllers" id="gyO-bo-cp6"/>
+                        <segue destination="aXE-1Q-uH5" kind="relationship" relationship="viewControllers" id="8ug-PN-Jgu"/>
+                        <segue destination="Qce-a9-p1o" kind="relationship" relationship="viewControllers" id="GGh-Nj-2AJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcC-fe-9n9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4137" y="419"/>
         </scene>
-        <!--Today-->
-        <scene sceneID="ibc-Ln-5qd">
+        <!--Summary Navigation Controller-->
+        <scene sceneID="y7p-pZ-dZU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aeg-nP-SER" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Today" image="MWATabBarSummary" selectedImage="MWATabBarSummarySelected" id="S5c-39-c9o" customClass="MWTabBarItem" customModule="myWatch" customModuleProvider="target">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="hidesTitle" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                <navigationController title="Summary Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="9Oc-3e-xSX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Today" image="MWATabBarSummary" selectedImage="MWATabBarSummarySelected" id="UXz-nZ-jqQ"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="elE-0I-ta1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" ambiguous="YES" barStyle="black" id="18s-Mm-LPf" customClass="MWNavigationBar" customModule="myWatch" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="TAy-iM-otP" kind="relationship" relationship="rootViewController" id="Z2j-Hr-dnl"/>
+                        <segue destination="TAy-iM-otP" kind="relationship" relationship="rootViewController" id="UNf-Mm-Lzn"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rpb-Ib-2jp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v2C-tp-XEU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2445.5999999999999" y="1226.5367316341831"/>
+            <point key="canvasLocation" x="2446" y="1334"/>
         </scene>
-        <!--Pedometer-->
-        <scene sceneID="wAf-rJ-uQo">
+        <!--Steps Navigation Controller-->
+        <scene sceneID="K54-kN-icg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6tr-FZ-DmZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pedometer" image="MWATabBarSteps" selectedImage="MWATabBarStepsSelected" id="WZ1-2K-DY9" customClass="MWTabBarItem" customModule="myWatch" customModuleProvider="target">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="hidesTitle" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                <navigationController title="Steps Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="UW9-gf-lU0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pedometer" image="MWATabBarSteps" selectedImage="MWATabBarStepsSelected" id="1Hd-4k-lCW"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="7Tg-Wo-lej">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" ambiguous="YES" barStyle="black" id="qEi-9a-AMz" customClass="MWNavigationBar" customModule="myWatch" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="h4Y-w8-Cxt" kind="relationship" relationship="rootViewController" id="FNb-eh-dZW"/>
+                        <segue destination="h4Y-w8-Cxt" kind="relationship" relationship="rootViewController" id="lqe-cF-gJY"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sBz-aO-F18" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QoC-Sb-et6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3294" y="1227"/>
+            <point key="canvasLocation" x="3294" y="1334"/>
         </scene>
-        <!--Bedtime-->
-        <scene sceneID="BxZ-hF-4hh">
+        <!--Sleep Navigation Controller-->
+        <scene sceneID="Avu-Sy-GN4">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ELU-dT-EIJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Bedtime" image="MWATabBarSleep" selectedImage="MWATabBarSleepSelected" id="Qtj-6V-W8o" customClass="MWTabBarItem" customModule="myWatch" customModuleProvider="target">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="hidesTitle" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                <navigationController title="Sleep Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="FZf-Vb-F7J" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bedtime" image="MWATabBarSleep" selectedImage="MWATabBarSleepSelected" id="5zE-tS-rtj"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="6YT-P3-Vpy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" ambiguous="YES" barStyle="black" id="irh-N5-O3c" customClass="MWNavigationBar" customModule="myWatch" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="z9M-a7-igR" kind="relationship" relationship="rootViewController" id="DRR-th-dFU"/>
+                        <segue destination="z9M-a7-igR" kind="relationship" relationship="rootViewController" id="fxj-Id-P7W"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nnR-Fh-9ie" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kcQ-UR-zyc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4136.8000000000002" y="1226.5367316341831"/>
+            <point key="canvasLocation" x="4137" y="1334"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="fdZ-nx-xUe">
+        <!--Alarm Navigation Controller-->
+        <scene sceneID="Cbv-gT-vKf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hw9-lv-hXE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="MWATabBarSetings" selectedImage="MWATabBarSettingsSelected" id="TYs-hV-U18" customClass="MWTabBarItem" customModule="myWatch" customModuleProvider="target">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="hidesTitle" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                <navigationController title="Alarm Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="aXE-1Q-uH5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Alarm" image="MWATabBarAlarm" selectedImage="MWATabBarAlarmSelected" id="ARh-i0-rTs"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="CMl-fM-0bG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" ambiguous="YES" barStyle="black" id="aji-JO-JSC" customClass="MWNavigationBar" customModule="myWatch" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="lsa-c2-auh" kind="relationship" relationship="rootViewController" id="8Yz-Am-7cL"/>
+                        <segue destination="aKv-Il-izH" kind="relationship" relationship="rootViewController" id="OPB-kj-gG8"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zo5-zw-keQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CRL-KF-Tay" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5852" y="1227"/>
+            <point key="canvasLocation" x="4996" y="1334"/>
         </scene>
-        <!--Alarm-->
-        <scene sceneID="ZUs-JX-ndm">
+        <!--Settings Navigation Controller-->
+        <scene sceneID="F4x-CD-2SV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ftz-3N-Nab" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Alarm" image="MWATAbBarAlarm" selectedImage="MWATAbBarAlarmSelected" id="j9c-vg-ygM" customClass="MWTabBarItem" customModule="myWatch" customModuleProvider="target">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="hidesTitle" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                <navigationController title="Settings Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="Qce-a9-p1o" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="MWATabBarSettings" selectedImage="MWATabBarSettingsSelected" id="Vk3-e8-VNn"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="NKl-l2-DcS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" ambiguous="YES" barStyle="black" id="YAN-9y-vHM" customClass="MWNavigationBar" customModule="myWatch" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="aKv-Il-izH" kind="relationship" relationship="rootViewController" id="nwe-B5-6Fk"/>
+                        <segue destination="lsa-c2-auh" kind="relationship" relationship="rootViewController" id="hD3-6b-wOi"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EIb-tR-hfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f73-pn-A9U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4996" y="1227"/>
+            <point key="canvasLocation" x="5852" y="1334"/>
         </scene>
     </scenes>
     <resources>
         <image name="MWAFirstLaunchWatch" width="28" height="28"/>
-        <image name="MWARefresh" width="25" height="25"/>
-        <image name="MWATAbBarAlarm" width="25" height="25"/>
-        <image name="MWATAbBarAlarmSelected" width="25" height="25"/>
-        <image name="MWATabBarSetings" width="25" height="25"/>
+        <image name="MWATabBarAlarm" width="25" height="25"/>
+        <image name="MWATabBarAlarmSelected" width="25" height="25"/>
+        <image name="MWATabBarSettings" width="25" height="25"/>
         <image name="MWATabBarSettingsSelected" width="25" height="25"/>
-        <image name="MWATabBarSleep" width="33" height="25"/>
-        <image name="MWATabBarSleepSelected" width="33" height="25"/>
+        <image name="MWATabBarSleep" width="31" height="23"/>
+        <image name="MWATabBarSleepSelected" width="31" height="23"/>
         <image name="MWATabBarSteps" width="29" height="25"/>
         <image name="MWATabBarStepsSelected" width="29" height="25"/>
         <image name="MWATabBarSummary" width="25" height="25"/>
         <image name="MWATabBarSummarySelected" width="25" height="25"/>
     </resources>
-    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+    <inferredMetricsTieBreakers>
+        <segue reference="jzd-wv-aKT"/>
+        <segue reference="vfz-zE-rAs"/>
+        <segue reference="x6o-GN-gOf"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.0" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

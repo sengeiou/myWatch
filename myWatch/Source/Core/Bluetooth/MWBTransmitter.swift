@@ -63,41 +63,41 @@ class MWBTransmitter
         stringCommand.append(time)
         
         let command: MWBCommand = MWBCommand(command: stringCommand, nonResponse: true)
-        communicator.sendCommand(command: command)
+        communicator.sendCommand(command)
     }
     
     static func setAttributeLLS0(communicator: MWBCommunicator)
     {
-        communicator.sendCommand(command: COMMAND_LLS0)
+        communicator.sendCommand(COMMAND_LLS0)
     }
     
     static func setAttributeZ(communicator: MWBCommunicator)
     {
-        communicator.sendCommand(command: COMMAND_Z)
+        communicator.sendCommand(COMMAND_Z)
     }
     
     static func retrieveCurrentVersion(communicator: MWBCommunicator)
     {
-        communicator.sendCommand(command: COMMAND_RETRIEVE_VERSION)
+        communicator.sendCommand(COMMAND_RETRIEVE_VERSION)
     }
     
     static func retrieveCurrentStepCount(communicator: MWBCommunicator)
     {
-        communicator.sendCommand(command: COMMAND_RETRIEVE_CURRENT_STEP_COUNT)
+        communicator.sendCommand(COMMAND_RETRIEVE_CURRENT_STEP_COUNT)
     }
     
     static func retrieveSerialNumber(communicator: MWBCommunicator)
     {
-        communicator.sendCommand(command: COMMAND_RETRIEVE_SERIAL_NUMBER)
+        communicator.sendCommand(COMMAND_RETRIEVE_SERIAL_NUMBER)
     }
     
     static func enterCameraMode(communicator: MWBCommunicator)
     {
-        communicator.sendCommand(command: COMMAND_ENTER_CAMERA_MODE)
+        communicator.sendCommand(COMMAND_ENTER_CAMERA_MODE)
     }
     
     static func exitCameraMode(communicator: MWBCommunicator)
     {
-        communicator.sendCommand(command: COMMAND_EXIT_CAMERA_MODE)
+        communicator.sendCommand(COMMAND_EXIT_CAMERA_MODE)
     }
 }
